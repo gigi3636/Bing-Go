@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TicketData" load_steps=5 format=3 uid="uid://dm7mp1ng7x6jv"]
+
+[ext_resource type="PackedScene" uid="uid://chhopj7k24nq" path="res://Scene/Bingo Ticket/BingoCell.tscn" id="1_feqkd"]
+[ext_resource type="PackedScene" uid="uid://cpwgddrpwn4e5" path="res://Scene/Bingo Ticket/BasicTicket.tscn" id="1_ywk7n"]
+[ext_resource type="Script" path="res://Script/Ticket/Res/TicketData.cs" id="2_sywbu"]
+[ext_resource type="Texture2D" uid="uid://ctdtveq07nthi" path="res://Assets/Place Holder/BingoTicket.png" id="3_wbpyg"]
+
+[resource]
+script = ExtResource("2_sywbu")
+Cost = 1
+Column = 5
+Row = 5
+HigherNumber = 99
+TicketScene = ExtResource("1_ywk7n")
+TicketVisual = ExtResource("3_wbpyg")
+CellScene = ExtResource("1_feqkd")

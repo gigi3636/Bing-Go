@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqewmqjd2kqn7"]
+
+[ext_resource type="Texture2D" uid="uid://o1xe2x8g5lof" path="res://Assets/Place Holder/Ball.png" id="1_n1s1p"]
+[ext_resource type="Script" path="res://Script/BingoBalls/BingoBall.cs" id="2_u3pp3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hx8fj"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[node name="BingoBall" type="TextureRect" node_paths=PackedStringArray("ballNumbersLabel")]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1710.0
+offset_bottom = -969.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_n1s1p")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_u3pp3")
+ballNumbersLabel = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 82.0
+offset_top = 27.0
+offset_right = -82.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "99"
+label_settings = SubResource("LabelSettings_hx8fj")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7y4gqywg84qt"]
+
+[ext_resource type="Texture2D" uid="uid://b2ali4wo6lox4" path="res://Assets/Place Holder/TablettePlaceHolder.png" id="1_47csn"]
+[ext_resource type="Script" path="res://Script/Shop/ShopTicket.cs" id="1_l2jcw"]
+[ext_resource type="PackedScene" uid="uid://d0y3hmf0lansc" path="res://Scene/TicketShopButton.tscn" id="2_wrk3s"]
+
+[node name="ShopTicket" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_l2jcw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.15, 0)
+scale = Vector2(0.539524, 0.539524)
+texture = ExtResource("1_47csn")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = -297.0
+offset_top = -156.0
+offset_right = 315.0
+offset_bottom = 157.0
+columns = 4
+
+[node name="TicketShopButton" parent="GridContainer" instance=ExtResource("2_wrk3s")]
+layout_mode = 2
+
+[node name="TicketShopButton2" parent="GridContainer" instance=ExtResource("2_wrk3s")]
+layout_mode = 2
+
+[node name="TicketShopButton3" parent="GridContainer" instance=ExtResource("2_wrk3s")]
+layout_mode = 2
+
+[node name="TicketShopButton4" parent="GridContainer" instance=ExtResource("2_wrk3s")]
+layout_mode = 2
+
+[node name="TicketShopButton5" parent="GridContainer" instance=ExtResource("2_wrk3s")]
+layout_mode = 2
+
+[node name="TicketShopButton6" parent="GridContainer" instance=ExtResource("2_wrk3s")]
+layout_mode = 2
+
+[node name="TicketShopButton7" parent="GridContainer" instance=ExtResource("2_wrk3s")]
+layout_mode = 2
+
+[node name="TicketShopButton8" parent="GridContainer" instance=ExtResource("2_wrk3s")]
+layout_mode = 2

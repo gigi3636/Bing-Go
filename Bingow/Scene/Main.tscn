@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsc540vc2hlxi"]
+
+[ext_resource type="PackedScene" uid="uid://cpwgddrpwn4e5" path="res://Scene/Bingo Ticket/BasicTicket.tscn" id="1_2hb5t"]
+[ext_resource type="Texture2D" uid="uid://swwbqygwe8tc" path="res://Assets/Place Holder/boullierplaceholder.png" id="2_k547i"]
+
+[node name="Main" type="Node2D"]
+
+[node name="BasicTicket" parent="." instance=ExtResource("1_2hb5t")]
+position = Vector2(596, 294)
+
+[node name="Boullierplaceholder" type="Sprite2D" parent="."]
+position = Vector2(202, 184)
+texture = ExtResource("2_k547i")

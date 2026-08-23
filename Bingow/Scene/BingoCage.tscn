@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://2fgbsm3m67jt"]
+
+[ext_resource type="Script" path="res://Script/BingoCage/BingoCage.cs" id="1_cyemu"]
+[ext_resource type="Texture2D" uid="uid://dyw0d8wglp5jm" path="res://Assets/Place Holder/Boullier.png" id="1_lik3v"]
+[ext_resource type="Script" path="res://Script/BingoCage/BallSpawner.cs" id="3_430wu"]
+[ext_resource type="PackedScene" uid="uid://cqewmqjd2kqn7" path="res://Scene/BingoBall.tscn" id="4_ka7cr"]
+[ext_resource type="Script" path="res://Script/BingoCage/BallListManager.cs" id="5_kmfjr"]
+[ext_resource type="Script" path="res://Script/BingoCage/BallTimer.cs" id="6_srxsa"]
+[ext_resource type="Script" path="res://Script/BingoCage/BallVisualDisplayer.cs" id="7_yldhf"]
+
+[node name="BingoCage" type="Control" node_paths=PackedStringArray("ballSpawnerRef", "ballListManagerRef", "ballTimerRef", "ballVisualDisplayerRef")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cyemu")
+ballSpawnerRef = NodePath("BallSpawner")
+ballListManagerRef = NodePath("BallListManager")
+ballTimerRef = NodePath("BallTimer")
+ballVisualDisplayerRef = NodePath("GridContainer")
+
+[node name="Visual" type="Sprite2D" parent="."]
+scale = Vector2(0.376986, 0.376986)
+texture = ExtResource("1_lik3v")
+
+[node name="BallSpawner" type="Node2D" parent="." node_paths=PackedStringArray("ballContainerRef")]
+script = ExtResource("3_430wu")
+ballScene = ExtResource("4_ka7cr")
+ballContainerRef = NodePath("../BallContainer")
+
+[node name="BallListManager" type="Node2D" parent="."]
+position = Vector2(-8, 35)
+script = ExtResource("5_kmfjr")
+
+[node name="BallContainer" type="Node2D" parent="."]
+position = Vector2(-189, 52)
+
+[node name="BallTimer" type="Node2D" parent="."]
+script = ExtResource("6_srxsa")
+
+[node name="GridContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = 17.0
+offset_right = -4.0
+offset_bottom = 83.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+script = ExtResource("7_yldhf")

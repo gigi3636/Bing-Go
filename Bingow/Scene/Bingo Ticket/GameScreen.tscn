@@ -1,0 +1,136 @@
+[gd_scene load_steps=16 format=3 uid="uid://dg1mej7x3bi1n"]
+
+[ext_resource type="Script" path="res://Script/GameManager.cs" id="1_1kws5"]
+[ext_resource type="Script" path="res://Script/MoneyLabel.cs" id="2_qsald"]
+[ext_resource type="Texture2D" uid="uid://b2ali4wo6lox4" path="res://Assets/Place Holder/TablettePlaceHolder.png" id="2_rcfju"]
+[ext_resource type="PackedScene" uid="uid://b7y4gqywg84qt" path="res://Scene/ShopTicket.tscn" id="2_txf5f"]
+[ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="3_uc7db"]
+[ext_resource type="Script" path="res://Script/Ticket/TicketSpawner.cs" id="4_yqjur"]
+[ext_resource type="Texture2D" uid="uid://d01lkwxfiq5yc" path="res://Assets/Place Holder/TablePlaceHolder.png" id="7_1o058"]
+[ext_resource type="Script" path="res://Script/Ticket/TicketQueu.cs" id="8_ubm5h"]
+[ext_resource type="Texture2D" uid="uid://bwvyrt5gc63ca" path="res://Assets/Place Holder/BingoQueu.png" id="9_6gtpq"]
+[ext_resource type="PackedScene" uid="uid://jmxvaav3a21n" path="res://Scene/TicketSpot.tscn" id="11_q0jeb"]
+[ext_resource type="Script" path="res://Script/Ticket/TicketMoover.cs" id="12_xvrvk"]
+[ext_resource type="PackedScene" uid="uid://2fgbsm3m67jt" path="res://Scene/BingoCage.tscn" id="13_1sex8"]
+[ext_resource type="PackedScene" uid="uid://8777xu40ys6q" path="res://Scene/TicketFullScreen.tscn" id="13_26pyo"]
+[ext_resource type="Script" path="res://Script/GameScreenManager.cs" id="14_m887c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_khfni"]
+font_size = 35
+
+[node name="GameScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TablePlaceHolder" type="Sprite2D" parent="."]
+position = Vector2(963, 538)
+scale = Vector2(0.904109, 0.790335)
+texture = ExtResource("7_1o058")
+
+[node name="GameManager" type="Node2D" parent="."]
+position = Vector2(964, 512)
+script = ExtResource("1_1kws5")
+playerStatusRes = ExtResource("3_uc7db")
+
+[node name="UI" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 1
+offset_right = 167.0
+offset_bottom = 49.0
+text = " 999 999 $"
+label_settings = SubResource("LabelSettings_khfni")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_qsald")
+playerStatusRes = ExtResource("3_uc7db")
+
+[node name="ShopButton" type="TextureButton" parent="UI"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -100.5
+offset_right = 257.0
+offset_bottom = 100.5
+grow_vertical = 2
+rotation = -0.620989
+texture_normal = ExtResource("2_rcfju")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ShopTicket" parent="UI" instance=ExtResource("2_txf5f")]
+visible = false
+layout_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = -428.0
+offset_right = 266.0
+offset_bottom = -195.0
+grow_vertical = 0
+rotation = -0.319497
+texture_normal = ExtResource("9_6gtpq")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TicketContainer" type="Node2D" parent="."]
+position = Vector2(182, 729)
+
+[node name="TicketSpawner" type="Node2D" parent="." node_paths=PackedStringArray("ticketContainerRef")]
+position = Vector2(964, 512)
+script = ExtResource("4_yqjur")
+ticketContainerRef = NodePath("../TicketContainer")
+
+[node name="TicketQueu" type="Node2D" parent="." node_paths=PackedStringArray("ticketSpawnnerRef")]
+position = Vector2(964, 512)
+script = ExtResource("8_ubm5h")
+ticketSpawnnerRef = NodePath("../TicketSpawner")
+
+[node name="TicketSpot" parent="." instance=ExtResource("11_q0jeb")]
+position = Vector2(732, 404)
+
+[node name="TicketSpot2" parent="." instance=ExtResource("11_q0jeb")]
+position = Vector2(1283, 404)
+
+[node name="TicketMoover" type="Node2D" parent="." node_paths=PackedStringArray("ticketQueuRef")]
+position = Vector2(180, 734)
+script = ExtResource("12_xvrvk")
+ticketQueuRef = NodePath("../TicketQueu")
+
+[node name="TicketFullScreen" parent="." instance=ExtResource("13_26pyo")]
+visible = false
+layout_mode = 1
+
+[node name="BingoCage" parent="." instance=ExtResource("13_1sex8")]
+layout_mode = 1
+offset_left = 632.0
+offset_top = -356.0
+offset_right = 632.0
+offset_bottom = -356.0
+
+[node name="GameScreenManager" type="Node2D" parent="." node_paths=PackedStringArray("bingoCageRef", "ticketFullScreenRef")]
+script = ExtResource("14_m887c")
+bingoCageRef = NodePath("../BingoCage")
+ticketFullScreenRef = NodePath("../TicketFullScreen")
+
+[connection signal="pressed" from="UI/ShopButton" to="UI/ShopTicket" method="_on_shop_button_pressed"]
+[connection signal="button_down" from="UI/TextureButton" to="TicketMoover" method="_on_texture_button_button_down"]
+[connection signal="button_up" from="UI/TextureButton" to="TicketMoover" method="_on_texture_button_button_up"]

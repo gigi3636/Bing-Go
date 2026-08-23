@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://chhopj7k24nq"]
+
+[ext_resource type="Script" path="res://Script/Cell/BingoCell.cs" id="1_y54de"]
+[ext_resource type="Texture2D" uid="uid://ci4xeyxp2cexg" path="res://Assets/Place Holder/Tampon.png" id="2_cfgac"]
+[ext_resource type="Script" path="res://Script/Cell/CellStamped.cs" id="3_2r05n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ku634"]
+font_size = 42
+
+[node name="BingoCell" type="Control" node_paths=PackedStringArray("cellAmountLabelRef", "cellStampedRef")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_y54de")
+cellAmountLabelRef = NodePath("CellAmountLabel")
+cellStampedRef = NodePath("CellStamped")
+
+[node name="CellAmountLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 71.0
+offset_bottom = 58.0
+text = "99"
+label_settings = SubResource("LabelSettings_ku634")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CellButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 71.0
+offset_bottom = 58.0
+flat = true
+
+[node name="Stamp" type="Sprite2D" parent="."]
+position = Vector2(34, 30)
+scale = Vector2(0.246394, 0.246394)
+texture = ExtResource("2_cfgac")
+
+[node name="CellStamped" type="Node2D" parent="." node_paths=PackedStringArray("stampRef")]
+script = ExtResource("3_2r05n")
+stampRef = NodePath("../Stamp")
+
+[connection signal="pressed" from="CellButton" to="." method="_on_cell_button_pressed"]
+[connection signal="pressed" from="CellButton" to="CellStamped" method="_on_cell_button_pressed"]

@@ -1,14 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://jmxvaav3a21n"]
+[gd_scene load_steps=15 format=3 uid="uid://jmxvaav3a21n"]
 
 [ext_resource type="Script" path="res://Script/Ticket/TicketSpot.cs" id="1_db8tu"]
 [ext_resource type="Texture2D" uid="uid://bwrgd2ba58y0g" path="res://Assets/Place Holder/Lock.png" id="1_ygio5"]
 [ext_resource type="Texture2D" uid="uid://rvx54gnsq0u2" path="res://Assets/Place Holder/unlock.png" id="2_ls2xo"]
+[ext_resource type="Script" path="res://Script/TicketSpot/SpotInteractionManager.cs" id="4_2je18"]
+[ext_resource type="Script" path="res://Script/TicketSpot/VisualManager.cs" id="5_b6o14"]
+[ext_resource type="Texture2D" uid="uid://da6qjsuop0kua" path="res://Assets/Place Holder/engrenange.png" id="6_51vye"]
+[ext_resource type="Texture2D" uid="uid://bqg28pyo4ueeh" path="res://Assets/Place Holder/AutoStamper.png" id="7_plpax"]
+[ext_resource type="Script" path="res://Script/AutoStamper.cs" id="8_gj17g"]
+[ext_resource type="Script" path="res://Script/TicketSpot/TicketSpotUpgradeManager.cs" id="8_kppjk"]
+[ext_resource type="Script" path="res://Script/AutoFiller.cs" id="10_dlgq4"]
+[ext_resource type="Script" path="res://Script/TicketSpot/AutoFillerVisualMover.cs" id="11_rvbq8"]
+[ext_resource type="Texture2D" uid="uid://bql0lpdm1r4i" path="res://Assets/Place Holder/vector-high-quality-pixel-art-260nw-1688423425.png" id="12_dqewi"]
+[ext_resource type="Script" path="res://Script/TicketSpot/AutoBingo.cs" id="13_teqvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k85gt"]
 size = Vector2(232, 224)
 
-[node name="TicketSpot" type="Area2D"]
+[node name="TicketSpot" type="Node2D" node_paths=PackedStringArray("autoStamperRef", "autoFillerRef", "autoFillerVisualMoverRef", "autoBingoRef")]
 script = ExtResource("1_db8tu")
+autoStamperRef = NodePath("AutoStamper")
+autoFillerRef = NodePath("AutoFiller")
+autoFillerVisualMoverRef = NodePath("AutoFillerVisualMover")
+autoBingoRef = NodePath("AutoBingo")
 
 [node name="VisualLocked" type="Sprite2D" parent="."]
 scale = Vector2(0.204, 0.204)
@@ -18,18 +32,71 @@ texture = ExtResource("1_ygio5")
 scale = Vector2(0.203836, 0.203836)
 texture = ExtResource("2_ls2xo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -2)
-shape = SubResource("RectangleShape2D_k85gt")
+[node name="AutoStamperVisual" type="Sprite2D" parent="."]
+position = Vector2(-94, -81)
+scale = Vector2(0.0728292, 0.0728292)
+texture = ExtResource("7_plpax")
 
-[node name="Button" type="Button" parent="."]
+[node name="SpotTicketButton" type="Button" parent="."]
 offset_left = -115.0
 offset_top = -114.0
 offset_right = 117.0
 offset_bottom = 110.0
 flat = true
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="SpotArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpotArea"]
+visible = false
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_k85gt")
+
+[node name="SpotInteractionManager" type="Node2D" parent="." node_paths=PackedStringArray("ticketSpotRef")]
+script = ExtResource("4_2je18")
+ticketSpotRef = NodePath("..")
+
+[node name="VisualManager" type="Node2D" parent="." node_paths=PackedStringArray("spotBuyButtonRef", "ticketSpotRef")]
+script = ExtResource("5_b6o14")
+spotBuyButtonRef = NodePath("../SpotBuyButton")
+ticketSpotRef = NodePath("..")
+
+[node name="UpgradeShopButton" type="Button" parent="."]
+offset_left = 44.0
+offset_top = 28.0
+offset_right = 137.0
+offset_bottom = 138.0
+icon = ExtResource("6_51vye")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="SpotBuyButton" type="Button" parent="."]
+offset_left = -115.0
+offset_top = -114.0
+offset_right = 116.0
+offset_bottom = 109.0
+theme_override_font_sizes/font_size = 50
+text = "50 $"
+
+[node name="TicketSpotUpgradeManager" type="Node2D" parent="." node_paths=PackedStringArray("ticketSpotRef")]
+script = ExtResource("8_kppjk")
+ticketSpotRef = NodePath("..")
+
+[node name="AutoStamper" type="Node2D" parent="."]
+script = ExtResource("8_gj17g")
+
+[node name="AutoFiller" type="Node2D" parent="."]
+script = ExtResource("10_dlgq4")
+
+[node name="AutoFillerVisualMover" type="Node2D" parent="."]
+script = ExtResource("11_rvbq8")
+mouseTexture = ExtResource("12_dqewi")
+
+[node name="AutoBingo" type="Node2D" parent="."]
+script = ExtResource("13_teqvm")
+
+[connection signal="pressed" from="SpotTicketButton" to="SpotInteractionManager" method="_on_spot_ticket_button_pressed"]
+[connection signal="area_entered" from="SpotArea" to="SpotInteractionManager" method="_on_spot_area_area_entered"]
+[connection signal="area_exited" from="SpotArea" to="SpotInteractionManager" method="_on_spot_area_area_exited"]
+[connection signal="pressed" from="UpgradeShopButton" to="." method="_on_upgrade_shop_button_pressed"]
+[connection signal="pressed" from="SpotBuyButton" to="SpotInteractionManager" method="_on_spot_buy_button_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://2fgbsm3m67jt"]
+[gd_scene load_steps=9 format=3 uid="uid://2fgbsm3m67jt"]
 
 [ext_resource type="Script" path="res://Script/BingoCage/BingoCage.cs" id="1_cyemu"]
 [ext_resource type="Texture2D" uid="uid://dyw0d8wglp5jm" path="res://Assets/Place Holder/Boullier.png" id="1_lik3v"]
+[ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="2_45ecp"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallSpawner.cs" id="3_430wu"]
 [ext_resource type="PackedScene" uid="uid://cqewmqjd2kqn7" path="res://Scene/BingoBall.tscn" id="4_ka7cr"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallListManager.cs" id="5_kmfjr"]
@@ -22,6 +23,7 @@ ballSpawnerRef = NodePath("BallSpawner")
 ballListManagerRef = NodePath("BallListManager")
 ballTimerRef = NodePath("BallTimer")
 ballVisualDisplayerRef = NodePath("GridContainer")
+playerStatusRef = ExtResource("2_45ecp")
 
 [node name="Visual" type="Sprite2D" parent="."]
 scale = Vector2(0.376986, 0.376986)
@@ -43,7 +45,7 @@ position = Vector2(-189, 52)
 script = ExtResource("6_srxsa")
 
 [node name="GridContainer" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(78, 78)
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -58,3 +60,11 @@ grow_horizontal = 0
 grow_vertical = 2
 alignment = 2
 script = ExtResource("7_yldhf")
+
+[node name="CrankButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 211.0
+offset_right = 336.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="CrankButton" to="." method="_on_crank_button_pressed"]

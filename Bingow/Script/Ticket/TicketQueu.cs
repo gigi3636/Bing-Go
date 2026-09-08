@@ -6,7 +6,8 @@ public partial class TicketQueu : Node
 {
     [Export] private TicketSpawner ticketSpawnnerRef;
 
-    private Queue<Ticket> ticketsInQueu = new Queue<Ticket>();
+    private Stack<Ticket> ticketStack = new Stack<Ticket>();
+
     public override void _Ready()
     {
         ticketSpawnnerRef.OnTicketAdded += AddTicketInQueu;
@@ -14,31 +15,34 @@ public partial class TicketQueu : Node
 
     public void ResetQueu()
     {
-        ticketsInQueu = new Queue<Ticket>();
+        ticketStack.Clear();
     }
 
     public void AddTicketInQueu(Ticket pTicket)
     {
-        ticketsInQueu.Enqueue(pTicket);
+        ticketStack.Push(pTicket);
     }
 
-    // Take off the queu the latest ticket
+    // Show the last ticket
     public Ticket GetTicketFromQueu()
     {
-        if (ticketsInQueu.Count == 0) return null;
+        if (ticketStack.Count == 0) return null;
 
-        return ticketsInQueu.Peek();
+        return ticketStack.Peek();
     }
 
+    // Remove the last ticket
     public void RemoveTicketFromQueu()
     {
-        ticketsInQueu.Dequeue();
+        if (ticketStack.Count > 0)
+        {
+            ticketStack.Pop();
+        }
     }
 
     public override void _ExitTree()
     {
         base._ExitTree();
         ticketSpawnnerRef.OnTicketAdded -= AddTicketInQueu;
-
     }
 }

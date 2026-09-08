@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://8777xu40ys6q"]
+[gd_scene load_steps=6 format=3 uid="uid://8777xu40ys6q"]
 
 [ext_resource type="Script" path="res://Script/Ticket/TicketFullScreen.cs" id="1_8aqjq"]
-[ext_resource type="Texture2D" uid="uid://ctdtveq07nthi" path="res://Assets/Place Holder/BingoTicket.png" id="1_qys0x"]
+[ext_resource type="Texture2D" uid="uid://dcj6c1yqk4j6x" path="res://Assets/Ticket/ticket_6x6.png" id="2_7ptjl"]
 [ext_resource type="Texture2D" uid="uid://fv43vt20au3m" path="res://Assets/Place Holder/Bingo.png" id="3_xhib6"]
 [ext_resource type="Script" path="res://Script/Ticket/BingoManager.cs" id="4_5g4vc"]
+[ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="5_s6ngj"]
 
-[node name="TicketFullScreen" type="Control" node_paths=PackedStringArray("gridContainerRef")]
-z_index = 10
+[node name="TicketFullScreen" type="Control" node_paths=PackedStringArray("gridContainerRef", "ticketFullVisual")]
+top_level = true
+z_index = 100
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -17,20 +19,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8aqjq")
 gridContainerRef = NodePath("GridContainer")
+ticketFullVisual = NodePath("TicketFullVisual")
 
-[node name="TicketTexture" type="Sprite2D" parent="."]
-scale = Vector2(0.261755, 0.261755)
-texture = ExtResource("1_qys0x")
+[node name="TicketFullVisual" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-14, 22)
+scale = Vector2(3.28568, 3.29821)
+texture = ExtResource("2_7ptjl")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = -181.0
-offset_top = -147.0
-offset_right = 181.0
-offset_bottom = 202.0
+offset_left = -173.0
+offset_top = -100.0
+offset_right = 147.0
+offset_bottom = 196.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-columns = 5
+columns = 99
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -61,6 +66,7 @@ stretch_mode = 5
 script = ExtResource("4_5g4vc")
 bingoButtonRef = NodePath("../BingoText")
 ticketFullScreenRef = NodePath("..")
+playerStatusRef = ExtResource("5_s6ngj")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
-[connection signal="pressed" from="BingoText" to="BingoManager" method="HandleBingoCall"]
+[connection signal="pressed" from="BingoText" to="BingoManager" method="_on_bingo_text_pressed"]

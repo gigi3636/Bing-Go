@@ -12,14 +12,27 @@ public partial class TicketNumbersManager
     }
 
 
-    public void UpdateStampedNumbersList(int pCellNumbers, bool pIsNumbersAllowed)
+    public void UpdateStampedNumbersList(int pCellNumbers, bool pIsNumbersAllowed, bool pIsNumberAutoStamped)
     {
-        if (ticketNumbersStamped.ContainsKey(pCellNumbers)) ticketNumbersStamped.Remove(pCellNumbers);
+        if (pIsNumberAutoStamped && ticketNumbersStamped.ContainsKey(pCellNumbers)) return;
+        else if (ticketNumbersStamped.ContainsKey(pCellNumbers)) ticketNumbersStamped.Remove(pCellNumbers);
         else ticketNumbersStamped.Add(pCellNumbers, pIsNumbersAllowed);
+
+
     }
 
     public bool IsNumbersStamped(int pCellNumbers)
     {
         return (ticketNumbersStamped.ContainsKey(pCellNumbers));
+    }
+
+    public bool IsNumberValidAndStamped(int pCellNumbers)
+    {
+        // Check if the key exist and if its true 
+        if (ticketNumbersStamped.TryGetValue(pCellNumbers, out bool isAllowed))
+        {
+            return isAllowed; 
+        }
+        return false;
     }
 }

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="TicketData" load_steps=6 format=3 uid="uid://cnyc3jsb72itr"]
+
+[ext_resource type="PackedScene" uid="uid://chhopj7k24nq" path="res://Scene/Bingo Ticket/BingoCell.tscn" id="1_mvvab"]
+[ext_resource type="Script" path="res://Script/Ticket/Res/TicketData.cs" id="1_vqc1a"]
+[ext_resource type="Texture2D" uid="uid://111nqa140suq" path="res://Assets/Ticket/ticket_10x10.png" id="2_j7mvp"]
+[ext_resource type="PackedScene" uid="uid://cpwgddrpwn4e5" path="res://Scene/Bingo Ticket/BasicTicket.tscn" id="2_pvf0v"]
+[ext_resource type="Texture2D" uid="uid://xhvar2xw81wn" path="res://Assets/TicketTable/10x10 table.png" id="3_v2iqd"]
+
+[resource]
+script = ExtResource("1_vqc1a")
+Cost = 1
+Value = 5
+Column = 10
+Row = 10
+SizeLevel = 7
+GridDisplayPosition = Vector2(-194, -133)
+GridDisplaySize = Vector2(364, 366)
+CellScale = 20
+TicketScene = ExtResource("2_pvf0v")
+TicketTableVisual = ExtResource("3_v2iqd")
+TicketFullVisual = ExtResource("2_j7mvp")
+CellScene = ExtResource("1_mvvab")

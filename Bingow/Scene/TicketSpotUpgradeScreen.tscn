@@ -1,0 +1,138 @@
+[gd_scene load_steps=7 format=3 uid="uid://cm27lgnbn0v0p"]
+
+[ext_resource type="Script" path="res://Script/TicketSpot/TicketSpotUpgradeScreen.cs" id="1_m0vlt"]
+[ext_resource type="Texture2D" uid="uid://b2ali4wo6lox4" path="res://Assets/Place Holder/TablettePlaceHolder.png" id="1_ov06x"]
+[ext_resource type="Script" path="res://Script/TicketSpot/TicketSpotUpgradeButton.cs" id="2_1jnle"]
+[ext_resource type="Script" path="res://Script/TicketSpot/UpgradeRequestManager.cs" id="3_xxojf"]
+[ext_resource type="Script" path="res://Script/TicketSpot/UpgradeShopVisualManager.cs" id="5_218jr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eqqlv"]
+font_size = 56
+
+[node name="TicketSpotUpgradScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_m0vlt")
+
+[node name="TablettePlaceHolder" type="Sprite2D" parent="."]
+position = Vector2(10.9999, -12.0001)
+scale = Vector2(0.807619, 0.807619)
+texture = ExtResource("1_ov06x")
+
+[node name="Label" type="Node2D" parent="."]
+
+[node name="Upgrade1Label" type="Label" parent="Label"]
+offset_left = -406.0
+offset_top = -332.0
+offset_right = -101.0
+offset_bottom = -255.0
+text = "Autoclicker"
+label_settings = SubResource("LabelSettings_eqqlv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Upgrade2Label" type="Label" parent="Label"]
+offset_left = 86.0
+offset_top = -333.0
+offset_right = 391.0
+offset_bottom = -256.0
+text = "AutoFiller"
+label_settings = SubResource("LabelSettings_eqqlv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Upgrade3Label" type="Label" parent="Label"]
+offset_left = -398.0
+offset_top = -23.0
+offset_right = -93.0
+offset_bottom = 54.0
+text = "AutoBingo"
+label_settings = SubResource("LabelSettings_eqqlv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Upgrade4Label" type="Label" parent="Label"]
+offset_left = 73.0
+offset_top = -38.0
+offset_right = 425.0
+offset_bottom = 39.0
+text = "Size Upgrade"
+label_settings = SubResource("LabelSettings_eqqlv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Node2D" parent="."]
+
+[node name="AutoclickerButton" type="Button" parent="Button"]
+top_level = true
+z_index = 20
+offset_left = 593.0
+offset_top = 316.0
+offset_right = 791.0
+offset_bottom = 435.0
+text = "50 $"
+script = ExtResource("2_1jnle")
+buttonUpgrade = 1
+
+[node name="AutoFillerButton" type="Button" parent="Button"]
+top_level = true
+z_index = 20
+offset_left = 1116.0
+offset_top = 301.0
+offset_right = 1314.0
+offset_bottom = 420.0
+text = "50 $"
+script = ExtResource("2_1jnle")
+buttonUpgrade = 2
+
+[node name="AutoBingoButton" type="Button" parent="Button"]
+top_level = true
+z_index = 20
+offset_left = 605.0
+offset_top = 661.0
+offset_right = 803.0
+offset_bottom = 780.0
+text = "50 $"
+script = ExtResource("2_1jnle")
+buttonUpgrade = 3
+
+[node name="SizeUpgradeButton" type="Button" parent="Button"]
+top_level = true
+z_index = 20
+offset_left = 1119.0
+offset_top = 657.0
+offset_right = 1317.0
+offset_bottom = 776.0
+text = "50 $"
+script = ExtResource("2_1jnle")
+buttonUpgrade = 4
+
+[node name="CloseButton" type="Button" parent="Button"]
+offset_left = -78.0
+offset_top = 407.0
+offset_right = 121.0
+offset_bottom = 527.0
+text = "X"
+
+[node name="UpgradeRequestManager" type="Node2D" parent="." node_paths=PackedStringArray("spotUpgradeScreenRef", "visualManagerRef", "upgradeButtonArrayRef")]
+script = ExtResource("3_xxojf")
+spotUpgradeScreenRef = NodePath("..")
+visualManagerRef = NodePath("../UpgradeShopVisualManager")
+upgradeButtonArrayRef = [NodePath("../Button/AutoclickerButton"), NodePath("../Button/AutoFillerButton"), NodePath("../Button/AutoBingoButton"), NodePath("../Button/SizeUpgradeButton")]
+
+[node name="UpgradeShopVisualManager" type="Node2D" parent="." node_paths=PackedStringArray("upgradesLabelsRef", "upgradeButtonsRef", "upgradeScreenRef")]
+position = Vector2(1, 0)
+script = ExtResource("5_218jr")
+upgradesLabelsRef = [NodePath("../Label/Upgrade1Label"), NodePath("../Label/Upgrade2Label"), NodePath("../Label/Upgrade3Label"), NodePath("../Label/Upgrade4Label")]
+upgradeButtonsRef = [NodePath("../Button/AutoclickerButton"), NodePath("../Button/AutoFillerButton"), NodePath("../Button/AutoBingoButton"), NodePath("../Button/SizeUpgradeButton")]
+upgradeScreenRef = NodePath("..")
+
+[connection signal="pressed" from="Button/CloseButton" to="." method="_on_close_button_pressed"]

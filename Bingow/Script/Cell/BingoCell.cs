@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class BingoCell : Node
+public partial class BingoCell : Control
 {
 
     [Export] private Label cellAmountLabelRef;
@@ -11,11 +11,12 @@ public partial class BingoCell : Node
     private int cellNumbers;
     public event Action<int> OnCellStamped;
 
-    public void Initialize(int pCellAmount, Vector2I pCellId, bool pIsCellCheck)
+    public void Initialize(int pCellAmount, Vector2I pCellId, bool pIsCellCheck, int pCellScale)
     {
         cellAmountLabelRef.Text = pCellAmount.ToString();
         cellNumbers = pCellAmount;
         cellId = pCellId;
+        cellAmountLabelRef.LabelSettings.FontSize = pCellScale;
 
         if (pIsCellCheck) cellStampedRef.ShowStamp();
     }

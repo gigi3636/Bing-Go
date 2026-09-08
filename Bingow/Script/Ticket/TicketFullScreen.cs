@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public partial class TicketFullScreen : Control
 {
     [Export] private GridContainer gridContainerRef;
+    [Export] private Sprite2D ticketFullVisual;
     private RandomNumberGenerator rand = new RandomNumberGenerator();
     private Ticket currentTicketToShowRef;
 
@@ -12,11 +13,11 @@ public partial class TicketFullScreen : Control
 
     public event Action<Ticket> OnTicketUpdate;
     
-    //public event Action<List<int>> 
 
     public override void _Ready()
     {
         TicketEventBus.OnTicketOpened += ShowTicket;
+        TicketEventBus.OnTicketAutoStamped += UpdateVisual;
         Visible = false;
     }
 
@@ -24,27 +25,45 @@ public partial class TicketFullScreen : Control
     {
         Visible = true;
         currentTicketToShowRef = pTicket;
+        UpdateVisual();
+
+    }
+
+
+    private void UpdateVisual()
+    {
+        if (currentTicketToShowRef is null) return;
+        ticketFullVisual.Texture = currentTicketToShowRef.ticketFullVisual;
+        UpdateGrid();
+        OnTicketUpdate?.Invoke(currentTicketToShowRef);
+
+    }
+
+    private void UpdateGrid()
+    {
         ClearGrid();
 
-        var lTicketNumbers = pTicket.GetTicketNumbers();
-        GD.Print(lTicketNumbers.Count);
+        var lTicketNumbers = currentTicketToShowRef.GetTicketNumbers();
+
+        gridContainerRef.Columns = currentTicketToShowRef.Column;
+
+        gridContainerRef.Position = currentTicketToShowRef.gridDisplayPosition;
+        gridContainerRef.Size = currentTicketToShowRef.gridDisplaySize;
 
         for (int i = 0; i < lTicketNumbers.Count; i++)
         {
             int lCellNumber = lTicketNumbers[i];
 
-            int lTicketPosX = i % pTicket.Column;
-            int lTicketPosY = i / pTicket.Column;
+            int lTicketPosX = i % currentTicketToShowRef.Column;
+            int lTicketPosY = i / currentTicketToShowRef.Column;
 
-            BingoCell lCell = (BingoCell)pTicket.CellScene.Instantiate();
+            BingoCell lCell = (BingoCell)currentTicketToShowRef.CellScene.Instantiate();
             gridContainerRef.AddChild(lCell);
 
-            lCell.Initialize(lCellNumber, new Vector2I(lTicketPosX, lTicketPosY), pTicket.IsNumberStamped(lCellNumber));
+            lCell.Initialize(lCellNumber, new Vector2I(lTicketPosX, lTicketPosY), currentTicketToShowRef.IsNumberStamped(lCellNumber), currentTicketToShowRef.cellScale);
 
             lCell.OnCellStamped += NumbersStamped;
         }
-
-        OnTicketUpdate?.Invoke(pTicket);
 
     }
 
@@ -58,7 +77,7 @@ public partial class TicketFullScreen : Control
     {
 
         OnTicketStamped?.Invoke(pCellNumbers, currentTicketToShowRef);
-        OnTicketUpdate?.Invoke(currentTicketToShowRef);
+        UpdateVisual();
 
     }
 
@@ -85,5 +104,7 @@ public partial class TicketFullScreen : Control
     public override void _ExitTree()
     {
         TicketEventBus.OnTicketOpened -= ShowTicket;
+        TicketEventBus.OnTicketAutoStamped -= UpdateVisual;
+
     }
 }

@@ -11,6 +11,12 @@ public partial class TicketEventBus : Node
     public static event Action<TicketSpot> OnFreeTicketSpotEnter;
     public static event Action OnFreeTicketSpotExit;
 
+    public static event Action OnTicketAutoStamped;
+
+    public static event Action OnUpgradeBought;
+    public static event Action<Ticket> OnBingoCalled;
+
+
 
     public static void PublishTicketRequested(TicketData pTicketData)
     {
@@ -29,5 +35,20 @@ public partial class TicketEventBus : Node
     public static void ExitTikcetSpot()
     {
         OnFreeTicketSpotExit?.Invoke();
+    }
+
+    public static void UpdateAutoStampedTicket()
+    {
+        OnTicketAutoStamped?.Invoke();
+    }
+
+    public static void UpdateUpgradesStatus()
+    {
+        OnUpgradeBought?.Invoke();
+    }
+
+    public static void PublishBingoCalled(Ticket pTicket)
+    {
+        OnBingoCalled?.Invoke(pTicket);
     }
 }

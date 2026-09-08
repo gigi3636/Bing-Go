@@ -7,6 +7,7 @@ public partial class TicketMoover : Node2D
 
     private bool isTicketMooving;
     private Ticket ticketToMooveRef;
+    private float ticketInitialRotation;
 
     private TicketSpot ticketSpotAvailableRef;
 
@@ -23,7 +24,12 @@ public partial class TicketMoover : Node2D
 
         isTicketMooving = true;
         ticketToMooveRef = ticketQueuRef.GetTicketFromQueu();
+        ticketInitialRotation = ticketToMooveRef.GlobalRotation;
 
+        Tween lTween = CreateTween();
+
+        lTween.SetParallel(true);
+        lTween.TweenProperty(ticketToMooveRef, "global_rotation", 0, 0.3);
     }
 
     private void _on_texture_button_button_up()
@@ -32,23 +38,34 @@ public partial class TicketMoover : Node2D
 
         // CHECK IF THE TICKET IS IN A TICKET SPOT FREE
 
-        if (ticketSpotAvailableRef != null)
+        if (ticketSpotAvailableRef != null && ticketSpotAvailableRef.isTicketSizeAllowed(ticketToMooveRef.sizeLevel))
         {
 
             ticketSpotAvailableRef.SetNewTicket(ticketToMooveRef);
             ticketToMooveRef.GlobalPosition = ticketSpotAvailableRef.GlobalPosition;
-            ticketToMooveRef.Scale = new Vector2(0.10f, 0.10f);
+            //ticketToMooveRef.Scale = new Vector2(0.10f, 0.10f);
             ticketQueuRef.RemoveTicketFromQueu();
         }
         else
         {
-            ticketToMooveRef.GlobalPosition = GlobalPosition;
+            ResteTicketPosition();
         }
 
 
         isTicketMooving = false;
         ticketSpotAvailableRef = null;
         
+    }
+
+    private void ResteTicketPosition()
+    {
+        Tween lTween = CreateTween();
+
+        lTween.SetParallel(true);
+        lTween.TweenProperty(ticketToMooveRef, "global_position", GlobalPosition, 0.3);
+        lTween.TweenProperty(ticketToMooveRef, "global_rotation", ticketInitialRotation, 0.3);
+
+
     }
 
     public void SetAvailableTicketSpot(TicketSpot pTicketSpot)
@@ -68,4 +85,6 @@ public partial class TicketMoover : Node2D
             ticketToMooveRef.GlobalPosition = GetGlobalMousePosition();
         }
     }
+
+
 }

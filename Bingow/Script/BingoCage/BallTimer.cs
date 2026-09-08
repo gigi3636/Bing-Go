@@ -16,7 +16,7 @@ public partial class BallTimer : Node2D
         nextBallTimer.WaitTime = BASE_TIME_BETWEEN_BALL;
         nextBallTimer.OneShot = false;
         AddChild (nextBallTimer);
-        nextBallTimer.Start();
+        // when augment is bought : nextBallTimer.Start();
 
         nextBallTimer.Timeout += EmitSpawnBallSignal;
 

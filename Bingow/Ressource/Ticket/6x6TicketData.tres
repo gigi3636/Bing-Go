@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="TicketData" load_steps=6 format=3 uid="uid://dj21ak056lqeq"]
+
+[ext_resource type="Script" path="res://Script/Ticket/Res/TicketData.cs" id="1_67fmk"]
+[ext_resource type="PackedScene" uid="uid://chhopj7k24nq" path="res://Scene/Bingo Ticket/BingoCell.tscn" id="1_bdmt8"]
+[ext_resource type="Texture2D" uid="uid://dcj6c1yqk4j6x" path="res://Assets/Ticket/ticket_6x6.png" id="2_ug0d5"]
+[ext_resource type="PackedScene" uid="uid://cpwgddrpwn4e5" path="res://Scene/Bingo Ticket/BasicTicket.tscn" id="3_yvraj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_75mhh"]
+load_path = "res://.godot/imported/6x6 Ticket Table.png-2a95aec5ab0ac168fc20a3b82e6c38a4.ctex"
+
+[resource]
+script = ExtResource("1_67fmk")
+Cost = 1
+Value = 5
+Column = 6
+Row = 6
+SizeLevel = 3
+GridDisplayPosition = Vector2(-173, -100)
+GridDisplaySize = Vector2(320, 296)
+CellScale = 25
+TicketScene = ExtResource("3_yvraj")
+TicketTableVisual = SubResource("CompressedTexture2D_75mhh")
+TicketFullVisual = ExtResource("2_ug0d5")
+CellScene = ExtResource("1_bdmt8")

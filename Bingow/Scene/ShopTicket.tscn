@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7y4gqywg84qt"]
+[gd_scene load_steps=19 format=3 uid="uid://b7y4gqywg84qt"]
 
-[ext_resource type="Texture2D" uid="uid://b2ali4wo6lox4" path="res://Assets/Place Holder/TablettePlaceHolder.png" id="1_47csn"]
 [ext_resource type="Script" path="res://Script/Shop/ShopTicket.cs" id="1_l2jcw"]
+[ext_resource type="Texture2D" uid="uid://bhsb5kotofrbn" path="res://Assets/tablette_bleue.png" id="2_amdoe"]
 [ext_resource type="PackedScene" uid="uid://d0y3hmf0lansc" path="res://Scene/TicketShopButton.tscn" id="2_wrk3s"]
+[ext_resource type="Resource" uid="uid://dg00utji4h4v7" path="res://Ressource/Ticket/3x3TicketData.tres" id="4_cp3bh"]
+[ext_resource type="Resource" uid="uid://cnyc3jsb72itr" path="res://Ressource/Ticket/10x10TicketData.tres" id="5_jyn8p"]
+[ext_resource type="Texture2D" uid="uid://ck6tae7g0whmp" path="res://Assets/TicketTable/4x4 Ticket Table.png" id="6_bwaeu"]
+[ext_resource type="Texture2D" uid="uid://by5h6hkxvriqi" path="res://Assets/TicketTable/6x6 Ticket Table.png" id="6_k4fd4"]
+[ext_resource type="Resource" uid="uid://dj21ak056lqeq" path="res://Ressource/Ticket/6x6TicketData.tres" id="6_lmjg5"]
+[ext_resource type="Resource" uid="uid://kvixhhphwhml" path="res://Ressource/Ticket/4x4TicketData.tres" id="6_vln2j"]
+[ext_resource type="Texture2D" uid="uid://xhvar2xw81wn" path="res://Assets/TicketTable/10x10 table.png" id="6_yaj7d"]
+[ext_resource type="Resource" uid="uid://ewywxwlpq30o" path="res://Ressource/Ticket/5x5TicketData.tres" id="8_nidn8"]
+[ext_resource type="Texture2D" uid="uid://daxojbsten3x1" path="res://Assets/TicketTable/5x5 Ticket Table.png" id="8_y68se"]
+[ext_resource type="Texture2D" uid="uid://rrpqkf4bwbd1" path="res://Assets/TicketTable/7x7 Ticket Table.png" id="10_iv7fh"]
+[ext_resource type="Texture2D" uid="uid://6p4eyr2j6h2k" path="res://Assets/TicketTable/8x8 Ticket Table.png" id="11_tsfa3"]
+[ext_resource type="Texture2D" uid="uid://bfmpvbv8tts66" path="res://Assets/TicketTable/9x9 Ticket Table.png" id="12_6wc5g"]
+[ext_resource type="Resource" uid="uid://4j3gd1o7py7b" path="res://Ressource/Ticket/7x7TicketData.tres" id="12_rwxev"]
+[ext_resource type="Resource" uid="uid://dc3r2ds5yglh4" path="res://Ressource/Ticket/8x8TicketData.tres" id="14_oevyk"]
+[ext_resource type="Resource" uid="uid://dwa5sa73y24ej" path="res://Ressource/Ticket/9x9TicketData.tres" id="16_sgij5"]
 
 [node name="ShopTicket" type="Control"]
 z_index = 10
@@ -19,9 +34,10 @@ size_flags_vertical = 4
 script = ExtResource("1_l2jcw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4.15, 0)
-scale = Vector2(0.539524, 0.539524)
-texture = ExtResource("1_47csn")
+texture_filter = 1
+position = Vector2(27, 13)
+scale = Vector2(3.39167, 3.39167)
+texture = ExtResource("2_amdoe")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
@@ -33,24 +49,39 @@ columns = 4
 
 [node name="TicketShopButton" parent="GridContainer" instance=ExtResource("2_wrk3s")]
 layout_mode = 2
+ticketRequestedData = ExtResource("4_cp3bh")
 
 [node name="TicketShopButton2" parent="GridContainer" instance=ExtResource("2_wrk3s")]
 layout_mode = 2
+texture_normal = ExtResource("6_bwaeu")
+ticketRequestedData = ExtResource("6_vln2j")
 
 [node name="TicketShopButton3" parent="GridContainer" instance=ExtResource("2_wrk3s")]
 layout_mode = 2
+texture_normal = ExtResource("8_y68se")
+ticketRequestedData = ExtResource("8_nidn8")
 
 [node name="TicketShopButton4" parent="GridContainer" instance=ExtResource("2_wrk3s")]
 layout_mode = 2
+texture_normal = ExtResource("6_k4fd4")
+ticketRequestedData = ExtResource("6_lmjg5")
 
 [node name="TicketShopButton5" parent="GridContainer" instance=ExtResource("2_wrk3s")]
 layout_mode = 2
+texture_normal = ExtResource("10_iv7fh")
+ticketRequestedData = ExtResource("12_rwxev")
 
 [node name="TicketShopButton6" parent="GridContainer" instance=ExtResource("2_wrk3s")]
 layout_mode = 2
+texture_normal = ExtResource("11_tsfa3")
+ticketRequestedData = ExtResource("14_oevyk")
 
 [node name="TicketShopButton7" parent="GridContainer" instance=ExtResource("2_wrk3s")]
 layout_mode = 2
+texture_normal = ExtResource("12_6wc5g")
+ticketRequestedData = ExtResource("16_sgij5")
 
 [node name="TicketShopButton8" parent="GridContainer" instance=ExtResource("2_wrk3s")]
 layout_mode = 2
+texture_normal = ExtResource("6_yaj7d")
+ticketRequestedData = ExtResource("5_jyn8p")

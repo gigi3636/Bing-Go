@@ -8,8 +8,8 @@
 [resource]
 script = ExtResource("2_sywbu")
 Cost = 1
-Column = 5
-Row = 5
+Column = 3
+Row = 3
 HigherNumber = 99
 TicketScene = ExtResource("1_ywk7n")
 TicketVisual = ExtResource("3_wbpyg")

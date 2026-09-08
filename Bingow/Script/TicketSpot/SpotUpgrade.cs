@@ -1,0 +1,26 @@
+using Godot;
+using System.Collections.Generic;
+
+public abstract partial class SpotUpgrade : Node
+{
+    protected bool isActive = false;
+    protected float currentReactionTime;
+    protected Timer reactionTimeTimer;
+
+    protected List<float> reactionsTimes = new List<float>();
+
+    public virtual void UpdateUpgradeStatus(int pCurrentLevel)
+    {
+        isActive = pCurrentLevel > 0;
+
+        if (isActive && reactionsTimes.Count >= pCurrentLevel)
+        {
+            currentReactionTime = reactionsTimes[pCurrentLevel - 1];
+
+            if (reactionTimeTimer != null)
+            {
+                reactionTimeTimer.WaitTime = currentReactionTime;
+            }
+        }
+    }
+}

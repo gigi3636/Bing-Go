@@ -5,7 +5,7 @@ public partial class UpgradeShopVisualManager : Node
 
 	[Export] private Label[] upgradesLabelsRef;
     [Export] private TicketSpotUpgradeButton[] upgradeButtonsRef;
-	[Export] private TicketSpotUpgradeScreen upgradeScreenRef;
+	[Export] private ShopUpgradeItem upgradeScreenRef;
 
 
 	public override void _Ready()
@@ -23,10 +23,10 @@ public partial class UpgradeShopVisualManager : Node
         upgradesLabelsRef[3].Text = $"{pUpgraseData.sizeUpgrade.name} : {pUpgraseData.sizeUpgrade.level}";
 
         //Update the price of the upgrade
-        upgradeButtonsRef[0].Text = $"{pUpgraseData.autoStamperUpgrade.augmentPrice[pUpgraseData.autoStamperUpgrade.level ]} $";
-        upgradeButtonsRef[1].Text = $"{pUpgraseData.autoFillerUpgrade.augmentPrice[pUpgraseData.autoFillerUpgrade.level ]} $";
-        upgradeButtonsRef[2].Text = $"{pUpgraseData.autoBingoUpgrade.augmentPrice[pUpgraseData.autoBingoUpgrade.level ]} $";
-        upgradeButtonsRef[3].Text = $"{pUpgraseData.sizeUpgrade.augmentPrice[pUpgraseData.sizeUpgrade.level]} $";
+        upgradeButtonsRef[0].UpdatePrice($"{pUpgraseData.autoStamperUpgrade.augmentPrice[pUpgraseData.autoStamperUpgrade.level]} $");
+        upgradeButtonsRef[1].UpdatePrice($"{pUpgraseData.autoFillerUpgrade.augmentPrice[pUpgraseData.autoFillerUpgrade.level]} $") ;
+        upgradeButtonsRef[2].UpdatePrice($"{pUpgraseData.autoBingoUpgrade.augmentPrice[pUpgraseData.autoBingoUpgrade.level]} $");
+        upgradeButtonsRef[3].UpdatePrice($"{pUpgraseData.sizeUpgrade.augmentPrice[pUpgraseData.sizeUpgrade.level]} $");
 
     }
 

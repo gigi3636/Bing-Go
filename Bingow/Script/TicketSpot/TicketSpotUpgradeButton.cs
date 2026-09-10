@@ -1,9 +1,10 @@
 using Godot;
 using System;
 
-public partial class TicketSpotUpgradeButton : Button
+public partial class TicketSpotUpgradeButton : TextureButton
 {
     [Export] public SpotUpgrades buttonUpgrade { get; private set; }
+    [Export] private Label buttonLabel;
 
     public event Action<SpotUpgrades> OnUpragdeButtonPressed;
 
@@ -12,6 +13,11 @@ public partial class TicketSpotUpgradeButton : Button
         base._Ready();
         Pressed += OnButtonPressed;
 
+    }
+
+    public void UpdatePrice(string pPrice)
+    {
+        buttonLabel.Text = pPrice;
     }
 
     public enum SpotUpgrades

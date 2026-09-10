@@ -8,11 +8,12 @@
 
 [resource]
 script = ExtResource("5_jrflf")
-Cost = 1
+Cost = 3
 Value = 5
 Column = 5
 Row = 5
 SizeLevel = 2
+TicketName = "Ticket 5x5"
 GridDisplayPosition = Vector2(-175, -108)
 GridDisplaySize = Vector2(326, 331)
 CellScale = 70

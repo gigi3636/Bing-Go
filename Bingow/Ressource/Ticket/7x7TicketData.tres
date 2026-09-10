@@ -8,11 +8,12 @@
 
 [resource]
 script = ExtResource("4_dh1bi")
-Cost = 1
+Cost = 5
 Value = 5
 Column = 6
 Row = 6
 SizeLevel = 4
+TicketName = "Ticket 7x7"
 GridDisplayPosition = Vector2(-173, -100)
 GridDisplaySize = Vector2(320, 296)
 CellScale = 25

@@ -1,12 +1,12 @@
 [gd_scene load_steps=21 format=3 uid="uid://dg1mej7x3bi1n"]
 
 [ext_resource type="Script" path="res://Script/GameManager.cs" id="1_1kws5"]
+[ext_resource type="Texture2D" uid="uid://c1t6u6nyuctcf" path="res://Assets/Table.png" id="1_4w0mt"]
 [ext_resource type="Script" path="res://Script/MoneyLabel.cs" id="2_qsald"]
 [ext_resource type="PackedScene" uid="uid://b7y4gqywg84qt" path="res://Scene/ShopTicket.tscn" id="2_txf5f"]
 [ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="3_uc7db"]
 [ext_resource type="Script" path="res://Script/Ticket/TicketSpawner.cs" id="4_yqjur"]
 [ext_resource type="Texture2D" uid="uid://bh5dliaim31oj" path="res://Assets/Tablette_table.png" id="5_o28ol"]
-[ext_resource type="Texture2D" uid="uid://d01lkwxfiq5yc" path="res://Assets/Place Holder/TablePlaceHolder.png" id="7_1o058"]
 [ext_resource type="Script" path="res://Script/Ticket/TicketQueu.cs" id="8_ubm5h"]
 [ext_resource type="Script" path="res://Script/BallPriceLabel.cs" id="10_ft83v"]
 [ext_resource type="PackedScene" uid="uid://jmxvaav3a21n" path="res://Scene/TicketSpot.tscn" id="11_q0jeb"]
@@ -48,9 +48,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TablePlaceHolder" type="Sprite2D" parent="."]
-position = Vector2(963, 538)
-scale = Vector2(0.904109, 0.790335)
-texture = ExtResource("7_1o058")
+texture_filter = 1
+position = Vector2(980, 522)
+scale = Vector2(6.9345, 7.62727)
+texture = ExtResource("1_4w0mt")
 
 [node name="GameManager" type="Node2D" parent="."]
 position = Vector2(964, 512)
@@ -153,14 +154,14 @@ offset_top = -7.0
 offset_right = 2.0
 offset_bottom = -7.0
 
-[node name="GameScreenManager" type="Node2D" parent="." node_paths=PackedStringArray("bingoCageRef", "ticketFullScreenRef", "ticketSpotArray", "moneyControllerRef", "ticketSpotUpgradeScreenRef", "ticketQueuRef")]
+[node name="GameScreenManager" type="Node2D" parent="." node_paths=PackedStringArray("bingoCageRef", "ticketFullScreenRef", "ticketSpotArray", "moneyControllerRef", "ticketQueuRef", "shopRef")]
 script = ExtResource("14_m887c")
 bingoCageRef = NodePath("../UI/BingoCage")
 ticketFullScreenRef = NodePath("../UI/TicketFullScreen")
 ticketSpotArray = [NodePath("../Object/TicketSpotContainer/TicketSpot1"), NodePath("../Object/TicketSpotContainer/TicketSpot2"), NodePath("../Object/TicketSpotContainer/TicketSpot3"), NodePath("../Object/TicketSpotContainer/TicketSpot4"), NodePath("../Object/TicketSpotContainer/TicketSpot5"), NodePath("../Object/TicketSpotContainer/TicketSpot6")]
 moneyControllerRef = NodePath("../MoneyController")
-ticketSpotUpgradeScreenRef = NodePath("../UI/TicketSpotUpgradScreen")
 ticketQueuRef = NodePath("../Ticket/TicketQueu")
+shopRef = NodePath("../UI/ShopTicket")
 
 [node name="Ticket" type="Node2D" parent="."]
 
@@ -187,12 +188,11 @@ ticketQueuRef = NodePath("../TicketQueu")
 script = ExtResource("15_5uvl1")
 countdownLabelRef = NodePath("../UI/CountdownTimer")
 
-[node name="MoneyController" type="Node2D" parent="." node_paths=PackedStringArray("bingoCageRef", "augmentCountdwonRef", "ticketSpotUpgradeScreenRef")]
+[node name="MoneyController" type="Node2D" parent="." node_paths=PackedStringArray("bingoCageRef", "augmentCountdwonRef")]
 script = ExtResource("16_k2e28")
 playerStatusRes = ExtResource("3_uc7db")
 bingoCageRef = NodePath("../UI/BingoCage")
 augmentCountdwonRef = NodePath("../AugmentCountdown")
-ticketSpotUpgradeScreenRef = NodePath("../UI/TicketSpotUpgradScreen")
 
 [node name="Object" type="Node2D" parent="."]
 
@@ -201,26 +201,32 @@ ticketSpotUpgradeScreenRef = NodePath("../UI/TicketSpotUpgradScreen")
 [node name="TicketSpot1" parent="Object/TicketSpotContainer" instance=ExtResource("11_q0jeb")]
 position = Vector2(666, 416)
 isPrimaryUnlocked = true
+spotId = 1
 
 [node name="TicketSpot2" parent="Object/TicketSpotContainer" instance=ExtResource("11_q0jeb")]
 position = Vector2(947, 420)
 unlockCost = 50
+spotId = 2
 
 [node name="TicketSpot3" parent="Object/TicketSpotContainer" instance=ExtResource("11_q0jeb")]
 position = Vector2(1250, 412)
 unlockCost = 200
+spotId = 3
 
 [node name="TicketSpot4" parent="Object/TicketSpotContainer" instance=ExtResource("11_q0jeb")]
 position = Vector2(660, 698)
 unlockCost = 1000
+spotId = 4
 
 [node name="TicketSpot5" parent="Object/TicketSpotContainer" instance=ExtResource("11_q0jeb")]
 position = Vector2(949, 702)
 unlockCost = 5000
+spotId = 5
 
 [node name="TicketSpot6" parent="Object/TicketSpotContainer" instance=ExtResource("11_q0jeb")]
 position = Vector2(1239, 708)
 unlockCost = 99999
+spotId = 6
 
 [connection signal="pressed" from="UI/ShopButton" to="UI/ShopTicket" method="_on_shop_button_pressed"]
 [connection signal="button_down" from="UI/TextureButton" to="Ticket/TicketMoover" method="_on_texture_button_button_down"]

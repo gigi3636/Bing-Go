@@ -5,7 +5,7 @@ using static TicketSpotUpgradeButton;
 public partial class UpgradeRequestManager : Node
 {
 	// Emit with the price of the upgrade and the upgrade requested
-	[Export] private TicketSpotUpgradeScreen spotUpgradeScreenRef;
+	[Export] private ShopUpgradeItem shopUpgradeItemRef;
     [Export] private UpgradeShopVisualManager visualManagerRef;
 
     public event Action<int, Action> OnUpgradeRequested;
@@ -25,7 +25,7 @@ public partial class UpgradeRequestManager : Node
 
 	private void UpgradeRequested(SpotUpgrades pUpgradesRequested)
 	{
-        spotUpgradeScreenRef.OnUpgradeRequested?.Invoke(pUpgradesRequested, spotUpgradeScreenRef.currentSpotUpgradesRef, visualManagerRef.UpdateVisual);
+        shopUpgradeItemRef.OnUpgradeRequested?.Invoke(pUpgradesRequested, shopUpgradeItemRef.currentSpotUpgradesRef, visualManagerRef.UpdateVisual);
         // Prnedre  button[id] avec id = spotUpgradeScreenRef.l'upgrade.level et lancer la demande au money controller et si c'est bon call back la methode upgrade 
     }
 

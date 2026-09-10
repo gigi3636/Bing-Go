@@ -1,0 +1,222 @@
+[gd_scene load_steps=12 format=3 uid="uid://do2h1vkwoym6y"]
+
+[ext_resource type="Script" path="res://Script/Shop/ShopUpgradeItem.cs" id="1_k34bw"]
+[ext_resource type="Texture2D" uid="uid://rvx54gnsq0u2" path="res://Assets/Place Holder/unlock.png" id="1_qohuo"]
+[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="2_ublgx"]
+[ext_resource type="Texture2D" uid="uid://s21l043gxyop" path="res://Assets/Shop/tablette_bouton_orange_sasnbords.png" id="3_c48vw"]
+[ext_resource type="Script" path="res://Script/TicketSpot/TicketSpotUpgradeButton.cs" id="5_27jy6"]
+[ext_resource type="Script" path="res://Script/TicketSpot/UpgradeRequestManager.cs" id="6_n68ct"]
+[ext_resource type="Script" path="res://Script/TicketSpot/UpgradeShopVisualManager.cs" id="7_u15dn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h7jkc"]
+font = ExtResource("2_ublgx")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_ofqn5"]
+font = ExtResource("2_ublgx")
+
+[sub_resource type="LabelSettings" id="LabelSettings_u5e7l"]
+font = ExtResource("2_ublgx")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_yui4v"]
+font = ExtResource("2_ublgx")
+font_size = 15
+
+[node name="UpgradeItem" type="Control" node_paths=PackedStringArray("upgradeIconRef", "upgradeName")]
+custom_minimum_size = Vector2(755, 165)
+layout_mode = 3
+anchor_right = 0.393
+anchor_bottom = 0.149
+offset_right = 6.44
+offset_bottom = 4.08
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_k34bw")
+upgradeIconRef = NodePath("UpgradeIcon")
+upgradeName = NodePath("UpgradeName")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 9.0
+offset_right = 734.0
+offset_bottom = 161.0
+
+[node name="UpgradeIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 170.0
+offset_bottom = 152.0
+texture = ExtResource("1_qohuo")
+expand_mode = 1
+
+[node name="UpgradeName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 23.0
+offset_right = 285.0
+offset_bottom = 63.0
+text = "Spot 1"
+label_settings = SubResource("LabelSettings_h7jkc")
+
+[node name="UpgradeLevel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 669.0
+offset_top = 24.0
+offset_right = 711.0
+offset_bottom = 47.0
+text = "Skin"
+label_settings = SubResource("LabelSettings_ofqn5")
+
+[node name="AutoclickerButton" type="TextureButton" parent="." node_paths=PackedStringArray("buttonLabel")]
+texture_filter = 1
+layout_mode = 0
+offset_left = 185.0
+offset_top = 107.0
+offset_right = 302.0
+offset_bottom = 148.0
+texture_normal = ExtResource("3_c48vw")
+stretch_mode = 5
+script = ExtResource("5_27jy6")
+buttonUpgrade = 1
+buttonLabel = NodePath("Price")
+
+[node name="Price" type="Label" parent="AutoclickerButton"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 114.0
+offset_bottom = 39.0
+text = "10 $"
+label_settings = SubResource("LabelSettings_u5e7l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="AutoclickerButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -21.0
+offset_right = 117.0
+offset_bottom = 3.0
+text = "Autoclicker : 1"
+label_settings = SubResource("LabelSettings_yui4v")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AutoFillerButton" type="TextureButton" parent="." node_paths=PackedStringArray("buttonLabel")]
+texture_filter = 1
+layout_mode = 0
+offset_left = 319.0
+offset_top = 106.0
+offset_right = 436.0
+offset_bottom = 147.0
+texture_normal = ExtResource("3_c48vw")
+stretch_mode = 5
+script = ExtResource("5_27jy6")
+buttonUpgrade = 2
+buttonLabel = NodePath("Price")
+
+[node name="Price" type="Label" parent="AutoFillerButton"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 114.0
+offset_bottom = 39.0
+text = "700 $"
+label_settings = SubResource("LabelSettings_u5e7l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="AutoFillerButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -21.0
+offset_right = 117.0
+offset_bottom = 3.0
+text = "Auto Filler : 3"
+label_settings = SubResource("LabelSettings_yui4v")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AutoBingoButton" type="TextureButton" parent="." node_paths=PackedStringArray("buttonLabel")]
+texture_filter = 1
+layout_mode = 0
+offset_left = 458.0
+offset_top = 106.0
+offset_right = 575.0
+offset_bottom = 147.0
+texture_normal = ExtResource("3_c48vw")
+stretch_mode = 5
+script = ExtResource("5_27jy6")
+buttonUpgrade = 3
+buttonLabel = NodePath("Price")
+
+[node name="Price" type="Label" parent="AutoBingoButton"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 114.0
+offset_bottom = 39.0
+text = "20 000 $"
+label_settings = SubResource("LabelSettings_u5e7l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="AutoBingoButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -21.0
+offset_right = 117.0
+offset_bottom = 3.0
+text = "Auto Bingo : 1"
+label_settings = SubResource("LabelSettings_yui4v")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="SizeButton" type="TextureButton" parent="." node_paths=PackedStringArray("buttonLabel")]
+texture_filter = 1
+layout_mode = 0
+offset_left = 596.0
+offset_top = 106.0
+offset_right = 713.0
+offset_bottom = 147.0
+texture_normal = ExtResource("3_c48vw")
+stretch_mode = 5
+script = ExtResource("5_27jy6")
+buttonUpgrade = 4
+buttonLabel = NodePath("Price")
+
+[node name="Price" type="Label" parent="SizeButton"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 114.0
+offset_bottom = 39.0
+text = "999 $"
+label_settings = SubResource("LabelSettings_u5e7l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="SizeButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -21.0
+offset_right = 117.0
+offset_bottom = 3.0
+text = "Size : 3x3"
+label_settings = SubResource("LabelSettings_yui4v")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="UpgradeRequestManager" type="Node2D" parent="." node_paths=PackedStringArray("shopUpgradeItemRef", "visualManagerRef", "upgradeButtonArrayRef")]
+script = ExtResource("6_n68ct")
+shopUpgradeItemRef = NodePath("..")
+visualManagerRef = NodePath("../UpgradeShopVisualManager")
+upgradeButtonArrayRef = [NodePath("../AutoclickerButton"), NodePath("../AutoFillerButton"), NodePath("../AutoBingoButton"), NodePath("../SizeButton")]
+
+[node name="UpgradeShopVisualManager" type="Node2D" parent="." node_paths=PackedStringArray("upgradesLabelsRef", "upgradeButtonsRef", "upgradeScreenRef")]
+position = Vector2(1, 0)
+script = ExtResource("7_u15dn")
+upgradesLabelsRef = [NodePath("../AutoclickerButton/Name"), NodePath("../AutoFillerButton/Name"), NodePath("../AutoBingoButton/Name"), NodePath("../SizeButton/Name")]
+upgradeButtonsRef = [NodePath("../AutoclickerButton"), NodePath("../AutoFillerButton"), NodePath("../AutoBingoButton"), NodePath("../SizeButton")]
+upgradeScreenRef = NodePath("..")

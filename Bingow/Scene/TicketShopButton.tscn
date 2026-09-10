@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0y3hmf0lansc"]
+[gd_scene load_steps=5 format=3 uid="uid://d0y3hmf0lansc"]
 
 [ext_resource type="Texture2D" uid="uid://b7gic1ar1gq8v" path="res://Assets/TicketTable/3x3 Ticket Table.png" id="1_efcqr"]
 [ext_resource type="Script" path="res://Script/Ticket/TicketShoptButton.cs" id="2_xc36r"]
-[ext_resource type="Resource" uid="uid://dm7mp1ng7x6jv" path="res://Ressource/Ticket/BasiTicketData.tres" id="3_3w4kh"]
 [ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="4_wawax"]
 [ext_resource type="Script" path="res://Script/VisualAnimation/TicketShoptJuice.cs" id="5_wnj7v"]
 
@@ -25,7 +24,6 @@ texture_normal = ExtResource("1_efcqr")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("2_xc36r")
-ticketRequestedData = ExtResource("3_3w4kh")
 playerStatusRes = ExtResource("4_wawax")
 ticketShoptJuiceRef = NodePath("TicketShoptJuice")
 

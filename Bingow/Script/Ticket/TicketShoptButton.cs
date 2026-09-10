@@ -3,9 +3,15 @@ using Godot;
 // Script in  each shop button
 public partial class TicketShoptButton : TextureButton
 {
-    [Export] private TicketData ticketRequestedData;
+    private TicketData ticketRequestedData;
     [Export] private PlayerStatus playerStatusRes;
     [Export] private TicketShoptJuice ticketShoptJuiceRef;
+
+    public void Initialize(TicketData pTicketRequestedData)
+    {
+        ticketRequestedData = pTicketRequestedData;
+
+    }
 
     private void _on_pressed()
     {

@@ -13,6 +13,7 @@ Value = 5
 Column = 10
 Row = 10
 SizeLevel = 7
+TicketName = "Ticket 10x10"
 GridDisplayPosition = Vector2(-194, -133)
 GridDisplaySize = Vector2(364, 366)
 CellScale = 20

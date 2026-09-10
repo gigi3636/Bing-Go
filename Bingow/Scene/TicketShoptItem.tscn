@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://bnvq18hbqdc3g"]
+
+[ext_resource type="Script" path="res://Script/Shop/TicketShopItem.cs" id="1_jp1mk"]
+[ext_resource type="Texture2D" uid="uid://b7gic1ar1gq8v" path="res://Assets/TicketTable/3x3 Ticket Table.png" id="1_pdqna"]
+[ext_resource type="Resource" uid="uid://dg00utji4h4v7" path="res://Ressource/Ticket/3x3TicketData.tres" id="2_ghdne"]
+[ext_resource type="Texture2D" uid="uid://4847utxffyny" path="res://Assets/Shop/tablette_bouton_orange.png" id="2_ipc02"]
+[ext_resource type="Script" path="res://Script/Ticket/TicketShoptButton.cs" id="5_2vran"]
+[ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="6_247ti"]
+[ext_resource type="Script" path="res://Script/VisualAnimation/TicketShoptJuice.cs" id="6_gd2jo"]
+[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="8_5hyky"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bexac"]
+font = ExtResource("8_5hyky")
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_dkn8w"]
+font = ExtResource("8_5hyky")
+
+[sub_resource type="LabelSettings" id="LabelSettings_hammd"]
+font = ExtResource("8_5hyky")
+font_size = 27
+font_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="TicketShop" type="VBoxContainer" node_paths=PackedStringArray("ticketVisualRef", "ticketNameRef", "tikcetPriceRef", "buyButtonRef")]
+custom_minimum_size = Vector2(200, 305)
+offset_right = 200.0
+offset_bottom = 305.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_jp1mk")
+ticketRef = ExtResource("2_ghdne")
+ticketVisualRef = NodePath("TicketVisual")
+ticketNameRef = NodePath("TicketName")
+tikcetPriceRef = NodePath("TicketPrice")
+buyButtonRef = NodePath("BuyButton")
+
+[node name="TicketName" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Ticket 3x3"
+label_settings = SubResource("LabelSettings_bexac")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TicketVisual" type="TextureRect" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(166.595, 170)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_pdqna")
+stretch_mode = 5
+
+[node name="TicketPrice" type="Label" parent="."]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+size_flags_vertical = 0
+text = "700 $"
+label_settings = SubResource("LabelSettings_dkn8w")
+horizontal_alignment = 1
+
+[node name="BuyButton" type="TextureButton" parent="." node_paths=PackedStringArray("ticketShoptJuiceRef")]
+texture_filter = 1
+custom_minimum_size = Vector2(10, 87.73)
+layout_mode = 2
+texture_normal = ExtResource("2_ipc02")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("5_2vran")
+playerStatusRes = ExtResource("6_247ti")
+ticketShoptJuiceRef = NodePath("TicketShoptJuice")
+
+[node name="TicketShoptJuice" type="Node2D" parent="BuyButton"]
+position = Vector2(2, 2)
+script = ExtResource("6_gd2jo")
+
+[node name="BuyButtonText" type="Label" parent="BuyButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = -23.5
+offset_right = 68.5
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "BUY NOW"
+label_settings = SubResource("LabelSettings_hammd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="BuyButton" to="BuyButton" method="_on_pressed"]

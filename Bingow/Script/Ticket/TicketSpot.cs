@@ -7,6 +7,7 @@ public partial class TicketSpot : Node2D
     #region Exports
     [Export] private bool isPrimaryUnlocked;
     [Export] public int unlockCost { get; private set; }
+    [Export] public int spotId { get; private set; }
     [Export] private AutoStamper autoStamperRef;
     [Export] private AutoFiller autoFillerRef;
     [Export] private AutoFillerVisualMover autoFillerVisualMoverRef;
@@ -19,7 +20,7 @@ public partial class TicketSpot : Node2D
     public bool isUnlocked { get; private set; }
     public bool isUsed { get; private set; } = false;
     public Ticket ticketContainer { get; private set; }
-    public TicketSpotUpgrades ticketSpotUpgrades { get; private set; }
+    public TicketSpotUpgrades ticketSpotUpgrades { get; private set; } = new TicketSpotUpgrades();
     #endregion
 
     #region Events
@@ -31,7 +32,6 @@ public partial class TicketSpot : Node2D
     #region Godot Lifecycle Methods
     public override void _Ready()
     {
-        ticketSpotUpgrades = new TicketSpotUpgrades();
 
         isUnlocked = isPrimaryUnlocked;
         OnVisualUpdate?.Invoke(isUnlocked);

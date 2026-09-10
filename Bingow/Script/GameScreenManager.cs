@@ -10,8 +10,8 @@ public partial class GameScreenManager : Node
     [Export] private TicketFullScreen ticketFullScreenRef;
     [Export] private TicketSpot[] ticketSpotArray;
     [Export] private MoneyController moneyControllerRef;
-    [Export] private TicketSpotUpgradeScreen ticketSpotUpgradeScreenRef;
     [Export] private TicketQueu ticketQueuRef;
+    [Export] private ShopTicket shopRef;
 
     public override void _Ready()
     {
@@ -20,13 +20,16 @@ public partial class GameScreenManager : Node
 
         foreach (TicketSpot lTicketSpot in ticketSpotArray)
         {
-            lTicketSpot.OnUpgradeShopClicked += ticketSpotUpgradeScreenRef.ShowSpotUpgrade;
             lTicketSpot.OnPurchaseRequested += moneyControllerRef.TicketSpotPurchase;
             bingoCageRef.OnNewBall += lTicketSpot.AutoStamperRef.VerifyGrid;
             lTicketSpot.AutoStamperRef.Initialize(bingoCageRef.IsNumbersAllowed, bingoCageRef.GetCurrentBalls);
             lTicketSpot.AutoFillerRef.Initialize(ticketQueuRef);
+            shopRef.Initialize(lTicketSpot);
+
 
         }
+        shopRef.OnAnyItemUpgradeRequested += moneyControllerRef.UpgradeAugment;
+
     }
 
     private void HandleStampedNumbers(int pCellNumbers, Ticket pTicketStamped)
@@ -44,8 +47,8 @@ public partial class GameScreenManager : Node
 
         foreach (TicketSpot lTicketSpot in ticketSpotArray)
         {
-            lTicketSpot.OnUpgradeShopClicked -= ticketSpotUpgradeScreenRef.ShowSpotUpgrade;
             lTicketSpot.OnPurchaseRequested -= moneyControllerRef.TicketSpotPurchase;
+            shopRef.OnAnyItemUpgradeRequested -= moneyControllerRef.UpgradeAugment;
 
             bingoCageRef.OnNewBall -= lTicketSpot.AutoStamperRef.VerifyGrid;
         }

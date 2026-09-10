@@ -7,7 +7,6 @@ public partial class MoneyController : Node
 	[Export] private PlayerStatus playerStatusRes;
 	[Export] private BingoCage bingoCageRef;
 	[Export] private AugmentCountdwon augmentCountdwonRef;
-	[Export] private TicketSpotUpgradeScreen ticketSpotUpgradeScreenRef;
 
 
 	public event Action<int> OnUpdateBallPrice;
@@ -17,7 +16,6 @@ public partial class MoneyController : Node
 	{
 		bingoCageRef.OnNewBall += OnBallBuyed;
 		augmentCountdwonRef.OnAugment += IncreaseBallsCost;
-		ticketSpotUpgradeScreenRef.OnUpgradeRequested += UpgradeAugment;
 
     }
 
@@ -34,10 +32,23 @@ public partial class MoneyController : Node
 
     }
 
-	// Check if enough money to upgrade a ticket spot 
-	private void UpgradeAugment(SpotUpgrades pAugment, TicketSpotUpgrades pTicketSpotUpgrades, Action<TicketSpotUpgrades> pUpgradeVisual)
-	{
-        UpgradeableStat lUpgradeRequested = pTicketSpotUpgrades.AllUpgrades[(int)pAugment -1];
+    // Check if enough money to upgrade a ticket spot 
+    public void UpgradeAugment(SpotUpgrades pAugment, TicketSpotUpgrades pTicketSpotUpgrades, Action<TicketSpotUpgrades> pUpgradeVisual)
+    {
+
+        if (pTicketSpotUpgrades == null)
+            GD.PrintErr("SUSPECT 1 : pTicketSpotUpgrades est null ");
+
+        if (playerStatusRes == null)
+            GD.PrintErr("SUSPECT 2 : playerStatusRes est null ");
+
+        UpgradeableStat lUpgradeRequested = pTicketSpotUpgrades.AllUpgrades[(int)pAugment - 1];
+
+        if (lUpgradeRequested == null)
+            GD.PrintErr("SUSPECT 3 : lUpgradeRequested est null ");
+        else if (lUpgradeRequested.augmentPrice == null)
+            GD.PrintErr("SUSPECT 4 : lUpgradeRequested.augmentPrice est null ");
+        // ----------------------
 
 		if (lUpgradeRequested.augmentPrice[lUpgradeRequested.level] <= playerStatusRes.playerCurrentMoney)
 		{

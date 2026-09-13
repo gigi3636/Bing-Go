@@ -1,9 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://dg1mej7x3bi1n"]
+[gd_scene load_steps=22 format=3 uid="uid://dg1mej7x3bi1n"]
 
 [ext_resource type="Script" path="res://Script/GameManager.cs" id="1_1kws5"]
 [ext_resource type="Texture2D" uid="uid://c1t6u6nyuctcf" path="res://Assets/Table.png" id="1_4w0mt"]
 [ext_resource type="Script" path="res://Script/MoneyLabel.cs" id="2_qsald"]
-[ext_resource type="PackedScene" uid="uid://b7y4gqywg84qt" path="res://Scene/ShopTicket.tscn" id="2_txf5f"]
+[ext_resource type="PackedScene" uid="uid://b7y4gqywg84qt" path="res://Scene/Shop.tscn" id="2_txf5f"]
 [ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="3_uc7db"]
 [ext_resource type="Script" path="res://Script/Ticket/TicketSpawner.cs" id="4_yqjur"]
 [ext_resource type="Texture2D" uid="uid://bh5dliaim31oj" path="res://Assets/Tablette_table.png" id="5_o28ol"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Script/AugmentCountdwon.cs" id="15_5uvl1"]
 [ext_resource type="Script" path="res://Script/MoneyController.cs" id="16_k2e28"]
 [ext_resource type="PackedScene" uid="uid://cm27lgnbn0v0p" path="res://Scene/TicketSpotUpgradeScreen.tscn" id="18_jdqh3"]
+[ext_resource type="PackedScene" uid="uid://ds7rx0k30ifoo" path="res://Scene/TicketPrinter.tscn" id="18_taiau"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_khfni"]
 font_size = 35
@@ -80,12 +81,12 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 47.0
-offset_top = -122.0
-offset_right = 252.0
-offset_bottom = 40.0
+offset_left = 79.0
+offset_top = -375.0
+offset_right = 312.0
+offset_bottom = -201.0
 grow_vertical = 2
-rotation = -0.620989
+rotation = -0.404916
 texture_normal = ExtResource("5_o28ol")
 ignore_texture_size = true
 stretch_mode = 5
@@ -154,7 +155,7 @@ offset_top = -7.0
 offset_right = 2.0
 offset_bottom = -7.0
 
-[node name="GameScreenManager" type="Node2D" parent="." node_paths=PackedStringArray("bingoCageRef", "ticketFullScreenRef", "ticketSpotArray", "moneyControllerRef", "ticketQueuRef", "shopRef")]
+[node name="GameScreenManager" type="Node2D" parent="." node_paths=PackedStringArray("bingoCageRef", "ticketFullScreenRef", "ticketSpotArray", "moneyControllerRef", "ticketQueuRef", "shopRef", "ticketPrinterRef")]
 script = ExtResource("14_m887c")
 bingoCageRef = NodePath("../UI/BingoCage")
 ticketFullScreenRef = NodePath("../UI/TicketFullScreen")
@@ -162,6 +163,7 @@ ticketSpotArray = [NodePath("../Object/TicketSpotContainer/TicketSpot1"), NodePa
 moneyControllerRef = NodePath("../MoneyController")
 ticketQueuRef = NodePath("../Ticket/TicketQueu")
 shopRef = NodePath("../UI/ShopTicket")
+ticketPrinterRef = NodePath("../TicketPrinter")
 
 [node name="Ticket" type="Node2D" parent="."]
 
@@ -173,11 +175,12 @@ ticketSpawnnerRef = NodePath("../TicketSpawner")
 [node name="TicketContainer" type="Node2D" parent="Ticket"]
 position = Vector2(182, 729)
 
-[node name="TicketSpawner" type="Node2D" parent="Ticket" node_paths=PackedStringArray("ticketContainerRef")]
+[node name="TicketSpawner" type="Node2D" parent="Ticket" node_paths=PackedStringArray("ticketContainerRef", "printerPos")]
 position = Vector2(964, 512)
 script = ExtResource("4_yqjur")
 ticketContainerRef = NodePath("../TicketContainer")
 playerStatusRef = ExtResource("3_uc7db")
+printerPos = NodePath("../../TicketPrinter/PrintPos")
 
 [node name="TicketMoover" type="Node2D" parent="Ticket" node_paths=PackedStringArray("ticketQueuRef")]
 position = Vector2(180, 734)
@@ -227,6 +230,15 @@ spotId = 5
 position = Vector2(1239, 708)
 unlockCost = 99999
 spotId = 6
+
+[node name="TicketPrinter" parent="." instance=ExtResource("18_taiau")]
+offset_left = 92.0
+offset_top = 305.0
+offset_right = 92.0
+offset_bottom = 305.0
+
+[node name="PrintPos" type="Marker2D" parent="TicketPrinter"]
+position = Vector2(113, 259)
 
 [connection signal="pressed" from="UI/ShopButton" to="UI/ShopTicket" method="_on_shop_button_pressed"]
 [connection signal="button_down" from="UI/TextureButton" to="Ticket/TicketMoover" method="_on_texture_button_button_down"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cpwgddrpwn4e5"]
 
 [ext_resource type="Script" path="res://Script/Ticket/BasicTicket.cs" id="1_0va4v"]
-[ext_resource type="Texture2D" uid="uid://xhvar2xw81wn" path="res://Assets/TicketTable/10x10 table.png" id="2_s8b70"]
+[ext_resource type="Texture2D" uid="uid://b7gic1ar1gq8v" path="res://Assets/TicketTable/3x3 Ticket Table.png" id="2_x4ryt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7g5x3"]
 size = Vector2(83, 115)
@@ -9,17 +9,37 @@ size = Vector2(83, 115)
 [node name="BasicTicket" type="Node2D" node_paths=PackedStringArray("ticketTableVisual")]
 z_index = 2
 script = ExtResource("1_0va4v")
-ticketTableVisual = NodePath("Sprite2D")
+ticketTableVisual = NodePath("Sprite2D2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0.196078, 0.196078, 0.196078, 1)
 texture_filter = 5
-position = Vector2(3.05176e-05, -3.05176e-05)
-scale = Vector2(21.6541, 21.6541)
-texture = ExtResource("2_s8b70")
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -94.5
+offset_right = 94.0
+offset_bottom = 94.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_x4ryt")
+stretch_mode = 5
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(99, 93)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
 position = Vector2(2.5, 12.5)
 shape = SubResource("RectangleShape2D_7g5x3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, -1)
+scale = Vector2(5.45119, 5.45119)
+texture = ExtResource("2_x4ryt")

@@ -5,7 +5,9 @@ public partial class TicketSpawner : Node
 {
     [Export] private Node2D ticketContainerRef;
     [Export] private PlayerStatus playerStatusRef;
+    [Export] private Marker2D printerPos;
     public event Action<Ticket> OnTicketAdded;
+
 
     public override void _Ready()
     {
@@ -14,28 +16,28 @@ public partial class TicketSpawner : Node
 
 
     // Spawn the ticket and initialize it with the good ticket Data
-    public void SpawnTicket(TicketData pTicketDataToSpawn)
+    public void SpawnTicket(TicketData pTicketDataToSpawn, bool pIsPrintend)
     {
-        GD.Print("ici");
-
-        GD.Print(pTicketDataToSpawn.ToString());
 
         Ticket lNewTicket = (Ticket)pTicketDataToSpawn.TicketScene.Instantiate();
         ticketContainerRef.AddChild(lNewTicket);
 
         lNewTicket.Initialize(pTicketDataToSpawn, playerStatusRef);
-        AnimNewTicket(lNewTicket);
+        AnimNewTicket(lNewTicket, pIsPrintend);
 
         OnTicketAdded?.Invoke(lNewTicket);
     }
 
-    private void AnimNewTicket(Ticket pNewTicket)
+    private void AnimNewTicket(Ticket pNewTicket, bool pIsPrintend)
     {
         // Tween data 
         Vector2 baseScale = pNewTicket.Scale;
+        Vector2 startPosition;
 
         Vector2 finalPosition = ticketContainerRef.GlobalPosition;
-        Vector2 startPosition = new Vector2(-200, finalPosition.Y);
+
+        if (pIsPrintend) startPosition = printerPos.GlobalPosition;
+        else startPosition = new Vector2(-200, finalPosition.Y);
 
         pNewTicket.GlobalPosition = startPosition;
 

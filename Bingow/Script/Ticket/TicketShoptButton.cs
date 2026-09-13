@@ -15,7 +15,6 @@ public partial class TicketShoptButton : TextureButton
 
     private void _on_pressed()
     {
-        GD.Print("buy");
 
         // Check if the purchase can be done 
         if (ticketRequestedData.Cost <= playerStatusRes.playerCurrentMoney)
@@ -23,7 +22,7 @@ public partial class TicketShoptButton : TextureButton
             playerStatusRes.DiscountMoney(ticketRequestedData.Cost);
 
             // Request to create a new ticket with a specific data
-            TicketEventBus.PublishTicketRequested(ticketRequestedData);
+            TicketEventBus.PublishTicketRequested(ticketRequestedData, false);
 
             ticketShoptJuiceRef.OnButtonClicked(this);
 

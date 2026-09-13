@@ -6,7 +6,7 @@ public partial class TicketSpotUpgradeScreen : Control
 {
     public TicketSpotUpgrades currentSpotUpgradesRef;
 
-    public Action<SpotUpgrades, TicketSpotUpgrades, Action<TicketSpotUpgrades> > OnUpgradeRequested;
+    public Action<ShopUpgrades, TicketSpotUpgrades, Action<TicketSpotUpgrades> > OnUpgradeRequested;
 
     public event Action<TicketSpotUpgrades> OnVisualUpdateRequest;
 

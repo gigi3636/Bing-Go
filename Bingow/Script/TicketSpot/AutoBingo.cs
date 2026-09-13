@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Reflection.Emit;
 
-public partial class AutoBingo : SpotUpgrade
+public partial class AutoBingo : Upgrade
 {
     public void HandleTicketCompleted(Ticket pTicket)
     {

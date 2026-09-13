@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://chhopj7k24nq" path="res://Scene/Bingo Ticket/BingoCell.tscn" id="1_c6cyp"]
 [ext_resource type="Texture2D" uid="uid://bj1by40w7t1yu" path="res://Assets/Ticket/ticket_5x5.png" id="2_r1tq6"]
 [ext_resource type="PackedScene" uid="uid://cpwgddrpwn4e5" path="res://Scene/Bingo Ticket/BasicTicket.tscn" id="3_kclba"]
-[ext_resource type="Texture2D" uid="uid://daxojbsten3x1" path="res://Assets/TicketTable/5x5 Ticket Table.png" id="4_oxbpj"]
+[ext_resource type="Texture2D" uid="uid://tkgkgeo1vpev" path="res://Assets/TicketTable/5x5 Ticket Table.png" id="4_oxbpj"]
 [ext_resource type="Script" path="res://Script/Ticket/Res/TicketData.cs" id="5_jrflf"]
 
 [resource]
@@ -12,6 +12,7 @@ Cost = 3
 Value = 5
 Column = 5
 Row = 5
+TimeToPrint = 3.0
 SizeLevel = 2
 TicketName = "Ticket 5x5"
 GridDisplayPosition = Vector2(-175, -108)

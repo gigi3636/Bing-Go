@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dov3o30dior6c"]
+
+[ext_resource type="Texture2D" uid="uid://s21l043gxyop" path="res://Assets/Shop/tablette_bouton_orange_sasnbords.png" id="1_r8qx8"]
+[ext_resource type="Script" path="res://Script/TicketSpot/TicketSpotUpgradeButton.cs" id="2_8lros"]
+[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="3_hvj2q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u5e7l"]
+font = ExtResource("3_hvj2q")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_yui4v"]
+font = ExtResource("3_hvj2q")
+font_size = 13
+
+[node name="AutoclickerButton" type="TextureButton" node_paths=PackedStringArray("buttonLabel", "nameLabel")]
+texture_filter = 1
+custom_minimum_size = Vector2(117, 41)
+offset_left = 185.0
+offset_top = 107.0
+offset_right = 302.0
+offset_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("1_r8qx8")
+stretch_mode = 5
+script = ExtResource("2_8lros")
+buttonLabel = NodePath("Price")
+nameLabel = NodePath("Name")
+
+[node name="Price" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.024
+anchor_right = 1.0
+anchor_bottom = 0.951
+offset_top = 0.016
+offset_right = -3.0
+offset_bottom = 0.00899887
+text = "10 $"
+label_settings = SubResource("LabelSettings_u5e7l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009
+anchor_top = -0.512
+anchor_right = 1.0
+offset_left = -0.0530001
+offset_top = -0.00799942
+offset_right = 1.0
+offset_bottom = 3.0
+text = "Autoclicker : 1"
+label_settings = SubResource("LabelSettings_yui4v")
+horizontal_alignment = 1
+vertical_alignment = 2

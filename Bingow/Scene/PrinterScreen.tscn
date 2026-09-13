@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=3 uid="uid://c5ny5opfx88f"]
+
+[ext_resource type="Script" path="res://Script/Shop/AutoTicketPrinting.cs" id="1_24xxs"]
+[ext_resource type="PackedScene" uid="uid://425p74yxdxup" path="res://Scene/PrinterTicketVisual.tscn" id="1_uisrm"]
+[ext_resource type="Script" path="res://Script/Shop/SelectorManager.cs" id="2_1wtb7"]
+[ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="2_2sahb"]
+[ext_resource type="Resource" uid="uid://dg00utji4h4v7" path="res://Ressource/Ticket/3x3TicketData.tres" id="3_e26sg"]
+[ext_resource type="Script" path="res://Script/Shop/PrinterManager.cs" id="4_fy78o"]
+[ext_resource type="Resource" uid="uid://kvixhhphwhml" path="res://Ressource/Ticket/4x4TicketData.tres" id="4_mjphn"]
+[ext_resource type="Resource" uid="uid://ewywxwlpq30o" path="res://Ressource/Ticket/5x5TicketData.tres" id="5_10qhb"]
+[ext_resource type="Resource" uid="uid://dj21ak056lqeq" path="res://Ressource/Ticket/6x6TicketData.tres" id="6_e7vxb"]
+[ext_resource type="Resource" uid="uid://4j3gd1o7py7b" path="res://Ressource/Ticket/7x7TicketData.tres" id="7_iiuq0"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_p5xcu"]
+
+[node name="PrinterScreen" type="Control" node_paths=PackedStringArray("selectorManagerRef")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_24xxs")
+selectorManagerRef = NodePath("SelectorManager")
+playerStatusRes = ExtResource("2_2sahb")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -399.0
+offset_top = -280.0
+offset_right = 285.0
+offset_bottom = 201.0
+
+[node name="NextButton" type="TextureButton" parent="."]
+modulate = Color(0.568627, 0.380392, 0.290196, 1)
+layout_mode = 0
+offset_left = 187.0
+offset_top = -82.0
+offset_right = 271.0
+texture_normal = SubResource("CanvasTexture_p5xcu")
+stretch_mode = 5
+
+[node name="PreviousButton" type="TextureButton" parent="."]
+modulate = Color(0.568627, 0.380392, 0.290196, 1)
+layout_mode = 0
+offset_left = -379.0
+offset_top = -89.0
+offset_right = -299.0
+offset_bottom = -8.0
+texture_normal = SubResource("CanvasTexture_p5xcu")
+stretch_mode = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 0
+offset_left = -245.0
+offset_top = -278.0
+offset_right = 155.0
+offset_bottom = 122.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+metadata/_edit_lock_ = true
+
+[node name="PrinterTicketVisual" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_uisrm")]
+layout_mode = 2
+
+[node name="PrintButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -196.0
+offset_top = 122.0
+offset_right = 43.0
+offset_bottom = 197.0
+theme_override_font_sizes/font_size = 35
+text = "START PRINTING"
+
+[node name="SelectorManager" type="Control" parent="." node_paths=PackedStringArray("scrollContainerRef", "hBoxContainerRef", "previousButton", "nextButton")]
+anchors_preset = 0
+offset_left = -129.0
+offset_top = 16.0
+offset_right = -89.0
+offset_bottom = 56.0
+script = ExtResource("2_1wtb7")
+scrollContainerRef = NodePath("../ScrollContainer")
+hBoxContainerRef = NodePath("../ScrollContainer/HBoxContainer")
+previousButton = NodePath("../PreviousButton")
+nextButton = NodePath("../NextButton")
+itemWidth = 400
+spacing = 30
+
+[node name="PrinterManager" type="Control" parent="." node_paths=PackedStringArray("ticketContainer")]
+anchors_preset = 0
+offset_left = -129.0
+offset_top = 16.0
+offset_right = -89.0
+offset_bottom = 56.0
+script = ExtResource("4_fy78o")
+ticketDatas = Array[Object]([ExtResource("3_e26sg"), ExtResource("4_mjphn"), ExtResource("5_10qhb"), ExtResource("6_e7vxb"), ExtResource("7_iiuq0")])
+ticketContainer = NodePath("../ScrollContainer/HBoxContainer")
+ticketVisualScene = ExtResource("1_uisrm")
+
+[connection signal="pressed" from="PrintButton" to="." method="_on_print_button_pressed"]

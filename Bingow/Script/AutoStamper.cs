@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class AutoStamper : SpotUpgrade
+public partial class AutoStamper : Upgrade
 {
     public Ticket ticketContainer { get; private set; }
     private bool isMoving;

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections;
+using static TicketSpotUpgradeButton;
 
 // This script link the bingo cage with the numbers stamped by the player  , the ticket spot with the money controller
 
@@ -11,7 +12,8 @@ public partial class GameScreenManager : Node
     [Export] private TicketSpot[] ticketSpotArray;
     [Export] private MoneyController moneyControllerRef;
     [Export] private TicketQueu ticketQueuRef;
-    [Export] private ShopTicket shopRef;
+    [Export] private Shop shopRef;
+    [Export] private TicketPrinter ticketPrinterRef;
 
     public override void _Ready()
     {
@@ -24,11 +26,23 @@ public partial class GameScreenManager : Node
             bingoCageRef.OnNewBall += lTicketSpot.AutoStamperRef.VerifyGrid;
             lTicketSpot.AutoStamperRef.Initialize(bingoCageRef.IsNumbersAllowed, bingoCageRef.GetCurrentBalls);
             lTicketSpot.AutoFillerRef.Initialize(ticketQueuRef);
-            shopRef.Initialize(lTicketSpot);
 
+            shopRef.AddSpotItem(lTicketSpot,
+                ShopUpgrades.AutoClicker,
+                ShopUpgrades.AutoFiller,
+                ShopUpgrades.AutoBingo,
+                ShopUpgrades.SizeUpgrade);
+
+            lTicketSpot.OnUpgradeShopClicked += shopRef.OpenSpecificWindow;
 
         }
         shopRef.OnAnyItemUpgradeRequested += moneyControllerRef.UpgradeAugment;
+
+        shopRef.AddUniqueItem("Ticket printer",
+            ticketPrinterRef.globalUpgrade,
+            ShopUpgrades.UnlockPrinter,
+            ShopUpgrades.PintingSpeed,
+            ShopUpgrades.PrinterSize);
 
     }
 
@@ -48,9 +62,11 @@ public partial class GameScreenManager : Node
         foreach (TicketSpot lTicketSpot in ticketSpotArray)
         {
             lTicketSpot.OnPurchaseRequested -= moneyControllerRef.TicketSpotPurchase;
-            shopRef.OnAnyItemUpgradeRequested -= moneyControllerRef.UpgradeAugment;
+            lTicketSpot.OnUpgradeShopClicked -= shopRef.OpenSpecificWindow;
 
             bingoCageRef.OnNewBall -= lTicketSpot.AutoStamperRef.VerifyGrid;
         }
+        shopRef.OnAnyItemUpgradeRequested -= moneyControllerRef.UpgradeAugment;
+
     }
 }

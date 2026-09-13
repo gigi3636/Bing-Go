@@ -1,28 +1,75 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using static TicketSpotUpgradeButton;
 
 public partial class ShopUpgradeItem : Control
 {
     [Export] private TextureRect upgradeIconRef;
     [Export] private Label upgradeName;
-    public TicketSpotUpgrades currentSpotUpgradesRef;
 
+    [Export] private BoxContainer buttonsContainer;
+    [Export] private PackedScene upgradeButtonScene;
 
-    public Action<SpotUpgrades, TicketSpotUpgrades, Action<TicketSpotUpgrades>> OnUpgradeRequested;
+    public IUpgradeGroup currentUpgradeGroupRef;
 
-    public event Action<TicketSpotUpgrades> OnVisualUpdateRequest;
+    public Action<ShopUpgrades, IUpgradeGroup, Action<IUpgradeGroup>> OnUpgradeRequested;
 
-
-    public void Initialize(TicketSpot pSpotRef)
+    public void Initialize(string pTitle, IUpgradeGroup pUpgradeGroup, IEnumerable<ShopUpgrades> upgradesToSpawn)
     {
-        upgradeName.Text = $"{"Ticket spot " +  pSpotRef.spotId}";
-        currentSpotUpgradesRef = pSpotRef.ticketSpotUpgrades;   
+        upgradeName.Text = pTitle;
+        currentUpgradeGroupRef = pUpgradeGroup;
+
+        SpawnButtons(upgradesToSpawn);
+    }
+
+    private void SpawnButtons(IEnumerable<ShopUpgrades> upgradesToSpawn)
+    {
+        foreach (ShopUpgrades upgradeType in upgradesToSpawn)
+        {
+            TicketSpotUpgradeButton newButton = upgradeButtonScene.Instantiate<TicketSpotUpgradeButton>();
+            buttonsContainer.AddChild(newButton);
+
+            newButton.Initialize(upgradeType);
+            newButton.OnUpragdeButtonPressed += (upgrade) => HandleUpgradeRequest(upgrade);
+        }
+
+        UpdateVisual(); 
+    }
+
+    private void HandleUpgradeRequest(ShopUpgrades upgradeType)
+    {
+        OnUpgradeRequested?.Invoke(upgradeType, currentUpgradeGroupRef, UpdateVisualForCallback);
+    }
+
+    private void UpdateVisualForCallback(IUpgradeGroup pUpgradeGroup)
+    {
+        UpdateVisual();
     }
 
     public void UpdateVisual()
     {
-        OnVisualUpdateRequest?.Invoke(currentSpotUpgradesRef);
-    }
+        if (currentUpgradeGroupRef == null) return;
 
+        foreach (Node child in buttonsContainer.GetChildren())
+        {
+            if (child is TicketSpotUpgradeButton button)
+            {
+                UpgradeableStat stat = currentUpgradeGroupRef.GetStat(button.buttonUpgrade);
+                if (stat == null) continue;
+
+                if (stat.level < stat.augmentPrice.Length)
+                {
+                    button.UpdateVisuals($"{stat.name} : {stat.level}", $"{stat.augmentPrice[stat.level]} $");
+                    button.Disabled = false;
+                }
+                else
+                {
+                    button.Modulate = Colors.Gray;
+                    button.UpdateVisuals($"{stat.name} : {stat.level}", "MAX");
+                    button.Disabled = true;
+                }
+            }
+        }
+    }
 }

@@ -20,8 +20,6 @@ public partial class TicketMoover : Node2D
 
     private void _on_texture_button_button_down()
     {
-        GD.Print("down");
-
         isTicketMooving = true;
         ticketToMooveRef = ticketQueuRef.GetTicketFromQueu();
         ticketInitialRotation = ticketToMooveRef.GlobalRotation;
@@ -34,8 +32,6 @@ public partial class TicketMoover : Node2D
 
     private void _on_texture_button_button_up()
     {
-        GD.Print("up");
-
         // CHECK IF THE TICKET IS IN A TICKET SPOT FREE
 
         if (ticketSpotAvailableRef != null && ticketSpotAvailableRef.isTicketSizeAllowed(ticketToMooveRef.sizeLevel))

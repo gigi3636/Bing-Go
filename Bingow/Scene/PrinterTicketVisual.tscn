@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://425p74yxdxup"]
+
+[ext_resource type="Texture2D" uid="uid://4idy64ir4iem" path="res://Assets/None.png" id="1_oeu8y"]
+[ext_resource type="Script" path="res://Script/Shop/PrinterTicketVisual.cs" id="2_yio0s"]
+
+[node name="PrinterTicketVisual" type="TextureRect"]
+texture_filter = 1
+custom_minimum_size = Vector2(400, 400)
+offset_right = 400.0
+offset_bottom = 400.0
+size_flags_vertical = 3
+texture = ExtResource("1_oeu8y")
+stretch_mode = 5
+script = ExtResource("2_yio0s")

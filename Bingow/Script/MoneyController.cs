@@ -33,43 +33,23 @@ public partial class MoneyController : Node
     }
 
     // Check if enough money to upgrade a ticket spot 
-    public void UpgradeAugment(SpotUpgrades pAugment, TicketSpotUpgrades pTicketSpotUpgrades, Action<TicketSpotUpgrades> pUpgradeVisual)
+    public void UpgradeAugment(ShopUpgrades pAugment, IUpgradeGroup pUpgradeGroup, Action<IUpgradeGroup> pUpgradeVisual)
     {
+       UpgradeableStat lUpgradeRequested = pUpgradeGroup.GetStat(pAugment);
 
-        if (pTicketSpotUpgrades == null)
-            GD.PrintErr("SUSPECT 1 : pTicketSpotUpgrades est null ");
+        if (lUpgradeRequested.augmentPrice[lUpgradeRequested.level] <= playerStatusRes.playerCurrentMoney)
+        {
+            playerStatusRes.DiscountMoney(lUpgradeRequested.augmentPrice[lUpgradeRequested.level]);
+            lUpgradeRequested.Upgrade();
 
-        if (playerStatusRes == null)
-            GD.PrintErr("SUSPECT 2 : playerStatusRes est null ");
-
-        UpgradeableStat lUpgradeRequested = pTicketSpotUpgrades.AllUpgrades[(int)pAugment - 1];
-
-        if (lUpgradeRequested == null)
-            GD.PrintErr("SUSPECT 3 : lUpgradeRequested est null ");
-        else if (lUpgradeRequested.augmentPrice == null)
-            GD.PrintErr("SUSPECT 4 : lUpgradeRequested.augmentPrice est null ");
-        // ----------------------
-
-		if (lUpgradeRequested.augmentPrice[lUpgradeRequested.level] <= playerStatusRes.playerCurrentMoney)
-		{
-			playerStatusRes.DiscountMoney(lUpgradeRequested.augmentPrice[lUpgradeRequested.level]);
-			lUpgradeRequested.Upgrade();
-
-			pUpgradeVisual(pTicketSpotUpgrades);
-
-
+            pUpgradeVisual(pUpgradeGroup);
         }
-		else
-		{
-            GD.Print(lUpgradeRequested.level);
-
-            GD.Print(lUpgradeRequested.augmentPrice[lUpgradeRequested.level]);
-			GD.Print(" no money u broke asf u cant ");
-		}
-
-	}
-
-	public void TicketSpotPurchase(int pSpotCost , Action pBuySpot)
+        else
+        {
+            GD.Print(" no money u broke asf u cant ");
+        }
+    }   
+    public void TicketSpotPurchase(int pSpotCost , Action pBuySpot)
 	{
 		if (pSpotCost <= playerStatusRes.playerCurrentMoney)
 		{

@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds7rx0k30ifoo"]
+
+[ext_resource type="Script" path="res://Script/Shop/TicketPrinter.cs" id="1_esncx"]
+[ext_resource type="Texture2D" uid="uid://dtgnkdu1306ll" path="res://Assets/TicketPrinter.png" id="2_0imnp"]
+[ext_resource type="PackedScene" uid="uid://c5ny5opfx88f" path="res://Scene/PrinterScreen.tscn" id="4_mkmns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i612g"]
+size = Vector2(74.5, 69.5)
+
+[node name="TicketPrinter" type="Control" node_paths=PackedStringArray("autoTicketPrintingRef")]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_esncx")
+autoTicketPrintingRef = NodePath("PrinterScreen")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 255.0
+offset_bottom = 264.0
+texture = ExtResource("2_0imnp")
+stretch_mode = 5
+
+[node name="PrinterArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrinterArea"]
+position = Vector2(51, 33)
+shape = SubResource("RectangleShape2D_i612g")
+
+[node name="PrinterInteractionManager" type="Node2D" parent="."]
+
+[node name="PrinterScreen" parent="." node_paths=PackedStringArray("printerScreen") instance=ExtResource("4_mkmns")]
+texture_filter = 1
+layout_mode = 1
+offset_left = 133.0
+offset_top = 156.0
+offset_right = 136.0
+offset_bottom = 156.0
+scale = Vector2(0.232494, 0.232494)
+printerScreen = NodePath("..")
+
+[connection signal="area_entered" from="PrinterArea" to="PrinterInteractionManager" method="_on_printer_area_area_entered"]

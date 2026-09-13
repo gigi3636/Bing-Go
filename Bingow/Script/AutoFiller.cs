@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class AutoFiller : SpotUpgrade
+public partial class AutoFiller : Upgrade
 {
     private TicketQueu ticketQueuRef;
 
@@ -24,7 +24,6 @@ public partial class AutoFiller : SpotUpgrade
 
         if (lNexTicket != null)
         {
-            GD.Print("Theres a ticket ");
             OnTicketDisponible?.Invoke(lNexTicket, currentReactionTime);
             ticketQueuRef.RemoveTicketFromQueu();
         }

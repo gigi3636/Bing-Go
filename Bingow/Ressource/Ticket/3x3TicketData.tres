@@ -12,6 +12,7 @@ Cost = 1
 Value = 5
 Column = 3
 Row = 3
+TimeToPrint = 1.0
 SizeLevel = 0
 TicketName = "Ticket 3x3"
 GridDisplayPosition = Vector2(-175, -108)

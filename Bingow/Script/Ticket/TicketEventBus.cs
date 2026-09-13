@@ -4,7 +4,7 @@ using System;
 public partial class TicketEventBus : Node
 {
     // Signal to spawn a new ticket
-    public static event Action<TicketData> OnTicketRequested;
+    public static event Action<TicketData, bool> OnTicketRequested;
 
     public static event Action<Ticket> OnTicketOpened;
 
@@ -18,9 +18,9 @@ public partial class TicketEventBus : Node
 
 
 
-    public static void PublishTicketRequested(TicketData pTicketData)
+    public static void PublishTicketRequested(TicketData pTicketData, bool pIsPrinted)
     {
-        OnTicketRequested?.Invoke(pTicketData);
+        OnTicketRequested?.Invoke(pTicketData, pIsPrinted);
     }
 
     public static void OpenTicket(Ticket pTicket)
@@ -32,6 +32,7 @@ public partial class TicketEventBus : Node
     {
         OnFreeTicketSpotEnter?.Invoke(pTicketSpot);
     }
+
     public static void ExitTikcetSpot()
     {
         OnFreeTicketSpotExit?.Invoke();

@@ -1,136 +1,154 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1789050026
-icon.svg::CompressedTexture2D::9134795696444336144::1788874029::1788874278::1::::<><>::
-Red Ball.png::CompressedTexture2D::5966997999792124157::1788874029::1788874278::1::::<><>::
-::res://Assets/::1789029144
-Red Ball.png::CompressedTexture2D::2468928230219950785::1788874029::1788874278::1::::<><>::
-Table.png::CompressedTexture2D::6638894071379627557::1788874029::1788874278::1::::<><>::
-tablette_bleue.png::CompressedTexture2D::2915016227285278299::1788874029::1788874278::1::::<><>::
-tablette_bords_magasin.png::CompressedTexture2D::6227857231024797673::1789029144::1789029144::1::::<><>::
-tablette_grise.png::CompressedTexture2D::924019719041228486::1788874029::1788874278::1::::<><>::
-Tablette_table1.png::CompressedTexture2D::7984204443325406239::1788874029::1788874278::1::::<><>::
-Tablette_Table2.png::CompressedTexture2D::8397421512425006572::1788874029::1788874278::1::::<><>::
-Tablette_table.png::CompressedTexture2D::2939876137059825901::1788874029::1788874278::1::::<><>::
-::res://Assets/Place Holder/::1788874279
-AutoStamper.png::CompressedTexture2D::3523527564030732623::1788874029::1788874279::1::::<><>::
-Ball.png::CompressedTexture2D::1037722721716790589::1788874029::1788874279::1::::<><>::
-Bingo.png::CompressedTexture2D::396108079646807620::1788874029::1788874279::1::::<><>::
-BingoQueu.png::CompressedTexture2D::3975415787452168460::1788874029::1788874279::1::::<><>::
-BingoTicket.png::CompressedTexture2D::6113813890295015114::1788874029::1788874279::1::::<><>::
-Boullier.png::CompressedTexture2D::8890735658726460446::1788874029::1788874279::1::::<><>::
-boullierplaceholder.png::CompressedTexture2D::1310153933459781324::1788874029::1788874278::1::::<><>::
-engrenange.png::CompressedTexture2D::7224246282458090440::1788874029::1788874279::1::::<><>::
-Lock.png::CompressedTexture2D::3966040744603817184::1788874029::1788874279::1::::<><>::
-TablePlaceHolder.png::CompressedTexture2D::8968343899777883914::1788874029::1788874279::1::::<><>::
-TablettePlaceHolder.png::CompressedTexture2D::4282203193032468715::1788874029::1788874279::1::::<><>::
-Tampon.png::CompressedTexture2D::5395624002176044420::1788874029::1788874278::1::::<><>::
-unlock.png::CompressedTexture2D::1238013872393935079::1788874029::1788874279::1::::<><>::
-vector-high-quality-pixel-art-260nw-1688423425.png::CompressedTexture2D::103932020553344982::1788874029::1788874278::1::::<><>::
-::res://Assets/Shop/::1789042726
-tablette_bords.png::CompressedTexture2D::9175940432634060160::1788968456::1788968456::1::::<><>::
-tablette_bords_magasin.png::CompressedTexture2D::2085631376837601919::1789029150::1789029151::1::::<><>::
-tablette_bouton_orange.png::CompressedTexture2D::2105419950452303818::1788969468::1788969469::1::::<><>::
-tablette_bouton_orange_sasnbords.png::CompressedTexture2D::1320737029553302563::1789042726::1789042726::1::::<><>::
-tablette_bouton_rose.png::CompressedTexture2D::6178151614837064596::1788969468::1788969469::1::::<><>::
-tablette_vide.png::CompressedTexture2D::6533359549235884790::1788962049::1788962050::1::::<><>::
-::res://Assets/Ticket/::1788874278
-ticket_3x3.png::CompressedTexture2D::5671019348104717259::1788874029::1788874278::1::::<><>::
-ticket_4x4.png::CompressedTexture2D::2035049088700539680::1788874029::1788874278::1::::<><>::
-ticket_5x5.png::CompressedTexture2D::3071899236927814980::1788874029::1788874278::1::::<><>::
-ticket_6x6.png::CompressedTexture2D::7320106339929367265::1788874029::1788874278::1::::<><>::
-ticket_10x10.png::CompressedTexture2D::1880186454921769048::1788874029::1788874278::1::::<><>::
-::res://Assets/TicketTable/::1788874278
-3x3 Ticket Table.png::CompressedTexture2D::4645340620578943655::1788874029::1788874278::1::::<><>::
-4x4 Ticket Table.png::CompressedTexture2D::5539879396838977859::1788874029::1788874278::1::::<><>::
-5x5 Ticket Table.png::CompressedTexture2D::7207608930665544736::1788874029::1788874278::1::::<><>::
-6x6 Ticket Table.png::CompressedTexture2D::4133365026373339520::1788874029::1788874278::1::::<><>::
-7x7 Ticket Table.png::CompressedTexture2D::1229244625536895140::1788874029::1788874278::1::::<><>::
-8x8 Ticket Table.png::CompressedTexture2D::2208589043117837028::1788874029::1788874278::1::::<><>::
-9x9 Ticket Table.png::CompressedTexture2D::2763085777985250989::1788874029::1788874278::1::::<><>::
-10x10 table.png::CompressedTexture2D::1630070040483672681::1788874029::1788874278::1::::<><>::
-::res://font/::1788874278
-determination.ttf::FontFile::259500268270118945::1788874029::1788874278::1::::<><>::
-Pixeled.ttf::FontFile::6074568173941265028::1788874029::1788874278::1::::<><>::
-upheavtt.ttf::FontFile::5315741427922380821::1788874029::1788874278::1::::<><>::
-::res://Ressource/::1788874029
-PlayerStatuRes.tres::Resource::2864028905062135794::1788874029::0::1::::<><>::res://Script/PlayerStatus.cs
-::res://Ressource/Ticket/::1789044312
-3x3TicketData.tres::Resource/Resource::7633559209705690406::1789030290::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>res://Script/Ticket/Res/TicketData.cs<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://cm2c4ikbkcm7l::::res://Assets/Ticket/ticket_3x3.png<>uid://b7gic1ar1gq8v::::res://Assets/TicketTable/3x3 Ticket Table.png
-4x4TicketData.tres::Resource/Resource::745767557586364287::1789030324::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>uid://3817xdxnxpq3::::res://Assets/Ticket/ticket_4x4.png<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://ck6tae7g0whmp::::res://Assets/TicketTable/4x4 Ticket Table.png<>res://Script/Ticket/Res/TicketData.cs
-5x5TicketData.tres::Resource/Resource::327669422976994720::1789030324::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>uid://bj1by40w7t1yu::::res://Assets/Ticket/ticket_5x5.png<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://daxojbsten3x1::::res://Assets/TicketTable/5x5 Ticket Table.png<>res://Script/Ticket/Res/TicketData.cs
-6x6TicketData.tres::Resource/TicketData::7848279050251688608::1789044312::0::1::::<><>::res://Script/Ticket/Res/TicketData.cs<>uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>uid://dcj6c1yqk4j6x::::res://Assets/Ticket/ticket_6x6.png<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn
-7x7TicketData.tres::Resource/Resource::2055766854264809817::1789030829::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>uid://dcj6c1yqk4j6x::::res://Assets/Ticket/ticket_6x6.png<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://rrpqkf4bwbd1::::res://Assets/TicketTable/7x7 Ticket Table.png<>res://Script/Ticket/Res/TicketData.cs
-8x8TicketData.tres::Resource/Resource::7358522907553417255::1789030305::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>uid://dcj6c1yqk4j6x::::res://Assets/Ticket/ticket_6x6.png<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://6p4eyr2j6h2k::::res://Assets/TicketTable/8x8 Ticket Table.png<>res://Script/Ticket/Res/TicketData.cs
-9x9TicketData.tres::Resource/Resource::8705270315928397789::1789030305::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>uid://dcj6c1yqk4j6x::::res://Assets/Ticket/ticket_6x6.png<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://bfmpvbv8tts66::::res://Assets/TicketTable/9x9 Ticket Table.png<>res://Script/Ticket/Res/TicketData.cs
-10x10TicketData.tres::Resource/Resource::5735013337598827823::1789030311::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>res://Script/Ticket/Res/TicketData.cs<>uid://111nqa140suq::::res://Assets/Ticket/ticket_10x10.png<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://xhvar2xw81wn::::res://Assets/TicketTable/10x10 table.png
-BasiTicketData.tres::Resource/Resource::8068345039693252219::1788874029::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>res://Script/Ticket/Res/TicketData.cs<>uid://ctdtveq07nthi::::res://Assets/Place Holder/BingoTicket.png
-::res://Scene/::1789048220
-BingoBall.tscn::PackedScene::5905478434428321722::1788874029::0::1::::<><>::uid://bbf75fv7p6dw8::::res://Assets/Red Ball.png<>res://Script/BingoBalls/BingoBall.cs<>uid://dxx6w24ue3ov::::res://font/determination.ttf
-BingoCage.tscn::PackedScene::1905787719995116157::1788874029::0::1::::<><>::res://Script/BingoCage/BingoCage.cs<>uid://dyw0d8wglp5jm::::res://Assets/Place Holder/Boullier.png<>uid://bg2mexdji86ly::::res://Ressource/PlayerStatuRes.tres<>res://Script/BingoCage/BallSpawner.cs<>uid://cqewmqjd2kqn7::::res://Scene/BingoBall.tscn<>res://Script/BingoCage/BallListManager.cs<>res://Script/BingoCage/BallTimer.cs<>res://Script/BingoCage/BallVisualDisplayer.cs
-Main.tscn::PackedScene::3655823268143926314::1788874029::0::1::::<><>::uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://swwbqygwe8tc::::res://Assets/Place Holder/boullierplaceholder.png
-ShopTicket.tscn::PackedScene::4683781132219065551::1789048220::0::1::::<><>::res://Script/Shop/ShopTicket.cs<>uid://c0c2qhxpgcada::::res://Assets/Shop/tablette_vide.png<>uid://d3y5nso6ynk13::::res://Assets/Shop/tablette_bords.png<>uid://cnyc3jsb72itr::::res://Ressource/Ticket/10x10TicketData.tres<>uid://dj21ak056lqeq::::res://Ressource/Ticket/6x6TicketData.tres<>uid://kvixhhphwhml::::res://Ressource/Ticket/4x4TicketData.tres<>uid://ewywxwlpq30o::::res://Ressource/Ticket/5x5TicketData.tres<>uid://4j3gd1o7py7b::::res://Ressource/Ticket/7x7TicketData.tres<>uid://cua0iwfghddpc::::res://Assets/Shop/tablette_bouton_rose.png<>uid://dc3r2ds5yglh4::::res://Ressource/Ticket/8x8TicketData.tres<>uid://dxx6w24ue3ov::::res://font/determination.ttf<>uid://do2h1vkwoym6y::::res://Scene/UpgradeItem.tscn<>uid://dwa5sa73y24ej::::res://Ressource/Ticket/9x9TicketData.tres<>uid://bnvq18hbqdc3g::::res://Scene/TicketShoptItem.tscn<>uid://4ykbq62ty0lv::::res://Assets/Shop/tablette_bords_magasin.png
-TicketFullScreen.tscn::PackedScene::2384293257643607526::1788874029::0::1::::<><>::res://Script/Ticket/TicketFullScreen.cs<>uid://dcj6c1yqk4j6x::::res://Assets/Ticket/ticket_6x6.png<>uid://fv43vt20au3m::::res://Assets/Place Holder/Bingo.png<>res://Script/Ticket/BingoManager.cs<>uid://bg2mexdji86ly::::res://Ressource/PlayerStatuRes.tres
-TicketShopButton.tscn::PackedScene::8965241423637167402::1789032117::0::1::::<><>::uid://b7gic1ar1gq8v::::res://Assets/TicketTable/3x3 Ticket Table.png<>res://Script/Ticket/TicketShoptButton.cs<>uid://bg2mexdji86ly::::res://Ressource/PlayerStatuRes.tres<>res://Script/VisualAnimation/TicketShoptJuice.cs
-TicketShoptItem.tscn::PackedScene::3343247230499691710::1789040987::0::1::::<><>::res://Script/Shop/TicketShopItem.cs<>uid://b7gic1ar1gq8v::::res://Assets/TicketTable/3x3 Ticket Table.png<>uid://dg00utji4h4v7::::res://Ressource/Ticket/3x3TicketData.tres<>uid://4847utxffyny::::res://Assets/Shop/tablette_bouton_orange.png<>res://Script/Ticket/TicketShoptButton.cs<>uid://bg2mexdji86ly::::res://Ressource/PlayerStatuRes.tres<>res://Script/VisualAnimation/TicketShoptJuice.cs<>uid://dxx6w24ue3ov::::res://font/determination.ttf
-TicketSpot.tscn::PackedScene::657906119288233677::1788874029::0::1::::<><>::res://Script/Ticket/TicketSpot.cs<>uid://bwrgd2ba58y0g::::res://Assets/Place Holder/Lock.png<>uid://rvx54gnsq0u2::::res://Assets/Place Holder/unlock.png<>res://Script/TicketSpot/SpotInteractionManager.cs<>res://Script/TicketSpot/VisualManager.cs<>uid://da6qjsuop0kua::::res://Assets/Place Holder/engrenange.png<>uid://bqg28pyo4ueeh::::res://Assets/Place Holder/AutoStamper.png<>res://Script/AutoStamper.cs<>res://Script/TicketSpot/TicketSpotUpgradeManager.cs<>res://Script/AutoFiller.cs<>res://Script/TicketSpot/AutoFillerVisualMover.cs<>uid://bql0lpdm1r4i::::res://Assets/Place Holder/vector-high-quality-pixel-art-260nw-1688423425.png<>res://Script/TicketSpot/AutoBingo.cs
-TicketSpotUpgradeScreen.tscn::PackedScene::5672808613190059181::1789045752::0::1::::<><>::uid://b2ali4wo6lox4::::res://Assets/Place Holder/TablettePlaceHolder.png
-UpgradeItem.tscn::PackedScene::8198116630419906502::1789048220::0::1::::<><>::res://Script/Shop/ShopUpgradeItem.cs<>uid://rvx54gnsq0u2::::res://Assets/Place Holder/unlock.png<>uid://dxx6w24ue3ov::::res://font/determination.ttf<>uid://s21l043gxyop::::res://Assets/Shop/tablette_bouton_orange_sasnbords.png<>res://Script/TicketSpot/TicketSpotUpgradeButton.cs<>res://Script/TicketSpot/UpgradeRequestManager.cs<>res://Script/TicketSpot/UpgradeShopVisualManager.cs
-::res://Scene/Bingo Ticket/::1789048219
-BasicTicket.tscn::PackedScene::5871460176427517314::1788874029::0::1::::<><>::res://Script/Ticket/BasicTicket.cs<>uid://xhvar2xw81wn::::res://Assets/TicketTable/10x10 table.png
-BingoCell.tscn::PackedScene::155279154840401014::1788874029::0::1::::<><>::res://Script/Cell/BingoCell.cs<>uid://ci4xeyxp2cexg::::res://Assets/Place Holder/Tampon.png<>uid://csstirmsxk1eu::::res://font/Pixeled.ttf<>res://Script/Cell/CellStamped.cs
-GameScreen.tscn::PackedScene::7634805204828243017::1789048219::0::1::::<><>::res://Script/GameManager.cs<>uid://c1t6u6nyuctcf::::res://Assets/Table.png<>res://Script/MoneyLabel.cs<>uid://b7y4gqywg84qt::::res://Scene/ShopTicket.tscn<>uid://bg2mexdji86ly::::res://Ressource/PlayerStatuRes.tres<>res://Script/Ticket/TicketSpawner.cs<>uid://bh5dliaim31oj::::res://Assets/Tablette_table.png<>res://Script/Ticket/TicketQueu.cs<>res://Script/BallPriceLabel.cs<>uid://jmxvaav3a21n::::res://Scene/TicketSpot.tscn<>res://Script/Ticket/TicketMoover.cs<>uid://2fgbsm3m67jt::::res://Scene/BingoCage.tscn<>uid://8777xu40ys6q::::res://Scene/TicketFullScreen.tscn<>res://Script/GameScreenManager.cs<>res://Script/AugmentCountdwon.cs<>res://Script/MoneyController.cs<>uid://cm27lgnbn0v0p::::res://Scene/TicketSpotUpgradeScreen.tscn
-::res://Script/::1789048188
-AugmentCountdwon.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-AutoFiller.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-AutoStamper.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-BallPriceLabel.cs::CSharpScript::-1::1788874029::0::1::::<>Label<>::
-GameManager.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-GameScreenManager.cs::CSharpScript::-1::1789048188::0::1::::<>Node<>::
-MoneyController.cs::CSharpScript::-1::1789047412::0::1::::<>Node<>::
-MoneyLabel.cs::CSharpScript::-1::1788874029::0::1::::<>Label<>::
-PlayerStatus.cs::CSharpScript::-1::1788874029::0::1::::<>Resource<>::
-::res://Script/BingoBalls/::1788874029
-BingoBall.cs::CSharpScript::-1::1788874029::0::1::::<>Control<>::
-::res://Script/BingoCage/::1788874029
-BallListManager.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-BallSpawner.cs::CSharpScript::-1::1788874029::0::1::::<>Node2D<>::
-BallTimer.cs::CSharpScript::-1::1788874029::0::1::::<>Node2D<>::
-BallVisualDisplayer.cs::CSharpScript::-1::1788874029::0::1::::<>HBoxContainer<>::
-BingoCage.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-::res://Script/Cell/::1788874029
-BingoCell.cs::CSharpScript::-1::1788874029::0::1::::<>Control<>::
-CellStamped.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-::res://Script/Shop/::1789048046
-ShopTicket.cs::CSharpScript::-1::1789048046::0::1::::<>Control<>::
-ShopUpgradeItem.cs::CSharpScript::-1::1789044798::0::1::::<>Control<>::
-TicketShopItem.cs::CSharpScript::-1::1789032547::0::1::::<>Node<>::
-::res://Script/Ticket/::1789047688
-BasicTicket.cs::CSharpScript::-1::1788874029::0::1::::<>Node2D<>::
-BingoManager.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-Ticket.cs::CSharpScript::-1::1788874029::0::1::::<>Node2D<>::
-TicketEventBus.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-TicketFullScreen.cs::CSharpScript::-1::1788874029::0::1::::<>Control<>::
-TicketMoover.cs::CSharpScript::-1::1788874029::0::1::::<>Node2D<>::
-TicketNumbersManager.cs::CSharpScript::-1::1788874029::0::1::::<><>::
-TicketQueu.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-TicketShoptButton.cs::CSharpScript::-1::1789030826::0::1::::<>TextureButton<>::
-TicketSpawner.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-TicketSpot.cs::CSharpScript::-1::1789047688::0::1::::<>Node2D<>::
-TicketVisualManager.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-::res://Script/Ticket/Res/::1789030030
-TicketData.cs::CSharpScript::-1::1789030030::0::1::::TicketData<>Resource<>::
-::res://Script/TicketSpot/::1789045471
-AutoBingo.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-AutoFillerVisualMover.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-SpotInteractionManager.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-SpotUpgrade.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-TicketSpotUpgradeButton.cs::CSharpScript::-1::1789045232::0::1::::<>TextureButton<>::
-TicketSpotUpgradeManager.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-TicketSpotUpgrades.cs::CSharpScript::-1::1788874029::0::1::::<><>::
-TicketSpotUpgradeScreen.cs::CSharpScript::-1::1789044806::0::1::::<>Control<>::
-UpgradeableStat.cs::CSharpScript::-1::1788874029::0::1::::<><>::
-UpgradeRequestManager.cs::CSharpScript::-1::1789045077::0::1::::<>Node<>::
-UpgradeShopVisualManager.cs::CSharpScript::-1::1789045471::0::1::::<>Node<>::
-VisualManager.cs::CSharpScript::-1::1788874029::0::1::::<>Node<>::
-::res://Script/VisualAnimation/::1789031526
-TicketShoptJuice.cs::CSharpScript::-1::1789031526::0::1::::<>Node<>::
+::res://::1789319917
+icon.svg::CompressedTexture2D::9134795696444336144::1787498956::1787499014::1::::<><>::
+Red Ball.png::CompressedTexture2D::5966997999792124157::1788696533::1788696533::1::::<><>::
+TicketPrinter.png::CompressedTexture2D::6382490830525519960::1789215706::1789215706::1::::<><>::
+::res://Assets/::1789303167
+None.png::CompressedTexture2D::2052218170977967084::1789205882::1789205882::1::::<><>::
+Red Ball.png::CompressedTexture2D::2468928230219950785::1788860537::1788860537::1::::<><>::
+Table.png::CompressedTexture2D::6638894071379627557::1789216539::1789216540::1::::<><>::
+tablette_bleue.png::CompressedTexture2D::2915016227285278299::1788713930::1788713930::1::::<><>::
+tablette_bords_magasin.png::CompressedTexture2D::6227857231024797673::1789058266::1789058266::1::::<><>::
+tablette_grise.png::CompressedTexture2D::924019719041228486::1788713842::1788713842::1::::<><>::
+Tablette_table1.png::CompressedTexture2D::7984204443325406239::1788790221::1788790222::1::::<><>::
+Tablette_Table2.png::CompressedTexture2D::8397421512425006572::1788797169::1788797169::1::::<><>::
+Tablette_table.png::CompressedTexture2D::2939876137059825901::1788797860::1788797860::1::::<><>::
+TicketPrinter.png::CompressedTexture2D::8506043715257186117::1789303166::1789303167::1::::<><>::
+::res://Assets/Place Holder/::1788353047
+AutoStamper.png::CompressedTexture2D::3523527564030732623::1788023698::1788023708::1::::<><>::
+Ball.png::CompressedTexture2D::1037722721716790589::1787498956::1787499014::1::::<><>::
+Bingo.png::CompressedTexture2D::396108079646807620::1787498956::1787499015::1::::<><>::
+BingoQueu.png::CompressedTexture2D::3975415787452168460::1787498956::1787499015::1::::<><>::
+BingoTicket.png::CompressedTexture2D::6113813890295015114::1787498956::1787499015::1::::<><>::
+Boullier.png::CompressedTexture2D::8890735658726460446::1787498956::1787499015::1::::<><>::
+boullierplaceholder.png::CompressedTexture2D::1310153933459781324::1787498956::1787499014::1::::<><>::
+engrenange.png::CompressedTexture2D::7224246282458090440::1787674683::1787674684::1::::<><>::
+Lock.png::CompressedTexture2D::3966040744603817184::1787498956::1787499014::1::::<><>::
+TablePlaceHolder.png::CompressedTexture2D::8968343899777883914::1787498956::1787499015::1::::<><>::
+TablettePlaceHolder.png::CompressedTexture2D::4282203193032468715::1787498956::1787499015::1::::<><>::
+Tampon.png::CompressedTexture2D::5395624002176044420::1787498956::1787499014::1::::<><>::
+unlock.png::CompressedTexture2D::1238013872393935079::1787498956::1787499014::1::::<><>::
+vector-high-quality-pixel-art-260nw-1688423425.png::CompressedTexture2D::103932020553344982::1788353047::1788353047::1::::<><>::
+::res://Assets/Shop/::1789154550
+scroll_bar_bg.png::CompressedTexture2D::1998401152297549795::1789118382::1789118382::1::::<><>::
+tablette_boouton_scroll.png::CompressedTexture2D::3668136668289712417::1789117017::1789117017::1::::<><>::
+tablette_boouton_scroll_hilight.png::CompressedTexture2D::8523286662897541630::1789117976::1789117976::1::::<><>::
+tablette_boouton_scroll_pressed.png::CompressedTexture2D::5105806469173794177::1789118041::1789118042::1::::<><>::
+tablette_bords.png::CompressedTexture2D::9175940432634060160::1789058266::1789058266::1::::<><>::
+tablette_bords_magasin.png::CompressedTexture2D::2085631376837601919::1789058266::1789058266::1::::<><>::
+tablette_bouton_orange.png::CompressedTexture2D::2105419950452303818::1789058266::1789058266::1::::<><>::
+tablette_bouton_orange_sasnbords.png::CompressedTexture2D::1320737029553302563::1789058266::1789058266::1::::<><>::
+tablette_bouton_rose.png::CompressedTexture2D::6178151614837064596::1789058266::1789058266::1::::<><>::
+tablette_vide.png::CompressedTexture2D::6533359549235884790::1789058266::1789058266::1::::<><>::
+::res://Assets/Ticket/::1789154541
+ticket_3x3.png::CompressedTexture2D::5671019348104717259::1788186527::1788186527::1::::<><>::
+ticket_4x4.png::CompressedTexture2D::2035049088700539680::1789154034::1789154035::1::::<><>::
+ticket_5x5.png::CompressedTexture2D::3071899236927814980::1789154107::1789154108::1::::<><>::
+ticket_6x6.png::CompressedTexture2D::7320106339929367265::1788518001::1788518001::1::::<><>::
+ticket_10x10.png::CompressedTexture2D::1880186454921769048::1788186529::1788186529::1::::<><>::
+::res://Assets/TicketTable/::1789199592
+3x3 Ticket Table.png::CompressedTexture2D::4645340620578943655::1788253448::1788253449::1::::<><>::
+4x4 Ticket Table.png::CompressedTexture2D::5539879396838977859::1789154793::1789154794::1::::<><>::
+5x5 Ticket Table.png::CompressedTexture2D::1354614288549862881::1789199592::1789199592::1::::<><>::
+6x6 Ticket Table.png::CompressedTexture2D::4133365026373339520::1788537869::1788518565::1::::<><>::
+7x7 Ticket Table.png::CompressedTexture2D::1229244625536895140::1788704305::1788704305::1::::<><>::
+8x8 Ticket Table.png::CompressedTexture2D::2208589043117837028::1788538062::1788538062::1::::<><>::
+9x9 Ticket Table.png::CompressedTexture2D::2763085777985250989::1788704307::1788704307::1::::<><>::
+10x10 table.png::CompressedTexture2D::1630070040483672681::1788538240::1788538241::1::::<><>::
+::res://font/::1788862980
+determination.ttf::FontFile::259500268270118945::1788862675::1788862980::1::::<><>::
+Pixeled.ttf::FontFile::6074568173941265028::1788706309::1788862690::1::::<><>::
+upheavtt.ttf::FontFile::5315741427922380821::1788862825::1788862965::1::::<><>::
+::res://Ressource/::1787674462
+PlayerStatuRes.tres::Resource::2864028905062135794::1787674462::0::1::::<><>::res://Script/PlayerStatus.cs
+::res://Ressource/Ticket/::1789312268
+3x3TicketData.tres::Resource/TicketData::7633559209705690406::1789309890::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>res://Script/Ticket/Res/TicketData.cs<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://cm2c4ikbkcm7l::::res://Assets/Ticket/ticket_3x3.png<>uid://b7gic1ar1gq8v::::res://Assets/TicketTable/3x3 Ticket Table.png
+4x4TicketData.tres::Resource/TicketData::745767557586364287::1789312268::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>uid://3817xdxnxpq3::::res://Assets/Ticket/ticket_4x4.png<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://ck6tae7g0whmp::::res://Assets/TicketTable/4x4 Ticket Table.png<>res://Script/Ticket/Res/TicketData.cs
+5x5TicketData.tres::Resource/TicketData::327669422976994720::1789312268::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>uid://bj1by40w7t1yu::::res://Assets/Ticket/ticket_5x5.png<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://tkgkgeo1vpev::::res://Assets/TicketTable/5x5 Ticket Table.png<>res://Script/Ticket/Res/TicketData.cs
+6x6TicketData.tres::Resource/TicketData::7848279050251688608::1789312268::0::1::::<><>::res://Script/Ticket/Res/TicketData.cs<>uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>uid://dcj6c1yqk4j6x::::res://Assets/Ticket/ticket_6x6.png<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn
+7x7TicketData.tres::Resource/Resource::2055766854264809817::1789058266::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>uid://dcj6c1yqk4j6x::::res://Assets/Ticket/ticket_6x6.png<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://rrpqkf4bwbd1::::res://Assets/TicketTable/7x7 Ticket Table.png<>res://Script/Ticket/Res/TicketData.cs
+8x8TicketData.tres::Resource/Resource::7358522907553417255::1789058266::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>uid://dcj6c1yqk4j6x::::res://Assets/Ticket/ticket_6x6.png<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://6p4eyr2j6h2k::::res://Assets/TicketTable/8x8 Ticket Table.png<>res://Script/Ticket/Res/TicketData.cs
+9x9TicketData.tres::Resource/Resource::8705270315928397789::1789058266::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>uid://dcj6c1yqk4j6x::::res://Assets/Ticket/ticket_6x6.png<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://bfmpvbv8tts66::::res://Assets/TicketTable/9x9 Ticket Table.png<>res://Script/Ticket/Res/TicketData.cs
+10x10TicketData.tres::Resource/Resource::5735013337598827823::1789058266::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>res://Script/Ticket/Res/TicketData.cs<>uid://111nqa140suq::::res://Assets/Ticket/ticket_10x10.png<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://xhvar2xw81wn::::res://Assets/TicketTable/10x10 table.png
+BasiTicketData.tres::Resource/Resource::8068345039693252219::1787501900::0::1::::<><>::uid://chhopj7k24nq::::res://Scene/Bingo Ticket/BingoCell.tscn<>uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>res://Script/Ticket/Res/TicketData.cs<>uid://ctdtveq07nthi::::res://Assets/Place Holder/BingoTicket.png
+::res://Scene/::1789314509
+BingoBall.tscn::PackedScene::5905478434428321722::1788863096::0::1::::<><>::uid://bbf75fv7p6dw8::::res://Assets/Red Ball.png<>res://Script/BingoBalls/BingoBall.cs<>uid://dxx6w24ue3ov::::res://font/determination.ttf
+BingoCage.tscn::PackedScene::1905787719995116157::1788863096::0::1::::<><>::res://Script/BingoCage/BingoCage.cs<>uid://dyw0d8wglp5jm::::res://Assets/Place Holder/Boullier.png<>uid://bg2mexdji86ly::::res://Ressource/PlayerStatuRes.tres<>res://Script/BingoCage/BallSpawner.cs<>uid://cqewmqjd2kqn7::::res://Scene/BingoBall.tscn<>res://Script/BingoCage/BallListManager.cs<>res://Script/BingoCage/BallTimer.cs<>res://Script/BingoCage/BallVisualDisplayer.cs
+Main.tscn::PackedScene::3655823268143926314::1788253489::0::1::::<><>::uid://cpwgddrpwn4e5::::res://Scene/Bingo Ticket/BasicTicket.tscn<>uid://swwbqygwe8tc::::res://Assets/Place Holder/boullierplaceholder.png
+PrinterScreen.tscn::PackedScene::203142797874462035::1789314509::0::1::::<><>::res://Script/Shop/AutoTicketPrinting.cs<>uid://425p74yxdxup::::res://Scene/PrinterTicketVisual.tscn<>res://Script/Shop/SelectorManager.cs<>uid://bg2mexdji86ly::::res://Ressource/PlayerStatuRes.tres<>uid://dg00utji4h4v7::::res://Ressource/Ticket/3x3TicketData.tres<>res://Script/Shop/PrinterManager.cs<>uid://kvixhhphwhml::::res://Ressource/Ticket/4x4TicketData.tres<>uid://ewywxwlpq30o::::res://Ressource/Ticket/5x5TicketData.tres<>uid://dj21ak056lqeq::::res://Ressource/Ticket/6x6TicketData.tres<>uid://4j3gd1o7py7b::::res://Ressource/Ticket/7x7TicketData.tres
+PrinterTicketVisual.tscn::PackedScene::2093064688221984219::1789301225::0::1::::<><>::uid://4idy64ir4iem::::res://Assets/None.png<>res://Script/Shop/PrinterTicketVisual.cs
+Shop.tscn::PackedScene::4683781132219065551::1789314509::0::1::::<><>::res://Script/Shop/Shop.cs<>uid://c0c2qhxpgcada::::res://Assets/Shop/tablette_vide.png<>uid://d3y5nso6ynk13::::res://Assets/Shop/tablette_bords.png<>uid://cnyc3jsb72itr::::res://Ressource/Ticket/10x10TicketData.tres<>uid://dj21ak056lqeq::::res://Ressource/Ticket/6x6TicketData.tres<>uid://kvixhhphwhml::::res://Ressource/Ticket/4x4TicketData.tres<>uid://bsi4w7kn3cipt::::res://Assets/Shop/tablette_boouton_scroll.png<>uid://ewywxwlpq30o::::res://Ressource/Ticket/5x5TicketData.tres<>uid://dto0jyxx34dfa::::res://Assets/Shop/tablette_boouton_scroll_hilight.png<>uid://ce0j5e5ejp2pp::::res://Assets/Shop/tablette_boouton_scroll_pressed.png<>uid://3qbm0rlceln4::::res://Assets/Shop/scroll_bar_bg.png<>uid://4j3gd1o7py7b::::res://Ressource/Ticket/7x7TicketData.tres<>uid://cua0iwfghddpc::::res://Assets/Shop/tablette_bouton_rose.png<>uid://dc3r2ds5yglh4::::res://Ressource/Ticket/8x8TicketData.tres<>uid://dxx6w24ue3ov::::res://font/determination.ttf<>uid://do2h1vkwoym6y::::res://Scene/UpgradeItem.tscn<>uid://dwa5sa73y24ej::::res://Ressource/Ticket/9x9TicketData.tres<>uid://bnvq18hbqdc3g::::res://Scene/TicketShoptItem.tscn<>uid://4ykbq62ty0lv::::res://Assets/Shop/tablette_bords_magasin.png
+TicketFullScreen.tscn::PackedScene::2384293257643607526::1789314509::0::1::::<><>::res://Script/Ticket/TicketFullScreen.cs<>uid://dcj6c1yqk4j6x::::res://Assets/Ticket/ticket_6x6.png<>uid://fv43vt20au3m::::res://Assets/Place Holder/Bingo.png<>res://Script/Ticket/BingoManager.cs<>uid://bg2mexdji86ly::::res://Ressource/PlayerStatuRes.tres
+TicketPrinter.tscn::PackedScene::8489795916668360142::1789314509::0::1::::<><>::res://Script/Shop/TicketPrinter.cs<>uid://dtgnkdu1306ll::::res://Assets/TicketPrinter.png<>uid://c5ny5opfx88f::::res://Scene/PrinterScreen.tscn
+TicketShopButton.tscn::PackedScene::8965241423637167402::1789058266::0::1::::<><>::uid://b7gic1ar1gq8v::::res://Assets/TicketTable/3x3 Ticket Table.png<>res://Script/Ticket/TicketShoptButton.cs<>uid://bg2mexdji86ly::::res://Ressource/PlayerStatuRes.tres<>res://Script/VisualAnimation/TicketShoptJuice.cs
+TicketShoptItem.tscn::PackedScene::3343247230499691710::1789218111::0::1::::<><>::res://Script/Shop/TicketShopItem.cs<>uid://b7gic1ar1gq8v::::res://Assets/TicketTable/3x3 Ticket Table.png<>uid://dg00utji4h4v7::::res://Ressource/Ticket/3x3TicketData.tres<>uid://4847utxffyny::::res://Assets/Shop/tablette_bouton_orange.png<>res://Script/Ticket/TicketShoptButton.cs<>uid://bg2mexdji86ly::::res://Ressource/PlayerStatuRes.tres<>res://Script/VisualAnimation/TicketShoptJuice.cs<>uid://dxx6w24ue3ov::::res://font/determination.ttf
+TicketSpot.tscn::PackedScene::657906119288233677::1789314509::0::1::::<><>::res://Script/Ticket/TicketSpot.cs<>uid://bwrgd2ba58y0g::::res://Assets/Place Holder/Lock.png<>uid://rvx54gnsq0u2::::res://Assets/Place Holder/unlock.png<>res://Script/TicketSpot/SpotInteractionManager.cs<>res://Script/TicketSpot/VisualManager.cs<>uid://da6qjsuop0kua::::res://Assets/Place Holder/engrenange.png<>uid://bqg28pyo4ueeh::::res://Assets/Place Holder/AutoStamper.png<>res://Script/AutoStamper.cs<>res://Script/TicketSpot/TicketSpotUpgradeManager.cs<>res://Script/AutoFiller.cs<>res://Script/TicketSpot/AutoFillerVisualMover.cs<>uid://bql0lpdm1r4i::::res://Assets/Place Holder/vector-high-quality-pixel-art-260nw-1688423425.png<>res://Script/TicketSpot/AutoBingo.cs
+TicketSpotUpgradeScreen.tscn::PackedScene::5672808613190059181::1789058266::0::1::::<><>::uid://b2ali4wo6lox4::::res://Assets/Place Holder/TablettePlaceHolder.png
+UpgradeButton.tscn::PackedScene::8186984381180623732::1789314509::0::1::::<><>::uid://s21l043gxyop::::res://Assets/Shop/tablette_bouton_orange_sasnbords.png<>res://Script/TicketSpot/TicketSpotUpgradeButton.cs<>uid://dxx6w24ue3ov::::res://font/determination.ttf
+UpgradeItem.tscn::PackedScene::8198116630419906502::1789314509::0::1::::<><>::res://Script/Shop/ShopUpgradeItem.cs<>uid://rvx54gnsq0u2::::res://Assets/Place Holder/unlock.png<>uid://dxx6w24ue3ov::::res://font/determination.ttf<>uid://dov3o30dior6c::::res://Scene/UpgradeButton.tscn
+::res://Scene/Bingo Ticket/::1789314509
+BasicTicket.tscn::PackedScene::5871460176427517314::1789314509::0::1::::<><>::res://Script/Ticket/BasicTicket.cs<>uid://b7gic1ar1gq8v::::res://Assets/TicketTable/3x3 Ticket Table.png
+BingoCell.tscn::PackedScene::155279154840401014::1788863096::0::1::::<><>::res://Script/Cell/BingoCell.cs<>uid://ci4xeyxp2cexg::::res://Assets/Place Holder/Tampon.png<>uid://csstirmsxk1eu::::res://font/Pixeled.ttf<>res://Script/Cell/CellStamped.cs
+GameScreen.tscn::PackedScene::7634805204828243017::1789314509::0::1::::<><>::res://Script/GameManager.cs<>uid://c1t6u6nyuctcf::::res://Assets/Table.png<>res://Script/MoneyLabel.cs<>uid://b7y4gqywg84qt::::res://Scene/Shop.tscn<>uid://bg2mexdji86ly::::res://Ressource/PlayerStatuRes.tres<>res://Script/Ticket/TicketSpawner.cs<>uid://bh5dliaim31oj::::res://Assets/Tablette_table.png<>res://Script/Ticket/TicketQueu.cs<>res://Script/BallPriceLabel.cs<>uid://jmxvaav3a21n::::res://Scene/TicketSpot.tscn<>res://Script/Ticket/TicketMoover.cs<>uid://2fgbsm3m67jt::::res://Scene/BingoCage.tscn<>uid://8777xu40ys6q::::res://Scene/TicketFullScreen.tscn<>res://Script/GameScreenManager.cs<>res://Script/AugmentCountdwon.cs<>res://Script/MoneyController.cs<>uid://cm27lgnbn0v0p::::res://Scene/TicketSpotUpgradeScreen.tscn<>uid://ds7rx0k30ifoo::::res://Scene/TicketPrinter.tscn
+::res://Script/::1789312934
+AugmentCountdwon.cs::CSharpScript::-1::1788019281::0::1::::<>Node<>::
+AutoFiller.cs::CSharpScript::-1::1789204040::0::1::::<>Node<>::
+AutoStamper.cs::CSharpScript::-1::1789204040::0::1::::<>Node<>::
+BallPriceLabel.cs::CSharpScript::-1::1787585312::0::1::::<>Label<>::
+GameManager.cs::CSharpScript::-1::1787504179::0::1::::<>Node<>::
+GameScreenManager.cs::CSharpScript::-1::1789310314::0::1::::<>Node<>::
+IUpgradeGroup.cs::CSharpScript::-1::1789135051::0::1::::<><>::
+MoneyController.cs::CSharpScript::-1::1789155632::0::1::::<>Node<>::
+MoneyLabel.cs::CSharpScript::-1::1787498956::0::1::::<>Label<>::
+PlayerStatus.cs::CSharpScript::-1::1787762943::0::1::::<>Resource<>::
+PrinterUpgrade.cs::CSharpScript::-1::1789312934::0::1::::<><>::
+::res://Script/BingoBalls/::1789310279
+BingoBall.cs::CSharpScript::-1::1788862538::0::1::::<>Control<>::
+BingoCageUpgrade.cs::CSharpScript::-1::1789310279::0::1::::<><>::
+::res://Script/BingoCage/::1788862343
+BallListManager.cs::CSharpScript::-1::1788861247::0::1::::<>Node<>::
+BallSpawner.cs::CSharpScript::-1::1788862343::0::1::::<>Node2D<>::
+BallTimer.cs::CSharpScript::-1::1788019781::0::1::::<>Node2D<>::
+BallVisualDisplayer.cs::CSharpScript::-1::1788862336::0::1::::<>HBoxContainer<>::
+BingoCage.cs::CSharpScript::-1::1788104699::0::1::::<>Node<>::
+::res://Script/Cell/::1788270202
+BingoCell.cs::CSharpScript::-1::1788270202::0::1::::<>Control<>::
+CellStamped.cs::CSharpScript::-1::1787498956::0::1::::<>Node<>::
+::res://Script/Shop/::1789314455
+AutoTicketPrinting.cs::CSharpScript::-1::1789314455::0::1::::<>Node<>::
+PrinterManager.cs::CSharpScript::-1::1789207794::0::1::::<>Node<>::
+PrinterTicketVisual.cs::CSharpScript::-1::1789214624::0::1::::<>TextureRect<>::
+SelectorManager.cs::CSharpScript::-1::1789214651::0::1::::<>Control<>::
+Shop.cs::CSharpScript::-1::1789306536::0::1::::<>Control<>::
+ShopUpgradeItem.cs::CSharpScript::-1::1789306803::0::1::::<>Control<>::
+TicketPrinter.cs::CSharpScript::-1::1789311093::0::1::::<>Control<>::
+TicketShopItem.cs::CSharpScript::-1::1789058266::0::1::::<>Node<>::
+::res://Script/Ticket/::1789304134
+BasicTicket.cs::CSharpScript::-1::1787498956::0::1::::<>Node2D<>::
+BingoManager.cs::CSharpScript::-1::1789240382::0::1::::<>Node<>::
+Ticket.cs::CSharpScript::-1::1789302561::0::1::::<>Node2D<>::
+TicketEventBus.cs::CSharpScript::-1::1789207682::0::1::::<>Node<>::
+TicketFullScreen.cs::CSharpScript::-1::1788269421::0::1::::<>Control<>::
+TicketMoover.cs::CSharpScript::-1::1789155668::0::1::::<>Node2D<>::
+TicketNumbersManager.cs::CSharpScript::-1::1788097481::0::1::::<><>::
+TicketQueu.cs::CSharpScript::-1::1788702634::0::1::::<>Node<>::
+TicketShoptButton.cs::CSharpScript::-1::1789155587::0::1::::<>TextureButton<>::
+TicketSpawner.cs::CSharpScript::-1::1789155656::0::1::::<>Node<>::
+TicketSpot.cs::CSharpScript::-1::1789304134::0::1::::<>Node2D<>::
+TicketVisualManager.cs::CSharpScript::-1::1787498956::0::1::::<>Node<>::
+::res://Script/Ticket/Res/::1789213237
+TicketData.cs::CSharpScript::-1::1789213237::0::1::::TicketData<>Resource<>::
+::res://Script/TicketSpot/::1789314420
+AutoBingo.cs::CSharpScript::-1::1789204040::0::1::::<>Node<>::
+AutoFillerVisualMover.cs::CSharpScript::-1::1788357258::0::1::::<>Node<>::
+SpotInteractionManager.cs::CSharpScript::-1::1788023450::0::1::::<>Node<>::
+TicketSpotUpgradeButton.cs::CSharpScript::-1::1789309780::0::1::::<>TextureButton<>::
+TicketSpotUpgradeManager.cs::CSharpScript::-1::1788100199::0::1::::<>Node<>::
+TicketSpotUpgrades.cs::CSharpScript::-1::1789136062::0::1::::<><>::
+TicketSpotUpgradeScreen.cs::CSharpScript::-1::1789127978::0::1::::<>Control<>::
+Upgrade.cs::CSharpScript::-1::1789314420::0::1::::<>Node<>::
+UpgradeableStat.cs::CSharpScript::-1::1788184470::0::1::::<><>::
+UpgradeRequestManager.cs::CSharpScript::-1::1789129216::0::1::::<><>::
+VisualManager.cs::CSharpScript::-1::1787676180::0::1::::<>Node<>::
+::res://Script/VisualAnimation/::1789058266
+TicketShoptJuice.cs::CSharpScript::-1::1789058266::0::1::::<>Node<>::

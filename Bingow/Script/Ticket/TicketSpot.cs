@@ -26,7 +26,7 @@ public partial class TicketSpot : Node2D
     #region Events
     public Action<int, Action> OnPurchaseRequested;
     public event Action<bool> OnVisualUpdate;
-    public event Action<TicketSpotUpgrades> OnUpgradeShopClicked;
+    public event Action<int> OnUpgradeShopClicked;
     #endregion
 
     #region Godot Lifecycle Methods
@@ -96,6 +96,7 @@ public partial class TicketSpot : Node2D
     #endregion
 
     #region Private Methods & Signal Handlers
+
     // When upgrades is bought
     private void UpdateUpgradesStatus()
     {
@@ -107,7 +108,7 @@ public partial class TicketSpot : Node2D
 
     private void _on_upgrade_shop_button_pressed()
     {
-        OnUpgradeShopClicked?.Invoke(ticketSpotUpgrades);
+        OnUpgradeShopClicked?.Invoke(spotId);
     }
     #endregion
 }

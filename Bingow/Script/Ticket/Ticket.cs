@@ -61,7 +61,7 @@ public abstract partial class Ticket : Node2D
         ticketNumbersManager = new TicketNumbersManager();
 
 
-        Scale = new Vector2(TICKET_BASIC_SCALE, TICKET_BASIC_SCALE);
+        //Scale = new Vector2(TICKET_BASIC_SCALE, TICKET_BASIC_SCALE);
         SetupTicket();
         
     }
@@ -90,6 +90,7 @@ public abstract partial class Ticket : Node2D
     public void UpdateStampedNumber(int pCellNumbers, bool pIsNumbersAllowed, bool pIsNumberAutostamped)
     {
         ticketNumbersManager.UpdateStampedNumbersList(pCellNumbers, pIsNumbersAllowed, pIsNumberAutostamped);
+        CheckForCompletedLines(IsNumberStamped);
     }
 
     // Check if a line is stamped , and check if the line stamped numbers is allowed or not ( func meth can do both )

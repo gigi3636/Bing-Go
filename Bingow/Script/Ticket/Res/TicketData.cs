@@ -9,6 +9,7 @@ public partial class TicketData : Resource
     [Export] public int Value { get; private set; } = 5;
     [Export] public int Column { get; private set; } = 5;
     [Export] public int Row { get; private set; } = 5;
+    [Export] public float TimeToPrint { get; private set; } = 5f;
     [Export] public int SizeLevel { get; private set; } = 1; // Level requiered for the spot to be allowed to set this ticket 
     [Export] public string TicketName { get; private set; } = "Ticket 3x3"; // Level requiered for the spot to be allowed to set this ticket 
     [Export] public Vector2 GridDisplayPosition { get; private set; } // Starting point (X, Y)

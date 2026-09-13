@@ -20,12 +20,12 @@ public partial class BingoManager : Node
         base._ExitTree();
     }
 
-    public void UpdateBingoButton( Ticket pTicketRef )
+    public void UpdateBingoButton(Ticket pTicketRef)
     {
         currentTicketRef = pTicketRef;
-        bingoButtonRef.Visible = pTicketRef.CheckForCompletedLines(pTicketRef.IsNumberStamped);
-
+        bingoButtonRef.Visible = pTicketRef.isCompleted;
     }
+
 
     private void _on_bingo_text_pressed()
     {
@@ -36,7 +36,6 @@ public partial class BingoManager : Node
     {
         GD.Print("BIIIIINGOOOOO");
 
-        GD.Print(pTicket.CheckForCompletedLines(pTicket.IsNumberValidAndStamped));
 
         playerStatusRef.AddMoney(pTicket.Value);
         pTicket.DeleteTicket();

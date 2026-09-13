@@ -3,31 +3,40 @@ using System;
 
 public partial class TicketSpotUpgradeButton : TextureButton
 {
-    [Export] public SpotUpgrades buttonUpgrade { get; private set; }
-    [Export] private Label buttonLabel;
+    public ShopUpgrades buttonUpgrade { get; private set; }
+    [Export] private Label buttonLabel; // price
+    [Export] private Label nameLabel;   // name and level
 
-    public event Action<SpotUpgrades> OnUpragdeButtonPressed;
+    public event Action<ShopUpgrades> OnUpragdeButtonPressed;
 
-    public override void _Ready()
-    {
-        base._Ready();
-        Pressed += OnButtonPressed;
-
-    }
-
-    public void UpdatePrice(string pPrice)
-    {
-        buttonLabel.Text = pPrice;
-    }
-
-    public enum SpotUpgrades
+    public enum ShopUpgrades
     {
         NONE = 0,
         AutoClicker,
         AutoFiller,
         AutoBingo,
-        SizeUpgrade
+        SizeUpgrade,
 
+        UnlockPrinter,
+        PintingSpeed,
+        PrinterSize
+    }
+
+    public override void _Ready()
+    {
+        base._Ready();
+        Pressed += OnButtonPressed;
+    }
+
+    public void Initialize(ShopUpgrades pUpgradeType)
+    {
+        buttonUpgrade = pUpgradeType;
+    }
+
+    public void UpdateVisuals(string pNameAndLevel, string pPrice)
+    {
+        nameLabel.Text = pNameAndLevel;
+        buttonLabel.Text = pPrice;
     }
 
     public void OnButtonPressed()
@@ -40,11 +49,5 @@ public partial class TicketSpotUpgradeButton : TextureButton
     {
         base._ExitTree();
         Pressed -= OnButtonPressed;
-
     }
-
-
-
-
-
 }

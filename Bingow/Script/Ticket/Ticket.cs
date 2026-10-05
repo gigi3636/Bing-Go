@@ -34,6 +34,7 @@ public abstract partial class Ticket : Node2D
     protected int higherNumber;
 
     protected List<int> ticketNumbers;
+    public List<int> winningLineNumbers { get; private set; } = new List<int>();
 
     protected TicketNumbersManager ticketNumbersManager;
 
@@ -45,8 +46,8 @@ public abstract partial class Ticket : Node2D
         column = pData.Column;
         row = pData.Row;
         value = pData.Value;
-        // higherNumber = pPlayerStatusRef.CurrentBingoBallsAmount;   normalement scale avec le joueur A PA OUBLIER ########################################################################
-        higherNumber = column * row;
+        higherNumber = pPlayerStatusRef.CurrentBingoBallsAmount - 1;   //normalement scale avec le joueur A PA OUBLIER ########################################################################
+        //higherNumber = column * row;
         cellScene = pData.CellScene;
         sizeLevel = pData.SizeLevel;
         ticketTableVisual.Texture = pData.TicketTableVisual;
@@ -87,26 +88,31 @@ public abstract partial class Ticket : Node2D
         return new Vector2I(x, y);
     }
 
-    public void UpdateStampedNumber(int pCellNumbers, bool pIsNumbersAllowed, bool pIsNumberAutostamped)
+    // Update the ticket by the GameScreenManager
+    public void UpdateStampedNumber(int pCellNumbers, bool pIsNumbersAllowed, IBallEffect pBallEffect, bool pIsNumberAutostamped)
     {
-        ticketNumbersManager.UpdateStampedNumbersList(pCellNumbers, pIsNumbersAllowed, pIsNumberAutostamped);
+        // TicketNumberManager save the changes of this ticket
+        ticketNumbersManager.UpdateStampedNumbersList(pCellNumbers, pIsNumbersAllowed, pBallEffect, pIsNumberAutostamped, this);
+
+        //Look if there is a bingo now
         CheckForCompletedLines(IsNumberStamped);
     }
 
     // Check if a line is stamped , and check if the line stamped numbers is allowed or not ( func meth can do both )
     public bool CheckForCompletedLines(Func<int, bool> pValidationCondition)
     {
-        // Horizontal Line Check
+        // Check Horizontal 
         for (int y = 0; y < row; y++)
         {
             bool isLineComplete = true;
+            List<int> currentLine = new List<int>(); // save the line analyzed
 
             for (int x = 0; x < column; x++)
             {
                 int index = (y * column) + x;
                 int numberToCheck = ticketNumbers[index];
+                currentLine.Add(numberToCheck); // Add this number in order to the line 
 
-                
                 if (!pValidationCondition(numberToCheck))
                 {
                     isLineComplete = false;
@@ -115,6 +121,7 @@ public abstract partial class Ticket : Node2D
             }
             if (isLineComplete)
             {
+                winningLineNumbers = currentLine; // Save the bingo line
                 if (!isCompleted)
                 {
                     isCompleted = true;
@@ -124,15 +131,17 @@ public abstract partial class Ticket : Node2D
             }
         }
 
-        // Vertical Line Check
+        // Check Vertical 
         for (int x = 0; x < column; x++)
         {
             bool isColumnComplete = true;
+            List<int> currentLine = new List<int>(); // Save the column analyzed
 
             for (int y = 0; y < row; y++)
             {
                 int index = (y * column) + x;
                 int numberToCheck = ticketNumbers[index];
+                currentLine.Add(numberToCheck); // Add this number in order to the column
 
                 if (!pValidationCondition(numberToCheck))
                 {
@@ -142,6 +151,7 @@ public abstract partial class Ticket : Node2D
             }
             if (isColumnComplete)
             {
+                winningLineNumbers = currentLine; // Save the bingo column
                 if (!isCompleted)
                 {
                     isCompleted = true;
@@ -151,6 +161,7 @@ public abstract partial class Ticket : Node2D
             }
         }
 
+        isCompleted = false;
         return false;
     }
 
@@ -166,6 +177,17 @@ public abstract partial class Ticket : Node2D
         return ticketNumbersManager.IsNumberValidAndStamped(pCellNumbers);
     }
 
+    // Return all the valid effect
+    public List<IBallEffect> GetTicketValidEffects()
+    {
+        return ticketNumbersManager.GetAllValidEffects();
+    }
+
+    // return the ball effect of this number
+    public IBallEffect GetEffectOfNumber(int number)
+    {
+        return ticketNumbersManager.GetNumberEffect(number);
+    }
 
     public void DeleteTicket()
     {

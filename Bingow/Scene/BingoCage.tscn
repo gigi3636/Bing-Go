@@ -1,15 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://2fgbsm3m67jt"]
+[gd_scene load_steps=11 format=3 uid="uid://2fgbsm3m67jt"]
 
 [ext_resource type="Script" path="res://Script/BingoCage/BingoCage.cs" id="1_cyemu"]
-[ext_resource type="Texture2D" uid="uid://dyw0d8wglp5jm" path="res://Assets/Place Holder/Boullier.png" id="1_lik3v"]
 [ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="2_45ecp"]
+[ext_resource type="Texture2D" uid="uid://ctbsahnfk0al7" path="res://Assets/BingoCage/Boulier_Pose1.png" id="3_1up31"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallSpawner.cs" id="3_430wu"]
 [ext_resource type="PackedScene" uid="uid://cqewmqjd2kqn7" path="res://Scene/BingoBall.tscn" id="4_ka7cr"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallListManager.cs" id="5_kmfjr"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallTimer.cs" id="6_srxsa"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallVisualDisplayer.cs" id="7_yldhf"]
+[ext_resource type="Script" path="res://Script/BingoCage/AutoBall.cs" id="9_ay3r7"]
+[ext_resource type="Script" path="res://Script/BingoCage/CrankManager.cs" id="10_f6sd6"]
 
-[node name="BingoCage" type="Control" node_paths=PackedStringArray("ballSpawnerRef", "ballListManagerRef", "ballTimerRef", "ballVisualDisplayerRef")]
+[node name="BingoCage" type="Control" node_paths=PackedStringArray("ballSpawnerRef", "ballListManagerRef", "autoBallRef", "ballVisualDisplayerRef", "crankManagerRef")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -21,13 +23,21 @@ grow_vertical = 2
 script = ExtResource("1_cyemu")
 ballSpawnerRef = NodePath("BallSpawner")
 ballListManagerRef = NodePath("BallListManager")
-ballTimerRef = NodePath("BallTimer")
+autoBallRef = NodePath("AutoBall")
 ballVisualDisplayerRef = NodePath("GridContainer")
 playerStatusRef = ExtResource("2_45ecp")
+crankManagerRef = NodePath("CrankManager")
 
-[node name="Visual" type="Sprite2D" parent="."]
-scale = Vector2(0.376986, 0.376986)
-texture = ExtResource("1_lik3v")
+[node name="Visual" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -43.0
+offset_top = -187.0
+offset_right = 287.0
+offset_bottom = 143.0
+texture = ExtResource("3_1up31")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="BallSpawner" type="Node2D" parent="." node_paths=PackedStringArray("ballContainerRef")]
 script = ExtResource("3_430wu")
@@ -67,4 +77,10 @@ offset_left = 211.0
 offset_right = 336.0
 offset_bottom = 40.0
 
-[connection signal="pressed" from="CrankButton" to="." method="_on_crank_button_pressed"]
+[node name="AutoBall" type="Node2D" parent="."]
+script = ExtResource("9_ay3r7")
+
+[node name="CrankManager" type="Node2D" parent="."]
+script = ExtResource("10_f6sd6")
+
+[connection signal="pressed" from="CrankButton" to="CrankManager" method="_on_crank_button_pressed"]

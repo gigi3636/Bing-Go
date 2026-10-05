@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Collections.Generic;
 
 public partial class TicketFullScreen : Control
 {
@@ -23,7 +22,7 @@ public partial class TicketFullScreen : Control
 
     public void ShowTicket(Ticket pTicket)
     {
-        Visible = true;
+        Visible = true; 
         currentTicketToShowRef = pTicket;
         UpdateVisual();
 
@@ -41,19 +40,30 @@ public partial class TicketFullScreen : Control
 
     private void UpdateGrid()
     {
-        ClearGrid();
-
         var lTicketNumbers = currentTicketToShowRef.GetTicketNumbers();
 
         gridContainerRef.Columns = currentTicketToShowRef.Column;
-
         gridContainerRef.Position = currentTicketToShowRef.gridDisplayPosition;
         gridContainerRef.Size = currentTicketToShowRef.gridDisplaySize;
+
+        if (gridContainerRef.GetChildCount() == lTicketNumbers.Count)
+        {
+            for (int i = 0; i < lTicketNumbers.Count; i++)
+            {
+                int lCellNumber = lTicketNumbers[i];
+                if (gridContainerRef.GetChild(i) is BingoCell lCell)
+                {
+                    lCell.UpdateCellState(currentTicketToShowRef.IsNumberStamped(lCellNumber));
+                }
+            }
+            return;
+        }
+
+        ClearGrid();
 
         for (int i = 0; i < lTicketNumbers.Count; i++)
         {
             int lCellNumber = lTicketNumbers[i];
-
             int lTicketPosX = i % currentTicketToShowRef.Column;
             int lTicketPosY = i / currentTicketToShowRef.Column;
 
@@ -61,21 +71,20 @@ public partial class TicketFullScreen : Control
             gridContainerRef.AddChild(lCell);
 
             lCell.Initialize(lCellNumber, new Vector2I(lTicketPosX, lTicketPosY), currentTicketToShowRef.IsNumberStamped(lCellNumber), currentTicketToShowRef.cellScale);
-
             lCell.OnCellStamped += NumbersStamped;
         }
-
     }
+
 
     private void _on_button_button_down()
     {
         CloseTicket();
     }
 
-    // Emited when a ticket case is clicked
+    // Emited when a ticket case is clicked by the player
     private void NumbersStamped(int pCellNumbers)
     {
-
+        // GameScreenManager listen wich number of this ticket is stamped
         OnTicketStamped?.Invoke(pCellNumbers, currentTicketToShowRef);
         UpdateVisual();
 

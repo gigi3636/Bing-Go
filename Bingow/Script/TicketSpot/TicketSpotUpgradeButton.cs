@@ -19,7 +19,13 @@ public partial class TicketSpotUpgradeButton : TextureButton
 
         UnlockPrinter,
         PintingSpeed,
-        PrinterSize
+        PrinterSize,
+
+        ManualCd,
+        CageCapacity,
+        BallPerS
+
+
     }
 
     public override void _Ready()

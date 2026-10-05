@@ -16,14 +16,29 @@ public partial class MoneyController : Node
 	{
 		bingoCageRef.OnNewBall += OnBallBuyed;
 		augmentCountdwonRef.OnAugment += IncreaseBallsCost;
+        augmentCountdwonRef.OnPayoutAction += PayBills;
 
     }
 
+    public override void _ExitTree()
+    {
+        bingoCageRef.OnNewBall -= OnBallBuyed;
+        augmentCountdwonRef.OnAugment -= IncreaseBallsCost;
+        augmentCountdwonRef.OnPayoutAction -= PayBills;
 
-	private void OnBallBuyed(int pBallNumber)
+        base._ExitTree();
+    }
+
+    private void OnBallBuyed(int pBallNumber)
 	{
 		playerStatusRes.BuyBall();
 	}
+
+
+    private void PayBills()
+    {
+        playerStatusRes.DiscountMoney(10);
+    }
 
 	private void IncreaseBallsCost()
 	{
@@ -58,11 +73,4 @@ public partial class MoneyController : Node
 		}
 	}
 
-    public override void _ExitTree()
-    {
-        bingoCageRef.OnNewBall -= OnBallBuyed;
-        augmentCountdwonRef.OnAugment -= IncreaseBallsCost;
-
-        base._ExitTree();
-    }
 }

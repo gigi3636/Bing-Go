@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqewmqjd2kqn7"]
 
-[ext_resource type="Texture2D" uid="uid://bbf75fv7p6dw8" path="res://Assets/Red Ball.png" id="1_wd4an"]
+[ext_resource type="Texture2D" uid="uid://bbf75fv7p6dw8" path="res://Assets/Ball/Red Ball.png" id="2_7x8vd"]
 [ext_resource type="Script" path="res://Script/BingoBalls/BingoBall.cs" id="2_u3pp3"]
 [ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="3_knf4s"]
 
@@ -31,7 +31,7 @@ layout_mode = 0
 offset_right = 85.0
 offset_bottom = 85.0
 pivot_offset = Vector2(42, 42)
-texture = ExtResource("1_wd4an")
+texture = ExtResource("2_7x8vd")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="TextureRect"]

@@ -7,15 +7,15 @@ public abstract partial class Upgrade : Node
     protected float currentReactionTime;
     protected Timer reactionTimeTimer;
 
-    protected List<float> reactionsTimes = new List<float>();
+    protected List<float> upgradesLevelsAmount = new List<float>();
 
     public virtual void UpdateUpgradeStatus(int pCurrentLevel)
     {
         isActive = pCurrentLevel > 0;
 
-        if (isActive && reactionsTimes.Count >= pCurrentLevel)
+        if (isActive && upgradesLevelsAmount.Count >= pCurrentLevel)
         {
-            currentReactionTime = reactionsTimes[pCurrentLevel - 1];
+            currentReactionTime = upgradesLevelsAmount[pCurrentLevel - 1];
 
             if (reactionTimeTimer != null)
             {

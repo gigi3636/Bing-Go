@@ -1,24 +1,33 @@
 res://Scene/Bingo Ticket/GameScreen.tscn
 res://Ressource/Ticket/6x6TicketData.tres
 res://Ressource/Ticket/3x3TicketData.tres
-res://Scene/Shop.tscn
-res://Scene/UpgradeItem.tscn
-res://Scene/UpgradeButton.tscn
-res://Scene/TicketFullScreen.tscn
-res://Scene/TicketSpot.tscn
 res://Scene/TicketPrinter.tscn
+res://Scene/BingoCage.tscn
+res://Scene/Main.tscn
+res://Scene/Shop.tscn
+res://Scene/BlackMarket.tscn
+res://Scene/BallBag.tscn
+res://Scene/TicketShoptItem.tscn
+res://Scene/BingoBall.tscn
+res://Scene/Bingo Ticket/BingoCell.tscn
+res://Scene/TicketFullScreen.tscn
 res://Scene/Bingo Ticket/BasicTicket.tscn
-res://Scene/PrinterScreen.tscn
 res://Script/AugmentCountdwon.cs
 res://Script/AutoFiller.cs
 res://Script/AutoStamper.cs
 res://Script/BallPriceLabel.cs
 res://Script/BingoBalls/BingoBall.cs
+res://Script/BingoCage/AutoBall.cs
 res://Script/BingoCage/BallListManager.cs
 res://Script/BingoCage/BallSpawner.cs
 res://Script/BingoCage/BallTimer.cs
 res://Script/BingoCage/BallVisualDisplayer.cs
 res://Script/BingoCage/BingoCage.cs
+res://Script/BingoCage/CrankManager.cs
+res://Script/BingoLabel.cs
+res://Script/BlackMarket/BallBag.cs
+res://Script/BlackMarket/BlackMarket.cs
+res://Script/BlackMarket/MarketInventory.cs
 res://Script/Cell/BingoCell.cs
 res://Script/Cell/CellStamped.cs
 res://Script/GameManager.cs
@@ -26,6 +35,7 @@ res://Script/GameScreenManager.cs
 res://Script/MoneyController.cs
 res://Script/MoneyLabel.cs
 res://Script/PlayerStatus.cs
+res://Script/ShakeCamera2D.cs
 res://Script/Shop/AutoTicketPrinting.cs
 res://Script/Shop/PrinterManager.cs
 res://Script/Shop/PrinterTicketVisual.cs

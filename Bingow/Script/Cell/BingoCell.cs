@@ -3,7 +3,6 @@ using System;
 
 public partial class BingoCell : Control
 {
-
     [Export] private Label cellAmountLabelRef;
     [Export] private CellStamped cellStampedRef;
 
@@ -17,8 +16,14 @@ public partial class BingoCell : Control
         cellNumbers = pCellAmount;
         cellId = pCellId;
         cellAmountLabelRef.LabelSettings.FontSize = pCellScale;
+        cellStampedRef.Initialize(pCellScale);
 
-        if (pIsCellCheck) cellStampedRef.ShowStamp();
+        cellStampedRef.SetInitialState(pIsCellCheck);
+    }
+
+    public void UpdateCellState(bool pIsCellCheck)
+    {
+        cellStampedRef.UpdateState(pIsCellCheck);
     }
 
     private void _on_cell_button_pressed()

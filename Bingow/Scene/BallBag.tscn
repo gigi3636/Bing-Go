@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b88clqmo7706f"]
+
+[ext_resource type="Texture2D" uid="uid://ciltpmup5digs" path="res://Assets/Place Holder/SacPlaceHolder.png" id="1_4jxkc"]
+[ext_resource type="Script" path="res://Script/BlackMarket/BallBag.cs" id="2_sk5lx"]
+
+[node name="BallBag" type="TextureRect"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 267.0
+offset_bottom = 361.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_4jxkc")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_sk5lx")
+
+[node name="BuyButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 254.0
+offset_bottom = 359.0
+flat = true
+
+[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

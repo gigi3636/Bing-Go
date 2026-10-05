@@ -1,21 +1,20 @@
 [gd_scene load_steps=6 format=3 uid="uid://chhopj7k24nq"]
 
 [ext_resource type="Script" path="res://Script/Cell/BingoCell.cs" id="1_y54de"]
-[ext_resource type="Texture2D" uid="uid://ci4xeyxp2cexg" path="res://Assets/Place Holder/Tampon.png" id="2_cfgac"]
 [ext_resource type="FontFile" uid="uid://csstirmsxk1eu" path="res://font/Pixeled.ttf" id="2_m8w8v"]
 [ext_resource type="Script" path="res://Script/Cell/CellStamped.cs" id="3_2r05n"]
+[ext_resource type="Texture2D" uid="uid://cn6t51lbjnoj7" path="res://Assets/Stamped.png" id="3_i1wkj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ku634"]
+line_spacing = 0.0
 font = ExtResource("2_m8w8v")
-font_size = 20
+font_size = 35
 
 [node name="BingoCell" type="Control" node_paths=PackedStringArray("cellAmountLabelRef", "cellStampedRef")]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 3
 anchor_right = 0.0390625
 anchor_bottom = 0.0648148
-grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_y54de")
@@ -27,8 +26,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1.0
-offset_bottom = 1.52588e-05
+offset_top = -21.0
+offset_bottom = 7.00002
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 100
@@ -46,14 +45,26 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
-[node name="Stamp" type="Sprite2D" parent="."]
-position = Vector2(34, 30)
-scale = Vector2(0.246394, 0.246394)
-texture = ExtResource("2_cfgac")
-
 [node name="CellStamped" type="Node2D" parent="." node_paths=PackedStringArray("stampRef")]
 script = ExtResource("3_2r05n")
 stampRef = NodePath("../Stamp")
+
+[node name="Stamp" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_i1wkj")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="pressed" from="CellButton" to="." method="_on_cell_button_pressed"]
 [connection signal="pressed" from="CellButton" to="CellStamped" method="_on_cell_button_pressed"]

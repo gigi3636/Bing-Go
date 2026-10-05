@@ -12,12 +12,15 @@ public partial class BingoBall : Control
 
     public int BallNumber => ballNumber;
 
-    public void Initialize(int pBallNumber)
+    public void Initialize(int pBallNumber, BallData pBallData)
     {
         ballNumber = pBallNumber;
         ballNumbersLabel.Text = pBallNumber.ToString();
 
+        ballTextureRef.Texture = pBallData.texture;
         ballTextureRef.RotationDegrees = rand.RandfRange(-20, 20);
+
+
 
     }
 

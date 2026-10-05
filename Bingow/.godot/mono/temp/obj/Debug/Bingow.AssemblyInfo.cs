@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bingow")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec16029cf3f83fbe98b73d8b69dba4cfc62b9e41")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a27e3902efd24ff900f92047d93d615705e1161")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bingow")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Bingow")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -17,7 +17,7 @@ autoTicketPrintingRef = NodePath("PrinterScreen")
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_right = 255.0
+offset_right = 240.0
 offset_bottom = 264.0
 texture = ExtResource("2_0imnp")
 stretch_mode = 5

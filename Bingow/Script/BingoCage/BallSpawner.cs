@@ -8,12 +8,12 @@ public partial class BallSpawner : Node2D
     [Export] private Node2D ballContainerRef;
 
 
-
-    public BingoBall SpawnBall(int  pBallNumbers)
+    
+    public BingoBall SpawnBall(int  pBallNumbers, BallData pBallData)
     {
         BingoBall lBall = (BingoBall)ballScene.Instantiate();
 
-        lBall.Initialize(pBallNumbers);
+        lBall.Initialize(pBallNumbers, pBallData);
 
         return lBall;
     }

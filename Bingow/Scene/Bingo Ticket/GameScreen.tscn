@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dg1mej7x3bi1n"]
+[gd_scene load_steps=31 format=3 uid="uid://dg1mej7x3bi1n"]
 
 [ext_resource type="Script" path="res://Script/GameManager.cs" id="1_1kws5"]
 [ext_resource type="Texture2D" uid="uid://c1t6u6nyuctcf" path="res://Assets/Table.png" id="1_4w0mt"]
@@ -8,16 +8,24 @@
 [ext_resource type="Script" path="res://Script/Ticket/TicketSpawner.cs" id="4_yqjur"]
 [ext_resource type="Texture2D" uid="uid://bh5dliaim31oj" path="res://Assets/Tablette_table.png" id="5_o28ol"]
 [ext_resource type="Script" path="res://Script/Ticket/TicketQueu.cs" id="8_ubm5h"]
+[ext_resource type="Texture2D" uid="uid://bbf75fv7p6dw8" path="res://Assets/Ball/Red Ball.png" id="9_y6ok2"]
 [ext_resource type="Script" path="res://Script/BallPriceLabel.cs" id="10_ft83v"]
+[ext_resource type="Texture2D" uid="uid://ckf57r2gnrn0p" path="res://Assets/Ball/BlueBall.png" id="10_q5nt1"]
 [ext_resource type="PackedScene" uid="uid://jmxvaav3a21n" path="res://Scene/TicketSpot.tscn" id="11_q0jeb"]
+[ext_resource type="Texture2D" uid="uid://gga2nv6c0s6a" path="res://Assets/Ball/PurpleBall.png" id="11_t7qym"]
+[ext_resource type="Texture2D" uid="uid://bu81t6o4b1aty" path="res://Assets/Ball/WhiteBall.png" id="12_ajjmt"]
 [ext_resource type="Script" path="res://Script/Ticket/TicketMoover.cs" id="12_xvrvk"]
 [ext_resource type="PackedScene" uid="uid://2fgbsm3m67jt" path="res://Scene/BingoCage.tscn" id="13_1sex8"]
 [ext_resource type="PackedScene" uid="uid://8777xu40ys6q" path="res://Scene/TicketFullScreen.tscn" id="13_26pyo"]
+[ext_resource type="Texture2D" uid="uid://cppnog8mihmhk" path="res://Assets/Ball/GoldBall.png" id="13_ylmmy"]
+[ext_resource type="Texture2D" uid="uid://cxpraa2pmth1q" path="res://Assets/Ball/BlackBall.png" id="14_kereg"]
 [ext_resource type="Script" path="res://Script/GameScreenManager.cs" id="14_m887c"]
 [ext_resource type="Script" path="res://Script/AugmentCountdwon.cs" id="15_5uvl1"]
 [ext_resource type="Script" path="res://Script/MoneyController.cs" id="16_k2e28"]
+[ext_resource type="PackedScene" uid="uid://blwr13g2vv4c6" path="res://Scene/BlackMarket.tscn" id="17_hdnxw"]
 [ext_resource type="PackedScene" uid="uid://cm27lgnbn0v0p" path="res://Scene/TicketSpotUpgradeScreen.tscn" id="18_jdqh3"]
 [ext_resource type="PackedScene" uid="uid://ds7rx0k30ifoo" path="res://Scene/TicketPrinter.tscn" id="18_taiau"]
+[ext_resource type="Texture2D" uid="uid://drlxr3smr332a" path="res://Assets/Place Holder/B.png" id="26_vjpup"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_khfni"]
 font_size = 35
@@ -28,6 +36,12 @@ font_color = Color(0.909804, 0, 0.101961, 1)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_8a2og"]
+font_size = 40
+font_color = Color(1, 0, 0, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_qqddk"]
 font_size = 50
 font_color = Color(0.462745, 0.878431, 0.678431, 1)
@@ -36,33 +50,40 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="GameScreen" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -960.0
-offset_top = -540.0
-offset_right = 960.0
-offset_bottom = 540.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TablePlaceHolder" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(980, 522)
-scale = Vector2(6.9345, 7.62727)
-texture = ExtResource("1_4w0mt")
-
 [node name="GameManager" type="Node2D" parent="."]
-position = Vector2(964, 512)
+position = Vector2(954, 502)
 script = ExtResource("1_1kws5")
 playerStatusRes = ExtResource("3_uc7db")
 
 [node name="UI" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Table" type="TextureRect" parent="UI"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 81.0
+offset_top = 64.0
+offset_right = 1881.0
+offset_bottom = 964.0
+texture = ExtResource("1_4w0mt")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="UI"]
 layout_mode = 1
@@ -78,14 +99,10 @@ playerStatusRes = ExtResource("3_uc7db")
 [node name="ShopButton" type="TextureButton" parent="UI"]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 79.0
-offset_top = -375.0
-offset_right = 312.0
-offset_bottom = -201.0
-grow_vertical = 2
+offset_left = 72.0
+offset_top = 175.0
+offset_right = 324.0
+offset_bottom = 367.0
 rotation = -0.404916
 texture_normal = ExtResource("5_o28ol")
 ignore_texture_size = true
@@ -98,24 +115,20 @@ layout_mode = 1
 
 [node name="TextureButton" type="TextureButton" parent="UI"]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 27.0
-offset_top = -428.0
-offset_right = 266.0
-offset_bottom = -195.0
-grow_vertical = 0
+offset_left = 56.0
+offset_top = 674.0
+offset_right = 295.0
+offset_bottom = 907.0
 rotation = -0.319497
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="CountdownTimer" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 898.0
-offset_top = 74.0
-offset_right = 1067.0
-offset_bottom = 143.0
+layout_mode = 1
+offset_left = 874.0
+offset_top = 12.0
+offset_right = 1043.0
+offset_bottom = 81.0
 text = " 03 : 00
 "
 label_settings = SubResource("LabelSettings_0pp7g")
@@ -126,19 +139,41 @@ vertical_alignment = 1
 visible = false
 layout_mode = 1
 
-[node name="BingoCage" parent="UI" instance=ExtResource("13_1sex8")]
+[node name="payoutTimer" type="Label" parent="UI"]
+unique_name_in_owner = true
 layout_mode = 1
-offset_left = 632.0
-offset_top = -356.0
-offset_right = 632.0
-offset_bottom = -356.0
+offset_left = 882.0
+offset_top = 74.0
+offset_right = 1051.0
+offset_bottom = 143.0
+text = " 03 : 00
+"
+label_settings = SubResource("LabelSettings_8a2og")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BingoCage" parent="UI" instance=ExtResource("13_1sex8")]
+z_index = 1
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1534.0
+offset_top = 257.0
+offset_right = 1534.0
+offset_bottom = 257.0
+grow_horizontal = 1
+grow_vertical = 1
+ballsTextures = [ExtResource("9_y6ok2"), ExtResource("10_q5nt1"), ExtResource("11_t7qym"), ExtResource("12_ajjmt"), ExtResource("13_ylmmy"), ExtResource("14_kereg")]
 
 [node name="BallPrice" type="Label" parent="UI" node_paths=PackedStringArray("moneyControllerRef")]
-layout_mode = 0
-offset_left = 1626.0
-offset_top = 326.0
-offset_right = 1697.0
-offset_bottom = 395.0
+layout_mode = 1
+offset_left = 1624.0
+offset_top = 354.0
+offset_right = 1695.0
+offset_bottom = 423.0
 text = "1 $"
 label_settings = SubResource("LabelSettings_qqddk")
 horizontal_alignment = 1
@@ -150,10 +185,19 @@ moneyControllerRef = NodePath("../../MoneyController")
 visible = false
 z_index = 10
 layout_mode = 1
-offset_left = 2.0
-offset_top = -7.0
-offset_right = 2.0
-offset_bottom = -7.0
+
+[node name="BlackMarket" parent="UI" instance=ExtResource("17_hdnxw")]
+visible = false
+layout_mode = 1
+
+[node name="TicketPrinter" parent="UI" instance=ExtResource("18_taiau")]
+offset_left = 98.0
+offset_top = 360.0
+offset_right = 98.0
+offset_bottom = 360.0
+
+[node name="PrintPos" type="Marker2D" parent="UI/TicketPrinter"]
+position = Vector2(113, 259)
 
 [node name="GameScreenManager" type="Node2D" parent="." node_paths=PackedStringArray("bingoCageRef", "ticketFullScreenRef", "ticketSpotArray", "moneyControllerRef", "ticketQueuRef", "shopRef", "ticketPrinterRef")]
 script = ExtResource("14_m887c")
@@ -163,7 +207,7 @@ ticketSpotArray = [NodePath("../Object/TicketSpotContainer/TicketSpot1"), NodePa
 moneyControllerRef = NodePath("../MoneyController")
 ticketQueuRef = NodePath("../Ticket/TicketQueu")
 shopRef = NodePath("../UI/ShopTicket")
-ticketPrinterRef = NodePath("../TicketPrinter")
+ticketPrinterRef = NodePath("../UI/TicketPrinter")
 
 [node name="Ticket" type="Node2D" parent="."]
 
@@ -180,16 +224,17 @@ position = Vector2(964, 512)
 script = ExtResource("4_yqjur")
 ticketContainerRef = NodePath("../TicketContainer")
 playerStatusRef = ExtResource("3_uc7db")
-printerPos = NodePath("../../TicketPrinter/PrintPos")
+printerPos = NodePath("../../UI/TicketPrinter/PrintPos")
 
 [node name="TicketMoover" type="Node2D" parent="Ticket" node_paths=PackedStringArray("ticketQueuRef")]
 position = Vector2(180, 734)
 script = ExtResource("12_xvrvk")
 ticketQueuRef = NodePath("../TicketQueu")
 
-[node name="AugmentCountdown" type="Node2D" parent="." node_paths=PackedStringArray("countdownLabelRef")]
+[node name="AugmentCountdown" type="Node2D" parent="." node_paths=PackedStringArray("countdownLabelRef", "payoutLabelRef")]
 script = ExtResource("15_5uvl1")
 countdownLabelRef = NodePath("../UI/CountdownTimer")
+payoutLabelRef = NodePath("../UI/payoutTimer")
 
 [node name="MoneyController" type="Node2D" parent="." node_paths=PackedStringArray("bingoCageRef", "augmentCountdwonRef")]
 script = ExtResource("16_k2e28")
@@ -231,14 +276,17 @@ position = Vector2(1239, 708)
 unlockCost = 99999
 spotId = 6
 
-[node name="TicketPrinter" parent="." instance=ExtResource("18_taiau")]
-offset_left = 92.0
-offset_top = 305.0
-offset_right = 92.0
-offset_bottom = 305.0
-
-[node name="PrintPos" type="Marker2D" parent="TicketPrinter"]
-position = Vector2(113, 259)
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 401.0
+offset_top = -432.0
+offset_right = 1919.0
+offset_bottom = 1086.0
+texture = ExtResource("26_vjpup")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="pressed" from="UI/ShopButton" to="UI/ShopTicket" method="_on_shop_button_pressed"]
 [connection signal="button_down" from="UI/TextureButton" to="Ticket/TicketMoover" method="_on_texture_button_button_down"]

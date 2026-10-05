@@ -21,8 +21,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -94.0
 offset_top = -94.5
-offset_right = 94.0
-offset_bottom = 94.5
+offset_right = 86.0
+offset_bottom = 115.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -40,6 +40,6 @@ shape = SubResource("RectangleShape2D_7g5x3")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-1, -1)
-scale = Vector2(5.45119, 5.45119)
+position = Vector2(-4, 10)
+scale = Vector2(6.03333, 6.03333)
 texture = ExtResource("2_x4ryt")

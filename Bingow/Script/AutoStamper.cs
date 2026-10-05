@@ -11,6 +11,7 @@ public partial class AutoStamper : Upgrade
     private Func<int, bool> checkNumberMethod; // CHech if the number stamping is still present in the cage
     private Func<List<int>> getActiveNumbersMethod;
 
+    private Func<int, IBallEffect> getBallEffectMethod; // return the effetc of the number stamped
     public void SetNewTicket(Ticket pNewTicket)
     {
         ticketContainer = pNewTicket;
@@ -18,9 +19,9 @@ public partial class AutoStamper : Upgrade
     }
 
 
-    public void Initialize(Func<int, bool> pCheckMethod, Func<List<int>> pGetListMethod)
+    public void Initialize(Func<int, bool> pCheckMethod, Func<List<int>> pGetListMethod, Func<int, IBallEffect> pGetEffectMethod)
     {
-        reactionsTimes = new List<float> { 1f, 0.8f, 0.5f, 0.3f, 0.1f };
+        upgradesLevelsAmount = new List<float> { 1f, 0.8f, 0.5f, 0.3f, 0.1f };
         reactionTimeTimer = new Timer();
         reactionTimeTimer.OneShot = true;
 
@@ -28,7 +29,7 @@ public partial class AutoStamper : Upgrade
         checkNumberMethod = pCheckMethod;
         getActiveNumbersMethod = pGetListMethod;
         reactionTimeTimer.Timeout += AutoStampNumber;
-
+        getBallEffectMethod = pGetEffectMethod; 
 
         AddChild(reactionTimeTimer);
 
@@ -66,7 +67,12 @@ public partial class AutoStamper : Upgrade
     {
         if (checkNumberMethod(currentNumberStamping))
         {
-            ticketContainer.UpdateStampedNumber(currentNumberStamping, true, true);
+            // get the effect of the number stamped
+            IBallEffect lCurrentEffect = getBallEffectMethod(currentNumberStamping);
+
+            // autoStamp
+            ticketContainer.UpdateStampedNumber(currentNumberStamping, true, lCurrentEffect, true);
+
             TicketEventBus.UpdateAutoStampedTicket();
         }
         isMoving = false;

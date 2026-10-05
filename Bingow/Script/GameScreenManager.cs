@@ -24,7 +24,7 @@ public partial class GameScreenManager : Node
         {
             lTicketSpot.OnPurchaseRequested += moneyControllerRef.TicketSpotPurchase;
             bingoCageRef.OnNewBall += lTicketSpot.AutoStamperRef.VerifyGrid;
-            lTicketSpot.AutoStamperRef.Initialize(bingoCageRef.IsNumbersAllowed, bingoCageRef.GetCurrentBalls);
+            lTicketSpot.AutoStamperRef.Initialize(bingoCageRef.IsNumbersAllowed, bingoCageRef.GetCurrentBalls, bingoCageRef.GetNumberEffect);
             lTicketSpot.AutoFillerRef.Initialize(ticketQueuRef);
 
             shopRef.AddSpotItem(lTicketSpot,
@@ -44,13 +44,23 @@ public partial class GameScreenManager : Node
             ShopUpgrades.PintingSpeed,
             ShopUpgrades.PrinterSize);
 
+        shopRef.AddUniqueItem("Bingo cage",
+            bingoCageRef.bingoCageUpgrade,
+            ShopUpgrades.ManualCd,
+            ShopUpgrades.BallPerS,
+            ShopUpgrades.CageCapacity);
+
     }
 
+    // When a number is stamped by the player
     private void HandleStampedNumbers(int pCellNumbers, Ticket pTicketStamped)
     {
+        // Check if this number is currently displayed in the bingoCage
         bool lIsNumbersAllowed = bingoCageRef.IsNumbersAllowed(pCellNumbers);
+        IBallEffect lBallEffect = bingoCageRef.GetNumberEffect(pCellNumbers);
 
-        pTicketStamped.UpdateStampedNumber(pCellNumbers, lIsNumbersAllowed, false);
+        // Update the ticket information about this stamped number
+        pTicketStamped.UpdateStampedNumber(pCellNumbers, lIsNumbersAllowed, lBallEffect, false);
 
 
     }

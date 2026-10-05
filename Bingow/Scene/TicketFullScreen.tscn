@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://8777xu40ys6q"]
+[gd_scene load_steps=9 format=3 uid="uid://8777xu40ys6q"]
 
 [ext_resource type="Script" path="res://Script/Ticket/TicketFullScreen.cs" id="1_8aqjq"]
-[ext_resource type="Texture2D" uid="uid://dcj6c1yqk4j6x" path="res://Assets/Ticket/ticket_6x6.png" id="2_7ptjl"]
+[ext_resource type="Texture2D" uid="uid://cm2c4ikbkcm7l" path="res://Assets/Ticket/ticket_3x3.png" id="2_jsae1"]
 [ext_resource type="Texture2D" uid="uid://fv43vt20au3m" path="res://Assets/Place Holder/Bingo.png" id="3_xhib6"]
 [ext_resource type="Script" path="res://Script/Ticket/BingoManager.cs" id="4_5g4vc"]
 [ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="5_s6ngj"]
+[ext_resource type="Script" path="res://Script/BingoLabel.cs" id="6_yn0wf"]
+[ext_resource type="FontFile" uid="uid://csstirmsxk1eu" path="res://font/Pixeled.ttf" id="7_pkqf8"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_58ouj"]
 
 [node name="TicketFullScreen" type="Control" node_paths=PackedStringArray("gridContainerRef", "ticketFullVisual")]
 top_level = true
@@ -17,33 +21,42 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_8aqjq")
 gridContainerRef = NodePath("GridContainer")
 ticketFullVisual = NodePath("TicketFullVisual")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.254902)
+layout_mode = 0
+offset_left = -981.0
+offset_top = -557.0
+offset_right = 996.0
+offset_bottom = 570.0
+mouse_filter = 2
+texture = SubResource("CanvasTexture_58ouj")
+
+[node name="closeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -960.0
+offset_top = -537.0
+offset_right = 729.0
+offset_bottom = 536.0
+flat = true
+
+[node name="closeButton2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 721.0
+offset_top = -234.0
+offset_right = 960.0
+offset_bottom = 536.0
+flat = true
 
 [node name="TicketFullVisual" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-14, 22)
 scale = Vector2(3.28568, 3.29821)
-texture = ExtResource("2_7ptjl")
-
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = -173.0
-offset_top = -100.0
-offset_right = 147.0
-offset_bottom = 196.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-columns = 99
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = -112.0
-offset_top = 296.0
-offset_right = 87.0
-offset_bottom = 416.0
-text = "X"
+texture = ExtResource("2_jsae1")
 
 [node name="BingoText" type="TextureButton" parent="."]
 texture_filter = 1
@@ -53,15 +66,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -572.0
-offset_top = -490.0
-offset_right = 574.0
-offset_bottom = -204.0
+offset_left = -831.0
+offset_top = -397.0
+offset_right = 892.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_xhib6")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = -169.0
+offset_top = -100.0
+offset_right = 144.0
+offset_bottom = 213.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 99
 
 [node name="BingoManager" type="Node2D" parent="." node_paths=PackedStringArray("bingoButtonRef", "ticketFullScreenRef")]
 script = ExtResource("4_5g4vc")
@@ -69,5 +92,24 @@ bingoButtonRef = NodePath("../BingoText")
 ticketFullScreenRef = NodePath("..")
 playerStatusRef = ExtResource("5_s6ngj")
 
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -329.0
+offset_top = -490.0
+offset_right = 275.0
+offset_bottom = -225.0
+theme_override_fonts/normal_font = ExtResource("7_pkqf8")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center][wave amp=50.0 freq=5.0 connected=1][font_size=110]BINGO![/font_size][/wave][/center]"
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("6_yn0wf")
+font = ExtResource("7_pkqf8")
+
+[connection signal="button_down" from="closeButton" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="closeButton" to="." method="_on_button_pressed"]
+[connection signal="button_down" from="closeButton2" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="closeButton2" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="BingoText" to="BingoManager" method="_on_bingo_text_pressed"]

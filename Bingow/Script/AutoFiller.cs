@@ -11,7 +11,7 @@ public partial class AutoFiller : Upgrade
 
     public void Initialize(TicketQueu pTicketQueuRef)
     {
-        reactionsTimes = new List<float> { 1f, 0.8f, 0.5f, 0.3f, 0.1f };
+        upgradesLevelsAmount = new List<float> { 1f, 0.8f, 0.5f, 0.3f, 0.1f };
 
         ticketQueuRef = pTicketQueuRef;
     }

@@ -84,12 +84,13 @@ offset_bottom = 1107.0
 texture = SubResource("CanvasTexture_ffgb3")
 
 [node name="Table" type="TextureRect" parent="UI"]
+modulate = Color(0.804743, 0.804743, 0.804743, 1)
 texture_filter = 1
 layout_mode = 0
-offset_left = 51.0
-offset_top = 44.0
-offset_right = 1851.0
-offset_bottom = 1124.0
+offset_left = 50.0
+offset_top = 108.0
+offset_right = 1850.0
+offset_bottom = 1188.0
 texture = ExtResource("3_s8dsd")
 expand_mode = 1
 stretch_mode = 5
@@ -169,10 +170,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 1534.0
-offset_top = 257.0
-offset_right = 1534.0
-offset_bottom = 257.0
+offset_left = 1602.0
+offset_top = 172.0
+offset_right = 1602.0
+offset_bottom = 172.0
 grow_horizontal = 1
 grow_vertical = 1
 ballsTextures = [ExtResource("9_y6ok2"), ExtResource("10_q5nt1"), ExtResource("11_t7qym"), ExtResource("12_ajjmt"), ExtResource("13_ylmmy"), ExtResource("14_kereg")]
@@ -254,7 +255,6 @@ augmentCountdwonRef = NodePath("../AugmentCountdown")
 [node name="Object" type="Node2D" parent="."]
 
 [node name="TicketSpotContainer" type="Node2D" parent="Object"]
-visible = false
 
 [node name="TicketSpot1" parent="Object/TicketSpotContainer" instance=ExtResource("11_q0jeb")]
 position = Vector2(666, 416)

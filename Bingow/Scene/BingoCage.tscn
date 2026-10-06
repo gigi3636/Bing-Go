@@ -1,12 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://2fgbsm3m67jt"]
+[gd_scene load_steps=18 format=3 uid="uid://2fgbsm3m67jt"]
 
 [ext_resource type="Script" path="res://Script/BingoCage/BingoCage.cs" id="1_cyemu"]
 [ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="2_45ecp"]
 [ext_resource type="Texture2D" uid="uid://ctbsahnfk0al7" path="res://Assets/BingoCage/Boulier_Pose1.png" id="3_1up31"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallSpawner.cs" id="3_430wu"]
+[ext_resource type="Texture2D" uid="uid://dd4hxlaxadqtt" path="res://Assets/BingoCage/TubeFond.png" id="3_gquvq"]
 [ext_resource type="Texture2D" uid="uid://ujayoh0awjx3" path="res://Assets/BingoCage/Balls/Boules_Middle_Pose1.png" id="3_gx4ll"]
 [ext_resource type="Texture2D" uid="uid://cw6ut348uidkj" path="res://Assets/BingoCage/Balls/Boules_Middle_Pose2.png" id="4_5sld6"]
 [ext_resource type="PackedScene" uid="uid://cqewmqjd2kqn7" path="res://Scene/BingoBall.tscn" id="4_ka7cr"]
+[ext_resource type="Texture2D" uid="uid://dp4dg76lqeems" path="res://Assets/BingoCage/TubeFront.png" id="4_rqqyb"]
 [ext_resource type="Texture2D" uid="uid://c2lgtk8x2vbro" path="res://Assets/BingoCage/Balls/Boules_Middle_Pose3.png" id="5_8ll12"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallListManager.cs" id="5_kmfjr"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallTimer.cs" id="6_srxsa"]
@@ -52,6 +54,35 @@ ballVisualDisplayerRef = NodePath("GridContainer")
 playerStatusRef = ExtResource("2_45ecp")
 crankManagerRef = NodePath("CrankManager")
 
+[node name="Tube" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-121, -4)
+scale = Vector2(6, 6)
+texture = ExtResource("3_gquvq")
+
+[node name="GridContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -9.0
+offset_right = 44.0
+offset_bottom = 69.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+script = ExtResource("7_yldhf")
+
+[node name="Tube2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-121, -4)
+scale = Vector2(6, 6)
+texture = ExtResource("4_rqqyb")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(122, -34)
@@ -84,23 +115,6 @@ position = Vector2(-189, 52)
 
 [node name="BallTimer" type="Node2D" parent="."]
 script = ExtResource("6_srxsa")
-
-[node name="GridContainer" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(78, 78)
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -324.0
-offset_top = 17.0
-offset_right = -4.0
-offset_bottom = 83.0
-grow_horizontal = 0
-grow_vertical = 2
-alignment = 2
-script = ExtResource("7_yldhf")
 
 [node name="CrankButton" type="Button" parent="."]
 layout_mode = 0

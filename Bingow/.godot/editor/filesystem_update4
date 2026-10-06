@@ -1,16 +1,16 @@
-res://Scene/Bingo Ticket/GameScreen.tscn
+res://Scene/BingoBall.tscn
 res://Ressource/Ticket/6x6TicketData.tres
 res://Ressource/Ticket/3x3TicketData.tres
-res://Scene/TicketPrinter.tscn
-res://Scene/BingoCage.tscn
 res://Scene/Main.tscn
+res://Scene/Bingo Ticket/GameScreen.tscn
 res://Scene/Shop.tscn
+res://Scene/BingoCage.tscn
 res://Scene/BlackMarket.tscn
 res://Scene/BallBag.tscn
 res://Scene/TicketShoptItem.tscn
-res://Scene/BingoBall.tscn
 res://Scene/Bingo Ticket/BingoCell.tscn
 res://Scene/TicketFullScreen.tscn
+res://Scene/TicketPrinter.tscn
 res://Scene/Bingo Ticket/BasicTicket.tscn
 res://Script/AugmentCountdwon.cs
 res://Script/AutoFiller.cs

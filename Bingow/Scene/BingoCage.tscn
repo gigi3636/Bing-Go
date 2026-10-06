@@ -1,15 +1,39 @@
-[gd_scene load_steps=11 format=3 uid="uid://2fgbsm3m67jt"]
+[gd_scene load_steps=16 format=3 uid="uid://2fgbsm3m67jt"]
 
 [ext_resource type="Script" path="res://Script/BingoCage/BingoCage.cs" id="1_cyemu"]
 [ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="2_45ecp"]
 [ext_resource type="Texture2D" uid="uid://ctbsahnfk0al7" path="res://Assets/BingoCage/Boulier_Pose1.png" id="3_1up31"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallSpawner.cs" id="3_430wu"]
+[ext_resource type="Texture2D" uid="uid://ujayoh0awjx3" path="res://Assets/BingoCage/Balls/Boules_Middle_Pose1.png" id="3_gx4ll"]
+[ext_resource type="Texture2D" uid="uid://cw6ut348uidkj" path="res://Assets/BingoCage/Balls/Boules_Middle_Pose2.png" id="4_5sld6"]
 [ext_resource type="PackedScene" uid="uid://cqewmqjd2kqn7" path="res://Scene/BingoBall.tscn" id="4_ka7cr"]
+[ext_resource type="Texture2D" uid="uid://c2lgtk8x2vbro" path="res://Assets/BingoCage/Balls/Boules_Middle_Pose3.png" id="5_8ll12"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallListManager.cs" id="5_kmfjr"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallTimer.cs" id="6_srxsa"]
+[ext_resource type="Texture2D" uid="uid://qefrlnj3lt7v" path="res://Assets/BingoCage/Balls/Boules_Middle_Pose4.png" id="6_t54v5"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallVisualDisplayer.cs" id="7_yldhf"]
 [ext_resource type="Script" path="res://Script/BingoCage/AutoBall.cs" id="9_ay3r7"]
 [ext_resource type="Script" path="res://Script/BingoCage/CrankManager.cs" id="10_f6sd6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5bao"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gx4ll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5sld6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8ll12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_t54v5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="BingoCage" type="Control" node_paths=PackedStringArray("ballSpawnerRef", "ballListManagerRef", "autoBallRef", "ballVisualDisplayerRef", "crankManagerRef")]
 layout_mode = 3
@@ -27,6 +51,13 @@ autoBallRef = NodePath("AutoBall")
 ballVisualDisplayerRef = NodePath("GridContainer")
 playerStatusRef = ExtResource("2_45ecp")
 crankManagerRef = NodePath("CrankManager")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(122, -34)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_n5bao")
+frame_progress = 0.590648
 
 [node name="Visual" type="TextureRect" parent="."]
 texture_filter = 1

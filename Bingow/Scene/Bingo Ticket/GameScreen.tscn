@@ -1,9 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://dg1mej7x3bi1n"]
+[gd_scene load_steps=32 format=3 uid="uid://dg1mej7x3bi1n"]
 
 [ext_resource type="Script" path="res://Script/GameManager.cs" id="1_1kws5"]
-[ext_resource type="Texture2D" uid="uid://c1t6u6nyuctcf" path="res://Assets/Table.png" id="1_4w0mt"]
 [ext_resource type="Script" path="res://Script/MoneyLabel.cs" id="2_qsald"]
 [ext_resource type="PackedScene" uid="uid://b7y4gqywg84qt" path="res://Scene/Shop.tscn" id="2_txf5f"]
+[ext_resource type="Texture2D" uid="uid://d3f801vdv728e" path="res://Assets/Place Holder/TablePied.png" id="3_s8dsd"]
 [ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="3_uc7db"]
 [ext_resource type="Script" path="res://Script/Ticket/TicketSpawner.cs" id="4_yqjur"]
 [ext_resource type="Texture2D" uid="uid://bh5dliaim31oj" path="res://Assets/Tablette_table.png" id="5_o28ol"]
@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://cm27lgnbn0v0p" path="res://Scene/TicketSpotUpgradeScreen.tscn" id="18_jdqh3"]
 [ext_resource type="PackedScene" uid="uid://ds7rx0k30ifoo" path="res://Scene/TicketPrinter.tscn" id="18_taiau"]
 [ext_resource type="Texture2D" uid="uid://drlxr3smr332a" path="res://Assets/Place Holder/B.png" id="26_vjpup"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ffgb3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_khfni"]
 font_size = 35
@@ -74,14 +76,21 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="TextureRect" type="TextureRect" parent="UI"]
+modulate = Color(0.203922, 0.203922, 0.203922, 1)
+layout_mode = 0
+offset_right = 1943.0
+offset_bottom = 1107.0
+texture = SubResource("CanvasTexture_ffgb3")
+
 [node name="Table" type="TextureRect" parent="UI"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 81.0
-offset_top = 64.0
-offset_right = 1881.0
-offset_bottom = 964.0
-texture = ExtResource("1_4w0mt")
+offset_left = 51.0
+offset_top = 44.0
+offset_right = 1851.0
+offset_bottom = 1124.0
+texture = ExtResource("3_s8dsd")
 expand_mode = 1
 stretch_mode = 5
 
@@ -245,6 +254,7 @@ augmentCountdwonRef = NodePath("../AugmentCountdown")
 [node name="Object" type="Node2D" parent="."]
 
 [node name="TicketSpotContainer" type="Node2D" parent="Object"]
+visible = false
 
 [node name="TicketSpot1" parent="Object/TicketSpotContainer" instance=ExtResource("11_q0jeb")]
 position = Vector2(666, 416)

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BallRes" load_steps=3 format=3 uid="uid://3p22rh876ixi"]
+
+[ext_resource type="Script" path="res://Script/Res/BallRes.cs" id="1_a2atu"]
+[ext_resource type="Texture2D" uid="uid://bu81t6o4b1aty" path="res://Assets/Ball/WhiteBall.png" id="2_3ohns"]
+
+[resource]
+script = ExtResource("1_a2atu")
+ballEffect = 4
+ballDesc = "Coche une case aléatoire"
+texture = ExtResource("2_3ohns")
+isUnlocked = true
+shopProportion = 0

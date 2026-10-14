@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cm2c4ikbkcm7l" path="res://Assets/Ticket/ticket_3x3.png" id="2_jsae1"]
 [ext_resource type="Texture2D" uid="uid://fv43vt20au3m" path="res://Assets/Place Holder/Bingo.png" id="3_xhib6"]
 [ext_resource type="Script" path="res://Script/Ticket/BingoManager.cs" id="4_5g4vc"]
-[ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="5_s6ngj"]
+[ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Resource/PlayerStatuRes.tres" id="5_s6ngj"]
 [ext_resource type="Script" path="res://Script/BingoLabel.cs" id="6_yn0wf"]
 [ext_resource type="FontFile" uid="uid://csstirmsxk1eu" path="res://font/Pixeled.ttf" id="7_pkqf8"]
 

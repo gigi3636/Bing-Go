@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Script/Cell/BingoCell.cs" id="1_y54de"]
 [ext_resource type="FontFile" uid="uid://csstirmsxk1eu" path="res://font/Pixeled.ttf" id="2_m8w8v"]
 [ext_resource type="Script" path="res://Script/Cell/CellStamped.cs" id="3_2r05n"]
-[ext_resource type="Texture2D" uid="uid://cn6t51lbjnoj7" path="res://Assets/Stamped.png" id="3_i1wkj"]
+[ext_resource type="Texture2D" uid="uid://cn6t51lbjnoj7" path="res://Assets/shit/Stamped.png" id="3_i1wkj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ku634"]
 line_spacing = 0.0

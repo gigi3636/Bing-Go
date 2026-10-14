@@ -2,8 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://b7gic1ar1gq8v" path="res://Assets/TicketTable/3x3 Ticket Table.png" id="1_efcqr"]
 [ext_resource type="Script" path="res://Script/Ticket/TicketShoptButton.cs" id="2_xc36r"]
-[ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="4_wawax"]
+[ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Resource/PlayerStatuRes.tres" id="4_wawax"]
 [ext_resource type="Script" path="res://Script/VisualAnimation/TicketShoptJuice.cs" id="5_wnj7v"]
+
 
 [node name="TicketShopButton" type="TextureButton" node_paths=PackedStringArray("ticketShoptJuiceRef")]
 texture_filter = 1

@@ -78,7 +78,7 @@ public partial class BingoCage : Node
         ballWeights.Clear(); 
         for (int i = 0; i <= playerStatusRef.CurrentBingoBallsAmount - 1; i++)
         {
-            ballDataRegistry[i] = new BallData(i, new BasicBall(), ballsTextures[0]);
+            ballDataRegistry[i] = new BallData(i, new BasicBall(), ballsTextures[0], EBallId.Basic);
             ballWeights[i] = baseBallWeight; // Initial weight of probability
         }
     }
@@ -88,7 +88,7 @@ public partial class BingoCage : Node
     {
         for (int i = ballDataRegistry.Count + 1; i <= newTotalAmount; i++)
         {
-            ballDataRegistry[i] = new BallData(i, new BasicBall(), ballsTextures[0]);
+            ballDataRegistry[i] = new BallData(i, new BasicBall(), ballsTextures[0], EBallId.Basic);
         }
     }
 
@@ -159,7 +159,7 @@ public partial class BingoCage : Node
         if (ballDataRegistry.ContainsKey(pTargetBallNumber))
         {
             // On remplace l'ancien effet (souvent NoEffect) par le nouveau
-            ballDataRegistry[pTargetBallNumber] = new BallData(pTargetBallNumber, pNewEffect, pBallTexture);
+            ballDataRegistry[pTargetBallNumber] = new BallData(pTargetBallNumber, pNewEffect, pBallTexture, EBallId.Basic);
         }
         else
         {

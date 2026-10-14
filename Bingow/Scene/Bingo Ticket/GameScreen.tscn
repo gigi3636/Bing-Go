@@ -1,12 +1,14 @@
-[gd_scene load_steps=32 format=3 uid="uid://dg1mej7x3bi1n"]
+[gd_scene load_steps=40 format=3 uid="uid://dg1mej7x3bi1n"]
 
 [ext_resource type="Script" path="res://Script/GameManager.cs" id="1_1kws5"]
 [ext_resource type="Script" path="res://Script/MoneyLabel.cs" id="2_qsald"]
 [ext_resource type="PackedScene" uid="uid://b7y4gqywg84qt" path="res://Scene/Shop.tscn" id="2_txf5f"]
+[ext_resource type="Texture2D" uid="uid://v355vco84ne0" path="res://Assets/shit/Floor.png" id="3_bvyvw"]
 [ext_resource type="Texture2D" uid="uid://d3f801vdv728e" path="res://Assets/Place Holder/TablePied.png" id="3_s8dsd"]
-[ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Ressource/PlayerStatuRes.tres" id="3_uc7db"]
+[ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Resource/PlayerStatuRes.tres" id="3_uc7db"]
+[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="4_r83t5"]
 [ext_resource type="Script" path="res://Script/Ticket/TicketSpawner.cs" id="4_yqjur"]
-[ext_resource type="Texture2D" uid="uid://bh5dliaim31oj" path="res://Assets/Tablette_table.png" id="5_o28ol"]
+[ext_resource type="Texture2D" uid="uid://bh5dliaim31oj" path="res://Assets/shit/Tablette_table.png" id="5_o28ol"]
 [ext_resource type="Script" path="res://Script/Ticket/TicketQueu.cs" id="8_ubm5h"]
 [ext_resource type="Texture2D" uid="uid://bbf75fv7p6dw8" path="res://Assets/Ball/Red Ball.png" id="9_y6ok2"]
 [ext_resource type="Script" path="res://Script/BallPriceLabel.cs" id="10_ft83v"]
@@ -22,29 +24,51 @@
 [ext_resource type="Script" path="res://Script/GameScreenManager.cs" id="14_m887c"]
 [ext_resource type="Script" path="res://Script/AugmentCountdwon.cs" id="15_5uvl1"]
 [ext_resource type="Script" path="res://Script/MoneyController.cs" id="16_k2e28"]
-[ext_resource type="PackedScene" uid="uid://blwr13g2vv4c6" path="res://Scene/BlackMarket.tscn" id="17_hdnxw"]
+[ext_resource type="PackedScene" uid="uid://blwr13g2vv4c6" path="res://Scene/BlackMarket/BlackMarket.tscn" id="17_hdnxw"]
 [ext_resource type="PackedScene" uid="uid://cm27lgnbn0v0p" path="res://Scene/TicketSpotUpgradeScreen.tscn" id="18_jdqh3"]
 [ext_resource type="PackedScene" uid="uid://ds7rx0k30ifoo" path="res://Scene/TicketPrinter.tscn" id="18_taiau"]
 [ext_resource type="Texture2D" uid="uid://drlxr3smr332a" path="res://Assets/Place Holder/B.png" id="26_vjpup"]
+[ext_resource type="Script" path="res://Script/MoneyRanking.cs" id="28_p8pqh"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ffgb3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_khfni"]
+font = ExtResource("4_r83t5")
 font_size = 35
 
+[sub_resource type="LabelSettings" id="LabelSettings_b0uma"]
+font = ExtResource("4_r83t5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_31v2k"]
+font = ExtResource("4_r83t5")
+font_color = Color(0.627451, 1, 0.454902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ig6hr"]
+font = ExtResource("4_r83t5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_rva5b"]
+font = ExtResource("4_r83t5")
+font_color = Color(0.964706, 0.235294, 0.505882, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s5iw1"]
+font = ExtResource("4_r83t5")
+
 [sub_resource type="LabelSettings" id="LabelSettings_0pp7g"]
+font = ExtResource("4_r83t5")
 font_size = 50
 font_color = Color(0.909804, 0, 0.101961, 1)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8a2og"]
+font = ExtResource("4_r83t5")
 font_size = 40
 font_color = Color(1, 0, 0, 1)
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qqddk"]
+font = ExtResource("4_r83t5")
 font_size = 50
 font_color = Color(0.462745, 0.878431, 0.678431, 1)
 outline_size = 11
@@ -83,8 +107,17 @@ offset_right = 1943.0
 offset_bottom = 1107.0
 texture = SubResource("CanvasTexture_ffgb3")
 
+[node name="Floor" type="TextureRect" parent="UI"]
+modulate = Color(0.43134, 0.43134, 0.43134, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = -81.0
+offset_top = -205.0
+offset_right = 2019.0
+offset_bottom = 1295.0
+texture = ExtResource("3_bvyvw")
+
 [node name="Table" type="TextureRect" parent="UI"]
-modulate = Color(0.804743, 0.804743, 0.804743, 1)
 texture_filter = 1
 layout_mode = 0
 offset_left = 50.0
@@ -95,16 +128,70 @@ texture = ExtResource("3_s8dsd")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="UI"]
+[node name="Label" type="Control" parent="UI"]
+anchors_preset = 0
+
+[node name="PlayerMoneyLabel" type="Label" parent="UI/Label"]
 layout_mode = 1
-offset_right = 167.0
-offset_bottom = 49.0
-text = " 999 999 $"
+offset_left = 134.0
+offset_top = 25.0
+offset_right = 301.0
+offset_bottom = 74.0
+text = "1 000$"
 label_settings = SubResource("LabelSettings_khfni")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_qsald")
 playerStatusRes = ExtResource("3_uc7db")
+
+[node name="PlayerRankingLabel" type="Label" parent="UI/Label/PlayerMoneyLabel"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 13.0
+offset_right = 25.0
+offset_bottom = 36.0
+text = "# 18"
+label_settings = SubResource("LabelSettings_b0uma")
+
+[node name="UpperMoneyLabel" type="Label" parent="UI/Label"]
+layout_mode = 1
+offset_left = 129.0
+offset_top = 2.0
+offset_right = 296.0
+offset_bottom = 34.0
+text = "2 000$ "
+label_settings = SubResource("LabelSettings_31v2k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextRankingLabel" type="Label" parent="UI/Label/UpperMoneyLabel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 43.0
+offset_bottom = 27.0
+text = "# 17"
+label_settings = SubResource("LabelSettings_ig6hr")
+
+[node name="LowerMoneyLabel" type="Label" parent="UI/Label"]
+layout_mode = 1
+offset_left = 130.0
+offset_top = 67.0
+offset_right = 297.0
+offset_bottom = 99.0
+text = "2 000$"
+label_settings = SubResource("LabelSettings_rva5b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LastRankingLabel" type="Label" parent="UI/Label/LowerMoneyLabel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 43.0
+offset_bottom = 27.0
+text = "# 19"
+label_settings = SubResource("LabelSettings_s5iw1")
 
 [node name="ShopButton" type="TextureButton" parent="UI"]
 texture_filter = 1
@@ -170,20 +257,20 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 1602.0
-offset_top = 172.0
-offset_right = 1602.0
-offset_bottom = 172.0
+offset_left = 1580.0
+offset_top = 156.0
+offset_right = 1580.0
+offset_bottom = 156.0
 grow_horizontal = 1
 grow_vertical = 1
 ballsTextures = [ExtResource("9_y6ok2"), ExtResource("10_q5nt1"), ExtResource("11_t7qym"), ExtResource("12_ajjmt"), ExtResource("13_ylmmy"), ExtResource("14_kereg")]
 
 [node name="BallPrice" type="Label" parent="UI" node_paths=PackedStringArray("moneyControllerRef")]
 layout_mode = 1
-offset_left = 1624.0
-offset_top = 354.0
-offset_right = 1695.0
-offset_bottom = 423.0
+offset_left = 1702.0
+offset_top = 230.0
+offset_right = 1773.0
+offset_bottom = 299.0
 text = "1 $"
 label_settings = SubResource("LabelSettings_qqddk")
 horizontal_alignment = 1
@@ -297,6 +384,20 @@ offset_bottom = 1086.0
 texture = ExtResource("26_vjpup")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="BallRegistry" type="Node2D" parent="."]
+
+[node name="MoneyRanking" type="Node2D" parent="." node_paths=PackedStringArray("upperContainer", "playerContainer", "lowerContainer", "nextMoneyLabelRef", "lastMoneyLabelRef", "playerRankLabel", "nexRankLabel", "lastRankLabel")]
+script = ExtResource("28_p8pqh")
+playerStatusRes = ExtResource("3_uc7db")
+upperContainer = NodePath("../UI/Label/UpperMoneyLabel")
+playerContainer = NodePath("../UI/Label/PlayerMoneyLabel")
+lowerContainer = NodePath("../UI/Label/LowerMoneyLabel")
+nextMoneyLabelRef = NodePath("../UI/Label/UpperMoneyLabel")
+lastMoneyLabelRef = NodePath("../UI/Label/LowerMoneyLabel")
+playerRankLabel = NodePath("../UI/Label/PlayerMoneyLabel/PlayerRankingLabel")
+nexRankLabel = NodePath("../UI/Label/UpperMoneyLabel/NextRankingLabel")
+lastRankLabel = NodePath("../UI/Label/LowerMoneyLabel/LastRankingLabel")
 
 [connection signal="pressed" from="UI/ShopButton" to="UI/ShopTicket" method="_on_shop_button_pressed"]
 [connection signal="button_down" from="UI/TextureButton" to="Ticket/TicketMoover" method="_on_texture_button_button_down"]

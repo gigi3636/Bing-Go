@@ -1,0 +1,211 @@
+[gd_scene load_steps=18 format=3 uid="uid://cq0xriu77qsm3"]
+
+[ext_resource type="Script" path="res://Script/BlackMarket/BallDisplay.cs" id="1_h6xmk"]
+[ext_resource type="Resource" uid="uid://bj0hv3v1yygde" path="res://Resource/Balls/BasicBallRes.tres" id="2_lebeb"]
+[ext_resource type="Resource" uid="uid://cvcdk4w7avvmp" path="res://Resource/Balls/CrossBallRes.tres" id="3_hj01q"]
+[ext_resource type="Resource" uid="uid://b8khcb3idblqf" path="res://Resource/Balls/GoldenBall.tres" id="4_8o5bk"]
+[ext_resource type="Resource" uid="uid://btoe7iud8jlr5" path="res://Resource/Balls/MultiplierBallRes.tres" id="5_pfr7q"]
+[ext_resource type="Resource" uid="uid://3p22rh876ixi" path="res://Resource/Balls/RandomBallRes.tres" id="6_m7bke"]
+[ext_resource type="Resource" uid="uid://8sppcp1qm8og" path="res://Resource/Balls/SquareBallRes.tres" id="7_kahfg"]
+[ext_resource type="Texture2D" uid="uid://bbf75fv7p6dw8" path="res://Assets/Ball/Red Ball.png" id="8_are3r"]
+[ext_resource type="PackedScene" uid="uid://bt23j0pajr8l6" path="res://Scene/BlackMarket/BlackMarrketBallVisuel.tscn" id="8_ebog5"]
+[ext_resource type="Script" path="res://Script/BlackMarket/BallInfo.cs" id="9_b1o1t"]
+[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="9_te1ar"]
+[ext_resource type="Script" path="res://Script/BlackMarket/BallInfoListener.cs" id="12_0ah2c"]
+[ext_resource type="Script" path="res://Script/BlackMarket/BallUpgrader.cs" id="12_7d0mo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3u845"]
+font = ExtResource("9_te1ar")
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_ag80q"]
+font = ExtResource("9_te1ar")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_sy6jd"]
+font = ExtResource("9_te1ar")
+font_size = 120
+
+[sub_resource type="LabelSettings" id="LabelSettings_epbrt"]
+font = ExtResource("9_te1ar")
+font_size = 50
+
+[node name="BlackMarketStock" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BallDisplay" type="Node2D" parent="." node_paths=PackedStringArray("gridContainer", "ballInfoRef")]
+script = ExtResource("1_h6xmk")
+ballRes = Array[Object]([ExtResource("2_lebeb"), ExtResource("3_hj01q"), ExtResource("4_8o5bk"), ExtResource("5_pfr7q"), ExtResource("6_m7bke"), ExtResource("7_kahfg")])
+gridContainer = NodePath("../BallContainer/GridContainer")
+blackMarrketBallVisuelScene = ExtResource("8_ebog5")
+ballInfoRef = NodePath("../BallInfoListener")
+
+[node name="BallContainer" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 174.0
+offset_right = 997.0
+offset_bottom = 1080.0
+
+[node name="GridContainer" type="GridContainer" parent="BallContainer"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 958.0
+offset_bottom = 854.0
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 4
+
+[node name="TextureRect" type="TextureRect" parent="BallContainer/GridContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(192, 192)
+layout_mode = 2
+texture = ExtResource("8_are3r")
+
+[node name="TextureRect2" type="TextureRect" parent="BallContainer/GridContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(192, 192)
+layout_mode = 2
+texture = ExtResource("8_are3r")
+
+[node name="TextureRect3" type="TextureRect" parent="BallContainer/GridContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(192, 192)
+layout_mode = 2
+texture = ExtResource("8_are3r")
+
+[node name="TextureRect4" type="TextureRect" parent="BallContainer/GridContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(192, 192)
+layout_mode = 2
+texture = ExtResource("8_are3r")
+
+[node name="TextureRect5" type="TextureRect" parent="BallContainer/GridContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(192, 192)
+layout_mode = 2
+texture = ExtResource("8_are3r")
+
+[node name="BallInfo" type="Panel" parent="." node_paths=PackedStringArray("ballTxRectRef", "ballName", "ballDesc")]
+layout_mode = 0
+offset_left = 991.0
+offset_top = 173.0
+offset_right = 1924.0
+offset_bottom = 604.0
+script = ExtResource("9_b1o1t")
+ballTxRectRef = NodePath("TextureRect")
+ballName = NodePath("BallName")
+ballDesc = NodePath("BallDesc")
+
+[node name="TextureRect" type="TextureRect" parent="BallInfo"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 27.0
+offset_top = 50.0
+offset_right = 268.0
+offset_bottom = 286.0
+texture = ExtResource("8_are3r")
+
+[node name="BallName" type="Label" parent="BallInfo"]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 31.0
+offset_right = 864.0
+offset_bottom = 125.0
+text = "Basic Ball"
+label_settings = SubResource("LabelSettings_3u845")
+
+[node name="BallDesc" type="Label" parent="BallInfo"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 140.0
+offset_right = 881.0
+offset_bottom = 266.0
+text = "Lorem ipsum dolor sit amet. Vel odit maxime quo quisquam placeat ea esse fugit quo consequatur repellat sed"
+label_settings = SubResource("LabelSettings_ag80q")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BallUpgrader" type="Panel" parent="." node_paths=PackedStringArray("textLabelRef")]
+layout_mode = 0
+offset_left = 993.0
+offset_top = 600.0
+offset_right = 1918.0
+offset_bottom = 1080.0
+script = ExtResource("12_7d0mo")
+textLabelRef = NodePath("Label")
+
+[node name="BuyButton" type="Button" parent="BallUpgrader"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 242.0
+offset_right = 708.0
+offset_bottom = 392.0
+text = "Upgrade"
+
+[node name="Label" type="RichTextLabel" parent="BallUpgrader"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.5
+offset_top = 123.0
+offset_right = 374.5
+offset_bottom = 177.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("9_te1ar")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Chance de présence : 10 => 12%"
+
+[node name="Ui" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 178.0
+
+[node name="Label" type="Label" parent="Ui"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -405.0
+offset_right = 405.0
+offset_bottom = 160.0
+grow_horizontal = 2
+text = "Black Market"
+label_settings = SubResource("LabelSettings_sy6jd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Ui"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 44.0
+offset_right = 288.0
+offset_bottom = 129.0
+text = " 019 783 $"
+label_settings = SubResource("LabelSettings_epbrt")
+
+[node name="Button" type="Button" parent="Ui"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -196.0
+offset_top = 32.0
+offset_right = -85.0
+offset_bottom = 127.0
+grow_horizontal = 0
+text = "X"
+
+[node name="BallInfoListener" type="Node2D" parent="." node_paths=PackedStringArray("ballInfoRef", "ballUpgraderRef")]
+script = ExtResource("12_0ah2c")
+ballInfoRef = NodePath("../BallInfo")
+ballUpgraderRef = NodePath("../BallUpgrader")
+
+[connection signal="pressed" from="BallUpgrader/BuyButton" to="BallUpgrader" method="_on_buy_button_pressed"]

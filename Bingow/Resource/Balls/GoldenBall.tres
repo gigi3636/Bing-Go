@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BallRes" load_steps=3 format=3 uid="uid://b8khcb3idblqf"]
+
+[ext_resource type="Script" path="res://Script/Res/BallRes.cs" id="1_bx8rj"]
+[ext_resource type="Texture2D" uid="uid://cppnog8mihmhk" path="res://Assets/Ball/GoldBall.png" id="2_wwyt7"]
+
+[resource]
+script = ExtResource("1_bx8rj")
+ballEffect = 2
+texture = ExtResource("2_wwyt7")
+isUnlocked = false
+shopProportion = 0

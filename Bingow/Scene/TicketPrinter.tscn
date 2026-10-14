@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ds7rx0k30ifoo"]
 
 [ext_resource type="Script" path="res://Script/Shop/TicketPrinter.cs" id="1_esncx"]
-[ext_resource type="Texture2D" uid="uid://dtgnkdu1306ll" path="res://Assets/TicketPrinter.png" id="2_0imnp"]
+[ext_resource type="Texture2D" uid="uid://dtgnkdu1306ll" path="res://Assets/shit/TicketPrinter.png" id="2_0imnp"]
 [ext_resource type="PackedScene" uid="uid://c5ny5opfx88f" path="res://Scene/PrinterScreen.tscn" id="4_mkmns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i612g"]

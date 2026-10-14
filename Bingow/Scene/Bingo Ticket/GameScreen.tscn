@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dg1mej7x3bi1n"]
+[gd_scene load_steps=41 format=3 uid="uid://dg1mej7x3bi1n"]
 
 [ext_resource type="Script" path="res://Script/GameManager.cs" id="1_1kws5"]
 [ext_resource type="Script" path="res://Script/MoneyLabel.cs" id="2_qsald"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://blwr13g2vv4c6" path="res://Scene/BlackMarket/BlackMarket.tscn" id="17_hdnxw"]
 [ext_resource type="PackedScene" uid="uid://cm27lgnbn0v0p" path="res://Scene/TicketSpotUpgradeScreen.tscn" id="18_jdqh3"]
 [ext_resource type="PackedScene" uid="uid://ds7rx0k30ifoo" path="res://Scene/TicketPrinter.tscn" id="18_taiau"]
+[ext_resource type="Script" path="res://Script/Shake.cs" id="25_750cr"]
 [ext_resource type="Texture2D" uid="uid://drlxr3smr332a" path="res://Assets/Place Holder/B.png" id="26_vjpup"]
 [ext_resource type="Script" path="res://Script/MoneyRanking.cs" id="28_p8pqh"]
 
@@ -327,6 +328,11 @@ printerPos = NodePath("../../UI/TicketPrinter/PrintPos")
 position = Vector2(180, 734)
 script = ExtResource("12_xvrvk")
 ticketQueuRef = NodePath("../TicketQueu")
+
+[node name="ShakeTikceQueu" type="Node2D" parent="Ticket" node_paths=PackedStringArray("mouseArea", "nodeToShakeRef")]
+script = ExtResource("25_750cr")
+mouseArea = NodePath("../../UI/TextureButton")
+nodeToShakeRef = NodePath("../../TextureRect")
 
 [node name="AugmentCountdown" type="Node2D" parent="." node_paths=PackedStringArray("countdownLabelRef", "payoutLabelRef")]
 script = ExtResource("15_5uvl1")

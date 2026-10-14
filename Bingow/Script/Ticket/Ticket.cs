@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 
 // Live data of each ticket
-public abstract partial class Ticket : Node2D
+public abstract partial class Ticket : Control
 {
     public const float TICKET_BASIC_SCALE = 0.2f;
 
@@ -15,7 +15,7 @@ public abstract partial class Ticket : Node2D
 
     public bool isCompleted { get; private set; }
 
-    [Export] private Sprite2D ticketTableVisual;
+    [Export] private TextureRect ticketTableVisual;
     public Texture2D ticketFullVisual { get; private set; }
 
     public PackedScene cellScene { get; private set; }

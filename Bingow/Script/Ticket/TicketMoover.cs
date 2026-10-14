@@ -22,12 +22,12 @@ public partial class TicketMoover : Node2D
     {
         isTicketMooving = true;
         ticketToMooveRef = ticketQueuRef.GetTicketFromQueu();
-        ticketInitialRotation = ticketToMooveRef.GlobalRotation;
+        ticketInitialRotation = ticketToMooveRef.Rotation;
 
         Tween lTween = CreateTween();
 
         lTween.SetParallel(true);
-        lTween.TweenProperty(ticketToMooveRef, "global_rotation", 0, 0.3);
+        lTween.TweenProperty(ticketToMooveRef, "rotation", 0, 0.3);
     }
 
     private void _on_texture_button_button_up()
@@ -59,7 +59,7 @@ public partial class TicketMoover : Node2D
 
         lTween.SetParallel(true);
         lTween.TweenProperty(ticketToMooveRef, "global_position", GlobalPosition, 0.3);
-        lTween.TweenProperty(ticketToMooveRef, "global_rotation", ticketInitialRotation, 0.3);
+        lTween.TweenProperty(ticketToMooveRef, "rotation", ticketInitialRotation, 0.3);
 
 
     }

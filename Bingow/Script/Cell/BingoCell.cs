@@ -10,6 +10,10 @@ public partial class BingoCell : Control
     private int cellNumbers;
     public event Action<int> OnCellStamped;
 
+
+
+
+
     public void Initialize(int pCellAmount, Vector2I pCellId, bool pIsCellCheck, int pCellScale)
     {
         cellAmountLabelRef.Text = pCellAmount.ToString();
@@ -19,12 +23,17 @@ public partial class BingoCell : Control
         cellStampedRef.Initialize(pCellScale);
 
         cellStampedRef.SetInitialState(pIsCellCheck);
+
+        PivotOffset = cellAmountLabelRef.Size / 2;
     }
 
     public void UpdateCellState(bool pIsCellCheck)
     {
         cellStampedRef.UpdateState(pIsCellCheck);
     }
+
+
+
 
     private void _on_cell_button_pressed()
     {

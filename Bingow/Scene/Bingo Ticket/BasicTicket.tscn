@@ -6,15 +6,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7g5x3"]
 size = Vector2(83, 115)
 
-[node name="BasicTicket" type="Node2D" node_paths=PackedStringArray("ticketTableVisual")]
+[node name="BasicTicket" type="Control" node_paths=PackedStringArray("ticketTableVisual")]
 z_index = 2
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_0va4v")
-ticketTableVisual = NodePath("Sprite2D2")
+ticketTableVisual = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="TextureRect" parent="."]
-visible = false
-modulate = Color(0.196078, 0.196078, 0.196078, 1)
 texture_filter = 5
+layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
 anchor_right = 0.5
@@ -27,6 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 texture = ExtResource("2_x4ryt")
 stretch_mode = 5
 
@@ -39,6 +41,7 @@ position = Vector2(2.5, 12.5)
 shape = SubResource("RectangleShape2D_7g5x3")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(-4, 10)
 scale = Vector2(6.03333, 6.03333)

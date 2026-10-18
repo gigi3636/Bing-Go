@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dg1mej7x3bi1n"]
+[gd_scene load_steps=44 format=3 uid="uid://dg1mej7x3bi1n"]
 
 [ext_resource type="Script" path="res://Script/GameManager.cs" id="1_1kws5"]
 [ext_resource type="Script" path="res://Script/MoneyLabel.cs" id="2_qsald"]
@@ -27,7 +27,10 @@
 [ext_resource type="PackedScene" uid="uid://blwr13g2vv4c6" path="res://Scene/BlackMarket/BlackMarket.tscn" id="17_hdnxw"]
 [ext_resource type="PackedScene" uid="uid://cm27lgnbn0v0p" path="res://Scene/TicketSpotUpgradeScreen.tscn" id="18_jdqh3"]
 [ext_resource type="PackedScene" uid="uid://ds7rx0k30ifoo" path="res://Scene/TicketPrinter.tscn" id="18_taiau"]
+[ext_resource type="Texture2D" uid="uid://j4us34xd8qpr" path="res://Assets/shit/TicketSpot.png" id="23_1c57x"]
+[ext_resource type="Texture2D" uid="uid://n7osy3bn7vvx" path="res://Assets/BingoCage/BoullierFull.png" id="24_xqc4f"]
 [ext_resource type="Script" path="res://Script/Shake.cs" id="25_750cr"]
+[ext_resource type="Texture2D" uid="uid://dtgnkdu1306ll" path="res://Assets/shit/TicketPrinter.png" id="25_ub68a"]
 [ext_resource type="Texture2D" uid="uid://drlxr3smr332a" path="res://Assets/Place Holder/B.png" id="26_vjpup"]
 [ext_resource type="Script" path="res://Script/MoneyRanking.cs" id="28_p8pqh"]
 
@@ -197,14 +200,22 @@ label_settings = SubResource("LabelSettings_s5iw1")
 [node name="ShopButton" type="TextureButton" parent="UI"]
 texture_filter = 1
 layout_mode = 1
-offset_left = 72.0
-offset_top = 175.0
-offset_right = 324.0
-offset_bottom = 367.0
+offset_left = 75.0
+offset_top = 129.0
+offset_right = 327.0
+offset_bottom = 321.0
 rotation = -0.404916
+pivot_offset = Vector2(126, 96)
 texture_normal = ExtResource("5_o28ol")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="Shake" type="Node2D" parent="UI/ShopButton" node_paths=PackedStringArray("mouseArea", "nodeToShakeRef")]
+script = ExtResource("25_750cr")
+mouseArea = NodePath("..")
+nodeToShakeRef = NodePath("..")
+ShakeAngle = 2.0
+ShakeDuration = 0.2
 
 [node name="ShopTicket" parent="UI" instance=ExtResource("2_txf5f")]
 visible = false
@@ -264,7 +275,7 @@ offset_right = 1580.0
 offset_bottom = 156.0
 grow_horizontal = 1
 grow_vertical = 1
-ballsTextures = [ExtResource("9_y6ok2"), ExtResource("10_q5nt1"), ExtResource("11_t7qym"), ExtResource("12_ajjmt"), ExtResource("13_ylmmy"), ExtResource("14_kereg")]
+ballsTextures = Array[Texture2D]([ExtResource("9_y6ok2"), ExtResource("10_q5nt1"), ExtResource("11_t7qym"), ExtResource("12_ajjmt"), ExtResource("13_ylmmy"), ExtResource("14_kereg")])
 
 [node name="BallPrice" type="Label" parent="UI" node_paths=PackedStringArray("moneyControllerRef")]
 layout_mode = 1
@@ -306,6 +317,7 @@ moneyControllerRef = NodePath("../MoneyController")
 ticketQueuRef = NodePath("../Ticket/TicketQueu")
 shopRef = NodePath("../UI/ShopTicket")
 ticketPrinterRef = NodePath("../UI/TicketPrinter")
+shopTextures = Array[Texture2D]([ExtResource("23_1c57x"), ExtResource("25_ub68a"), ExtResource("24_xqc4f")])
 
 [node name="Ticket" type="Node2D" parent="."]
 
@@ -324,15 +336,14 @@ ticketContainerRef = NodePath("../TicketContainer")
 playerStatusRef = ExtResource("3_uc7db")
 printerPos = NodePath("../../UI/TicketPrinter/PrintPos")
 
-[node name="TicketMoover" type="Node2D" parent="Ticket" node_paths=PackedStringArray("ticketQueuRef")]
+[node name="TicketMoover" type="Node2D" parent="Ticket" node_paths=PackedStringArray("ticketQueuRef", "shakeRef")]
 position = Vector2(180, 734)
 script = ExtResource("12_xvrvk")
 ticketQueuRef = NodePath("../TicketQueu")
+shakeRef = NodePath("../Shake")
 
-[node name="ShakeTikceQueu" type="Node2D" parent="Ticket" node_paths=PackedStringArray("mouseArea", "nodeToShakeRef")]
+[node name="Shake" type="Node2D" parent="Ticket"]
 script = ExtResource("25_750cr")
-mouseArea = NodePath("../../UI/TextureButton")
-nodeToShakeRef = NodePath("../../TextureRect")
 
 [node name="AugmentCountdown" type="Node2D" parent="." node_paths=PackedStringArray("countdownLabelRef", "payoutLabelRef")]
 script = ExtResource("15_5uvl1")
@@ -408,3 +419,5 @@ lastRankLabel = NodePath("../UI/Label/LowerMoneyLabel/LastRankingLabel")
 [connection signal="pressed" from="UI/ShopButton" to="UI/ShopTicket" method="_on_shop_button_pressed"]
 [connection signal="button_down" from="UI/TextureButton" to="Ticket/TicketMoover" method="_on_texture_button_button_down"]
 [connection signal="button_up" from="UI/TextureButton" to="Ticket/TicketMoover" method="_on_texture_button_button_up"]
+[connection signal="mouse_entered" from="UI/TextureButton" to="Ticket/TicketMoover" method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="UI/TextureButton" to="Ticket/TicketMoover" method="_on_texture_button_mouse_exited"]

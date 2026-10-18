@@ -65,7 +65,7 @@ public partial class TicketNumbersManager
 
         foreach (var kvp in ticketNumbersStamped)
         {
-            // Si le numéro est autorisé ET qu'il possède un effet
+            // Si le numero est autorise ET qu'il possede un effet
             if (kvp.Value.IsAllowed && kvp.Value.Effect != null)
             {
                 validEffects.Add(kvp.Value.Effect);

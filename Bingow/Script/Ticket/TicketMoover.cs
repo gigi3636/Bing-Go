@@ -4,6 +4,7 @@ using System;
 public partial class TicketMoover : Node2D
 {
     [Export] private TicketQueu ticketQueuRef;
+    [Export] private Shake shakeRef;
 
     private bool isTicketMooving;
     private Ticket ticketToMooveRef;
@@ -29,6 +30,31 @@ public partial class TicketMoover : Node2D
         lTween.SetParallel(true);
         lTween.TweenProperty(ticketToMooveRef, "rotation", 0, 0.3);
     }
+
+    private void _on_texture_button_mouse_entered()
+    {
+        if (isTicketMooving) return;
+
+        Ticket topTicket = ticketQueuRef.GetTicketFromQueu();
+        if (topTicket != null)
+        {
+            Shake ticketShake = topTicket.GetNode<Shake>("Shake");
+            ticketShake?.StartShake();
+        }
+    }
+
+    private void _on_texture_button_mouse_exited()
+    {
+        if (isTicketMooving) return;
+
+        Ticket topTicket = ticketQueuRef.GetTicketFromQueu();
+        if (topTicket != null)
+        {
+            Shake ticketShake = topTicket.GetNode<Shake>("Shake");
+            ticketShake?.StopShake();
+        }
+    }
+
 
     private void _on_texture_button_button_up()
     {

@@ -14,9 +14,9 @@ public partial class VisualManager : Node
         spotBuyButtonRef.Text = $"{ticketSpotRef.unlockCost} $";
     }
 
-    private void UpdateVisual(bool pIsSpotUnlocked)
+    private void UpdateVisual(bool pIsSpotLocked)
     {
-        spotBuyButtonRef.Visible = !pIsSpotUnlocked;
+        ticketSpotRef.Visible = pIsSpotLocked;
        
     }
 }

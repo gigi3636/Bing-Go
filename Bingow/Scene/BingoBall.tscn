@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqewmqjd2kqn7"]
 
 [ext_resource type="Texture2D" uid="uid://bbf75fv7p6dw8" path="res://Assets/Ball/Red Ball.png" id="2_7x8vd"]
-[ext_resource type="Script" path="res://Script/BingoBalls/BingoBall.cs" id="2_u3pp3"]
+[ext_resource type="Script" path="res://Script/VisualAnimation/BingoBalls/BingoBall.cs" id="2_u3pp3"]
 [ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="3_knf4s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hx8fj"]

@@ -1,0 +1,198 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\ticket\\ticketnumbersmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|solutionrelative:script\\ticket\\ticketnumbersmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\ticketspot\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|solutionrelative:script\\ticketspot\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\bingocage\\crankmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|solutionrelative:script\\bingocage\\crankmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\bingocage\\bingocage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|solutionrelative:script\\bingocage\\bingocage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\ticket\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|solutionrelative:script\\ticket\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\gamescreenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|solutionrelative:script\\gamescreenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\ticket\\ticketfullscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|solutionrelative:script\\ticket\\ticketfullscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\cell\\bingocell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|solutionrelative:script\\cell\\bingocell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\cell\\cellstamped.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{762C6702-56C0-4BD4-AEAC-8FB88954A625}|Bingow.csproj|solutionrelative:script\\cell\\cellstamped.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Shake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Script\\Shake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:2:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Shake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:2:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Script\\Shake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 875,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Upgrade.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\TicketSpot\\Upgrade.cs",
+              "RelativeDocumentMoniker": "Script\\TicketSpot\\Upgrade.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\TicketSpot\\Upgrade.cs",
+              "RelativeToolTip": "Script\\TicketSpot\\Upgrade.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-16T15:44:21.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CrankManager.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\BingoCage\\CrankManager.cs",
+              "RelativeDocumentMoniker": "Script\\BingoCage\\CrankManager.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\BingoCage\\CrankManager.cs",
+              "RelativeToolTip": "Script\\BingoCage\\CrankManager.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwDgAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-16T15:44:21.076Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BingoCage.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\BingoCage\\BingoCage.cs",
+              "RelativeDocumentMoniker": "Script\\BingoCage\\BingoCage.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\BingoCage\\BingoCage.cs",
+              "RelativeToolTip": "Script\\BingoCage\\BingoCage.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAowEUAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-16T15:44:21.077Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TicketNumbersManager.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Ticket\\TicketNumbersManager.cs",
+              "RelativeDocumentMoniker": "Script\\Ticket\\TicketNumbersManager.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Ticket\\TicketNumbersManager.cs",
+              "RelativeToolTip": "Script\\Ticket\\TicketNumbersManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-16T15:44:21.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Ticket.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Ticket\\Ticket.cs",
+              "RelativeDocumentMoniker": "Script\\Ticket\\Ticket.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Ticket\\Ticket.cs",
+              "RelativeToolTip": "Script\\Ticket\\Ticket.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAADwv2UAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-16T15:44:21.079Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GameScreenManager.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\GameScreenManager.cs",
+              "RelativeDocumentMoniker": "Script\\GameScreenManager.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\GameScreenManager.cs",
+              "RelativeToolTip": "Script\\GameScreenManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-16T15:44:21.08Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TicketFullScreen.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Ticket\\TicketFullScreen.cs",
+              "RelativeDocumentMoniker": "Script\\Ticket\\TicketFullScreen.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Ticket\\TicketFullScreen.cs",
+              "RelativeToolTip": "Script\\Ticket\\TicketFullScreen.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE8AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-16T15:44:21.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BingoCell.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Cell\\BingoCell.cs",
+              "RelativeDocumentMoniker": "Script\\Cell\\BingoCell.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Cell\\BingoCell.cs",
+              "RelativeToolTip": "Script\\Cell\\BingoCell.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwEIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-16T15:44:21.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CellStamped.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Cell\\CellStamped.cs",
+              "RelativeDocumentMoniker": "Script\\Cell\\CellStamped.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Cell\\CellStamped.cs",
+              "RelativeToolTip": "Script\\Cell\\CellStamped.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-16T15:44:21.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Shake.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Shake.cs",
+              "RelativeDocumentMoniker": "Script\\Shake.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Shake.cs",
+              "RelativeToolTip": "Script\\Shake.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-16T15:46:53.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Shake.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Shake.cs",
+              "RelativeDocumentMoniker": "Script\\Shake.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Shake.cs",
+              "RelativeToolTip": "Script\\Shake.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-16T15:44:21.065Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

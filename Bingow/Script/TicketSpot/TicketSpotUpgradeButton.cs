@@ -6,6 +6,7 @@ public partial class TicketSpotUpgradeButton : TextureButton
     public ShopUpgrades buttonUpgrade { get; private set; }
     [Export] private Label buttonLabel; // price
     [Export] private Label nameLabel;   // name and level
+    [Export] private TicketShoptJuice ticketShoptJuiceRef;
 
     public event Action<ShopUpgrades> OnUpragdeButtonPressed;
 
@@ -49,6 +50,8 @@ public partial class TicketSpotUpgradeButton : TextureButton
     {
         OnUpragdeButtonPressed?.Invoke(buttonUpgrade);
         TicketEventBus.UpdateUpgradesStatus();
+        ticketShoptJuiceRef.OnButtonClicked(this);
+
     }
 
     public override void _ExitTree()

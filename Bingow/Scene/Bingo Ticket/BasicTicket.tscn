@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpwgddrpwn4e5"]
+[gd_scene load_steps=5 format=3 uid="uid://cpwgddrpwn4e5"]
 
 [ext_resource type="Script" path="res://Script/Ticket/BasicTicket.cs" id="1_0va4v"]
 [ext_resource type="Texture2D" uid="uid://b7gic1ar1gq8v" path="res://Assets/TicketTable/3x3 Ticket Table.png" id="2_x4ryt"]
+[ext_resource type="Script" path="res://Script/Shake.cs" id="3_nds8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7g5x3"]
 size = Vector2(83, 115)
@@ -26,6 +27,7 @@ offset_right = 86.0
 offset_bottom = 115.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(90, 105)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
@@ -46,3 +48,11 @@ texture_filter = 1
 position = Vector2(-4, 10)
 scale = Vector2(6.03333, 6.03333)
 texture = ExtResource("2_x4ryt")
+
+[node name="Shake" type="Node2D" parent="." node_paths=PackedStringArray("mouseArea", "nodeToShakeRef")]
+script = ExtResource("3_nds8n")
+mouseArea = NodePath("../Sprite2D")
+nodeToShakeRef = NodePath("../Sprite2D")
+ShakeAngle = 2.0
+ShakeDuration = 0.2
+scaleUp = 1.1

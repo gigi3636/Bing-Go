@@ -91,6 +91,8 @@ public abstract partial class Ticket : Control
     // Update the ticket by the GameScreenManager
     public void UpdateStampedNumber(int pCellNumbers, bool pIsNumbersAllowed, IBallEffect pBallEffect, bool pIsNumberAutostamped)
     {
+        if (ticketNumbersManager.IsNumberValidAndStamped(pCellNumbers))return;
+
         // TicketNumberManager save the changes of this ticket
         ticketNumbersManager.UpdateStampedNumbersList(pCellNumbers, pIsNumbersAllowed, pBallEffect, pIsNumberAutostamped, this);
 

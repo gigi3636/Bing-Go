@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://do2h1vkwoym6y"]
+[gd_scene load_steps=11 format=3 uid="uid://do2h1vkwoym6y"]
 
 [ext_resource type="Script" path="res://Script/Shop/ShopUpgradeItem.cs" id="1_k34bw"]
-[ext_resource type="Texture2D" uid="uid://rvx54gnsq0u2" path="res://Assets/Place Holder/unlock.png" id="1_qohuo"]
 [ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="2_ublgx"]
+[ext_resource type="Texture2D" uid="uid://n7osy3bn7vvx" path="res://Assets/BingoCage/BoullierFull.png" id="3_c6t21"]
 [ext_resource type="PackedScene" uid="uid://dov3o30dior6c" path="res://Scene/UpgradeButton.tscn" id="4_g5ajn"]
+[ext_resource type="Texture2D" uid="uid://psvmediug3gp" path="res://Assets/Place Holder/lock-pixel-art-icons-line-260nw-2667125745.jpg" id="5_75wb4"]
+[ext_resource type="Script" path="res://Script/Shop/LockedItem.cs" id="5_ksvq6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h7jkc"]
 font = ExtResource("2_ublgx")
@@ -12,7 +14,12 @@ font_size = 30
 [sub_resource type="LabelSettings" id="LabelSettings_ofqn5"]
 font = ExtResource("2_ublgx")
 
-[node name="UpgradeItem" type="Control" node_paths=PackedStringArray("upgradeIconRef", "upgradeName", "buttonsContainer")]
+[sub_resource type="CanvasTexture" id="CanvasTexture_mxanq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h10i1"]
+font = ExtResource("2_ublgx")
+
+[node name="UpgradeItem" type="Control" node_paths=PackedStringArray("upgradeIconRef", "upgradeName", "buttonsContainer", "lockedRef")]
 texture_filter = 1
 custom_minimum_size = Vector2(755, 165)
 layout_mode = 3
@@ -28,6 +35,7 @@ upgradeIconRef = NodePath("UpgradeIcon")
 upgradeName = NodePath("UpgradeName")
 buttonsContainer = NodePath("HBoxContainer")
 upgradeButtonScene = ExtResource("4_g5ajn")
+lockedRef = NodePath("Locked3")
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -43,8 +51,9 @@ offset_left = 32.0
 offset_top = 16.0
 offset_right = 170.0
 offset_bottom = 152.0
-texture = ExtResource("1_qohuo")
-expand_mode = 1
+texture = ExtResource("3_c6t21")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="UpgradeName" type="Label" parent="."]
 layout_mode = 0
@@ -70,3 +79,56 @@ offset_left = 184.0
 offset_top = 107.0
 offset_right = 715.0
 offset_bottom = 147.0
+
+[node name="Locked3" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_ksvq6")
+
+[node name="LockedBlackScreen1" type="TextureRect" parent="Locked3"]
+modulate = Color(0, 0, 0, 0.913725)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 8.0
+offset_right = 734.0
+offset_bottom = 161.0
+texture = SubResource("CanvasTexture_mxanq")
+
+[node name="LockedBlackScreen2" type="TextureRect" parent="Locked3"]
+modulate = Color(0, 0, 0, 0.913725)
+layout_mode = 0
+offset_left = 184.0
+offset_top = 8.0
+offset_right = 733.0
+offset_bottom = 160.0
+texture = SubResource("CanvasTexture_mxanq")
+
+[node name="UnlockButton" type="Button" parent="Locked3"]
+layout_mode = 0
+offset_left = 533.0
+offset_top = 82.0
+offset_right = 734.0
+offset_bottom = 161.0
+
+[node name="UnlockLabel" type="Label" parent="Locked3/UnlockButton"]
+layout_mode = 0
+offset_right = 201.0
+offset_bottom = 79.0
+text = "Unlock : 500 $"
+label_settings = SubResource("LabelSettings_h10i1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Locked3"]
+modulate = Color(0.454902, 0.454902, 0.454902, 1)
+layout_mode = 0
+offset_left = 274.0
+offset_top = 11.0
+offset_right = 464.0
+offset_bottom = 157.0
+texture = ExtResource("5_75wb4")
+expand_mode = 3
+stretch_mode = 5
+
+[connection signal="pressed" from="Locked3/UnlockButton" to="Locked3" method="_on_unlock_button_pressed"]

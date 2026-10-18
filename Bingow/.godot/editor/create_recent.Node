@@ -1,14 +1,4 @@
-Control
-Node2D
-AnimatedSprite2D
-TextureRect
 Label
-RichTextLabel
+Control
+TextureRect
 Button
-Panel
-GridContainer
-VBoxContainer
-Camera2D
-TextEdit
-Sprite2D
-DampedSpringJoint2D

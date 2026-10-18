@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnvq18hbqdc3g"]
+[gd_scene load_steps=13 format=3 uid="uid://bnvq18hbqdc3g"]
 
 [ext_resource type="Script" path="res://Script/Shop/TicketShopItem.cs" id="1_jp1mk"]
 [ext_resource type="Texture2D" uid="uid://b7gic1ar1gq8v" path="res://Assets/TicketTable/3x3 Ticket Table.png" id="1_pdqna"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Resource/PlayerStatuRes.tres" id="6_247ti"]
 [ext_resource type="Script" path="res://Script/VisualAnimation/TicketShoptJuice.cs" id="6_gd2jo"]
 [ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="8_5hyky"]
+[ext_resource type="Script" path="res://Script/Shake.cs" id="9_ond61"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bexac"]
 font = ExtResource("8_5hyky")
@@ -87,9 +88,17 @@ offset_right = 68.5
 offset_bottom = 23.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(68, 23)
 text = "BUY NOW"
 label_settings = SubResource("LabelSettings_hammd")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Shake" type="Node2D" parent="." node_paths=PackedStringArray("mouseArea", "nodeToShakeRef")]
+script = ExtResource("9_ond61")
+mouseArea = NodePath("../BuyButton")
+nodeToShakeRef = NodePath("../BuyButton/BuyButtonText")
+ShakeAngle = 2.0
+ShakeDuration = 0.2
 
 [connection signal="pressed" from="BuyButton" to="BuyButton" method="_on_pressed"]

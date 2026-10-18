@@ -1,14 +1,70 @@
-[gd_scene load_steps=9 format=3 uid="uid://8777xu40ys6q"]
+[gd_scene load_steps=16 format=3 uid="uid://8777xu40ys6q"]
 
 [ext_resource type="Script" path="res://Script/Ticket/TicketFullScreen.cs" id="1_8aqjq"]
 [ext_resource type="Texture2D" uid="uid://cm2c4ikbkcm7l" path="res://Assets/Ticket/ticket_3x3.png" id="2_jsae1"]
-[ext_resource type="Texture2D" uid="uid://fv43vt20au3m" path="res://Assets/Place Holder/Bingo.png" id="3_xhib6"]
+[ext_resource type="Texture2D" uid="uid://beal5l3rnvvpw" path="res://Assets/BouttonBingo.png" id="3_735qu"]
 [ext_resource type="Script" path="res://Script/Ticket/BingoManager.cs" id="4_5g4vc"]
 [ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Resource/PlayerStatuRes.tres" id="5_s6ngj"]
 [ext_resource type="Script" path="res://Script/BingoLabel.cs" id="6_yn0wf"]
 [ext_resource type="FontFile" uid="uid://csstirmsxk1eu" path="res://font/Pixeled.ttf" id="7_pkqf8"]
+[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="8_u28jy"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_58ouj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xxqig"]
+font = ExtResource("8_u28jy")
+font_size = 54
+font_color = Color(0.34902, 0.85098, 1, 1)
+outline_size = 14
+outline_color = Color(0, 0.329412, 0.407843, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jd7ty"]
+font = ExtResource("8_u28jy")
+font_size = 54
+font_color = Color(1, 0.34902, 0.54902, 1)
+outline_size = 14
+outline_color = Color(0.364706, 0, 0.152941, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o24d7"]
+font = ExtResource("8_u28jy")
+font_size = 78
+font_color = Color(1, 0.878431, 0.2, 1)
+outline_size = 16
+outline_color = Color(0.392157, 0.337255, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0efmy"]
+font = ExtResource("8_u28jy")
+font_size = 44
+outline_size = 12
+outline_color = Color(0.298039, 0.298039, 0.298039, 1)
+shadow_size = 6
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4dblf"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 280.0
+initial_velocity_max = 720.0
+gravity = Vector3(0, 520, 0)
+damping_min = 100.0
+damping_max = 220.0
+scale_min = 6.0
+scale_max = 14.0
+color = Color(1, 0.85098, 0.2, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kntlf"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 120.0
+initial_velocity_max = 280.0
+gravity = Vector3(0, 300, 0)
+damping_min = 80.0
+damping_max = 160.0
+scale_min = 4.0
+scale_max = 9.0
+color = Color(1, 0.901961, 0.301961, 1)
 
 [node name="TicketFullScreen" type="Control" node_paths=PackedStringArray("gridContainerRef", "ticketFullVisual")]
 top_level = true
@@ -25,6 +81,7 @@ mouse_filter = 2
 script = ExtResource("1_8aqjq")
 gridContainerRef = NodePath("GridContainer")
 ticketFullVisual = NodePath("TicketFullVisual")
+metadata/_edit_horizontal_guides_ = [-46.0]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0, 0, 0, 0.254902)
@@ -42,6 +99,7 @@ offset_left = -960.0
 offset_top = -537.0
 offset_right = 729.0
 offset_bottom = 536.0
+focus_mode = 0
 flat = true
 
 [node name="closeButton2" type="Button" parent="."]
@@ -66,13 +124,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -831.0
-offset_top = -397.0
-offset_right = 892.0
-offset_bottom = 33.0
+offset_left = -474.0
+offset_top = 287.0
+offset_right = 447.0
+offset_bottom = 517.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("3_xhib6")
+pivot_offset = Vector2(460, 115)
+texture_normal = ExtResource("3_735qu")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -86,11 +145,20 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 99
 
-[node name="BingoManager" type="Node2D" parent="." node_paths=PackedStringArray("bingoButtonRef", "ticketFullScreenRef")]
+[node name="BingoManager" type="Node2D" parent="." node_paths=PackedStringArray("bingoButtonRef", "ticketFullScreenRef", "scoreHudContainerRef", "baseScoreLabelRef", "multScoreLabelRef", "totalScoreLabelRef", "floatingPopupTemplateRef", "confettiParticlesRef", "cellBurstParticlesRef")]
 script = ExtResource("4_5g4vc")
 bingoButtonRef = NodePath("../BingoText")
 ticketFullScreenRef = NodePath("..")
 playerStatusRef = ExtResource("5_s6ngj")
+scoreHudContainerRef = NodePath("../ScoreHudContainer")
+baseScoreLabelRef = NodePath("../ScoreHudContainer/BaseScoreLabel")
+multScoreLabelRef = NodePath("../ScoreHudContainer/MultScoreLabel")
+totalScoreLabelRef = NodePath("../ScoreHudContainer/TotalScoreLabel")
+floatingPopupTemplateRef = NodePath("../FloatingPopupTemplate")
+confettiParticlesRef = NodePath("../ConfettiParticles")
+cellBurstParticlesRef = NodePath("../CellBurstParticles")
+baseTimeBetweenCells = 0.6
+minTimeBetweenCells = 0.4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false
@@ -107,6 +175,73 @@ scroll_active = false
 autowrap_mode = 0
 script = ExtResource("6_yn0wf")
 font = ExtResource("7_pkqf8")
+
+[node name="ScoreHudContainer" type="Control" parent="."]
+z_index = 140
+anchors_preset = 0
+offset_top = -270.0
+offset_right = 40.0
+offset_bottom = -230.0
+
+[node name="BaseScoreLabel" type="Label" parent="ScoreHudContainer"]
+layout_mode = 0
+offset_left = -240.0
+offset_top = -35.0
+offset_right = -30.0
+offset_bottom = 35.0
+text = "10"
+label_settings = SubResource("LabelSettings_xxqig")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MultScoreLabel" type="Label" parent="ScoreHudContainer"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = -35.0
+offset_right = 240.0
+offset_bottom = 35.0
+text = " 3 X"
+label_settings = SubResource("LabelSettings_jd7ty")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalScoreLabel" type="Label" parent="ScoreHudContainer"]
+layout_mode = 0
+offset_left = -250.0
+offset_top = -80.0
+offset_right = 250.0
+offset_bottom = 10.0
+text = "800 $"
+label_settings = SubResource("LabelSettings_o24d7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FloatingPopupTemplate" type="Label" parent="."]
+layout_mode = 0
+offset_left = -224.0
+offset_top = -74.0
+offset_right = 16.0
+offset_bottom = -14.0
+text = "+XX $"
+label_settings = SubResource("LabelSettings_0efmy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConfettiParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 75
+process_material = SubResource("ParticleProcessMaterial_4dblf")
+lifetime = 1.5
+one_shot = true
+explosiveness = 0.94
+
+[node name="CellBurstParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 24
+process_material = SubResource("ParticleProcessMaterial_kntlf")
+lifetime = 0.55
+one_shot = true
+explosiveness = 0.95
 
 [connection signal="button_down" from="closeButton" to="." method="_on_button_button_down"]
 [connection signal="pressed" from="closeButton" to="." method="_on_button_pressed"]

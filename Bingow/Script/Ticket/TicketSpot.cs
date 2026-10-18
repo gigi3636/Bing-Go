@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 public partial class TicketSpot : Node2D
 {
     #region Exports
-    [Export] private bool isPrimaryUnlocked;
+    [Export] public bool isPrimaryUnlocked { get; private set; }
     [Export] public int unlockCost { get; private set; }
     [Export] public int spotId { get; private set; }
     [Export] private AutoStamper autoStamperRef;

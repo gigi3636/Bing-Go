@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://chhopj7k24nq"]
+[gd_scene load_steps=10 format=3 uid="uid://chhopj7k24nq"]
 
 [ext_resource type="Script" path="res://Script/Cell/BingoCell.cs" id="1_y54de"]
 [ext_resource type="FontFile" uid="uid://csstirmsxk1eu" path="res://font/Pixeled.ttf" id="2_m8w8v"]
@@ -11,9 +11,24 @@ line_spacing = 0.0
 font = ExtResource("2_m8w8v")
 font_size = 35
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxu4j"]
+size = Vector2(89, 92)
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_u5xsp"]
 
-[node name="BingoCell" type="Control" node_paths=PackedStringArray("cellAmountLabelRef", "cellStampedRef")]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pwkk6"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 80.0
+initial_velocity_max = 180.0
+gravity = Vector3(0, 120, 0)
+damping_min = 150.0
+damping_max = 250.0
+scale_min = 3.0
+scale_max = 6.0
+color = Color(0.85098, 0.14902, 0.2, 1)
+
+[node name="BingoCell" type="Control" node_paths=PackedStringArray("cellAmountLabelRef", "cellStampedRef", "stampRef")]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 3
 anchor_right = 0.0390625
@@ -23,6 +38,7 @@ size_flags_vertical = 3
 script = ExtResource("1_y54de")
 cellAmountLabelRef = NodePath("CellAmountLabel")
 cellStampedRef = NodePath("CellStamped")
+stampRef = NodePath("Stamp")
 
 [node name="CellAmountLabel" type="Label" parent="."]
 texture_filter = 1
@@ -50,18 +66,32 @@ grow_vertical = 2
 focus_mode = 0
 flat = true
 
-[node name="CellStamped" type="Node2D" parent="." node_paths=PackedStringArray("stampRef")]
+[node name="CellStamped" type="Node2D" parent="." node_paths=PackedStringArray("stampRef", "inkParticlesRef")]
 script = ExtResource("3_2r05n")
 stampRef = NodePath("../Stamp")
+inkParticlesRef = NodePath("../InkParticles")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(34.5, 36)
+shape = SubResource("RectangleShape2D_bxu4j")
 
 [node name="Stamp" type="TextureRect" parent="."]
 texture_filter = 1
+custom_minimum_size = Vector2(124, 115)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -29.0
+offset_top = -23.0
+offset_right = 20.0
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(62, 57)
 mouse_filter = 2
 texture = ExtResource("3_i1wkj")
 stretch_mode = 5
@@ -77,6 +107,14 @@ texture = SubResource("CanvasTexture_u5xsp")
 script = ExtResource("5_yq36a")
 mouseArea = NodePath("../CellButton")
 nodeToShakeRef = NodePath("..")
+
+[node name="InkParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 14
+process_material = SubResource("ParticleProcessMaterial_pwkk6")
+lifetime = 0.35
+one_shot = true
+explosiveness = 0.95
 
 [connection signal="mouse_entered" from="CellButton" to="." method="_on_cell_button_mouse_entered"]
 [connection signal="mouse_exited" from="CellButton" to="." method="_on_cell_button_mouse_exited"]

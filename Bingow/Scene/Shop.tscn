@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b7y4gqywg84qt"]
+[gd_scene load_steps=27 format=3 uid="uid://b7y4gqywg84qt"]
 
 [ext_resource type="Script" path="res://Script/Shop/Shop.cs" id="1_iec5r"]
 [ext_resource type="Texture2D" uid="uid://c0c2qhxpgcada" path="res://Assets/Shop/tablette_vide.png" id="2_csigr"]
@@ -19,6 +19,8 @@
 [ext_resource type="Resource" uid="uid://cnyc3jsb72itr" path="res://Resource/Ticket/10x10TicketData.tres" id="19_4e6x7"]
 [ext_resource type="PackedScene" uid="uid://bnvq18hbqdc3g" path="res://Scene/TicketShoptItem.tscn" id="19_ugw0n"]
 [ext_resource type="Texture2D" uid="uid://4ykbq62ty0lv" path="res://Assets/Shop/tablette_bords_magasin.png" id="20_w2v3b"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_octww"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sw8l4"]
 font = ExtResource("14_q8y2t")
@@ -63,6 +65,15 @@ upgradeWindowRef = NodePath("UpgradesWindow")
 upgradeItemContainer = NodePath("UpgradesWindow/UpgradesScrollContainer/UpgradeItemContainer")
 upgradeItemScene = ExtResource("15_uixmk")
 upgradesScrollContainerRef = NodePath("UpgradesWindow/UpgradesScrollContainer")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.254902)
+offset_left = -981.0
+offset_top = -557.0
+offset_right = 996.0
+offset_bottom = 570.0
+mouse_filter = 2
+texture = SubResource("CanvasTexture_octww")
 
 [node name="CloseButton" type="Button" parent="."]
 layout_mode = 0

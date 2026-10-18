@@ -42,6 +42,7 @@ public partial class BingoCage : Node
         AssignSpecialBalls(new int[] { 15,16 }, () => new GoldenBall(), ballsTextures[4]);
         AssignSpecialBalls(new int[] { 17,18,19 }, () => new SquareBall(), ballsTextures[5]);
 
+        UpdateUpgradesStatus();
     }
 
 

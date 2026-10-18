@@ -15,10 +15,13 @@ public partial class GameScreenManager : Node
     [Export] private Shop shopRef;
     [Export] private TicketPrinter ticketPrinterRef;
 
+    [Export] private Texture2D[] shopTextures;
+
     public override void _Ready()
     {
 
         ticketFullScreenRef.OnTicketStamped += HandleStampedNumbers;
+
 
         foreach (TicketSpot lTicketSpot in ticketSpotArray)
         {
@@ -27,7 +30,8 @@ public partial class GameScreenManager : Node
             lTicketSpot.AutoStamperRef.Initialize(bingoCageRef.IsNumbersAllowed, bingoCageRef.GetCurrentBalls, bingoCageRef.GetNumberEffect);
             lTicketSpot.AutoFillerRef.Initialize(ticketQueuRef);
 
-            shopRef.AddSpotItem(lTicketSpot,
+
+            shopRef.AddSpotItem(lTicketSpot, shopTextures[0], lTicketSpot.isPrimaryUnlocked, moneyControllerRef.TicketSpotPurchase,
                 ShopUpgrades.AutoClicker,
                 ShopUpgrades.AutoFiller,
                 ShopUpgrades.AutoBingo,
@@ -39,13 +43,13 @@ public partial class GameScreenManager : Node
         shopRef.OnAnyItemUpgradeRequested += moneyControllerRef.UpgradeAugment;
 
         shopRef.AddUniqueItem("Ticket printer",
-            ticketPrinterRef.globalUpgrade,
+            ticketPrinterRef.globalUpgrade, shopTextures[1], true,
             ShopUpgrades.UnlockPrinter,
             ShopUpgrades.PintingSpeed,
             ShopUpgrades.PrinterSize);
 
         shopRef.AddUniqueItem("Bingo cage",
-            bingoCageRef.bingoCageUpgrade,
+            bingoCageRef.bingoCageUpgrade, shopTextures[2], true,
             ShopUpgrades.ManualCd,
             ShopUpgrades.BallPerS,
             ShopUpgrades.CageCapacity);

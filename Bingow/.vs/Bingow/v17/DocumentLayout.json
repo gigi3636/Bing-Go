@@ -1,54 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\",
+  "WorkspaceRootPath": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|c:\\users\\kheol\\documents\\bingow\\bing-go\\bingow\\script\\ticket\\ticketmoover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|solutionrelative:script\\ticket\\ticketmoover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{51A777C4-59CF-4415-A767-EF98A5861B00}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\shop\\shopupgradeitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A777C4-59CF-4415-A767-EF98A5861B00}|Bingow.csproj|solutionrelative:script\\shop\\shopupgradeitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|c:\\users\\kheol\\documents\\bingow\\bing-go\\bingow\\script\\shake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|solutionrelative:script\\shake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{51A777C4-59CF-4415-A767-EF98A5861B00}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\shop\\lockeditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A777C4-59CF-4415-A767-EF98A5861B00}|Bingow.csproj|solutionrelative:script\\shop\\lockeditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|c:\\users\\kheol\\documents\\bingow\\bing-go\\bingow\\script\\ticket\\ticketspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|solutionrelative:script\\ticket\\ticketspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{51A777C4-59CF-4415-A767-EF98A5861B00}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\ticketspot\\spotinteractionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A777C4-59CF-4415-A767-EF98A5861B00}|Bingow.csproj|solutionrelative:script\\ticketspot\\spotinteractionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|c:\\users\\kheol\\documents\\bingow\\bing-go\\bingow\\script\\ticket\\ticketqueu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|solutionrelative:script\\ticket\\ticketqueu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{51A777C4-59CF-4415-A767-EF98A5861B00}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\ticket\\ticketspot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A777C4-59CF-4415-A767-EF98A5861B00}|Bingow.csproj|solutionrelative:script\\ticket\\ticketspot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|c:\\users\\kheol\\documents\\bingow\\bing-go\\bingow\\script\\ticket\\basicticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|solutionrelative:script\\ticket\\basicticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{51A777C4-59CF-4415-A767-EF98A5861B00}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\gamescreenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A777C4-59CF-4415-A767-EF98A5861B00}|Bingow.csproj|solutionrelative:script\\gamescreenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|c:\\users\\kheol\\documents\\bingow\\bing-go\\bingow\\script\\ticket\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|solutionrelative:script\\ticket\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{51A777C4-59CF-4415-A767-EF98A5861B00}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\shop\\shop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A777C4-59CF-4415-A767-EF98A5861B00}|Bingow.csproj|solutionrelative:script\\shop\\shop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|c:\\users\\kheol\\documents\\bingow\\bing-go\\bingow\\script\\cell\\bingocell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|solutionrelative:script\\cell\\bingocell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|c:\\users\\kheol\\documents\\bingow\\bing-go\\bingow\\script\\playerstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|solutionrelative:script\\playerstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|c:\\users\\kheol\\documents\\bingow\\bing-go\\bingow\\script\\moneyranking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|solutionrelative:script\\moneyranking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|c:\\users\\kheol\\documents\\bingow\\bing-go\\bingow\\script\\blackmarket\\ballupgrader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|solutionrelative:script\\blackmarket\\ballupgrader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|c:\\users\\kheol\\documents\\bingow\\bing-go\\bingow\\script\\res\\ballres.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|solutionrelative:script\\res\\ballres.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|c:\\users\\kheol\\documents\\bingow\\bing-go\\bingow\\script\\blackmarket\\balldisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AB91FBF-2348-4DB3-B7DF-59B5CCD026E3}|Bingow.csproj|solutionrelative:script\\blackmarket\\balldisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{51A777C4-59CF-4415-A767-EF98A5861B00}|Bingow.csproj|c:\\users\\kheol\\documents\\isart\\bing-go\\bingow\\script\\moneycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A777C4-59CF-4415-A767-EF98A5861B00}|Bingow.csproj|solutionrelative:script\\moneycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,47 +38,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 875,
-          "SelectedChildIndex": 18,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Shake.cs",
-              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Shake.cs",
-              "RelativeDocumentMoniker": "Script\\Shake.cs",
-              "ToolTip": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Shake.cs",
-              "RelativeToolTip": "Script\\Shake.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "MoneyController.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\MoneyController.cs",
+              "RelativeDocumentMoniker": "Script\\MoneyController.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\MoneyController.cs",
+              "RelativeToolTip": "Script\\MoneyController.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwEIAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T10:02:49.697Z",
-              "IsPinned": true,
+              "WhenOpened": "2026-10-17T16:41:45.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LockedItem.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Shop\\LockedItem.cs",
+              "RelativeDocumentMoniker": "Script\\Shop\\LockedItem.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Shop\\LockedItem.cs",
+              "RelativeToolTip": "Script\\Shop\\LockedItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-17T16:33:14.224Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TicketSpawner.cs",
-              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Ticket\\TicketSpawner.cs",
-              "RelativeDocumentMoniker": "Script\\Ticket\\TicketSpawner.cs",
-              "ToolTip": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Ticket\\TicketSpawner.cs",
-              "RelativeToolTip": "Script\\Ticket\\TicketSpawner.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "SpotInteractionManager.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\TicketSpot\\SpotInteractionManager.cs",
+              "RelativeDocumentMoniker": "Script\\TicketSpot\\SpotInteractionManager.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\TicketSpot\\SpotInteractionManager.cs",
+              "RelativeToolTip": "Script\\TicketSpot\\SpotInteractionManager.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwCwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T11:50:46.963Z",
+              "WhenOpened": "2026-10-17T16:30:51.368Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "TicketQueu.cs",
-              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Ticket\\TicketQueu.cs",
-              "RelativeDocumentMoniker": "Script\\Ticket\\TicketQueu.cs",
-              "ToolTip": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Ticket\\TicketQueu.cs",
-              "RelativeToolTip": "Script\\Ticket\\TicketQueu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "TicketSpot.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Ticket\\TicketSpot.cs",
+              "RelativeDocumentMoniker": "Script\\Ticket\\TicketSpot.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Ticket\\TicketSpot.cs",
+              "RelativeToolTip": "Script\\Ticket\\TicketSpot.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA1wBoAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T11:50:39.812Z",
+              "WhenOpened": "2026-10-17T16:24:39.641Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GameScreenManager.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\GameScreenManager.cs",
+              "RelativeDocumentMoniker": "Script\\GameScreenManager.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\GameScreenManager.cs",
+              "RelativeToolTip": "Script\\GameScreenManager.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAwwBoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-16T12:45:33.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ShopUpgradeItem.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Shop\\ShopUpgradeItem.cs",
+              "RelativeDocumentMoniker": "Script\\Shop\\ShopUpgradeItem.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Shop\\ShopUpgradeItem.cs",
+              "RelativeToolTip": "Script\\Shop\\ShopUpgradeItem.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB0AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-17T16:20:29.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Bookmark",
@@ -107,6 +129,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
@@ -138,10 +164,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
@@ -153,122 +175,17 @@
               "Name": "ST:0:0:{dcc4ea97-1c0c-482b-b205-e541c0df9728}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TicketMoover.cs",
-              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Ticket\\TicketMoover.cs",
-              "RelativeDocumentMoniker": "Script\\Ticket\\TicketMoover.cs",
-              "ToolTip": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Ticket\\TicketMoover.cs",
-              "RelativeToolTip": "Script\\Ticket\\TicketMoover.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAA9wAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T10:18:53.699Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Ticket.cs",
-              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Ticket\\Ticket.cs",
-              "RelativeDocumentMoniker": "Script\\Ticket\\Ticket.cs",
-              "ToolTip": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Ticket\\Ticket.cs",
-              "RelativeToolTip": "Script\\Ticket\\Ticket.cs",
-              "ViewState": "AgIAAK4AAAAAAAAAAAA1wBEAAAAyAAAAAAAAAA==",
+              "Title": "Shop.cs",
+              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Shop\\Shop.cs",
+              "RelativeDocumentMoniker": "Script\\Shop\\Shop.cs",
+              "ToolTip": "C:\\Users\\kheol\\Documents\\Isart\\Bing-Go\\Bingow\\Script\\Shop\\Shop.cs",
+              "RelativeToolTip": "Script\\Shop\\Shop.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAnwDAAAAB9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T10:18:30.485Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BasicTicket.cs",
-              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Ticket\\BasicTicket.cs",
-              "RelativeDocumentMoniker": "Script\\Ticket\\BasicTicket.cs",
-              "ToolTip": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Ticket\\BasicTicket.cs",
-              "RelativeToolTip": "Script\\Ticket\\BasicTicket.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T10:17:40.599Z",
+              "WhenOpened": "2026-10-17T16:21:30.726Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BingoCell.cs",
-              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Cell\\BingoCell.cs",
-              "RelativeDocumentMoniker": "Script\\Cell\\BingoCell.cs",
-              "ToolTip": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Cell\\BingoCell.cs",
-              "RelativeToolTip": "Script\\Cell\\BingoCell.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T09:14:48.759Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PlayerStatus.cs",
-              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\PlayerStatus.cs",
-              "RelativeDocumentMoniker": "Script\\PlayerStatus.cs",
-              "ToolTip": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\PlayerStatus.cs",
-              "RelativeToolTip": "Script\\PlayerStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T18:41:04.328Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "MoneyRanking.cs",
-              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\MoneyRanking.cs",
-              "RelativeDocumentMoniker": "Script\\MoneyRanking.cs",
-              "ToolTip": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\MoneyRanking.cs",
-              "RelativeToolTip": "Script\\MoneyRanking.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAcwJIAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T16:25:18.987Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "BallUpgrader.cs",
-              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\BlackMarket\\BallUpgrader.cs",
-              "RelativeDocumentMoniker": "Script\\BlackMarket\\BallUpgrader.cs",
-              "ToolTip": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\BlackMarket\\BallUpgrader.cs",
-              "RelativeToolTip": "Script\\BlackMarket\\BallUpgrader.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-10T19:30:47.014Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "BallRes.cs",
-              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Res\\BallRes.cs",
-              "RelativeDocumentMoniker": "Script\\Res\\BallRes.cs",
-              "ToolTip": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\Res\\BallRes.cs",
-              "RelativeToolTip": "Script\\Res\\BallRes.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-10T18:14:21.411Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "BallDisplay.cs",
-              "DocumentMoniker": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\BlackMarket\\BallDisplay.cs",
-              "RelativeDocumentMoniker": "Script\\BlackMarket\\BallDisplay.cs",
-              "ToolTip": "C:\\Users\\kheol\\Documents\\Bingow\\Bing-Go\\Bingow\\Script\\BlackMarket\\BallDisplay.cs",
-              "RelativeToolTip": "Script\\BlackMarket\\BallDisplay.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-10T15:10:02.378Z"
             }
           ]
         },
@@ -278,15 +195,7 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{25f7e850-ffa1-11d0-b63f-00a0c922e851}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
             }
           ]
         }

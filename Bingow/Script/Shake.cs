@@ -2,7 +2,6 @@ using Godot;
 
 public partial class Shake : Node
 {
-
     [Export] private Control mouseArea;
     [Export] private Control nodeToShakeRef;
 
@@ -11,54 +10,59 @@ public partial class Shake : Node
     [Export] private float scaleUp = 1.2f;
 
     private Tween shakeTween;
-
-
     private Vector2 baseScale;
-
+    private float baseRoation;
 
     public override void _Ready()
     {
         base._Ready();
 
-        mouseArea.MouseEntered += StartShake;
-        mouseArea.MouseExited += StopShake;
+        if (nodeToShakeRef != null)
+        {
+            baseScale = nodeToShakeRef.Scale;
+            baseRoation = nodeToShakeRef.RotationDegrees;
+        }
 
-        baseScale = nodeToShakeRef.Scale;
 
+        if (mouseArea != null)
+        {
+            mouseArea.MouseEntered += StartShake;
+            mouseArea.MouseExited += StopShake;
+        }
     }
 
     public override void _ExitTree()
     {
         base._ExitTree();
 
-        mouseArea.MouseEntered -= StartShake;
-        mouseArea.MouseExited -= StopShake;
-
+        if (mouseArea != null)
+        {
+            mouseArea.MouseEntered -= StartShake;
+            mouseArea.MouseExited -= StopShake;
+        }
     }
 
-    private void StartShake()
+    public void StartShake()
     {
         shakeTween?.Kill();
-
         shakeTween = CreateTween();
-
         shakeTween.SetParallel(true);
 
         shakeTween.TweenProperty(nodeToShakeRef, "scale", baseScale * scaleUp, ShakeDuration);
-
-        shakeTween.TweenProperty(nodeToShakeRef, "rotation_degrees", ShakeAngle, ShakeDuration);
+        shakeTween.TweenProperty(nodeToShakeRef, "rotation_degrees", baseRoation + ShakeAngle, ShakeDuration);
 
         shakeTween.SetParallel(false);
-
-        shakeTween.TweenProperty(nodeToShakeRef, "rotation_degrees", -ShakeAngle, ShakeDuration * 2);
-
-        shakeTween.TweenProperty(nodeToShakeRef, "rotation_degrees", 0f, ShakeDuration);
-
+        shakeTween.TweenProperty(nodeToShakeRef, "rotation_degrees", baseRoation - ShakeAngle, ShakeDuration * 2);
+        shakeTween.TweenProperty(nodeToShakeRef, "rotation_degrees", baseRoation, ShakeDuration);
         shakeTween.TweenProperty(nodeToShakeRef, "scale", baseScale, ShakeDuration);
-
     }
 
-    private void StopShake()
+    public void StopShake()
     {
+        shakeTween?.Kill();
+        Tween resetTween = CreateTween();
+        resetTween.SetParallel(true);
+        resetTween.TweenProperty(nodeToShakeRef, "scale", baseScale, 0.1f);
+        resetTween.TweenProperty(nodeToShakeRef, "rotation_degrees", baseRoation, 0.1f);
     }
 }

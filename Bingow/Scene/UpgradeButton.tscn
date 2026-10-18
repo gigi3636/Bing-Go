@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dov3o30dior6c"]
+[gd_scene load_steps=8 format=3 uid="uid://dov3o30dior6c"]
 
 [ext_resource type="Texture2D" uid="uid://s21l043gxyop" path="res://Assets/Shop/tablette_bouton_orange_sasnbords.png" id="1_r8qx8"]
 [ext_resource type="Script" path="res://Script/TicketSpot/TicketSpotUpgradeButton.cs" id="2_8lros"]
 [ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="3_hvj2q"]
+[ext_resource type="Script" path="res://Script/Shake.cs" id="4_6a125"]
+[ext_resource type="Script" path="res://Script/VisualAnimation/TicketShoptJuice.cs" id="5_6fu2d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u5e7l"]
 font = ExtResource("3_hvj2q")
@@ -12,7 +14,7 @@ font_size = 20
 font = ExtResource("3_hvj2q")
 font_size = 13
 
-[node name="AutoclickerButton" type="TextureButton" node_paths=PackedStringArray("buttonLabel", "nameLabel")]
+[node name="AutoclickerButton" type="TextureButton" node_paths=PackedStringArray("buttonLabel", "nameLabel", "ticketShoptJuiceRef")]
 texture_filter = 1
 custom_minimum_size = Vector2(117, 41)
 offset_left = 185.0
@@ -26,6 +28,7 @@ stretch_mode = 5
 script = ExtResource("2_8lros")
 buttonLabel = NodePath("Price")
 nameLabel = NodePath("Name")
+ticketShoptJuiceRef = NodePath("TicketShoptJuice")
 
 [node name="Price" type="Label" parent="."]
 layout_mode = 1
@@ -36,6 +39,7 @@ anchor_bottom = 0.951
 offset_top = 0.016
 offset_right = -3.0
 offset_bottom = 0.00899887
+pivot_offset = Vector2(57, 19)
 text = "10 $"
 label_settings = SubResource("LabelSettings_u5e7l")
 horizontal_alignment = 1
@@ -55,3 +59,14 @@ text = "Autoclicker : 1"
 label_settings = SubResource("LabelSettings_yui4v")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="Shake" type="Node2D" parent="." node_paths=PackedStringArray("mouseArea", "nodeToShakeRef")]
+script = ExtResource("4_6a125")
+mouseArea = NodePath("..")
+nodeToShakeRef = NodePath("../Price")
+ShakeAngle = 2.0
+ShakeDuration = 0.2
+
+[node name="TicketShoptJuice" type="Node2D" parent="."]
+position = Vector2(2, 2)
+script = ExtResource("5_6fu2d")

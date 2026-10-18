@@ -10,17 +10,24 @@ public partial class ShopUpgradeItem : Control
 
     [Export] private BoxContainer buttonsContainer;
     [Export] private PackedScene upgradeButtonScene;
+    [Export] private LockedItem lockedRef;
 
     public IUpgradeGroup currentUpgradeGroupRef;
 
     public Action<ShopUpgrades, IUpgradeGroup, Action<IUpgradeGroup>> OnUpgradeRequested;
 
-    public void Initialize(string pTitle, IUpgradeGroup pUpgradeGroup, IEnumerable<ShopUpgrades> upgradesToSpawn)
+    public void Initialize(string pTitle, IUpgradeGroup pUpgradeGroup, IEnumerable<ShopUpgrades> upgradesToSpawn, Texture2D pTexture, bool pIsUnlocked)
     {
         upgradeName.Text = pTitle;
         currentUpgradeGroupRef = pUpgradeGroup;
-
+        upgradeIconRef.Texture  = pTexture;
         SpawnButtons(upgradesToSpawn);
+        lockedRef.Visible = !pIsUnlocked;
+    }
+
+    public void SetupTicketSpot(Action<int, Action> pAction)
+    {
+        //lockedRef.OnUnlockButtonPressed += pAction;
     }
 
     private void SpawnButtons(IEnumerable<ShopUpgrades> upgradesToSpawn)

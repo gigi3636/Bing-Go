@@ -1,8 +1,10 @@
 using Godot;
+
 public partial class BingoManager : Node2D
 {
     [ExportGroup("References de Base")]
     [Export] private TextureButton bingoButtonRef;
+    [Export] private Control bingoTextRef; 
     [Export] private TicketFullScreen ticketFullScreenRef;
     [Export] private PlayerStatus playerStatusRef;
 
@@ -43,6 +45,9 @@ public partial class BingoManager : Node2D
 
         if (floatingPopupTemplateRef != null)
             floatingPopupTemplateRef.Visible = false;
+
+        if (bingoTextRef != null)
+            bingoTextRef.Visible = false;
 
         if (baseScoreLabelRef != null)
             _initialBaseLabelPos = baseScoreLabelRef.Position;
@@ -123,7 +128,9 @@ public partial class BingoManager : Node2D
         if (_isScoringInProgress) return;
 
         bool wasVisible = bingoButtonRef.Visible;
+
         bingoButtonRef.Visible = pTicketRef.isCompleted;
+        if (bingoTextRef != null) bingoTextRef.Visible = pTicketRef.isCompleted;
 
         if (pTicketRef.isCompleted && !wasVisible)
         {
@@ -133,37 +140,61 @@ public partial class BingoManager : Node2D
         {
             _bingoPulseTween?.Kill();
             bingoButtonRef.Scale = Vector2.One;
+            if (bingoTextRef != null) bingoTextRef.Scale = Vector2.One;
         }
     }
 
     private async void TriggerBingoShowJuice()
     {
+        _bingoPulseTween?.Kill();
+
+        // Setup du Bouton en bas
         bingoButtonRef.PivotOffset = bingoButtonRef.Size / 2f;
-        bingoButtonRef.Scale = new Vector2(2.8f, 2.8f);
-        bingoButtonRef.RotationDegrees = -8f;
-        bingoButtonRef.Modulate = new Color(2.5f, 2.5f, 1.5f, 1f);
+        bingoButtonRef.Scale = Vector2.Zero;
+        bingoButtonRef.RotationDegrees = -5f;
+
+        if (bingoTextRef != null)
+        {
+            bingoTextRef.PivotOffset = bingoTextRef.Size / 2f;
+            bingoTextRef.Scale = new Vector2(4.5f, 4.5f); 
+            bingoTextRef.Modulate = new Color(3f, 3f, 2f, 0f); 
+            bingoTextRef.RotationDegrees = 8f;
+        }
 
         Engine.TimeScale = 0.08;
         await ToSignal(GetTree().CreateTimer(0.08f, true, false, true), SceneTreeTimer.SignalName.Timeout);
         Engine.TimeScale = 1.0;
 
-        ShakeCamera2D.Instance?.AddTrauma(2.75f);
+        ShakeCamera2D.Instance?.AddTrauma(3.0f);
+
         if (confettiParticlesRef != null)
         {
             confettiParticlesRef.Restart();
             confettiParticlesRef.Emitting = true;
         }
 
-        _bingoPulseTween?.Kill();
         Tween introTween = CreateTween();
         introTween.SetParallel(true);
+
+        if (bingoTextRef != null)
+        {
+            introTween.TweenProperty(bingoTextRef, "scale", Vector2.One, 0.4f)
+                      .SetTrans(Tween.TransitionType.Bounce) // Effet rebond lourd
+                      .SetEase(Tween.EaseType.Out);
+            introTween.TweenProperty(bingoTextRef, "rotation_degrees", 0f, 0.35f)
+                      .SetTrans(Tween.TransitionType.Back)
+                      .SetEase(Tween.EaseType.Out);
+            introTween.TweenProperty(bingoTextRef, "modulate", Colors.White, 0.2f);
+        }
+
         introTween.TweenProperty(bingoButtonRef, "scale", Vector2.One, 0.45f)
                   .SetTrans(Tween.TransitionType.Elastic)
-                  .SetEase(Tween.EaseType.Out);
+                  .SetEase(Tween.EaseType.Out)
+                  .SetDelay(0.05f);
         introTween.TweenProperty(bingoButtonRef, "rotation_degrees", 0f, 0.45f)
                   .SetTrans(Tween.TransitionType.Elastic)
-                  .SetEase(Tween.EaseType.Out);
-        introTween.TweenProperty(bingoButtonRef, "modulate", Colors.White, 0.25f);
+                  .SetEase(Tween.EaseType.Out)
+                  .SetDelay(0.05f);
 
         introTween.Finished += StartIdleBingoPulse;
     }
@@ -173,12 +204,13 @@ public partial class BingoManager : Node2D
         if (!bingoButtonRef.Visible) return;
         _bingoPulseTween?.Kill();
         _bingoPulseTween = CreateTween().SetLoops();
+        _bingoPulseTween.SetParallel(true);
+
+        // Pulse du bouton
         _bingoPulseTween.TweenProperty(bingoButtonRef, "scale", new Vector2(1.06f, 0.94f), 0.35f)
-                        .SetTrans(Tween.TransitionType.Sine)
-                        .SetEase(Tween.EaseType.InOut);
-        _bingoPulseTween.TweenProperty(bingoButtonRef, "scale", new Vector2(0.96f, 1.04f), 0.35f)
-                        .SetTrans(Tween.TransitionType.Sine)
-                        .SetEase(Tween.EaseType.InOut);
+                        .SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.InOut);
+        _bingoPulseTween.Chain().TweenProperty(bingoButtonRef, "scale", new Vector2(0.96f, 1.04f), 0.35f)
+                        .SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.InOut);
     }
 
     private void _on_bingo_text_pressed()
@@ -198,11 +230,22 @@ public partial class BingoManager : Node2D
         if (isVisualValidation)
         {
             Tween clickTween = CreateTween();
+            clickTween.SetParallel(true);
+
             clickTween.TweenProperty(bingoButtonRef, "scale", new Vector2(1.25f, 0.75f), 0.06f);
-            clickTween.TweenProperty(bingoButtonRef, "scale", Vector2.Zero, 0.16f)
-                      .SetTrans(Tween.TransitionType.Back)
-                      .SetEase(Tween.EaseType.In);
-            clickTween.TweenCallback(Callable.From(() => bingoButtonRef.Visible = false));
+            clickTween.Chain().TweenProperty(bingoButtonRef, "scale", Vector2.Zero, 0.16f)
+                      .SetTrans(Tween.TransitionType.Back).SetEase(Tween.EaseType.In);
+
+            if (bingoTextRef != null)
+            {
+                clickTween.Chain().TweenProperty(bingoTextRef, "scale", Vector2.Zero, 0.16f)
+                          .SetTrans(Tween.TransitionType.Back).SetEase(Tween.EaseType.In);
+            }
+
+            clickTween.TweenCallback(Callable.From(() => {
+                bingoButtonRef.Visible = false;
+                if (bingoTextRef != null) bingoTextRef.Visible = false;
+            }));
         }
 
         BingoRewardData lReward = new BingoRewardData { BaseMoney = 0, Multiplier = 1.0f };
@@ -218,18 +261,57 @@ public partial class BingoManager : Node2D
             }
         }
 
+        // ==========================================
+        // ==========================================
         if (!isLigneValide)
         {
             GD.Print("ticket pas valide");
+
+            CanvasLayer flashLayer = new CanvasLayer { Layer = 100 };
+            ColorRect redFlash = new ColorRect
+            {
+                Color = new Color(1f, 0.1f, 0.1f, 0.55f) // Rouge semi-transparent
+            };
+            redFlash.SetAnchorsPreset(Control.LayoutPreset.FullRect);
+            flashLayer.AddChild(redFlash);
+            AddChild(flashLayer);
+
+            Tween flashTween = CreateTween();
+            flashTween.TweenProperty(redFlash, "color:a", 0f, 0.4f);
+            flashTween.TweenCallback(Callable.From(flashLayer.QueueFree));
+
+            if (isVisualValidation && ticketFullScreenRef != null)
+            {
+                Vector2 origPos = ticketFullScreenRef.Position;
+                float shakeOffset = 25f;
+                float dur = 0.06f;
+
+                Tween shakeTween = CreateTween();
+                shakeTween.TweenProperty(ticketFullScreenRef, "position:x", origPos.X - shakeOffset, dur);
+                shakeTween.TweenProperty(ticketFullScreenRef, "position:x", origPos.X + shakeOffset, dur);
+                shakeTween.TweenProperty(ticketFullScreenRef, "position:x", origPos.X - shakeOffset, dur);
+                shakeTween.TweenProperty(ticketFullScreenRef, "position:x", origPos.X + shakeOffset, dur);
+                shakeTween.TweenProperty(ticketFullScreenRef, "position:x", origPos.X, dur);
+            }
+
             ShakeCamera2D.Instance?.AddDirectionalShake(Vector2.Left, 6f);
+
+            await ToSignal(GetTree().CreateTimer(0.4f), SceneTreeTimer.SignalName.Timeout);
+
             pTicket.DeleteTicket();
             if (isVisualValidation) ticketFullScreenRef.CloseTicket();
+
             bingoButtonRef.Disabled = false;
             bingoButtonRef.Scale = Vector2.One;
+            if (bingoTextRef != null) bingoTextRef.Scale = Vector2.One;
+
             _isScoringInProgress = false;
             return;
         }
 
+        // ==========================================
+        // CAS VALIDE : ANIMATION NORMALE (JUICE)
+        // ==========================================
         if (isVisualValidation && scoreHudContainerRef != null)
         {
             scoreHudContainerRef.Visible = true;
@@ -410,6 +492,7 @@ public partial class BingoManager : Node2D
 
         bingoButtonRef.Disabled = false;
         bingoButtonRef.Scale = Vector2.One;
+        if (bingoTextRef != null) bingoTextRef.Scale = Vector2.One;
         _isScoringInProgress = false;
     }
 

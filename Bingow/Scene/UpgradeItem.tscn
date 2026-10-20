@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://do2h1vkwoym6y"]
+[gd_scene load_steps=23 format=3 uid="uid://do2h1vkwoym6y"]
 
 [ext_resource type="Script" path="res://Script/Shop/ShopUpgradeItem.cs" id="1_k34bw"]
 [ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="2_ublgx"]
 [ext_resource type="Texture2D" uid="uid://n7osy3bn7vvx" path="res://Assets/BingoCage/BoullierFull.png" id="3_c6t21"]
 [ext_resource type="PackedScene" uid="uid://dov3o30dior6c" path="res://Scene/UpgradeButton.tscn" id="4_g5ajn"]
-[ext_resource type="Texture2D" uid="uid://psvmediug3gp" path="res://Assets/Place Holder/lock-pixel-art-icons-line-260nw-2667125745.jpg" id="5_75wb4"]
 [ext_resource type="Script" path="res://Script/Shop/LockedItem.cs" id="5_ksvq6"]
+[ext_resource type="Texture2D" uid="uid://tj5vjoibbqxx" path="res://Assets/Shop/UnlockedSheet.png" id="6_pp0nv"]
+[ext_resource type="Texture2D" uid="uid://7hlit1btqtex" path="res://Assets/Shop/Confettis.png" id="7_ryj3k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h7jkc"]
 font = ExtResource("2_ublgx")
@@ -16,8 +17,81 @@ font = ExtResource("2_ublgx")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_mxanq"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fycbo"]
+atlas = ExtResource("6_pp0nv")
+region = Rect2(0, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fmlh"]
+atlas = ExtResource("6_pp0nv")
+region = Rect2(13, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hueu0"]
+atlas = ExtResource("6_pp0nv")
+region = Rect2(26, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wvdo"]
+atlas = ExtResource("6_pp0nv")
+region = Rect2(39, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6xn1"]
+atlas = ExtResource("6_pp0nv")
+region = Rect2(52, 0, 13, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rjte5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fycbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fmlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hueu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wvdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6xn1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
 [sub_resource type="LabelSettings" id="LabelSettings_h10i1"]
 font = ExtResource("2_ublgx")
+
+[sub_resource type="Gradient" id="Gradient_agvwn"]
+offsets = PackedFloat32Array(0, 0.188525, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.831373, 0, 1, 0.792723, 0.545345, 0.381595, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mkkup"]
+gradient = SubResource("Gradient_agvwn")
+
+[sub_resource type="Curve" id="Curve_713au"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.986667, 0), -1.64835, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_i0sn2"]
+curve = SubResource("Curve_713au")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f6j2w"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0, -1, 0)
+spread = 76.012
+initial_velocity_min = 400.0
+initial_velocity_max = 700.0
+angular_velocity_min = 100.0
+angular_velocity_max = 300.0
+gravity = Vector3(0, 300, 0)
+scale_min = 3.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_i0sn2")
+color_ramp = SubResource("GradientTexture1D_mkkup")
 
 [node name="UpgradeItem" type="Control" node_paths=PackedStringArray("upgradeIconRef", "upgradeName", "buttonsContainer", "lockedRef")]
 texture_filter = 1
@@ -35,7 +109,7 @@ upgradeIconRef = NodePath("UpgradeIcon")
 upgradeName = NodePath("UpgradeName")
 buttonsContainer = NodePath("HBoxContainer")
 upgradeButtonScene = ExtResource("4_g5ajn")
-lockedRef = NodePath("Locked3")
+lockedRef = NodePath("LockedItem")
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -80,22 +154,27 @@ offset_top = 107.0
 offset_right = 715.0
 offset_bottom = 147.0
 
-[node name="Locked3" type="Control" parent="."]
+[node name="LockedItem" type="Control" parent="." node_paths=PackedStringArray("priceLabel", "lockedSpriteAnim", "unlockParticles")]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 733.0
+offset_bottom = 161.0
+pivot_offset = Vector2(374.455, 83.53)
 script = ExtResource("5_ksvq6")
+priceLabel = NodePath("UnlockButton/UnlockLabel")
+lockedSpriteAnim = NodePath("LockedIcon")
+unlockParticles = NodePath("../GPUParticles2D")
 
-[node name="LockedBlackScreen1" type="TextureRect" parent="Locked3"]
+[node name="LockedBlackScreen1" type="TextureRect" parent="LockedItem"]
 modulate = Color(0, 0, 0, 0.913725)
 layout_mode = 0
 offset_left = 19.0
 offset_top = 8.0
 offset_right = 734.0
 offset_bottom = 161.0
+pivot_offset = Vector2(357, 76)
 texture = SubResource("CanvasTexture_mxanq")
 
-[node name="LockedBlackScreen2" type="TextureRect" parent="Locked3"]
+[node name="LockedBlackScreen2" type="TextureRect" parent="LockedItem"]
 modulate = Color(0, 0, 0, 0.913725)
 layout_mode = 0
 offset_left = 184.0
@@ -104,14 +183,20 @@ offset_right = 733.0
 offset_bottom = 160.0
 texture = SubResource("CanvasTexture_mxanq")
 
-[node name="UnlockButton" type="Button" parent="Locked3"]
+[node name="LockedIcon" type="AnimatedSprite2D" parent="LockedItem"]
+modulate = Color(0.454902, 0.454902, 0.454902, 1)
+position = Vector2(369, 83)
+scale = Vector2(9.05769, 9.05769)
+sprite_frames = SubResource("SpriteFrames_rjte5")
+
+[node name="UnlockButton" type="Button" parent="LockedItem"]
 layout_mode = 0
 offset_left = 533.0
 offset_top = 82.0
 offset_right = 734.0
 offset_bottom = 161.0
 
-[node name="UnlockLabel" type="Label" parent="Locked3/UnlockButton"]
+[node name="UnlockLabel" type="Label" parent="LockedItem/UnlockButton"]
 layout_mode = 0
 offset_right = 201.0
 offset_bottom = 79.0
@@ -120,15 +205,13 @@ label_settings = SubResource("LabelSettings_h10i1")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Locked3"]
-modulate = Color(0.454902, 0.454902, 0.454902, 1)
-layout_mode = 0
-offset_left = 274.0
-offset_top = 11.0
-offset_right = 464.0
-offset_bottom = 157.0
-texture = ExtResource("5_75wb4")
-expand_mode = 3
-stretch_mode = 5
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(373, 103)
+emitting = false
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_f6j2w")
+texture = ExtResource("7_ryj3k")
+lifetime = 0.8
+one_shot = true
 
-[connection signal="pressed" from="Locked3/UnlockButton" to="Locked3" method="_on_unlock_button_pressed"]
+[connection signal="pressed" from="LockedItem/UnlockButton" to="LockedItem" method="_on_unlock_button_pressed"]

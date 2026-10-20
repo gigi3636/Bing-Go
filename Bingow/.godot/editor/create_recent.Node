@@ -1,4 +1,7 @@
 Label
-Control
 TextureRect
+GPUParticles2D
+CPUParticles2D
+AnimatedSprite2D
+Control
 Button

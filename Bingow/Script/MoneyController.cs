@@ -64,11 +64,17 @@ public partial class MoneyController : Node
             GD.Print(" no money u broke asf u cant ");
         }
     }   
+
+
     public void TicketSpotPurchase(int pSpotCost , Action pBuySpot)
 	{
-		if (pSpotCost <= playerStatusRes.playerCurrentMoney)
+
+        if (pSpotCost <= playerStatusRes.playerCurrentMoney)
 		{
-			playerStatusRes.DiscountMoney(pSpotCost);
+
+            GD.Print("buyed");
+
+            playerStatusRes.DiscountMoney(pSpotCost);
 			pBuySpot();
 		}
 	}

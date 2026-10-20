@@ -29,15 +29,18 @@ public partial class GameScreenManager : Node
             bingoCageRef.OnNewBall += lTicketSpot.AutoStamperRef.VerifyGrid;
             lTicketSpot.AutoStamperRef.Initialize(bingoCageRef.IsNumbersAllowed, bingoCageRef.GetCurrentBalls, bingoCageRef.GetNumberEffect);
             lTicketSpot.AutoFillerRef.Initialize(ticketQueuRef);
+            
+            
 
 
-            shopRef.AddSpotItem(lTicketSpot, shopTextures[0], lTicketSpot.isPrimaryUnlocked, moneyControllerRef.TicketSpotPurchase,
+            shopRef.AddSpotItem(lTicketSpot, shopTextures[0], lTicketSpot.isPrimaryUnlocked,
                 ShopUpgrades.AutoClicker,
                 ShopUpgrades.AutoFiller,
                 ShopUpgrades.AutoBingo,
                 ShopUpgrades.SizeUpgrade);
 
             lTicketSpot.OnUpgradeShopClicked += shopRef.OpenSpecificWindow;
+
 
         }
         shopRef.OnAnyItemUpgradeRequested += moneyControllerRef.UpgradeAugment;

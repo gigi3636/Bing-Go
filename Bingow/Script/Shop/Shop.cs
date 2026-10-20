@@ -46,15 +46,15 @@ public partial class Shop : Control
     }
 
     // add a ticket spot with a array of upgrades
-    public void AddSpotItem(TicketSpot pTicketSpotRef, Texture2D pItemTexture,  bool pIsUnlocked, Action<int, Action> pAction , params TicketSpotUpgradeButton.ShopUpgrades[] pUpgrades)
+    public void AddSpotItem(TicketSpot pTicketSpotRef, Texture2D pItemTexture,  bool pIsUnlocked , params TicketSpotUpgradeButton.ShopUpgrades[] pUpgrades)
     {
         ShopUpgradeItem lItem = CreateAndBindShopItem();
 
         string lTitle = $"Ticket spot {pTicketSpotRef.spotId}";
 
         // Cast the params array in upgrades List
-
         lItem.Initialize(lTitle, pTicketSpotRef.ticketSpotUpgrades, new List<TicketSpotUpgradeButton.ShopUpgrades>(pUpgrades), pItemTexture, pIsUnlocked);
+        lItem.SetupTicketSpot(pTicketSpotRef);
     }
 
     public void AddUniqueItem(string pName, IUpgradeGroup pUpgradeGroup,  Texture2D pItemTexture, bool pIsUnlocked, params TicketSpotUpgradeButton.ShopUpgrades[] pUpgrades)

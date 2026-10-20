@@ -9,7 +9,7 @@ public partial class PlayerStatus : Resource
     private const int BINGO_BALLS_START_PRICE  = 1;
     private const int BINGO_BALLS_INCREASE_PRICE  = 1;
 
-    private int startMoneyAmount = 10000;
+    private int startMoneyAmount = 10000000;
     public int playerCurrentMoney {  get; private set; }
 
     public int bingoBallsCurrentPrice = 1;

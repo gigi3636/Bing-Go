@@ -25,9 +25,11 @@ public partial class ShopUpgradeItem : Control
         lockedRef.Visible = !pIsUnlocked;
     }
 
-    public void SetupTicketSpot(Action<int, Action> pAction)
+    public void SetupTicketSpot(TicketSpot pTicketSpot)
     {
-        //lockedRef.OnUnlockButtonPressed += pAction;
+
+        lockedRef.Initialize(pTicketSpot);
+
     }
 
     private void SpawnButtons(IEnumerable<ShopUpgrades> upgradesToSpawn)

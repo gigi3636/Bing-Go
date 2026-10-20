@@ -1,15 +1,21 @@
-[gd_scene load_steps=16 format=3 uid="uid://8777xu40ys6q"]
+[gd_scene load_steps=23 format=3 uid="uid://8777xu40ys6q"]
 
 [ext_resource type="Script" path="res://Script/Ticket/TicketFullScreen.cs" id="1_8aqjq"]
 [ext_resource type="Texture2D" uid="uid://cm2c4ikbkcm7l" path="res://Assets/Ticket/ticket_3x3.png" id="2_jsae1"]
 [ext_resource type="Texture2D" uid="uid://beal5l3rnvvpw" path="res://Assets/BouttonBingo.png" id="3_735qu"]
+[ext_resource type="Texture2D" uid="uid://cf3lhrh5uuxiy" path="res://Assets/BingoText.png" id="3_bch1u"]
 [ext_resource type="Script" path="res://Script/Ticket/BingoManager.cs" id="4_5g4vc"]
 [ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Resource/PlayerStatuRes.tres" id="5_s6ngj"]
 [ext_resource type="Script" path="res://Script/BingoLabel.cs" id="6_yn0wf"]
 [ext_resource type="FontFile" uid="uid://csstirmsxk1eu" path="res://font/Pixeled.ttf" id="7_pkqf8"]
 [ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="8_u28jy"]
+[ext_resource type="Texture2D" uid="uid://7hlit1btqtex" path="res://Assets/Shop/Confettis.png" id="9_abew3"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_58ouj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tihb5"]
+font = ExtResource("8_u28jy")
+font_size = 100
 
 [sub_resource type="LabelSettings" id="LabelSettings_xxqig"]
 font = ExtResource("8_u28jy")
@@ -40,18 +46,35 @@ outline_color = Color(0.298039, 0.298039, 0.298039, 1)
 shadow_size = 6
 shadow_offset = Vector2(0, 4)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4dblf"]
+[sub_resource type="Gradient" id="Gradient_agvwn"]
+offsets = PackedFloat32Array(0, 0.188525, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.831373, 0, 1, 0.792723, 0.545345, 0.381595, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mkkup"]
+gradient = SubResource("Gradient_agvwn")
+
+[sub_resource type="Curve" id="Curve_713au"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.986667, 0), -1.64835, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_i0sn2"]
+curve = SubResource("Curve_713au")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f6j2w"]
 particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
 direction = Vector3(0, -1, 0)
-spread = 180.0
-initial_velocity_min = 280.0
-initial_velocity_max = 720.0
-gravity = Vector3(0, 520, 0)
-damping_min = 100.0
-damping_max = 220.0
-scale_min = 6.0
-scale_max = 14.0
-color = Color(1, 0.85098, 0.2, 1)
+spread = 76.012
+initial_velocity_min = 400.0
+initial_velocity_max = 700.0
+angular_velocity_min = 100.0
+angular_velocity_max = 300.0
+gravity = Vector3(0, 300, 0)
+scale_min = 3.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_i0sn2")
+color_ramp = SubResource("GradientTexture1D_mkkup")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kntlf"]
 particle_flag_disable_z = true
@@ -116,7 +139,18 @@ position = Vector2(-14, 22)
 scale = Vector2(3.28568, 3.29821)
 texture = ExtResource("2_jsae1")
 
-[node name="BingoText" type="TextureButton" parent="."]
+[node name="BingoText2" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -440.0
+offset_top = -327.0
+offset_right = 392.0
+offset_bottom = -95.8889
+texture = ExtResource("3_bch1u")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="CallItButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -124,16 +158,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -474.0
-offset_top = 287.0
-offset_right = 447.0
-offset_bottom = 517.0
+offset_left = -407.0
+offset_top = 281.0
+offset_right = 346.0
+offset_bottom = 469.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(460, 115)
 texture_normal = ExtResource("3_735qu")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="CallItButton"]
+layout_mode = 0
+offset_left = 46.0
+offset_right = 709.0
+offset_bottom = 182.0
+text = "Call it ?"
+label_settings = SubResource("LabelSettings_tihb5")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
@@ -145,9 +189,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 99
 
-[node name="BingoManager" type="Node2D" parent="." node_paths=PackedStringArray("bingoButtonRef", "ticketFullScreenRef", "scoreHudContainerRef", "baseScoreLabelRef", "multScoreLabelRef", "totalScoreLabelRef", "floatingPopupTemplateRef", "confettiParticlesRef", "cellBurstParticlesRef")]
+[node name="BingoManager" type="Node2D" parent="." node_paths=PackedStringArray("bingoButtonRef", "bingoTextRef", "ticketFullScreenRef", "scoreHudContainerRef", "baseScoreLabelRef", "multScoreLabelRef", "totalScoreLabelRef", "floatingPopupTemplateRef", "confettiParticlesRef", "cellBurstParticlesRef")]
 script = ExtResource("4_5g4vc")
-bingoButtonRef = NodePath("../BingoText")
+bingoButtonRef = NodePath("../CallItButton")
+bingoTextRef = NodePath("../BingoText2")
 ticketFullScreenRef = NodePath("..")
 playerStatusRef = ExtResource("5_s6ngj")
 scoreHudContainerRef = NodePath("../ScoreHudContainer")
@@ -228,9 +273,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ConfettiParticles" type="GPUParticles2D" parent="."]
+position = Vector2(-12, 51)
 emitting = false
-amount = 75
-process_material = SubResource("ParticleProcessMaterial_4dblf")
+amount = 175
+process_material = SubResource("ParticleProcessMaterial_f6j2w")
+texture = ExtResource("9_abew3")
 lifetime = 1.5
 one_shot = true
 explosiveness = 0.94
@@ -247,4 +294,4 @@ explosiveness = 0.95
 [connection signal="pressed" from="closeButton" to="." method="_on_button_pressed"]
 [connection signal="button_down" from="closeButton2" to="." method="_on_button_button_down"]
 [connection signal="pressed" from="closeButton2" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="BingoText" to="BingoManager" method="_on_bingo_text_pressed"]
+[connection signal="pressed" from="CallItButton" to="BingoManager" method="_on_bingo_text_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://2fgbsm3m67jt"]
+[gd_scene load_steps=26 format=3 uid="uid://2fgbsm3m67jt"]
 
 [ext_resource type="Script" path="res://Script/BingoCage/BingoCage.cs" id="1_cyemu"]
 [ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Resource/PlayerStatuRes.tres" id="2_o58nn"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bixilebsbkyff" path="res://Assets/BingoCage/Boulier_Pose4.png" id="19_cmyyh"]
 [ext_resource type="Texture2D" uid="uid://iyfxgma7ktnr" path="res://Assets/BingoCage/CageRed.png" id="20_gdl0r"]
 [ext_resource type="Script" path="res://Script/Shake.cs" id="21_xmbjx"]
+[ext_resource type="Texture2D" uid="uid://0hslsa1g7qua" path="res://Assets/BingoCage/BingoCageTex.png" id="22_mvi1d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n5bao"]
 animations = [{
@@ -100,7 +101,7 @@ ballsTextures = Array[Texture2D]([])
 
 [node name="Tube" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-143, 8)
+position = Vector2(-87, -37)
 scale = Vector2(6, 6)
 texture = ExtResource("3_t8m7g")
 
@@ -112,10 +113,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -324.0
-offset_top = -20.0
-offset_right = -4.0
-offset_bottom = 58.0
+offset_left = -268.0
+offset_top = -65.0
+offset_right = 52.0
+offset_bottom = 13.0
 grow_horizontal = 0
 grow_vertical = 2
 alignment = 2
@@ -123,14 +124,14 @@ script = ExtResource("7_yldhf")
 
 [node name="Tube2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-143, 7)
+position = Vector2(-87, -38)
 scale = Vector2(6, 6)
 texture = ExtResource("5_yv0eh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(122, -22)
-scale = Vector2(6, 6)
+position = Vector2(154, -38)
+scale = Vector2(8.41818, 8.41818)
 sprite_frames = SubResource("SpriteFrames_n5bao")
 frame = 3
 frame_progress = 0.0385153
@@ -178,6 +179,7 @@ one_shot = true
 explosiveness = 0.9
 
 [node name="BingoCageAnim" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(122, -22)
 scale = Vector2(6, 6)
@@ -198,11 +200,18 @@ texture = ExtResource("20_gdl0r")
 stretch_mode = 5
 
 [node name="Shake" type="Node2D" parent="." node_paths=PackedStringArray("mouseArea", "nodeToShakeRef")]
+position = Vector2(1, 0)
 script = ExtResource("21_xmbjx")
 mouseArea = NodePath("../CrankButton")
 nodeToShakeRef = NodePath("../TextureRect")
 ShakeAngle = 2.0
 ShakeDuration = 0.1
 scaleUp = 1.31
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(146, -64)
+scale = Vector2(6, 6)
+texture = ExtResource("22_mvi1d")
 
 [connection signal="pressed" from="CrankButton" to="CrankManager" method="_on_crank_button_pressed"]

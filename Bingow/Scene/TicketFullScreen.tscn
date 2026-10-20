@@ -66,7 +66,7 @@ color_ramp = SubResource("GradientTexture1D_mkkup")
 
 [sub_resource type="LabelSettings" id="LabelSettings_tihb5"]
 font = ExtResource("2_4fg34")
-font_size = 38
+font_size = 30
 font_color = Color(0.219608, 0.129412, 0.0470588, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0efmy"]

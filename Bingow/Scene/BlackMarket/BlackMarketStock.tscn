@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bbf75fv7p6dw8" path="res://Assets/Ball/Red Ball.png" id="8_are3r"]
 [ext_resource type="PackedScene" uid="uid://bt23j0pajr8l6" path="res://Scene/BlackMarket/BlackMarrketBallVisuel.tscn" id="8_ebog5"]
 [ext_resource type="Script" path="res://Script/BlackMarket/BallInfo.cs" id="9_b1o1t"]
-[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="9_te1ar"]
+[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://Assets/Shop/determination.ttf" id="9_te1ar"]
 [ext_resource type="Script" path="res://Script/BlackMarket/BallInfoListener.cs" id="12_0ah2c"]
 [ext_resource type="Script" path="res://Script/BlackMarket/BallUpgrader.cs" id="12_7d0mo"]
 

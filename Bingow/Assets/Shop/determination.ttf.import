@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dxx6w24ue3ov"
-path="res://.godot/imported/determination.ttf-0f5479f83937692c7f2858f8492f82fc.fontdata"
+path="res://.godot/imported/determination.ttf-c90e91a2f5d63baef403a78734abf40b.fontdata"
 
 [deps]
 
-source_file="res://font/determination.ttf"
-dest_files=["res://.godot/imported/determination.ttf-0f5479f83937692c7f2858f8492f82fc.fontdata"]
+source_file="res://Assets/Shop/determination.ttf"
+dest_files=["res://.godot/imported/determination.ttf-c90e91a2f5d63baef403a78734abf40b.fontdata"]
 
 [params]
 

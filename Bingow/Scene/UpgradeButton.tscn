@@ -2,16 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://s21l043gxyop" path="res://Assets/Shop/tablette_bouton_orange_sasnbords.png" id="1_r8qx8"]
 [ext_resource type="Script" path="res://Script/TicketSpot/TicketSpotUpgradeButton.cs" id="2_8lros"]
-[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="3_hvj2q"]
+[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://Assets/Shop/determination.ttf" id="3_qxv54"]
 [ext_resource type="Script" path="res://Script/Shake.cs" id="4_6a125"]
 [ext_resource type="Script" path="res://Script/VisualAnimation/TicketShoptJuice.cs" id="5_6fu2d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u5e7l"]
-font = ExtResource("3_hvj2q")
+font = ExtResource("3_qxv54")
 font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_yui4v"]
-font = ExtResource("3_hvj2q")
+font = ExtResource("3_qxv54")
 font_size = 13
 
 [node name="AutoclickerButton" type="TextureButton" node_paths=PackedStringArray("buttonLabel", "nameLabel", "ticketShoptJuiceRef")]

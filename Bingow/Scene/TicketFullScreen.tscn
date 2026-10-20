@@ -1,50 +1,38 @@
 [gd_scene load_steps=23 format=3 uid="uid://8777xu40ys6q"]
 
 [ext_resource type="Script" path="res://Script/Ticket/TicketFullScreen.cs" id="1_8aqjq"]
+[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://Assets/Shop/determination.ttf" id="2_4fg34"]
 [ext_resource type="Texture2D" uid="uid://cm2c4ikbkcm7l" path="res://Assets/Ticket/ticket_3x3.png" id="2_jsae1"]
-[ext_resource type="Texture2D" uid="uid://beal5l3rnvvpw" path="res://Assets/BouttonBingo.png" id="3_735qu"]
 [ext_resource type="Texture2D" uid="uid://cf3lhrh5uuxiy" path="res://Assets/BingoText.png" id="3_bch1u"]
 [ext_resource type="Script" path="res://Script/Ticket/BingoManager.cs" id="4_5g4vc"]
 [ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Resource/PlayerStatuRes.tres" id="5_s6ngj"]
+[ext_resource type="Texture2D" uid="uid://be1xfq8b3aanb" path="res://Assets/Shop/Bouton.png" id="6_1m4w6"]
 [ext_resource type="Script" path="res://Script/BingoLabel.cs" id="6_yn0wf"]
 [ext_resource type="FontFile" uid="uid://csstirmsxk1eu" path="res://font/Pixeled.ttf" id="7_pkqf8"]
-[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="8_u28jy"]
 [ext_resource type="Texture2D" uid="uid://7hlit1btqtex" path="res://Assets/Shop/Confettis.png" id="9_abew3"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_58ouj"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_tihb5"]
-font = ExtResource("8_u28jy")
-font_size = 100
-
 [sub_resource type="LabelSettings" id="LabelSettings_xxqig"]
-font = ExtResource("8_u28jy")
+font = ExtResource("2_4fg34")
 font_size = 54
 font_color = Color(0.34902, 0.85098, 1, 1)
 outline_size = 14
 outline_color = Color(0, 0.329412, 0.407843, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jd7ty"]
-font = ExtResource("8_u28jy")
+font = ExtResource("2_4fg34")
 font_size = 54
 font_color = Color(1, 0.34902, 0.54902, 1)
 outline_size = 14
 outline_color = Color(0.364706, 0, 0.152941, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_o24d7"]
-font = ExtResource("8_u28jy")
+font = ExtResource("2_4fg34")
 font_size = 78
 font_color = Color(1, 0.878431, 0.2, 1)
 outline_size = 16
 outline_color = Color(0.392157, 0.337255, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_0efmy"]
-font = ExtResource("8_u28jy")
-font_size = 44
-outline_size = 12
-outline_color = Color(0.298039, 0.298039, 0.298039, 1)
-shadow_size = 6
-shadow_offset = Vector2(0, 4)
 
 [sub_resource type="Gradient" id="Gradient_agvwn"]
 offsets = PackedFloat32Array(0, 0.188525, 1)
@@ -75,6 +63,19 @@ scale_min = 3.0
 scale_max = 4.0
 scale_curve = SubResource("CurveTexture_i0sn2")
 color_ramp = SubResource("GradientTexture1D_mkkup")
+
+[sub_resource type="LabelSettings" id="LabelSettings_tihb5"]
+font = ExtResource("2_4fg34")
+font_size = 38
+font_color = Color(0.219608, 0.129412, 0.0470588, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0efmy"]
+font = ExtResource("2_4fg34")
+font_size = 44
+outline_size = 12
+outline_color = Color(0.298039, 0.298039, 0.298039, 1)
+shadow_size = 6
+shadow_offset = Vector2(0, 4)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kntlf"]
 particle_flag_disable_z = true
@@ -125,6 +126,56 @@ offset_bottom = 536.0
 focus_mode = 0
 flat = true
 
+[node name="ScoreHudContainer" type="Control" parent="."]
+z_index = 140
+anchors_preset = 0
+offset_left = 362.0
+offset_top = 151.0
+offset_right = 402.0
+offset_bottom = 191.0
+
+[node name="Panel" type="Panel" parent="ScoreHudContainer"]
+visible = false
+layout_mode = 0
+offset_left = -178.0
+offset_top = -116.0
+offset_right = 169.0
+offset_bottom = 218.0
+
+[node name="BaseScoreLabel" type="Label" parent="ScoreHudContainer"]
+layout_mode = 0
+offset_left = -59.0
+offset_top = -176.0
+offset_right = 151.0
+offset_bottom = -104.0
+text = "10"
+label_settings = SubResource("LabelSettings_xxqig")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MultScoreLabel" type="Label" parent="ScoreHudContainer"]
+layout_mode = 0
+offset_left = -164.0
+offset_top = -176.0
+offset_right = 46.0
+offset_bottom = -104.0
+text = " 3 X"
+label_settings = SubResource("LabelSettings_jd7ty")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalScoreLabel" type="Label" parent="ScoreHudContainer"]
+layout_mode = 0
+offset_left = -157.0
+offset_top = -195.0
+offset_right = 175.0
+offset_bottom = -91.0
+pivot_offset = Vector2(166, 52)
+text = "800 $"
+label_settings = SubResource("LabelSettings_o24d7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="closeButton2" type="Button" parent="."]
 layout_mode = 0
 offset_left = 721.0
@@ -139,45 +190,27 @@ position = Vector2(-14, 22)
 scale = Vector2(3.28568, 3.29821)
 texture = ExtResource("2_jsae1")
 
+[node name="ConfettiParticles" type="GPUParticles2D" parent="."]
+position = Vector2(-10, -149)
+emitting = false
+amount = 175
+process_material = SubResource("ParticleProcessMaterial_f6j2w")
+texture = ExtResource("9_abew3")
+lifetime = 1.5
+one_shot = true
+explosiveness = 0.94
+
 [node name="BingoText2" type="TextureRect" parent="."]
+z_index = 150
 texture_filter = 1
 layout_mode = 0
-offset_left = -440.0
-offset_top = -327.0
-offset_right = 392.0
-offset_bottom = -95.8889
+offset_left = -407.0
+offset_top = -331.0
+offset_right = 425.0
+offset_bottom = -99.8889
 texture = ExtResource("3_bch1u")
 expand_mode = 5
 stretch_mode = 5
-
-[node name="CallItButton" type="TextureButton" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -407.0
-offset_top = 281.0
-offset_right = 346.0
-offset_bottom = 469.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(460, 115)
-texture_normal = ExtResource("3_735qu")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="CallItButton"]
-layout_mode = 0
-offset_left = 46.0
-offset_right = 709.0
-offset_bottom = 182.0
-text = "Call it ?"
-label_settings = SubResource("LabelSettings_tihb5")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
@@ -188,6 +221,37 @@ offset_bottom = 213.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 99
+
+[node name="CallItButton" type="TextureButton" parent="."]
+self_modulate = Color(1, 0.811765, 0.301961, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = 286.0
+offset_right = 154.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(460, 115)
+texture_normal = ExtResource("6_1m4w6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CallItButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 22.0
+offset_right = 330.0
+offset_bottom = 79.0
+text = "Call it a bingo ?"
+label_settings = SubResource("LabelSettings_tihb5")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BingoManager" type="Node2D" parent="." node_paths=PackedStringArray("bingoButtonRef", "bingoTextRef", "ticketFullScreenRef", "scoreHudContainerRef", "baseScoreLabelRef", "multScoreLabelRef", "totalScoreLabelRef", "floatingPopupTemplateRef", "confettiParticlesRef", "cellBurstParticlesRef")]
 script = ExtResource("4_5g4vc")
@@ -221,46 +285,6 @@ autowrap_mode = 0
 script = ExtResource("6_yn0wf")
 font = ExtResource("7_pkqf8")
 
-[node name="ScoreHudContainer" type="Control" parent="."]
-z_index = 140
-anchors_preset = 0
-offset_top = -270.0
-offset_right = 40.0
-offset_bottom = -230.0
-
-[node name="BaseScoreLabel" type="Label" parent="ScoreHudContainer"]
-layout_mode = 0
-offset_left = -240.0
-offset_top = -35.0
-offset_right = -30.0
-offset_bottom = 35.0
-text = "10"
-label_settings = SubResource("LabelSettings_xxqig")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MultScoreLabel" type="Label" parent="ScoreHudContainer"]
-layout_mode = 0
-offset_left = 30.0
-offset_top = -35.0
-offset_right = 240.0
-offset_bottom = 35.0
-text = " 3 X"
-label_settings = SubResource("LabelSettings_jd7ty")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TotalScoreLabel" type="Label" parent="ScoreHudContainer"]
-layout_mode = 0
-offset_left = -250.0
-offset_top = -80.0
-offset_right = 250.0
-offset_bottom = 10.0
-text = "800 $"
-label_settings = SubResource("LabelSettings_o24d7")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="FloatingPopupTemplate" type="Label" parent="."]
 layout_mode = 0
 offset_left = -224.0
@@ -271,16 +295,6 @@ text = "+XX $"
 label_settings = SubResource("LabelSettings_0efmy")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ConfettiParticles" type="GPUParticles2D" parent="."]
-position = Vector2(-12, 51)
-emitting = false
-amount = 175
-process_material = SubResource("ParticleProcessMaterial_f6j2w")
-texture = ExtResource("9_abew3")
-lifetime = 1.5
-one_shot = true
-explosiveness = 0.94
 
 [node name="CellBurstParticles" type="GPUParticles2D" parent="."]
 emitting = false

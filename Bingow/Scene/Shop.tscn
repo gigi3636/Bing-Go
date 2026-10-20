@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Script/Shop/Shop.cs" id="1_iec5r"]
 [ext_resource type="Texture2D" uid="uid://c0c2qhxpgcada" path="res://Assets/Shop/tablette_vide.png" id="2_csigr"]
 [ext_resource type="Texture2D" uid="uid://d3y5nso6ynk13" path="res://Assets/Shop/tablette_bords.png" id="3_mpocs"]
+[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://Assets/Shop/determination.ttf" id="6_heku0"]
 [ext_resource type="Texture2D" uid="uid://bsi4w7kn3cipt" path="res://Assets/Shop/tablette_boouton_scroll.png" id="7_rfwuf"]
 [ext_resource type="Texture2D" uid="uid://dto0jyxx34dfa" path="res://Assets/Shop/tablette_boouton_scroll_hilight.png" id="8_r40uy"]
 [ext_resource type="Texture2D" uid="uid://ce0j5e5ejp2pp" path="res://Assets/Shop/tablette_boouton_scroll_pressed.png" id="9_2x22o"]
@@ -10,7 +11,6 @@
 [ext_resource type="Resource" uid="uid://kvixhhphwhml" path="res://Resource/Ticket/4x4TicketData.tres" id="13_35trp"]
 [ext_resource type="Texture2D" uid="uid://cua0iwfghddpc" path="res://Assets/Shop/tablette_bouton_rose.png" id="13_qo5yx"]
 [ext_resource type="Resource" uid="uid://ewywxwlpq30o" path="res://Resource/Ticket/5x5TicketData.tres" id="14_0bogf"]
-[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="14_q8y2t"]
 [ext_resource type="Resource" uid="uid://dj21ak056lqeq" path="res://Resource/Ticket/6x6TicketData.tres" id="15_650u8"]
 [ext_resource type="PackedScene" uid="uid://do2h1vkwoym6y" path="res://Scene/UpgradeItem.tscn" id="15_uixmk"]
 [ext_resource type="Resource" uid="uid://4j3gd1o7py7b" path="res://Resource/Ticket/7x7TicketData.tres" id="16_2eswe"]
@@ -23,7 +23,7 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_octww"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sw8l4"]
-font = ExtResource("14_q8y2t")
+font = ExtResource("6_heku0")
 font_size = 31
 font_color = Color(0.180392, 0.180392, 0.180392, 1)
 

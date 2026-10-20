@@ -7,8 +7,9 @@
 [ext_resource type="Script" path="res://Script/Ticket/TicketShoptButton.cs" id="5_2vran"]
 [ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Resource/PlayerStatuRes.tres" id="6_247ti"]
 [ext_resource type="Script" path="res://Script/VisualAnimation/TicketShoptJuice.cs" id="6_gd2jo"]
-[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="8_5hyky"]
+[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://Assets/Shop/determination.ttf" id="8_5hyky"]
 [ext_resource type="Script" path="res://Script/Shake.cs" id="9_ond61"]
+
 
 [sub_resource type="LabelSettings" id="LabelSettings_bexac"]
 font = ExtResource("8_5hyky")

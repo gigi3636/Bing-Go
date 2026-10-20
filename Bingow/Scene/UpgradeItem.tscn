@@ -1,19 +1,18 @@
-[gd_scene load_steps=23 format=3 uid="uid://do2h1vkwoym6y"]
+[gd_scene load_steps=22 format=3 uid="uid://do2h1vkwoym6y"]
 
 [ext_resource type="Script" path="res://Script/Shop/ShopUpgradeItem.cs" id="1_k34bw"]
-[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="2_ublgx"]
 [ext_resource type="Texture2D" uid="uid://n7osy3bn7vvx" path="res://Assets/BingoCage/BoullierFull.png" id="3_c6t21"]
 [ext_resource type="PackedScene" uid="uid://dov3o30dior6c" path="res://Scene/UpgradeButton.tscn" id="4_g5ajn"]
+[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://Assets/Shop/determination.ttf" id="4_vpgxu"]
 [ext_resource type="Script" path="res://Script/Shop/LockedItem.cs" id="5_ksvq6"]
 [ext_resource type="Texture2D" uid="uid://tj5vjoibbqxx" path="res://Assets/Shop/UnlockedSheet.png" id="6_pp0nv"]
-[ext_resource type="Texture2D" uid="uid://7hlit1btqtex" path="res://Assets/Shop/Confettis.png" id="7_ryj3k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h7jkc"]
-font = ExtResource("2_ublgx")
+font = ExtResource("4_vpgxu")
 font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_ofqn5"]
-font = ExtResource("2_ublgx")
+font = ExtResource("4_vpgxu")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_mxanq"]
 
@@ -61,7 +60,7 @@ animations = [{
 }]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h10i1"]
-font = ExtResource("2_ublgx")
+font = ExtResource("4_vpgxu")
 
 [sub_resource type="Gradient" id="Gradient_agvwn"]
 offsets = PackedFloat32Array(0, 0.188525, 1)
@@ -206,11 +205,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(373, 103)
+position = Vector2(397, 73)
 emitting = false
 amount = 40
 process_material = SubResource("ParticleProcessMaterial_f6j2w")
-texture = ExtResource("7_ryj3k")
 lifetime = 0.8
 one_shot = true
 

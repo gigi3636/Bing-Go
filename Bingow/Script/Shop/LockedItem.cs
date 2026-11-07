@@ -34,7 +34,7 @@ public partial class LockedItem : Control
 
     private void PlayJuicyUnlockAnimation()
     {
-        GetNode<Button>("UnlockButton").Disabled = true;
+        GetNode<TextureButton>("UnlockButton").Disabled = true;
 
         lockedSpriteAnim.Play();
 

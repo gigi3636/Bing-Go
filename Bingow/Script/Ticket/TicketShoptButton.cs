@@ -19,6 +19,8 @@ public partial class TicketShoptButton : TextureButton
         // Check if the purchase can be done 
         if (ticketRequestedData.Cost <= playerStatusRes.playerCurrentMoney)
         {
+            AudioManager.Instance.PlaySfx("CashRegister");
+
             playerStatusRes.DiscountMoney(ticketRequestedData.Cost);
 
             // Request to create a new ticket with a specific data

@@ -12,6 +12,11 @@ public partial class TicketSpot : Node2D
     [Export] private AutoFiller autoFillerRef;
     [Export] private AutoFillerVisualMover autoFillerVisualMoverRef;
     [Export] private AutoBingo autoBingoRef;
+
+    [Export] private AnimatedSprite2D capacityLevel;
+    
+    [Export] private Marker2D ticketPos;
+
     #endregion
 
     #region Public Properties
@@ -52,13 +57,15 @@ public partial class TicketSpot : Node2D
 
     #region Public Methods
     //When a new ticket is draggede in the empty spot
-    public void SetNewTicket(Ticket pTicket)
+    public void SetNewTicket(Ticket pTicket, bool isAutoFilled)
     {
         isUsed = true;
         ticketContainer = pTicket;
-        autoStamperRef.SetNewTicket(pTicket);
-        ticketContainer.OnTicketCompleted += autoBingoRef.HandleTicketCompleted;
+         autoStamperRef.SetNewTicket(pTicket);
 
+
+        ticketContainer.OnTicketCompleted += autoBingoRef.HandleTicketCompleted;
+        if (!isAutoFilled) pTicket.GlobalPosition = ticketPos.GlobalPosition;
         pTicket.OnEndOfTicket += DeleteTicket;
     }
 
@@ -72,7 +79,7 @@ public partial class TicketSpot : Node2D
 
     private void OnAutoffiledTicket(Ticket pTicket, float pDuration)
     {
-        SetNewTicket(pTicket);
+        SetNewTicket(pTicket,true);
         autoFillerVisualMoverRef.AutoFillerMove(pTicket, this, pDuration);
     }
     
@@ -103,6 +110,9 @@ public partial class TicketSpot : Node2D
         autoStamperRef.UpdateUpgradeStatus(ticketSpotUpgrades.autoStamperUpgrade.level);
         autoFillerRef.UpdateUpgradeStatus(ticketSpotUpgrades.autoFillerUpgrade.level);
         autoBingoRef.UpdateUpgradeStatus(ticketSpotUpgrades.autoBingoUpgrade.level);
+
+        capacityLevel.Frame = ticketSpotUpgrades.sizeUpgrade.level;
+
     }
 
 

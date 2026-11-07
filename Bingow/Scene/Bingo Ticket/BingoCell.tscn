@@ -31,8 +31,17 @@ color = Color(0.85098, 0.14902, 0.2, 1)
 [node name="BingoCell" type="Control" node_paths=PackedStringArray("cellAmountLabelRef", "cellStampedRef", "stampRef")]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 3
-anchor_right = 0.0390625
-anchor_bottom = 0.0648148
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_y54de")
@@ -46,8 +55,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -21.0
-offset_bottom = 7.00002
+offset_left = -25.0
+offset_top = -46.0
+offset_right = 25.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 100
@@ -57,6 +68,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CellButton" type="Button" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,7 +84,6 @@ stampRef = NodePath("../Stamp")
 inkParticlesRef = NodePath("../InkParticles")
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(34.5, 36)
@@ -80,20 +91,18 @@ shape = SubResource("RectangleShape2D_bxu4j")
 
 [node name="Stamp" type="TextureRect" parent="."]
 texture_filter = 1
-custom_minimum_size = Vector2(124, 115)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -29.0
-offset_top = -23.0
-offset_right = 20.0
-offset_bottom = 22.0
+offset_right = 104.0
+offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(62, 57)
 mouse_filter = 2
 texture = ExtResource("3_i1wkj")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="TextureRect" type="TextureRect" parent="."]

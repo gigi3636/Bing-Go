@@ -22,13 +22,13 @@ public partial class BingoCell : Control
         cellAmountLabelRef.LabelSettings.FontSize = pCellScale;
         cellStampedRef.Initialize(pCellScale);
         cellStampedRef.SetInitialState(pIsCellCheck);
-
-        PivotOffset = Size / 2;
+        cellAmountLabelRef.OffsetTop = -4;
+        cellAmountLabelRef.OffsetBottom = -4;
     }
 
     public void UpdateCellState(bool pIsCellCheck)
     {
-        cellStampedRef.UpdateState(pIsCellCheck);
+        cellStampedRef.UpdateState(pIsCellCheck);   
 
     }
 

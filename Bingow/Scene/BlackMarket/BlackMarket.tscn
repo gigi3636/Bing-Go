@@ -1,8 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://blwr13g2vv4c6"]
+[gd_scene load_steps=14 format=3 uid="uid://blwr13g2vv4c6"]
 
 [ext_resource type="Script" path="res://Script/BlackMarket/BlackMarket.cs" id="1_q4dgx"]
 [ext_resource type="Script" path="res://Script/BlackMarket/MarketInventory.cs" id="2_b0kor"]
 [ext_resource type="PackedScene" uid="uid://b88clqmo7706f" path="res://Scene/BallBag.tscn" id="3_l2oe5"]
+[ext_resource type="Texture2D" uid="uid://bt73bkxjgxxpb" path="res://Assets/Shop/BlackMarketCard.png" id="4_iji8d"]
+[ext_resource type="Texture2D" uid="uid://bu81t6o4b1aty" path="res://Assets/Ball/WhiteBall.png" id="6_gknef"]
+[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="7_a04d6"]
+[ext_resource type="Texture2D" uid="uid://cxpraa2pmth1q" path="res://Assets/Ball/BlackBall.png" id="7_t37lk"]
+[ext_resource type="Script" path="res://Script/BlackMarket/CardInteraction.cs" id="9_6ost6"]
+[ext_resource type="Texture2D" uid="uid://cppnog8mihmhk" path="res://Assets/Ball/GoldBall.png" id="9_mt6l3"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_uwblg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cv0mv"]
+font = ExtResource("7_a04d6")
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_t1d0e"]
+font = ExtResource("7_a04d6")
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_5sfug"]
+font = ExtResource("7_a04d6")
+font_size = 30
 
 [node name="BlackMarket" type="Control" node_paths=PackedStringArray("inventoryRef")]
 layout_mode = 3
@@ -11,15 +31,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_q4dgx")
 inventoryRef = NodePath("MarketInventory")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 447.0
-offset_top = 128.0
-offset_right = 1535.0
-offset_bottom = 946.0
+offset_right = 1088.0
+offset_bottom = 818.0
 
 [node name="GridContainer" type="GridContainer" parent="Panel"]
 layout_mode = 0
@@ -32,3 +53,176 @@ position = Vector2(447, 128)
 script = ExtResource("2_b0kor")
 bagContainer = NodePath("../Panel/GridContainer")
 bagRef = ExtResource("3_l2oe5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.254902)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = SubResource("CanvasTexture_uwblg")
+
+[node name="CarRight" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1322.0
+offset_top = 200.0
+offset_right = 1763.0
+offset_bottom = 839.0
+mouse_filter = 2
+texture = ExtResource("4_iji8d")
+stretch_mode = 5
+
+[node name="BallTexture" type="TextureRect" parent="CarRight"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 107.0
+offset_top = 171.0
+offset_right = 332.0
+offset_bottom = 396.0
+texture = ExtResource("6_gknef")
+
+[node name="Label" type="Label" parent="CarRight"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 62.0
+offset_right = 387.0
+offset_bottom = 125.0
+text = "White Ball"
+label_settings = SubResource("LabelSettings_cv0mv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CarRight"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 441.0
+offset_right = 378.0
+offset_bottom = 567.0
+text = "Are you lucky enough ? Once stamped on the ticket , another random number on the ticket get stamped too ."
+label_settings = SubResource("LabelSettings_t1d0e")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="CarRight"]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 181.0
+offset_right = 372.0
+offset_bottom = 215.0
+rotation = 0.383263
+text = "X3"
+label_settings = SubResource("LabelSettings_5sfug")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardMid" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 740.0
+offset_top = 200.0
+offset_right = 1181.0
+offset_bottom = 839.0
+mouse_filter = 2
+texture = ExtResource("4_iji8d")
+stretch_mode = 5
+
+[node name="BallTexture" type="TextureRect" parent="CardMid"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 108.0
+offset_top = 171.0
+offset_right = 333.0
+offset_bottom = 396.0
+texture = ExtResource("9_mt6l3")
+
+[node name="Label4" type="Label" parent="CardMid"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 441.0
+offset_right = 378.0
+offset_bottom = 567.0
+text = "The perfect creation , stamp all the number of the line or column of the stamped number ."
+label_settings = SubResource("LabelSettings_t1d0e")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="CardMid"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 63.0
+offset_right = 386.0
+offset_bottom = 126.0
+text = "Golden Ball"
+label_settings = SubResource("LabelSettings_cv0mv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="CardMid"]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 180.0
+offset_right = 376.0
+offset_bottom = 220.0
+rotation = 0.383263
+text = "X1"
+label_settings = SubResource("LabelSettings_5sfug")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardLeft" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 158.0
+offset_top = 200.0
+offset_right = 599.0
+offset_bottom = 839.0
+mouse_filter = 2
+texture = ExtResource("4_iji8d")
+stretch_mode = 5
+
+[node name="BallTexture" type="TextureRect" parent="CardLeft"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 108.0
+offset_top = 171.0
+offset_right = 333.0
+offset_bottom = 396.0
+texture = ExtResource("7_t37lk")
+
+[node name="Label5" type="Label" parent="CardLeft"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 441.0
+offset_right = 378.0
+offset_bottom = 567.0
+text = "Like a boom , once stamped on the ticket , every number around the stamped number are stamped too ."
+label_settings = SubResource("LabelSettings_t1d0e")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="CardLeft"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 63.0
+offset_right = 386.0
+offset_bottom = 126.0
+text = "Brown Ball"
+label_settings = SubResource("LabelSettings_cv0mv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="CardLeft"]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 179.0
+offset_right = 379.0
+offset_bottom = 219.0
+rotation = 0.383263
+text = "X6"
+label_settings = SubResource("LabelSettings_5sfug")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("9_6ost6")

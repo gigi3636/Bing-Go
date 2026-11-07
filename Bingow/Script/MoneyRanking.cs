@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Globalization;
 
 public partial class MoneyRanking : Node
 {
@@ -15,8 +16,8 @@ public partial class MoneyRanking : Node
     [Export] private Label nexRankLabel;
     [Export] private Label lastRankLabel;
 
-    private int nextMoneyCap;
-    private int lastMoneyCap;
+    private double nextMoneyCap;
+    private double lastMoneyCap;
     private int playerRanking;
     private const int PLAYER_NUMBER = 100;
 
@@ -27,7 +28,6 @@ public partial class MoneyRanking : Node
     private float playerOriginalY;
     private float lowerOriginalY;
 
-
     private double botSimulationTimer = 0;
 
     public override void _Process(double delta)
@@ -35,7 +35,7 @@ public partial class MoneyRanking : Node
         if (isAnimating) return;
 
         botSimulationTimer += delta;
-        if (botSimulationTimer >= 2.0) 
+        if (botSimulationTimer >= 2.0)
         {
             botSimulationTimer = 0;
             SimulateBots();
@@ -49,8 +49,8 @@ public partial class MoneyRanking : Node
         float nextBotChange = rand.RandfRange(-0.015f, 0.035f);
         float lastBotChange = rand.RandfRange(-0.015f, 0.035f);
 
-        nextMoneyCap += Mathf.RoundToInt(nextMoneyCap * nextBotChange);
-        lastMoneyCap += Mathf.RoundToInt(lastMoneyCap * lastBotChange);
+        nextMoneyCap += Math.Round(nextMoneyCap * nextBotChange);
+        lastMoneyCap += Math.Round(lastMoneyCap * lastBotChange);
 
         if (nextMoneyCap <= playerStatusRes.playerCurrentMoney)
         {
@@ -64,11 +64,10 @@ public partial class MoneyRanking : Node
         UpdateUI();
     }
 
-
     public override void _Ready()
     {
-        nextMoneyCap = Mathf.RoundToInt(playerStatusRes.playerCurrentMoney * (rand.RandfRange(1.05f, 1.3f)));
-        lastMoneyCap = Mathf.RoundToInt(playerStatusRes.playerCurrentMoney * (rand.RandfRange(0.7f, 0.95f)));
+        nextMoneyCap = Math.Round(playerStatusRes.playerCurrentMoney * rand.RandfRange(1.05f, 1.3f));
+        lastMoneyCap = Math.Round(playerStatusRes.playerCurrentMoney * rand.RandfRange(0.7f, 0.95f));
         playerRanking = PLAYER_NUMBER - 7;
 
         upperOriginalY = upperContainer.Position.Y;
@@ -96,7 +95,7 @@ public partial class MoneyRanking : Node
 
         playerRanking--;
         lastMoneyCap = nextMoneyCap;
-        nextMoneyCap = Mathf.RoundToInt(playerStatusRes.playerCurrentMoney * (rand.RandfRange(1.05f, 1.3f)));
+        nextMoneyCap = Math.Round(playerStatusRes.playerCurrentMoney * rand.RandfRange(1.05f, 1.3f));
 
         playerContainer.SelfModulate = nextMoneyLabelRef.LabelSettings.FontColor;
 
@@ -129,8 +128,7 @@ public partial class MoneyRanking : Node
 
             enterTween.Chain().TweenCallback(Callable.From(() => { isAnimating = false; }));
 
-            playerContainer.SelfModulate = Colors.White  ;
-
+            playerContainer.SelfModulate = Colors.White;
         }));
     }
 
@@ -140,7 +138,7 @@ public partial class MoneyRanking : Node
 
         playerRanking++;
         nextMoneyCap = lastMoneyCap;
-        lastMoneyCap = Mathf.RoundToInt(playerStatusRes.playerCurrentMoney * (rand.RandfRange(0.7f, 0.95f)));
+        lastMoneyCap = Math.Round(playerStatusRes.playerCurrentMoney * rand.RandfRange(0.7f, 0.95f));
 
         playerContainer.SelfModulate = lastMoneyLabelRef.LabelSettings.FontColor;
 
@@ -173,17 +171,60 @@ public partial class MoneyRanking : Node
 
             enterTween.Chain().TweenCallback(Callable.From(() => { isAnimating = false; }));
             playerContainer.SelfModulate = Colors.White;
-
         }));
     }
 
     private void UpdateUI()
     {
-        nextMoneyLabelRef.Text = nextMoneyCap.ToString();
-        lastMoneyLabelRef.Text = lastMoneyCap.ToString();
+        nextMoneyLabelRef.Text = FormatMoney(nextMoneyCap);
+        lastMoneyLabelRef.Text = FormatMoney(lastMoneyCap);
 
         playerRankLabel.Text = "#" + playerRanking.ToString();
         nexRankLabel.Text = "#" + (playerRanking - 1).ToString();
         lastRankLabel.Text = "#" + (playerRanking + 1).ToString();
+    }
+
+    private string FormatMoney(double amount)
+    {
+        double absAmount = Math.Abs(amount);
+        string sign = amount < 0 ? "-" : "";
+
+        if (absAmount < 100_000)
+        {
+            return ((long)amount).ToString();
+        }
+
+        if (absAmount >= 1e15)
+        {
+            int exponent = (int)Math.Floor(Math.Log10(absAmount));
+            double mantissa = absAmount / Math.Pow(10, exponent);
+            return $"{sign}{mantissa.ToString("0.#", CultureInfo.InvariantCulture)}e{exponent}";
+        }
+
+        double divisor;
+        string suffix;
+
+        if (absAmount >= 1e12) { divisor = 1e12; suffix = "T"; }
+        else if (absAmount >= 1e9) { divisor = 1e9; suffix = "B"; }
+        else if (absAmount >= 1e6) { divisor = 1e6; suffix = "M"; }
+        else { divisor = 1e3; suffix = "K"; }
+
+        double shortValue = absAmount / divisor;
+
+        string formattedNumber;
+        if (shortValue >= 100)
+        {
+            formattedNumber = Math.Floor(shortValue).ToString("0", CultureInfo.InvariantCulture);
+        }
+        else if (shortValue >= 10)
+        {
+            formattedNumber = (Math.Floor(shortValue * 10) / 10).ToString("0.#", CultureInfo.InvariantCulture);
+        }
+        else
+        {
+            formattedNumber = (Math.Floor(shortValue * 100) / 100).ToString("0.##", CultureInfo.InvariantCulture);
+        }
+
+        return $"{sign}{formattedNumber}{suffix}";
     }
 }

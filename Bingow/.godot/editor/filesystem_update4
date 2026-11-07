@@ -1,12 +1,10 @@
-res://Scene/TicketFullScreen.tscn
-res://Resource/Ticket/6x6TicketData.tres
 res://Scene/Main.tscn
-res://Scene/Bingo Ticket/GameScreen.tscn
-res://Scene/Shop.tscn
-res://Scene/UpgradeItem.tscn
-res://Scene/UpgradeButton.tscn
-res://Scene/TicketPrinter.tscn
-res://Scene/TicketSpot.tscn
+res://Resource/Ticket/6x6TicketData.tres
+res://Script/Ticket/BingoManager.cs
+res://Resource/Balls/CrossBallRes.tres
+res://Resource/Balls/MultiplierBallRes.tres
+res://Resource/Balls/RandomBallRes.tres
+res://Script/AudioManager.cs
 res://Script/AugmentCountdwon.cs
 res://Script/AutoFiller.cs
 res://Script/AutoStamper.cs
@@ -26,9 +24,11 @@ res://Script/BlackMarket/BallInfoListener.cs
 res://Script/BlackMarket/BallUpgrader.cs
 res://Script/BlackMarket/BlackMarket.cs
 res://Script/BlackMarket/BlackMarrketBallVisuel.cs
+res://Script/BlackMarket/CardInteraction.cs
 res://Script/BlackMarket/MarketInventory.cs
 res://Script/Cell/BingoCell.cs
 res://Script/Cell/CellStamped.cs
+res://Script/CustomCursor.cs
 res://Script/GameManager.cs
 res://Script/GameScreenManager.cs
 res://Script/MoneyController.cs
@@ -57,7 +57,6 @@ res://Script/TicketSpot/TicketSpotUpgradeScreen.cs
 res://Script/TicketSpot/Upgrade.cs
 res://Script/TicketSpot/VisualManager.cs
 res://Script/Ticket/BasicTicket.cs
-res://Script/Ticket/BingoManager.cs
 res://Script/Ticket/Res/TicketData.cs
 res://Script/Ticket/Ticket.cs
 res://Script/Ticket/TicketEventBus.cs
@@ -70,4 +69,17 @@ res://Script/Ticket/TicketSpot.cs
 res://Script/Ticket/TicketVisualManager.cs
 res://Script/VisualAnimation/BingoBalls/BingoBall.cs
 res://Script/VisualAnimation/TicketShoptJuice.cs
+res://Scene/Bingo Ticket/GameScreen.tscn
+res://Scene/Shop.tscn
+res://Scene/BlackMarket/BlackMarket.tscn
+res://Scene/BlackMarket/BlackMarrketBallVisuel.tscn
+res://Scene/TicketFullScreen.tscn
+res://Scene/Bingo Ticket/BingoCell.tscn
+res://Scene/TicketSpot.tscn
+res://Scene/Bingo Ticket/BasicTicket.tscn
 res://Scene/BingoCage.tscn
+res://Scene/BlackMarket/BlackMarketStock.tscn
+res://Scene/TicketPrinter.tscn
+res://Scene/PrinterScreen.tscn
+res://Scene/TicketShopButton.tscn
+res://Scene/TicketShoptItem.tscn

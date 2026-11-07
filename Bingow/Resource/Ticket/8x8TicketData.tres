@@ -8,10 +8,11 @@
 
 [resource]
 script = ExtResource("5_hd2yl")
-Cost = 1
+Cost = 100000
 Value = 5
 Column = 6
 Row = 6
+TimeToPrint = 5.0
 SizeLevel = 5
 TicketName = "Ticket 8x8"
 GridDisplayPosition = Vector2(-173, -100)

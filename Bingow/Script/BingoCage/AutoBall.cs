@@ -4,25 +4,83 @@ using System.Collections.Generic;
 
 public partial class AutoBall : Upgrade
 {
+
+    [Export] private AnimatedSprite2D cageLeverAnim;
+    [Export] private AnimatedSprite2D ballCagedAnim;
+    [Export] private TextureRect redBingoCageRef;
+
+
     public const float BASE_TIME_BETWEEN_BALL = 1f;
-    private Timer nextBallTimer;
+
+    private int loopCount = 0;
+    private const int TARGET_LOOPS = 5;
 
     private float timeBetweenBall;
 
     public event Action OnBallSpawnerTimeout;
 
+    private bool isAutoCd;
+
     public override void _Ready()
     {
-        upgradesLevelsAmount = new List<float> { 0f, 1f, 0.8f, 0.5f, 0.3f, 0.1f };
+        upgradesLevelsAmount = new List<float> { 2f, 1f, 0.8f, 0.1f, 0.1f, 0.1f };
 
-        nextBallTimer = new Timer();
-        nextBallTimer.WaitTime = BASE_TIME_BETWEEN_BALL;
-        nextBallTimer.OneShot = false;
-        AddChild(nextBallTimer);
+        reactionTimeTimer = new Timer();
+        reactionTimeTimer.WaitTime = BASE_TIME_BETWEEN_BALL;
+        reactionTimeTimer.OneShot = false;
+        AddChild(reactionTimeTimer);
         // when augment is bought : nextBallTimer.Start();
 
-        nextBallTimer.Timeout += EmitSpawnBallSignal;
+        reactionTimeTimer.Timeout += AnimateCage;
 
+
+        cageLeverAnim.AnimationLooped += OnLoopFinished;
+
+
+
+    }
+
+    private void OnLoopFinished()
+    {
+        if (!isAutoCd) return;
+
+        loopCount++;
+        GD.Print("Loop = " + loopCount);
+
+        if (loopCount >= TARGET_LOOPS)
+        {
+            GD.Print("spawn ball");
+
+            OnBallSpawnerTimeout?.Invoke();
+            isAutoCd = false;   
+            //cageLeverAnim.Stop();
+            //ballCagedAnim.Stop();
+            //redBingoCageRef.Visible = true;
+
+        }
+    }
+
+    public void AnimateCage()
+    {
+        isAutoCd = true;
+        GD.Print("animate cage reset loop");
+        redBingoCageRef.Visible = false;
+
+        loopCount = 0;
+
+        string animName = cageLeverAnim.Animation;
+        float fps = (float)cageLeverAnim.SpriteFrames.GetAnimationSpeed(animName);
+        int frameCount = cageLeverAnim.SpriteFrames.GetFrameCount(animName);
+        float baseAnimDuration = frameCount / fps;
+        float requiredSpeedScale = (baseAnimDuration * TARGET_LOOPS) / currentReactionTime;
+
+        cageLeverAnim.SpeedScale = requiredSpeedScale;
+        ballCagedAnim.SpeedScale = requiredSpeedScale;
+
+        cageLeverAnim.Play();
+        ballCagedAnim.Play();
+
+        reactionTimeTimer.Start(currentReactionTime);
 
 
     }
@@ -34,13 +92,13 @@ public partial class AutoBall : Upgrade
 
         if ( isActive)
         {
-            nextBallTimer.Start();
+            reactionTimeTimer.Start();
+            AnimateCage();
         }
     }
 
     private void EmitSpawnBallSignal()
     {
 
-        OnBallSpawnerTimeout?.Invoke();
     }
 }

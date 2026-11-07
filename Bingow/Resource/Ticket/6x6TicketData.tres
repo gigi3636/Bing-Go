@@ -10,16 +10,16 @@ load_path = "res://.godot/imported/6x6 Ticket Table.png-2a95aec5ab0ac168fc20a3b8
 
 [resource]
 script = ExtResource("1_67fmk")
-Cost = 4
+Cost = 10000
 Value = 5
 Column = 6
 Row = 6
 TimeToPrint = 4.0
 SizeLevel = 3
 TicketName = "Ticket 6x6"
-GridDisplayPosition = Vector2(-173, -100)
-GridDisplaySize = Vector2(320, 296)
-CellScale = 25
+GridDisplayPosition = Vector2(-172, -103)
+GridDisplaySize = Vector2(318, 298)
+CellScale = 18
 TicketScene = ExtResource("3_yvraj")
 TicketTableVisual = SubResource("CompressedTexture2D_75mhh")
 TicketFullVisual = ExtResource("2_ug0d5")

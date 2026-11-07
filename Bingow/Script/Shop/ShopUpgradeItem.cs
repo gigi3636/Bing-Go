@@ -12,6 +12,9 @@ public partial class ShopUpgradeItem : Control
     [Export] private PackedScene upgradeButtonScene;
     [Export] private LockedItem lockedRef;
 
+    [Export] private TicketShoptJuice ticketShoptJuiceRef;
+    [Export] private TextureButton unlockButton;
+
     public IUpgradeGroup currentUpgradeGroupRef;
 
     public Action<ShopUpgrades, IUpgradeGroup, Action<IUpgradeGroup>> OnUpgradeRequested;
@@ -23,6 +26,9 @@ public partial class ShopUpgradeItem : Control
         upgradeIconRef.Texture  = pTexture;
         SpawnButtons(upgradesToSpawn);
         lockedRef.Visible = !pIsUnlocked;
+
+        unlockButton.ButtonDown += () => ticketShoptJuiceRef.OnButtonClicked(unlockButton);
+
     }
 
     public void SetupTicketSpot(TicketSpot pTicketSpot)

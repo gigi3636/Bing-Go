@@ -5,38 +5,69 @@ public partial class BallDisplay : Node
 {
     [Export] private BallRes[] ballRes;
 
-    [Export] private GridContainer gridContainer;
+    [Export] private VBoxContainer mainContainer;
     [Export] private PackedScene blackMarrketBallVisuelScene;
-
-    [Export] private Vector2I spacing = new Vector2I(50, 50);
     [Export] private BallInfoListener ballInfoRef;
+
+    [Export] private int rowSpacing = -8;
+
+    [Export] private int separationRowOfTwo = 104;
+    [Export] private int separationRowOfThree = 96;
+
     public override void _Ready()
     {
-        gridContainer.AddThemeConstantOverride("h_separation", spacing.X);
-        gridContainer.AddThemeConstantOverride("v_separation", spacing.Y);
+        mainContainer.AddThemeConstantOverride("separation", rowSpacing);
 
-        foreach ( var lChild in gridContainer.GetChildren() )
+        foreach (Node rowNode in mainContainer.GetChildren())
         {
-            if (lChild is BlackMarrketBallVisuel lBall)
+            foreach (Node child in rowNode.GetChildren())
             {
-                lBall.OnBallClicked -= ballInfoRef.OnVisualUpdateRequested;
-
+                if (child is BlackMarrketBallVisuel lBall)
+                {
+                    lBall.OnBallClicked -= ballInfoRef.OnVisualUpdateRequested;
+                }
             }
-
-            lChild.QueueFree();
+            mainContainer.RemoveChild(rowNode); 
+            rowNode.QueueFree();
         }
 
-        foreach (BallRes ball in ballRes)
+        bool isRowOfTwo = true;
+        int currentItems = 0;
+        HBoxContainer currentRow = null;
+
+        for (int i = 0; i < ballRes.Length; i++)
         {
-            BlackMarrketBallVisuel lBall = (BlackMarrketBallVisuel)blackMarrketBallVisuelScene.Instantiate();
+            int maxItemsInRow = isRowOfTwo ? 2 : 3;
+
+            if (currentRow == null || currentItems >= maxItemsInRow)
+            {
+                if (currentRow != null)
+                {
+                    isRowOfTwo = !isRowOfTwo;
+                    maxItemsInRow = isRowOfTwo ? 2 : 3;
+                }
+
+                currentRow = new HBoxContainer();
+                currentRow.Alignment = BoxContainer.AlignmentMode.Center;
+                currentRow.AddThemeConstantOverride(
+                    "separation",
+                    isRowOfTwo ? separationRowOfTwo : separationRowOfThree
+                );
+                mainContainer.AddChild(currentRow);
+
+                currentItems = 0;
+            }
+
+            BallRes ball = ballRes[i];
+            BlackMarrketBallVisuel lBall =
+                (BlackMarrketBallVisuel)blackMarrketBallVisuelScene.Instantiate();
 
             lBall.Initialize(ball);
-
+            lBall.Texture = ball.miniTexture;
             lBall.OnBallClicked += ballInfoRef.OnVisualUpdateRequested;
 
-            gridContainer.AddChild(lBall);
-
-
+            currentRow.AddChild(lBall);
+            currentItems++;
         }
     }
 }

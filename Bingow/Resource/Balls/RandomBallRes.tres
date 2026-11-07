@@ -1,12 +1,16 @@
-[gd_resource type="Resource" script_class="BallRes" load_steps=3 format=3 uid="uid://3p22rh876ixi"]
+[gd_resource type="Resource" script_class="BallRes" load_steps=4 format=3 uid="uid://3p22rh876ixi"]
 
 [ext_resource type="Script" path="res://Script/Res/BallRes.cs" id="1_a2atu"]
+[ext_resource type="Texture2D" uid="uid://ckt14ewaj48ba" path="res://Assets/Ball/Mini/MiniBallWhite.png" id="1_sjwpj"]
 [ext_resource type="Texture2D" uid="uid://bu81t6o4b1aty" path="res://Assets/Ball/WhiteBall.png" id="2_3ohns"]
 
 [resource]
 script = ExtResource("1_a2atu")
 ballEffect = 4
-ballDesc = "Coche une case aléatoire"
+ballDesc = "Automatically triggers a stamp effect on a randomly selected cell on the active board"
+dropPercents = PackedInt32Array(10, 17, 33, 46)
+ballNumbers = PackedInt32Array(1, 3, 5, 8)
+miniTexture = ExtResource("1_sjwpj")
 texture = ExtResource("2_3ohns")
 isUnlocked = true
-shopProportion = 0
+ballLevel = 2

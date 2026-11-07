@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c5ny5opfx88f"]
+[gd_scene load_steps=13 format=3 uid="uid://c5ny5opfx88f"]
 
 [ext_resource type="Script" path="res://Script/Shop/AutoTicketPrinting.cs" id="1_24xxs"]
 [ext_resource type="PackedScene" uid="uid://425p74yxdxup" path="res://Scene/PrinterTicketVisual.tscn" id="1_uisrm"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://ewywxwlpq30o" path="res://Resource/Ticket/5x5TicketData.tres" id="5_10qhb"]
 [ext_resource type="Resource" uid="uid://dj21ak056lqeq" path="res://Resource/Ticket/6x6TicketData.tres" id="6_e7vxb"]
 [ext_resource type="Resource" uid="uid://4j3gd1o7py7b" path="res://Resource/Ticket/7x7TicketData.tres" id="7_iiuq0"]
+[ext_resource type="Resource" uid="uid://cnyc3jsb72itr" path="res://Resource/Ticket/10x10TicketData.tres" id="11_a4wky"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_p5xcu"]
 
@@ -102,7 +103,7 @@ offset_top = 16.0
 offset_right = -89.0
 offset_bottom = 56.0
 script = ExtResource("4_fy78o")
-ticketDatas = Array[Object]([ExtResource("3_e26sg"), ExtResource("4_mjphn"), ExtResource("5_10qhb"), ExtResource("6_e7vxb"), ExtResource("7_iiuq0")])
+ticketDatas = Array[Object]([ExtResource("3_e26sg"), ExtResource("4_mjphn"), ExtResource("5_10qhb"), ExtResource("6_e7vxb"), ExtResource("7_iiuq0"), ExtResource("11_a4wky")])
 ticketContainer = NodePath("../ScrollContainer/HBoxContainer")
 ticketVisualScene = ExtResource("1_uisrm")
 

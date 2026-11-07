@@ -1,12 +1,16 @@
-[gd_resource type="Resource" script_class="BallRes" load_steps=3 format=3 uid="uid://bj0hv3v1yygde"]
+[gd_resource type="Resource" script_class="BallRes" load_steps=4 format=3 uid="uid://bj0hv3v1yygde"]
 
 [ext_resource type="Script" path="res://Script/Res/BallRes.cs" id="1_k0yer"]
+[ext_resource type="Texture2D" uid="uid://b1t17xmbmlu23" path="res://Assets/Ball/Mini/MiniBallRed.png" id="1_lyolt"]
 [ext_resource type="Texture2D" uid="uid://bbf75fv7p6dw8" path="res://Assets/Ball/Red Ball.png" id="2_7la3u"]
 
 [resource]
 script = ExtResource("1_k0yer")
 ballEffect = 0
 ballDesc = "A basic asf ball"
+dropPercents = PackedInt32Array()
+ballNumbers = PackedInt32Array()
+miniTexture = ExtResource("1_lyolt")
 texture = ExtResource("2_7la3u")
 isUnlocked = true
-shopProportion = 0
+ballLevel = 0

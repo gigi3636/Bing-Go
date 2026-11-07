@@ -1,4 +1,6 @@
 using Godot;
+using System;
+using System.Globalization;
 
 public partial class BingoManager : Node2D
 {
@@ -74,9 +76,8 @@ public partial class BingoManager : Node2D
 
         popup.Visible = true;
         popup.TopLevel = true;
-        popup.ZIndex = 150;
+        popup.ZIndex = 456;
         popup.Text = text;
-        popup.Modulate = color;
         popup.PivotOffset = popup.Size / 2f;
         popup.GlobalPosition = globalPos - (popup.Size / 2f);
         popup.Scale = Vector2.Zero;
@@ -368,12 +369,12 @@ public partial class BingoManager : Node2D
                 cellNode?.PlayScoringPop(false, comboStep);
                 if (baseScoreLabelRef != null)
                 {
-                    baseScoreLabelRef.Text = $"{currentBaseTotal} $";
+                    baseScoreLabelRef.Text = $"{FormatMoney(currentBaseTotal)} $";
                     float baseScale = 1.25f + Mathf.Min(comboStep * 0.08f, 0.55f);
                     PulseCounterLabel(baseScoreLabelRef, baseScale, baseFlashColor);
                 }
 
-                SpawnFloatingPopup(cellCenter, $"+{displayCellVal} $", baseFlashColor, 1.0f + (comboStep * 0.06f));
+                SpawnFloatingPopup(cellCenter, $"+{FormatMoney(displayCellVal)} $", baseFlashColor, 1.0f + (comboStep * 0.06f));
 
                 if (cellBurstParticlesRef != null)
                 {
@@ -460,7 +461,7 @@ public partial class BingoManager : Node2D
             if (totalScoreLabelRef != null)
             {
                 totalScoreLabelRef.Visible = true;
-                totalScoreLabelRef.Text = $"+{lFinalMoney} $ !";
+                totalScoreLabelRef.Text = $"+{FormatMoney(lFinalMoney)} $ !";
                 PulseCounterLabel(totalScoreLabelRef, 1.85f, totalFlashColor);
             }
 
@@ -502,6 +503,54 @@ public partial class BingoManager : Node2D
         cellBurstParticlesRef.Restart();
         confettiParticlesRef.Emitting = false;
         cellBurstParticlesRef.Emitting = false;
+    }
+
+    private string FormatMoney(double amount)
+    {
+        double absAmount = Math.Abs(amount);
+        string sign = amount < 0 ? "-" : "";
+
+        // Moins de 6 chiffres (< 100 000) : affichage normal (max 5 chiffres)
+        if (absAmount < 100_000)
+        {
+            return ((long)amount).ToString();
+        }
+
+        // Au-dela des Trillions (>= 10^15) : Notation puissance de 10
+        if (absAmount >= 1e15)
+        {
+            int exponent = (int)Math.Floor(Math.Log10(absAmount));
+            double mantissa = absAmount / Math.Pow(10, exponent);
+            // Exemple : "1.2e15" ou "1e15"
+            return $"{sign}{mantissa.ToString("0.#", CultureInfo.InvariantCulture)}e{exponent}";
+        }
+
+        // suffixe and pallier
+        double divisor;
+        string suffix;
+
+        if (absAmount >= 1e12) { divisor = 1e12; suffix = "T"; }
+        else if (absAmount >= 1e9) { divisor = 1e9; suffix = "B"; }
+        else if (absAmount >= 1e6) { divisor = 1e6; suffix = "M"; }
+        else { divisor = 1e3; suffix = "K"; }
+
+        double shortValue = absAmount / divisor;
+
+        string formattedNumber;
+        if (shortValue >= 100)
+        {
+            formattedNumber = Math.Floor(shortValue).ToString("0", CultureInfo.InvariantCulture);
+        }
+        else if (shortValue >= 10)
+        {
+            formattedNumber = (Math.Floor(shortValue * 10) / 10).ToString("0.#", CultureInfo.InvariantCulture);
+        }
+        else
+        {
+            formattedNumber = (Math.Floor(shortValue * 100) / 100).ToString("0.##", CultureInfo.InvariantCulture);
+        }
+
+        return $"{sign}{formattedNumber}{suffix}";
     }
 }
 

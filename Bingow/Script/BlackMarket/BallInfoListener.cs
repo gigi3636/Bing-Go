@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class BallInfoListener : Node
+public partial class BallInfoListener : Node2D
 {
     [Export] private BallInfo ballInfoRef;
     [Export] private BallUpgrader ballUpgraderRef;
@@ -19,6 +19,11 @@ public partial class BallInfoListener : Node
     public void OnVisualUpdateRequested(BallRes pBallRes)
     {
         ballInfoRef.ShowBall(pBallRes.texture, pBallRes.ballDesc, pBallRes.ballEffect.ToString());
-        ballUpgraderRef.UpdateVisuel(pBallRes.ballLevel);
+        ballUpgraderRef.UpdateVisuel(pBallRes);
+    }
+
+    private void Upgrad()
+    {
+        ballUpgraderRef.OnUpgradeBought();
     }
 }

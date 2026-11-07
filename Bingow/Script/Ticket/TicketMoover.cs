@@ -63,8 +63,8 @@ public partial class TicketMoover : Node2D
         if (ticketSpotAvailableRef != null && ticketSpotAvailableRef.isTicketSizeAllowed(ticketToMooveRef.sizeLevel))
         {
 
-            ticketSpotAvailableRef.SetNewTicket(ticketToMooveRef);
-            ticketToMooveRef.GlobalPosition = ticketSpotAvailableRef.GlobalPosition;
+            ticketSpotAvailableRef.SetNewTicket(ticketToMooveRef, false);
+            //ticketToMooveRef.GlobalPosition = ticketSpotAvailableRef.GlobalPosition;
             //ticketToMooveRef.Scale = new Vector2(0.10f, 0.10f);
             ticketQueuRef.RemoveTicketFromQueu();
         }

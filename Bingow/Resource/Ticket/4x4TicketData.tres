@@ -8,15 +8,15 @@
 
 [resource]
 script = ExtResource("5_3kvgk")
-Cost = 2
-Value = 5
+Cost = 100
+Value = 400
 Column = 4
 Row = 4
 TimeToPrint = 2.0
 SizeLevel = 1
 TicketName = "Ticket 4x4"
-GridDisplayPosition = Vector2(-175, -108)
-GridDisplaySize = Vector2(303, 300)
+GridDisplayPosition = Vector2(-174, -103)
+GridDisplaySize = Vector2(310, 310)
 CellScale = 30
 TicketScene = ExtResource("3_5omqr")
 TicketTableVisual = ExtResource("4_vl6yh")

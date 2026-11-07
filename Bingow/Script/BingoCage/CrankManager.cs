@@ -10,7 +10,11 @@ public partial class CrankManager : Upgrade
 
     public Action OnCrankActionned;
 
+    private bool isManualCd;
     private int currentLevelIndex = 0;
+
+    private int loopCount = 0;
+    private const int TARGET_LOOPS = 4;
 
     public override void _Ready()
     {
@@ -21,7 +25,6 @@ public partial class CrankManager : Upgrade
 
         reactionTimeTimer.Timeout += OnReactionTimeFinished;
 
-
         cageLeverAnim.AnimationLooped += OnLoopFinished;
 
         AddChild(reactionTimeTimer);
@@ -30,7 +33,6 @@ public partial class CrankManager : Upgrade
     public override void _ExitTree()
     {
         reactionTimeTimer.Timeout -= OnReactionTimeFinished;
-
         cageLeverAnim.AnimationLooped -= OnLoopFinished;
     }
 
@@ -39,36 +41,54 @@ public partial class CrankManager : Upgrade
         if (reactionTimeTimer.TimeLeft == 0 && !cageLeverAnim.IsPlaying())
         {
             redBingoCageRef.Visible = false;
-            GD.Print(reactionTimeTimer.WaitTime);
-            cageLeverAnim.Play();
-            reactionTimeTimer.Start(currentReactionTime);
+            isManualCd = true;
 
+            loopCount = 0;
+
+            string animName = cageLeverAnim.Animation;
+            float fps = (float)cageLeverAnim.SpriteFrames.GetAnimationSpeed(animName);
+            int frameCount = cageLeverAnim.SpriteFrames.GetFrameCount(animName);
+            float baseAnimDuration = frameCount / fps;
+            float requiredSpeedScale = (baseAnimDuration * TARGET_LOOPS) / currentReactionTime;
+
+            cageLeverAnim.SpeedScale = requiredSpeedScale;
+            ballCagedAnim.SpeedScale = requiredSpeedScale;
+
+            cageLeverAnim.Play();
             ballCagedAnim.Play();
+
+            reactionTimeTimer.Start(currentReactionTime);
         }
     }
 
     private void OnLoopFinished()
     {
-        if (reactionTimeTimer.TimeLeft != 0) return;
-        OnCrankActionned?.Invoke();
+        if (!isManualCd) { return; }
 
-        cageLeverAnim.Stop();
-        ballCagedAnim.Stop();
-        redBingoCageRef.Visible = true;
+        loopCount++;
 
+        if (loopCount >= TARGET_LOOPS)
+        {
 
+            OnCrankActionned?.Invoke();
+
+            cageLeverAnim.Stop();
+            ballCagedAnim.Stop();
+            redBingoCageRef.Visible = true;
+            isManualCd = false;
+
+        }
     }
 
     private void OnReactionTimeFinished()
     {
-
     }
 
     public override void UpdateUpgradeStatus(int pCurrentLevel)
     {
         isActive = true;
 
-        if (isActive && upgradesLevelsAmount.Count >= pCurrentLevel)
+        if (isActive && upgradesLevelsAmount.Count > pCurrentLevel)
         {
             currentReactionTime = upgradesLevelsAmount[pCurrentLevel];
 
@@ -77,6 +97,5 @@ public partial class CrankManager : Upgrade
                 reactionTimeTimer.WaitTime = currentReactionTime;
             }
         }
-
     }
 }

@@ -1,12 +1,10 @@
-[gd_scene load_steps=61 format=3 uid="uid://jmxvaav3a21n"]
+[gd_scene load_steps=71 format=3 uid="uid://jmxvaav3a21n"]
 
 [ext_resource type="Script" path="res://Script/Ticket/TicketSpot.cs" id="1_db8tu"]
-[ext_resource type="Texture2D" uid="uid://bwrgd2ba58y0g" path="res://Assets/Place Holder/Lock.png" id="1_ygio5"]
 [ext_resource type="Texture2D" uid="uid://j4us34xd8qpr" path="res://Assets/shit/TicketSpot.png" id="3_5jpgk"]
 [ext_resource type="Script" path="res://Script/TicketSpot/SpotInteractionManager.cs" id="4_2je18"]
 [ext_resource type="Script" path="res://Script/TicketSpot/VisualManager.cs" id="5_b6o14"]
 [ext_resource type="Texture2D" uid="uid://da6qjsuop0kua" path="res://Assets/Place Holder/engrenange.png" id="6_51vye"]
-[ext_resource type="Texture2D" uid="uid://bqg28pyo4ueeh" path="res://Assets/Place Holder/AutoStamper.png" id="7_plpax"]
 [ext_resource type="Script" path="res://Script/AutoStamper.cs" id="8_gj17g"]
 [ext_resource type="Script" path="res://Script/TicketSpot/TicketSpotUpgradeManager.cs" id="8_kppjk"]
 [ext_resource type="Script" path="res://Script/AutoFiller.cs" id="10_dlgq4"]
@@ -14,6 +12,16 @@
 [ext_resource type="Texture2D" uid="uid://bql0lpdm1r4i" path="res://Assets/Place Holder/vector-high-quality-pixel-art-260nw-1688423425.png" id="12_dqewi"]
 [ext_resource type="Script" path="res://Script/TicketSpot/AutoBingo.cs" id="13_teqvm"]
 [ext_resource type="Texture2D" uid="uid://6g3dsehvimvl" path="res://Assets/shit/TicketSpotAnim.png" id="14_q74y7"]
+[ext_resource type="Texture2D" uid="uid://b13mr3ysdvhu0" path="res://Assets/TicketSpot/Capacity/Capacity3.png" id="15_wiuuu"]
+[ext_resource type="Texture2D" uid="uid://b7mu0wcau6stt" path="res://Assets/TicketSpot/Capacity/Capacity4.png" id="16_gtgvf"]
+[ext_resource type="Texture2D" uid="uid://c7wnypkfo35rs" path="res://Assets/TicketSpot/Capacity/Capacity5.png" id="17_t8xx5"]
+[ext_resource type="Texture2D" uid="uid://d2pq6d874qwo2" path="res://Assets/TicketSpot/Capacity/Capacity6.png" id="18_ekquo"]
+[ext_resource type="Texture2D" uid="uid://cspbaed5a03ff" path="res://Assets/TicketSpot/Capacity/Capacity7.png" id="19_xus1l"]
+[ext_resource type="Texture2D" uid="uid://cjbsabh2rspqo" path="res://Assets/TicketSpot/Capacity/Capacity8.png" id="20_ppf7j"]
+[ext_resource type="Texture2D" uid="uid://chfs2ma20q4uy" path="res://Assets/TicketSpot/Capacity/Capacity9.png" id="21_e6cf4"]
+[ext_resource type="Texture2D" uid="uid://css6mb4cgdlkw" path="res://Assets/TicketSpot/Capacity/Capacity10.png" id="22_7jrsa"]
+[ext_resource type="Texture2D" uid="uid://c711tgojmgxnr" path="res://Assets/TicketSpot/AutobingoRed.png" id="23_scepg"]
+[ext_resource type="Texture2D" uid="uid://cwqc1lqg128rk" path="res://Assets/TicketSpot/AutobingoGreen.png" id="24_2p0u0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k85gt"]
 size = Vector2(232, 224)
@@ -334,28 +342,65 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="TicketSpot" type="Node2D" node_paths=PackedStringArray("autoStamperRef", "autoFillerRef", "autoFillerVisualMoverRef", "autoBingoRef")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_28gad"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_wiuuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_gtgvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_t8xx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ekquo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_xus1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ppf7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_e6cf4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_7jrsa")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q6wge"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_scepg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_2p0u0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TicketSpot" type="Node2D" node_paths=PackedStringArray("autoStamperRef", "autoFillerRef", "autoFillerVisualMoverRef", "autoBingoRef", "capacityLevel", "ticketPos")]
 script = ExtResource("1_db8tu")
 autoStamperRef = NodePath("AutoStamper")
 autoFillerRef = NodePath("AutoFiller")
 autoFillerVisualMoverRef = NodePath("AutoFillerVisualMover")
 autoBingoRef = NodePath("AutoBingo")
+capacityLevel = NodePath("CapacityLevelAnim")
+ticketPos = NodePath("TicketPosition")
 
-[node name="VisualLocked" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.204, 0.204)
-texture = ExtResource("1_ygio5")
-
-[node name="VisualUnlocked" type="Sprite2D" parent="."]
+[node name="VisualBase" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(6, 6)
 texture = ExtResource("3_5jpgk")
-
-[node name="AutoStamperVisual" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-94, -81)
-scale = Vector2(0.0728292, 0.0728292)
-texture = ExtResource("7_plpax")
 
 [node name="SpotTicketButton" type="Button" parent="."]
 offset_left = -115.0
@@ -405,25 +450,44 @@ text = "50 $"
 script = ExtResource("8_kppjk")
 ticketSpotRef = NodePath("..")
 
-[node name="AutoStamper" type="Node2D" parent="."]
+[node name="AutoStamper" type="Node2D" parent="." node_paths=PackedStringArray("scanAnim")]
 script = ExtResource("8_gj17g")
+scanAnim = NodePath("../ScanAnim")
 
 [node name="AutoFiller" type="Node2D" parent="."]
 script = ExtResource("10_dlgq4")
 
 [node name="AutoFillerVisualMover" type="Node2D" parent="."]
+texture_filter = 1
+scale = Vector2(8, 8)
 script = ExtResource("11_rvbq8")
 mouseTexture = ExtResource("12_dqewi")
 
-[node name="AutoBingo" type="Node2D" parent="."]
+[node name="AutoBingo" type="Node2D" parent="." node_paths=PackedStringArray("autobingoAnim")]
 script = ExtResource("13_teqvm")
+autobingoAnim = NodePath("../AutoBingoAnim")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="ScanAnim" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_cledm")
 autoplay = "default"
 frame_progress = 0.279882
+
+[node name="CapacityLevelAnim" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_28gad")
+
+[node name="AutoBingoAnim" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_q6wge")
+
+[node name="TicketPosition" type="Marker2D" parent="."]
+position = Vector2(5, -5)
 
 [connection signal="pressed" from="SpotTicketButton" to="SpotInteractionManager" method="_on_spot_ticket_button_pressed"]
 [connection signal="area_entered" from="SpotArea" to="SpotInteractionManager" method="_on_spot_area_area_entered"]

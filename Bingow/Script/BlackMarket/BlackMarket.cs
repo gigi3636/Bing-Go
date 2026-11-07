@@ -13,7 +13,7 @@ public partial class BlackMarket : Control
     public void ShowMarket()
     {
         Visible = true;
-        inventoryRef.Initialize(3, 5, () => new CrossBall() , 20);
+        //inventoryRef.Initialize(3, 5, () => new CrossBall() , 20);
     }
 
     public void CloseMarket()

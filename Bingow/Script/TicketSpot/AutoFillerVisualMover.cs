@@ -20,6 +20,7 @@ public partial class AutoFillerVisualMover : Node
 
         lTween.SetParallel(true);
         lTween.TweenProperty(pTicketToMove, "global_position", pTicketSpot.GlobalPosition, pDuration);
+        lTween.TweenProperty(pTicketToMove, "rotation_degrees", 0, pDuration);
         lTween.TweenProperty(mouseSprite, "global_position", pTicketSpot.GlobalPosition, pDuration);
 
         lTween.SetParallel(false);

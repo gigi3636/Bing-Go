@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class BingoBall : Control
+public partial class BingoBall : Node2D
 {
     [Export] private Label ballNumbersLabel;
     [Export] private TextureRect ballTextureRef;

@@ -31,16 +31,25 @@ public partial class MoneyController : Node
 
     private void OnBallBuyed(int pBallNumber)
 	{
-		playerStatusRes.BuyBall();
+        AudioManager.Instance.PlaySfx("CashRegister");
+
+        playerStatusRes.BuyBall();
 	}
 
 
     private void PayBills()
     {
-        playerStatusRes.DiscountMoney(10);
+        BuySomething(10);
     }
 
-	private void IncreaseBallsCost()
+    private void BuySomething(int pAmount)
+    {
+        AudioManager.Instance.PlaySfx("CashRegister");
+        playerStatusRes.DiscountMoney(pAmount);
+
+    }
+
+    private void IncreaseBallsCost()
 	{
         playerStatusRes.IncreaseBallsPrice();
 		OnUpdateBallPrice?.Invoke(playerStatusRes.bingoBallsCurrentPrice);
@@ -54,7 +63,7 @@ public partial class MoneyController : Node
 
         if (lUpgradeRequested.augmentPrice[lUpgradeRequested.level] <= playerStatusRes.playerCurrentMoney)
         {
-            playerStatusRes.DiscountMoney(lUpgradeRequested.augmentPrice[lUpgradeRequested.level]);
+            BuySomething(lUpgradeRequested.augmentPrice[lUpgradeRequested.level]);
             lUpgradeRequested.Upgrade();
 
             pUpgradeVisual(pUpgradeGroup);
@@ -74,7 +83,7 @@ public partial class MoneyController : Node
 
             GD.Print("buyed");
 
-            playerStatusRes.DiscountMoney(pSpotCost);
+            BuySomething(pSpotCost);
 			pBuySpot();
 		}
 	}

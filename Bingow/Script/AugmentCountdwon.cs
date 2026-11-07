@@ -3,9 +3,9 @@ using System;
 
 public partial class AugmentCountdwon : Node
 {
-    private const float COUNTDOWN_TIME = 10;
+    private const float COUNTDOWN_TIME = 200;
     [Export] private Label countdownLabelRef;
-    [Export] private Label payoutLabelRef;
+
 
     private Timer countdownTimer;
     private Timer payoutTimer; 
@@ -21,14 +21,8 @@ public partial class AugmentCountdwon : Node
         countdownTimer.Timeout += OnTimerTimeOut;
         AddChild(countdownTimer);
 
-        payoutTimer = new Timer();
-        payoutTimer.WaitTime = COUNTDOWN_TIME / 3.0f; // 1/3 du temps principal
-        payoutTimer.OneShot = true;
-        payoutTimer.Timeout += OnPayoutTimeOut;
-        AddChild(payoutTimer);
 
         StartCountdown();
-        payoutTimer.Start();
     }
 
     public override void _Process(double delta)
@@ -47,19 +41,6 @@ public partial class AugmentCountdwon : Node
             countdownLabelRef.Text = "00:00";
         }
 
-        if (payoutTimer.TimeLeft > 0)
-        {
-            int lTtotalSeconds = Mathf.CeilToInt((float)payoutTimer.TimeLeft);
-
-            int lMinutes = lTtotalSeconds / 60;
-            int lSeconds = lTtotalSeconds % 60;
-
-            payoutLabelRef.Text = $"{lMinutes:00}:{lSeconds:00}";
-        }
-        else
-        {
-            payoutLabelRef.Text = "00:00";
-        }
     }
 
     public void OnTimerTimeOut()
@@ -68,12 +49,6 @@ public partial class AugmentCountdwon : Node
         OnAugment?.Invoke();
     }
 
-    public void OnPayoutTimeOut()
-    {
-        OnPayoutAction?.Invoke();
-
-        payoutTimer.Start(); 
-    }
 
     public void StartCountdown()
     {

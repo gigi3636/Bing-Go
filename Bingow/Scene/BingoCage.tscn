@@ -1,46 +1,77 @@
-[gd_scene load_steps=26 format=3 uid="uid://2fgbsm3m67jt"]
+[gd_scene load_steps=28 format=3 uid="uid://2fgbsm3m67jt"]
 
 [ext_resource type="Script" path="res://Script/BingoCage/BingoCage.cs" id="1_cyemu"]
 [ext_resource type="Resource" uid="uid://bg2mexdji86ly" path="res://Resource/PlayerStatuRes.tres" id="2_o58nn"]
-[ext_resource type="Texture2D" uid="uid://ctbsahnfk0al7" path="res://Assets/BingoCage/Boulier_Pose1.png" id="3_1up31"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallSpawner.cs" id="3_430wu"]
-[ext_resource type="Texture2D" uid="uid://ujayoh0awjx3" path="res://Assets/BingoCage/Balls/Boules_Middle_Pose1.png" id="3_gx4ll"]
 [ext_resource type="Texture2D" uid="uid://b40sjovm3aeyp" path="res://Assets/BingoCage/TubeFond1.png" id="3_t8m7g"]
-[ext_resource type="Texture2D" uid="uid://cw6ut348uidkj" path="res://Assets/BingoCage/Balls/Boules_Middle_Pose2.png" id="4_5sld6"]
 [ext_resource type="PackedScene" uid="uid://cqewmqjd2kqn7" path="res://Scene/BingoBall.tscn" id="4_ka7cr"]
-[ext_resource type="Texture2D" uid="uid://c2lgtk8x2vbro" path="res://Assets/BingoCage/Balls/Boules_Middle_Pose3.png" id="5_8ll12"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallListManager.cs" id="5_kmfjr"]
 [ext_resource type="Texture2D" uid="uid://bx7caj6526uj7" path="res://Assets/BingoCage/TubeFront1.png" id="5_yv0eh"]
+[ext_resource type="Texture2D" uid="uid://bxavfigdbwjya" path="res://Assets/BingoCage/Balls/Boules1.png" id="6_0b4jq"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallTimer.cs" id="6_srxsa"]
-[ext_resource type="Texture2D" uid="uid://qefrlnj3lt7v" path="res://Assets/BingoCage/Balls/Boules_Middle_Pose4.png" id="6_t54v5"]
+[ext_resource type="Texture2D" uid="uid://ducpma7bya0ik" path="res://Assets/BingoCage/Balls/Boules2.png" id="7_xxfu1"]
 [ext_resource type="Script" path="res://Script/BingoCage/BallVisualDisplayer.cs" id="7_yldhf"]
+[ext_resource type="Texture2D" uid="uid://wugcx354xg6h" path="res://Assets/BingoCage/Balls/Boules3.png" id="8_g636a"]
 [ext_resource type="Script" path="res://Script/BingoCage/AutoBall.cs" id="9_ay3r7"]
+[ext_resource type="Texture2D" uid="uid://c70vx2selhohk" path="res://Assets/BingoCage/Balls/Boules4.png" id="9_vr811"]
 [ext_resource type="Script" path="res://Script/BingoCage/CrankManager.cs" id="10_f6sd6"]
-[ext_resource type="Texture2D" uid="uid://dx12oicgeefqy" path="res://Assets/BingoCage/Boulier_Pose2.png" id="17_v4r57"]
-[ext_resource type="Texture2D" uid="uid://6nyce4aaqiuw" path="res://Assets/BingoCage/Boulier_Pose3.png" id="18_gr7wu"]
-[ext_resource type="Texture2D" uid="uid://bixilebsbkyff" path="res://Assets/BingoCage/Boulier_Pose4.png" id="19_cmyyh"]
+[ext_resource type="Texture2D" uid="uid://d1uw5rxkb27xj" path="res://Assets/BingoCage/Boulier_frame1.png" id="16_70n8r"]
+[ext_resource type="Texture2D" uid="uid://casp2ek5r45ar" path="res://Assets/BingoCage/Boulier_frame2.png" id="17_4rwyi"]
+[ext_resource type="Texture2D" uid="uid://cdapb1k6o4fua" path="res://Assets/BingoCage/Boulier_frame3.png" id="18_1i3n2"]
+[ext_resource type="Texture2D" uid="uid://bmgjr3u1ihx5u" path="res://Assets/BingoCage/Boulier_frame4.png" id="19_0maid"]
+[ext_resource type="Texture2D" uid="uid://c87qwnf1gn43v" path="res://Assets/BingoCage/Boulier_frame5.png" id="20_aj0d1"]
 [ext_resource type="Texture2D" uid="uid://iyfxgma7ktnr" path="res://Assets/BingoCage/CageRed.png" id="20_gdl0r"]
+[ext_resource type="Texture2D" uid="uid://cxm8u6gxkjfc2" path="res://Assets/BingoCage/Boulier_frame6.png" id="21_kcmwx"]
 [ext_resource type="Script" path="res://Script/Shake.cs" id="21_xmbjx"]
-[ext_resource type="Texture2D" uid="uid://0hslsa1g7qua" path="res://Assets/BingoCage/BingoCageTex.png" id="22_mvi1d"]
+[ext_resource type="Texture2D" uid="uid://bhwk1f30f2lp8" path="res://Assets/BingoCage/Boulier.png" id="22_ervah"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n5bao"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_gx4ll")
+"texture": ExtResource("6_0b4jq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_5sld6")
+"texture": ExtResource("7_xxfu1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_8ll12")
+"texture": ExtResource("8_g636a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_t54v5")
+"texture": ExtResource("9_vr811")
 }],
 "loop": true,
 "name": &"default",
 "speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfw2s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_70n8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4rwyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_1i3n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_0maid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_aj0d1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_kcmwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_70n8r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
 }]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8vhew"]
@@ -51,35 +82,6 @@ initial_velocity_max = 140.0
 gravity = Vector3(0, 98, 0)
 scale_min = 3.0
 scale_max = 6.0
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gfw2s"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_1up31")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_v4r57")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_gr7wu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_cmyyh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_gr7wu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_v4r57")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_1up31")
-}],
-"loop": true,
-"name": &"default",
-"speed": 7.0
-}]
 
 [node name="BingoCage" type="Control" node_paths=PackedStringArray("ballSpawnerRef", "ballListManagerRef", "autoBallRef", "ballVisualDisplayerRef", "crankManagerRef")]
 layout_mode = 3
@@ -94,47 +96,91 @@ script = ExtResource("1_cyemu")
 ballSpawnerRef = NodePath("BallSpawner")
 ballListManagerRef = NodePath("BallListManager")
 autoBallRef = NodePath("AutoBall")
-ballVisualDisplayerRef = NodePath("GridContainer")
+ballVisualDisplayerRef = NodePath("Visuel/BallContainer")
 playerStatusRef = ExtResource("2_o58nn")
 crankManagerRef = NodePath("CrankManager")
 ballsTextures = Array[Texture2D]([])
 
-[node name="Tube" type="Sprite2D" parent="."]
+[node name="Visuel" type="Node2D" parent="."]
+
+[node name="Tube" type="Sprite2D" parent="Visuel"]
+visible = false
 texture_filter = 1
-position = Vector2(-87, -37)
+position = Vector2(-171, -33)
 scale = Vector2(6, 6)
 texture = ExtResource("3_t8m7g")
 
-[node name="GridContainer" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(78, 78)
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -268.0
-offset_top = -65.0
-offset_right = 52.0
-offset_bottom = 13.0
-grow_horizontal = 0
-grow_vertical = 2
-alignment = 2
-script = ExtResource("7_yldhf")
-
-[node name="Tube2" type="Sprite2D" parent="."]
+[node name="Tube2" type="Sprite2D" parent="Visuel"]
+visible = false
 texture_filter = 1
-position = Vector2(-87, -38)
+position = Vector2(-171, -34)
 scale = Vector2(6, 6)
 texture = ExtResource("5_yv0eh")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="BackTubePatcher" type="NinePatchRect" parent="Visuel"]
 texture_filter = 1
-position = Vector2(154, -38)
-scale = Vector2(8.41818, 8.41818)
+offset_left = -334.0
+offset_top = -200.0
+offset_right = -279.0
+offset_bottom = -145.0
+scale = Vector2(6, 6)
+texture = ExtResource("3_t8m7g")
+region_rect = Rect2(0, 0, 55, 55)
+patch_margin_left = 13
+
+[node name="BallContainer" type="Node2D" parent="Visuel" node_paths=PackedStringArray("startSpawnMarker", "tubeEntryMarker", "endBallMarker", "tubeBack", "tubeFront")]
+script = ExtResource("7_yldhf")
+startSpawnMarker = NodePath("StartSpawnBall")
+tubeEntryMarker = NodePath("EntryTubeMarker")
+endBallMarker = NodePath("../FrontTubePatcher/EndBall")
+tubeBack = NodePath("../BackTubePatcher")
+tubeFront = NodePath("../FrontTubePatcher")
+
+[node name="StartSpawnBall" type="Marker2D" parent="Visuel/BallContainer"]
+position = Vector2(103, -29)
+
+[node name="EntryTubeMarker" type="Marker2D" parent="Visuel/BallContainer"]
+position = Vector2(-65, -27)
+
+[node name="FrontTubePatcher" type="NinePatchRect" parent="Visuel"]
+texture_filter = 1
+offset_left = -334.0
+offset_top = -200.0
+offset_right = -277.0
+offset_bottom = -145.0
+scale = Vector2(6, 6)
+texture = ExtResource("5_yv0eh")
+region_rect = Rect2(0, 0, 55, 55)
+patch_margin_left = 15
+
+[node name="EndBall" type="Marker2D" parent="Visuel/FrontTubePatcher"]
+position = Vector2(5.5, -1.33333)
+
+[node name="BallAnim" type="AnimatedSprite2D" parent="Visuel"]
+texture_filter = 1
+position = Vector2(160, -68)
+scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_n5bao")
-frame = 3
-frame_progress = 0.0385153
+frame_progress = 0.358897
+
+[node name="BingoCageAnim" type="AnimatedSprite2D" parent="Visuel"]
+texture_filter = 1
+position = Vector2(160, -68)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_gfw2s")
+frame = 6
+frame_progress = 1.0
+
+[node name="RedButton" type="TextureRect" parent="Visuel"]
+texture_filter = 1
+offset_left = 286.0
+offset_top = -2.0
+offset_right = 364.0
+offset_bottom = 28.0
+pivot_offset = Vector2(33, 12)
+mouse_filter = 2
+texture = ExtResource("20_gdl0r")
+stretch_mode = 5
 
 [node name="BallSpawner" type="Node2D" parent="." node_paths=PackedStringArray("ballContainerRef")]
 script = ExtResource("3_430wu")
@@ -153,21 +199,24 @@ script = ExtResource("6_srxsa")
 
 [node name="CrankButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 168.0
-offset_top = -25.0
-offset_right = 330.0
-offset_bottom = 57.0
+offset_left = 235.0
+offset_top = -49.0
+offset_right = 397.0
+offset_bottom = 75.0
 focus_mode = 0
 flat = true
 
-[node name="AutoBall" type="Node2D" parent="."]
+[node name="AutoBall" type="Node2D" parent="." node_paths=PackedStringArray("cageLeverAnim", "ballCagedAnim", "redBingoCageRef")]
 script = ExtResource("9_ay3r7")
+cageLeverAnim = NodePath("../Visuel/BingoCageAnim")
+ballCagedAnim = NodePath("../Visuel/BallAnim")
+redBingoCageRef = NodePath("../Visuel/RedButton")
 
 [node name="CrankManager" type="Node2D" parent="." node_paths=PackedStringArray("cageLeverAnim", "ballCagedAnim", "redBingoCageRef")]
 script = ExtResource("10_f6sd6")
-cageLeverAnim = NodePath("../BingoCageAnim")
-ballCagedAnim = NodePath("../AnimatedSprite2D")
-redBingoCageRef = NodePath("../TextureRect")
+cageLeverAnim = NodePath("../Visuel/BingoCageAnim")
+ballCagedAnim = NodePath("../Visuel/BallAnim")
+redBingoCageRef = NodePath("../Visuel/RedButton")
 
 [node name="EjectParticlesRef" type="GPUParticles2D" parent="."]
 position = Vector2(-13, 22)
@@ -178,40 +227,20 @@ lifetime = 0.35
 one_shot = true
 explosiveness = 0.9
 
-[node name="BingoCageAnim" type="AnimatedSprite2D" parent="."]
-visible = false
-texture_filter = 1
-position = Vector2(122, -22)
-scale = Vector2(6, 6)
-sprite_frames = SubResource("SpriteFrames_gfw2s")
-frame = 6
-frame_progress = 1.0
-
-[node name="TextureRect" type="TextureRect" parent="."]
-texture_filter = 1
-layout_mode = 0
-offset_left = 221.0
-offset_top = 5.0
-offset_right = 287.0
-offset_bottom = 29.0
-pivot_offset = Vector2(33, 12)
-mouse_filter = 2
-texture = ExtResource("20_gdl0r")
-stretch_mode = 5
-
 [node name="Shake" type="Node2D" parent="." node_paths=PackedStringArray("mouseArea", "nodeToShakeRef")]
 position = Vector2(1, 0)
 script = ExtResource("21_xmbjx")
 mouseArea = NodePath("../CrankButton")
-nodeToShakeRef = NodePath("../TextureRect")
+nodeToShakeRef = NodePath("../Visuel/RedButton")
 ShakeAngle = 2.0
 ShakeDuration = 0.1
 scaleUp = 1.31
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
-position = Vector2(146, -64)
+position = Vector2(157, -63)
 scale = Vector2(6, 6)
-texture = ExtResource("22_mvi1d")
+texture = ExtResource("22_ervah")
 
 [connection signal="pressed" from="CrankButton" to="CrankManager" method="_on_crank_button_pressed"]

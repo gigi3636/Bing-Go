@@ -34,13 +34,16 @@ public partial class BingoCage : Node
         crankManagerRef.OnCrankActionned += HandleNewBallRequest;
         TicketEventBus.OnUpgradeBought += UpdateUpgradesStatus;
         InitializeRegistry();
+        //AssignSpecialBalls(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99 }, () => new MultiplierBall(1), ballsTextures[2]);
+        //AssignSpecialBalls(new int[] {  1 , 3 , 5 , 10 }, () => new MultiplierBall(1), ballsTextures[2]);
 
-        // C'est beaucoup plus lisible ! On assigne par groupe :
-        AssignSpecialBalls(new int[] { 4, 5, 6, 7 }, () => new CrossBall(), ballsTextures[1]);
-        AssignSpecialBalls(new int[] { 8,9,10,11 }, () => new MultiplierBall(1), ballsTextures[2]);
-        AssignSpecialBalls(new int[] { 12,13,14 }, () => new RandomBall(), ballsTextures[3]);
-        AssignSpecialBalls(new int[] { 15,16 }, () => new GoldenBall(), ballsTextures[4]);
-        AssignSpecialBalls(new int[] { 17,18,19 }, () => new SquareBall(), ballsTextures[5]);
+        AssignSpecialBalls(new int[] { 4, 19, 37, 52, 68, 83, 99, 11, 27, 43 }, () => new CrossBall(), ballsTextures[1]);
+
+        AssignSpecialBalls(new int[] { 5, 20, 36, 51, 67, 82, 98, 13, 29, 45, 61, 76, 92, 7, 23, 38, 54, 70, 86, 101, 16, 32, 48, 64, 80, 96, 9, 25, 41, 66, 21, 35, 49, 72, 88, 102, 46, 84, 31, 47, 63, 79, 95, 8, 24, 40, 65, 71, 87, 103, 15, 58, 74, 90, 6, 22, 39, 55 }, () => new MultiplierBall(1), ballsTextures[2]);
+
+        AssignSpecialBalls(new int[] { 12, 28, 44, 59, 75, 91, 18 }, () => new RandomBall(), ballsTextures[3]);
+
+        AssignSpecialBalls(new int[] { 10, 26, 42, 56, 73, 89, 14, 30, 46, 62, 78, 94, 17, 33, 53, 77, 93, 36, 60, 97, 34, 50, 69, 85, 100 }, () => new SquareBall(), ballsTextures[5]);
 
         UpdateUpgradesStatus();
     }
@@ -68,6 +71,8 @@ public partial class BingoCage : Node
         autoBallRef.UpdateUpgradeStatus(bingoCageUpgrade.ballPerS.level);
         ballListManagerRef.UpdateUpgradeStatus(bingoCageUpgrade.cageCapacity.level);
         crankManagerRef.UpdateUpgradeStatus(bingoCageUpgrade.ballManualCd.level);
+
+        ballVisualDisplayerRef.UpdateTubeSize(ballListManagerRef.ContainerCapacity);
     }
     #endregion
 
@@ -91,6 +96,8 @@ public partial class BingoCage : Node
         {
             ballDataRegistry[i] = new BallData(i, new BasicBall(), ballsTextures[0], EBallId.Basic);
         }
+
+
     }
 
     private void HandleNewBallRequest()
@@ -148,9 +155,13 @@ public partial class BingoCage : Node
         // Create new ball and take reference for adding it to the list
         BingoBall newBall = ballSpawnerRef.SpawnBall(lSelectedBall, ballDataRegistry[lSelectedBall]);
 
-        ballListManagerRef.AddBall(newBall);
+        BingoBall ejectedBall = ballListManagerRef.AddBall(newBall);
+        if (ejectedBall != null)
+        {
+            ballVisualDisplayerRef.EjectBall(ejectedBall);
+        }
 
-        ballVisualDisplayerRef.AddVisualElement(newBall);
+        ballVisualDisplayerRef.AddAndShiftBalls(newBall, ballListManagerRef.CurrentBingoBalls);
 
         OnNewBall?.Invoke(lSelectedBall);
     }

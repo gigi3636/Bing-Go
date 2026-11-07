@@ -1,11 +1,14 @@
-[gd_scene load_steps=22 format=3 uid="uid://do2h1vkwoym6y"]
+[gd_scene load_steps=25 format=3 uid="uid://do2h1vkwoym6y"]
 
 [ext_resource type="Script" path="res://Script/Shop/ShopUpgradeItem.cs" id="1_k34bw"]
 [ext_resource type="Texture2D" uid="uid://n7osy3bn7vvx" path="res://Assets/BingoCage/BoullierFull.png" id="3_c6t21"]
 [ext_resource type="PackedScene" uid="uid://dov3o30dior6c" path="res://Scene/UpgradeButton.tscn" id="4_g5ajn"]
-[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://Assets/Shop/determination.ttf" id="4_vpgxu"]
+[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="4_vpgxu"]
 [ext_resource type="Script" path="res://Script/Shop/LockedItem.cs" id="5_ksvq6"]
 [ext_resource type="Texture2D" uid="uid://tj5vjoibbqxx" path="res://Assets/Shop/UnlockedSheet.png" id="6_pp0nv"]
+[ext_resource type="Texture2D" uid="uid://s21l043gxyop" path="res://Assets/Shop/tablette_bouton_orange_sasnbords.png" id="7_2fmwi"]
+[ext_resource type="Script" path="res://Script/VisualAnimation/TicketShoptJuice.cs" id="8_6anxq"]
+[ext_resource type="Script" path="res://Script/Shake.cs" id="9_csj1f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h7jkc"]
 font = ExtResource("4_vpgxu")
@@ -92,7 +95,7 @@ scale_max = 4.0
 scale_curve = SubResource("CurveTexture_i0sn2")
 color_ramp = SubResource("GradientTexture1D_mkkup")
 
-[node name="UpgradeItem" type="Control" node_paths=PackedStringArray("upgradeIconRef", "upgradeName", "buttonsContainer", "lockedRef")]
+[node name="UpgradeItem" type="Control" node_paths=PackedStringArray("upgradeIconRef", "upgradeName", "buttonsContainer", "lockedRef", "ticketShoptJuiceRef", "unlockButton")]
 texture_filter = 1
 custom_minimum_size = Vector2(755, 165)
 layout_mode = 3
@@ -109,6 +112,8 @@ upgradeName = NodePath("UpgradeName")
 buttonsContainer = NodePath("HBoxContainer")
 upgradeButtonScene = ExtResource("4_g5ajn")
 lockedRef = NodePath("LockedItem")
+ticketShoptJuiceRef = NodePath("TicketShoptJuice")
+unlockButton = NodePath("LockedItem/UnlockButton")
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -188,17 +193,30 @@ position = Vector2(369, 83)
 scale = Vector2(9.05769, 9.05769)
 sprite_frames = SubResource("SpriteFrames_rjte5")
 
-[node name="UnlockButton" type="Button" parent="LockedItem"]
+[node name="UnlockButton" type="TextureButton" parent="LockedItem"]
 layout_mode = 0
-offset_left = 533.0
-offset_top = 82.0
-offset_right = 734.0
-offset_bottom = 161.0
+offset_left = 527.0
+offset_top = 77.0
+offset_right = 728.0
+offset_bottom = 156.0
+pivot_offset = Vector2(100, 40)
+texture_normal = ExtResource("7_2fmwi")
+stretch_mode = 0
 
 [node name="UnlockLabel" type="Label" parent="LockedItem/UnlockButton"]
-layout_mode = 0
-offset_right = 201.0
-offset_bottom = 79.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.5
+offset_top = -39.5
+offset_right = 100.5
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 40)
 text = "Unlock : 500 $"
 label_settings = SubResource("LabelSettings_h10i1")
 horizontal_alignment = 1
@@ -211,5 +229,16 @@ amount = 40
 process_material = SubResource("ParticleProcessMaterial_f6j2w")
 lifetime = 0.8
 one_shot = true
+
+[node name="TicketShoptJuice" type="Node2D" parent="."]
+position = Vector2(2, 2)
+script = ExtResource("8_6anxq")
+
+[node name="Shake" type="Node2D" parent="." node_paths=PackedStringArray("mouseArea", "nodeToShakeRef")]
+script = ExtResource("9_csj1f")
+mouseArea = NodePath("../LockedItem/UnlockButton")
+nodeToShakeRef = NodePath("../LockedItem/UnlockButton/UnlockLabel")
+ShakeAngle = 2.0
+ShakeDuration = 0.2
 
 [connection signal="pressed" from="LockedItem/UnlockButton" to="LockedItem" method="_on_unlock_button_pressed"]

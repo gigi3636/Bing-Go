@@ -15,7 +15,7 @@ public partial class AutoTicketPrinting : Upgrade
 
     private int currentSpeedLevel = 0;
 
-    [Export] private float timeReductionPerLevel = 0.3f;
+    [Export] private float timeReductionPerLevel = 0.6f;
     private const float MIN_PRINT_TIME = 0.1f;
 
     public void Initialize()

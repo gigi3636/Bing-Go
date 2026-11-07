@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Script/Shop/Shop.cs" id="1_iec5r"]
 [ext_resource type="Texture2D" uid="uid://c0c2qhxpgcada" path="res://Assets/Shop/tablette_vide.png" id="2_csigr"]
 [ext_resource type="Texture2D" uid="uid://d3y5nso6ynk13" path="res://Assets/Shop/tablette_bords.png" id="3_mpocs"]
-[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://Assets/Shop/determination.ttf" id="6_heku0"]
+[ext_resource type="FontFile" uid="uid://dxx6w24ue3ov" path="res://font/determination.ttf" id="6_wiinu"]
 [ext_resource type="Texture2D" uid="uid://bsi4w7kn3cipt" path="res://Assets/Shop/tablette_boouton_scroll.png" id="7_rfwuf"]
 [ext_resource type="Texture2D" uid="uid://dto0jyxx34dfa" path="res://Assets/Shop/tablette_boouton_scroll_hilight.png" id="8_r40uy"]
 [ext_resource type="Texture2D" uid="uid://ce0j5e5ejp2pp" path="res://Assets/Shop/tablette_boouton_scroll_pressed.png" id="9_2x22o"]
@@ -23,7 +23,7 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_octww"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sw8l4"]
-font = ExtResource("6_heku0")
+font = ExtResource("6_wiinu")
 font_size = 31
 font_color = Color(0.180392, 0.180392, 0.180392, 1)
 
@@ -82,6 +82,7 @@ offset_left = -1024.0
 offset_top = -564.0
 offset_right = 990.0
 offset_bottom = 612.0
+focus_mode = 0
 flat = true
 
 [node name="Panel" type="Panel" parent="."]

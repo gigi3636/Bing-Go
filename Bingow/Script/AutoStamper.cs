@@ -12,6 +12,10 @@ public partial class AutoStamper : Upgrade
     private Func<List<int>> getActiveNumbersMethod;
 
     private Func<int, IBallEffect> getBallEffectMethod; // return the effetc of the number stamped
+
+    [Export] private AnimatedSprite2D scanAnim;
+
+
     public void SetNewTicket(Ticket pNewTicket)
     {
         ticketContainer = pNewTicket;
@@ -21,10 +25,10 @@ public partial class AutoStamper : Upgrade
 
     public void Initialize(Func<int, bool> pCheckMethod, Func<List<int>> pGetListMethod, Func<int, IBallEffect> pGetEffectMethod)
     {
-        upgradesLevelsAmount = new List<float> { 1f, 0.8f, 0.5f, 0.3f, 0.1f };
+        upgradesLevelsAmount = new List<float> { 1f, 0.8f, 0.1f, 0.1f, 0.1f };
         reactionTimeTimer = new Timer();
         reactionTimeTimer.OneShot = true;
-
+        scanAnim.Visible = false;
 
         checkNumberMethod = pCheckMethod;
         getActiveNumbersMethod = pGetListMethod;
@@ -43,6 +47,7 @@ public partial class AutoStamper : Upgrade
         if (!isActive) return; // if level 0 so locked
         if (ticketContainer == null) return;
         if (isMoving) return;
+        if (ticketContainer.isCompleted) return;
 
         if (ticketContainer.GetTicketNumbers().Contains(pNumberToVerify))
         {
@@ -84,6 +89,17 @@ public partial class AutoStamper : Upgrade
         foreach (int lBallNumber in getActiveNumbersMethod())
         {
             VerifyGrid(lBallNumber);
+        }
+    }
+
+    public override void UpdateUpgradeStatus(int pCurrentLevel)
+    {
+        base.UpdateUpgradeStatus(pCurrentLevel);
+
+        if (isActive)
+        {
+            scanAnim.Play();
+            scanAnim.Visible = true;
         }
     }
 

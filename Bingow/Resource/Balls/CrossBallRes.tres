@@ -1,12 +1,16 @@
-[gd_resource type="Resource" script_class="BallRes" load_steps=3 format=3 uid="uid://cvcdk4w7avvmp"]
+[gd_resource type="Resource" script_class="BallRes" load_steps=4 format=3 uid="uid://cvcdk4w7avvmp"]
 
+[ext_resource type="Texture2D" uid="uid://bruh6gybx0lk8" path="res://Assets/Ball/Mini/MiniBlueBall.png" id="1_5cpip"]
 [ext_resource type="Script" path="res://Script/Res/BallRes.cs" id="1_xvv4j"]
-[ext_resource type="Texture2D" uid="uid://gga2nv6c0s6a" path="res://Assets/Ball/PurpleBall.png" id="2_meeax"]
+[ext_resource type="Texture2D" uid="uid://ckf57r2gnrn0p" path="res://Assets/Ball/BlueBall.png" id="3_3plnm"]
 
 [resource]
 script = ExtResource("1_xvv4j")
 ballEffect = 1
-ballDesc = "Marque en croix"
-texture = ExtResource("2_meeax")
+ballDesc = "Applies a stamp effect in a cross pattern (orthogonal directions) centered around the target element"
+dropPercents = PackedInt32Array(10, 17, 33)
+ballNumbers = PackedInt32Array(1, 3, 5)
+miniTexture = ExtResource("1_5cpip")
+texture = ExtResource("3_3plnm")
 isUnlocked = true
-shopProportion = 0
+ballLevel = 0

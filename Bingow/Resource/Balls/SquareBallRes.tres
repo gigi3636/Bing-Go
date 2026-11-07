@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="BallRes" load_steps=3 format=3 uid="uid://8sppcp1qm8og"]
+[gd_resource type="Resource" script_class="BallRes" load_steps=4 format=3 uid="uid://8sppcp1qm8og"]
 
 [ext_resource type="Script" path="res://Script/Res/BallRes.cs" id="1_5eqcs"]
+[ext_resource type="Texture2D" uid="uid://owqllxj22vva" path="res://Assets/Ball/Mini/MiniBallBlack.png" id="1_bnta1"]
 [ext_resource type="Texture2D" uid="uid://cxpraa2pmth1q" path="res://Assets/Ball/BlackBall.png" id="2_yc3pm"]
 
 [resource]
 script = ExtResource("1_5eqcs")
 ballEffect = 5
 ballDesc = "Coche en carré"
+miniTexture = ExtResource("1_bnta1")
 texture = ExtResource("2_yc3pm")
 isUnlocked = false
-shopProportion = 0

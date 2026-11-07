@@ -27,6 +27,6 @@ public enum EBallId
     CrossBall = 1,
     GoldenBall = 2,
     MultiplierBall = 3,
-    RabdomBall = 4,
+    RandomBall = 4,
     SquarreBall = 5
 }

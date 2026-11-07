@@ -9,20 +9,32 @@ public partial class CellStamped : Node2D
     public override void _Ready()
     {
         stampRef.Visible = false;
+        stampRef.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
+        stampRef.CustomMinimumSize = Vector2.Zero;
+        stampRef.MouseFilter = Control.MouseFilterEnum.Ignore;
 
         if (GetParent() is Control parentControl)
-        {
-            parentControl.Resized += CenterStamp;
-        }
+            parentControl.Resized += CenterParticles;
     }
 
     public void Initialize(int pCellScale)
     {
-        Vector2 newSize = new Vector2(pCellScale * 2 * 1.1f, pCellScale * 2 * 1.1f);
-        stampRef.Size = newSize;
-        stampRef.PivotOffset = stampRef.Size / 2;
+        Vector2 size = new Vector2(pCellScale * 2 * 1.6f, pCellScale * 2 * 1.6f);
 
-        CenterStamp();
+        stampRef.SetAnchorsPreset(Control.LayoutPreset.Center);
+        stampRef.OffsetLeft = -size.X / 2f;
+        stampRef.OffsetRight = size.X / 2f;
+        stampRef.OffsetTop = -size.Y / 2f;
+        stampRef.OffsetBottom = size.Y / 2f;
+        stampRef.PivotOffset = size / 2f;
+
+        CenterParticles();
+    }
+
+    private void CenterParticles()
+    {
+        if (inkParticlesRef != null && GetParent() is Control p)
+            inkParticlesRef.Position = p.Size / 2;
     }
 
     private void CenterStamp()
